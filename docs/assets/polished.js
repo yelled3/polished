@@ -1492,7 +1492,11 @@ function parseToRgb(color) {
       alpha: parseFloat('' + hslaMatched[4], 10)
     };
   }
+<<<<<<< HEAD
   throw new Error('Could not parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.');
+=======
+  throw new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.");
+>>>>>>> e6dc33a... chore(build): Replace ghooks with husky
 }
 
 //      
