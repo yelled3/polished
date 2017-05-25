@@ -1,36 +1,23 @@
 // @flow
 import deprecated from './_deprecated'
 
-const errorStyles =
-  'padding: 2px; font-weight: bold; background: red; color: black'
-const warningStyles =
-  'padding: 2px; font-weight: bold; background: gold; color: black'
-
 function formatMessage(
   type: string,
   messageBody: string,
   moduleName: string = 'moduleName',
   modulePath: string = 'modulePath',
 ) {
-  const header = `%c -- ${type.toUpperCase()} --------------------------------------------------- ${modulePath} -- `
+  const header = `%c ✨ ${type.toUpperCase()} ✨ ---- ${modulePath} --`
 
   const body = `%c
 
-
 ${moduleName} %c${messageBody}
-
   `
 
   const info = `%c
-Please see the documentation at %chttps://polished.js.org/docs/#${moduleName} %cfor more information.
-
-  `
+Please see the documentation at %chttps://polished.js.org/docs/#${moduleName}%c for more information.`
 
   return `${header}${body}${info}`
-}
-
-function generateHeaderStyles(type: string) {
-  return type === 'error' ? errorStyles : warningStyles
 }
 
 /**
@@ -41,29 +28,21 @@ function generateHeaderStyles(type: string) {
 function messageHandler(type: string, messageBody: string, modulePath: string) {
   const moduleName = modulePath.match(/([^/]+)(?=\.\w+$)/)[0]
   const message = formatMessage(type, messageBody, moduleName, modulePath)
-  const headerStyles = generateHeaderStyles(type)
+  const headerStyles = 'font-weight: bold; color: black'
+  const messageStyles = [
+    'color: black; font-size: 12px; font-weight: bold',
+    'color: black; font-size: 12px',
+    'color: gray; line-height: 1.4',
+    'color: blue; line-height: 1.4',
+    'color: gray; line-height: 1.4',
+  ]
+
   if (type === 'error') {
     // eslint-disable-next-line no-console
-    console.error(
-      message,
-      headerStyles,
-      'color: black; font-weight: bold',
-      'color: slategray',
-      'color: slategray',
-      'color: blue',
-      'color: slategray',
-    )
+    console.error(message, headerStyles, ...messageStyles)
   } else {
     // eslint-disable-next-line no-console
-    console.warn(
-      message,
-      headerStyles,
-      'color: black',
-      'color: slategray; font-weight: bold',
-      'color: slategray',
-      'color: blue',
-      'color: slategray',
-    )
+    console.warn(message, headerStyles, ...messageStyles)
   }
 }
 
