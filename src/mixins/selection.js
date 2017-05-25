@@ -4,6 +4,8 @@ import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 /**
  * CSS to style the selection psuedo-element.
  *
+ * @deprecated This mixin has been deprecated and will be removed in version 3.0.
+ *
  * @example
  * // Styles as object usage
  * const styles = {

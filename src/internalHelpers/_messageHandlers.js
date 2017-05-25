@@ -4,8 +4,8 @@ import deprecated from './_deprecated'
 function formatMessage(
   type: string,
   messageBody: string,
-  moduleName: string = 'moduleName',
-  modulePath: string = 'modulePath',
+  moduleName: string,
+  modulePath: string,
 ) {
   const header = `%c ✨ ${type.toUpperCase()} ✨ ---- ${modulePath} --`
 
