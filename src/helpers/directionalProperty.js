@@ -1,5 +1,6 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 const positionMap = ['Top', 'Right', 'Bottom', 'Left']
 
@@ -48,6 +49,11 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
  */
 
 function directionalProperty(property: string, ...values: Array<?string>) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'helpers/directionalProperty.js'
+    deprecatedCheck(modulePath)
+  }
   //  prettier-ignore
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
   const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values

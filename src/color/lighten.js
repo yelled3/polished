@@ -1,9 +1,9 @@
 // @flow
-
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import guard from '../internalHelpers/_guard'
 import curry from '../internalHelpers/_curry'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Returns a string value for the lightened color.
@@ -29,6 +29,12 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 function lighten(amount: number, color: string): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/lighten.js'
+    deprecatedCheck(modulePath)
+  }
+
   const hslColor = parseToHsl(color)
   return toColorString({
     ...hslColor,

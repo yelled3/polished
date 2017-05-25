@@ -1,8 +1,8 @@
 // @flow
-
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import curry from '../internalHelpers/_curry'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Changes the hue of the color. Hue is a number between 0 to 360. The first
@@ -29,6 +29,12 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 function adjustHue(degree: number, color: string): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/adjustHue.js'
+    deprecatedCheck(modulePath)
+  }
+
   const hslColor = parseToHsl(color)
   return toColorString({
     ...hslColor,

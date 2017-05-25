@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /** */
 type RadialGradientConfiguration = {
@@ -82,6 +83,12 @@ function radialGradient({
   position,
   shape,
 }: RadialGradientConfiguration) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/radialGradient.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (!colorStops || colorStops.length < 2) {
     throw new Error(
       'radialGradient requries at least 2 color-stops to properly render.',

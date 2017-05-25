@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /** */
 type AnimationProperty = string | number
@@ -42,6 +43,12 @@ type AnimationProperty = string | number
 function animation(
   ...args: Array<Array<AnimationProperty> | AnimationProperty>
 ) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'shorthands/animation.js'
+    deprecatedCheck(modulePath)
+  }
+
   // Allow single or multiple animations passed
   const multiMode = Array.isArray(args[0])
   if (!multiMode && args.length > 8) {

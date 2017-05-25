@@ -1,6 +1,6 @@
 // @flow
-
 import stripUnit from './stripUnit'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 const ratioNames = {
   minorSecond: 1.067,
@@ -69,6 +69,12 @@ function modularScale(
   base?: number | string = '1em',
   ratio?: Ratio = 'perfectFourth',
 ) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'helpers/modularScale.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (typeof steps !== 'number') {
     throw new Error(
       'Please provide a number of steps to the modularScale helper.',

@@ -1,5 +1,6 @@
 // @flow
 import directionalProperty from '../helpers/directionalProperty'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
 
@@ -47,6 +48,12 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
  */
 
 function position(positionKeyword: string | null, ...values: Array<?string>) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'shorthands/position.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (positionMap.indexOf(positionKeyword) >= 0) {
     return {
       position: positionKeyword,

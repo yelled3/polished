@@ -1,8 +1,8 @@
 // @flow
-
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import curry from '../internalHelpers/_curry'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Sets the lightness of a color to the provided value. The lightness range can be
@@ -28,6 +28,12 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 function setLightness(lightness: number, color: string): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/setLightness.js'
+    deprecatedCheck(modulePath)
+  }
+
   return toColorString({
     ...parseToHsl(color),
     lightness,

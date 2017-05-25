@@ -1,5 +1,6 @@
 // @flow
 import directionalProperty from '../helpers/directionalProperty'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -25,6 +26,12 @@ import directionalProperty from '../helpers/directionalProperty'
  */
 
 function borderWidth(...values: Array<?string>) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'shorthands/borderWidth.js'
+    deprecatedCheck(modulePath)
+  }
+
   return directionalProperty('borderWidth', ...values)
 }
 

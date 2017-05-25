@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Generates a media query to target HiDPI devices.
@@ -30,6 +31,12 @@
  */
 
 function hiDPI(ratio: number = 1.3) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/hiDPI.js'
+    deprecatedCheck(modulePath)
+  }
+
   return `
     @media only screen and (-webkit-min-device-pixel-ratio: ${ratio}),
     only screen and (min--moz-device-pixel-ratio: ${ratio}),

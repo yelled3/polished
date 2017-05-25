@@ -1,7 +1,7 @@
 // @flow
-
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Converts the color to a grayscale, by reducing its saturation to 0.
@@ -26,6 +26,12 @@ import toColorString from './toColorString'
  * }
  */
 function grayscale(color: string): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/grayscale.js'
+    deprecatedCheck(modulePath)
+  }
+
   return toColorString({
     ...parseToHsl(color),
     saturation: 0,

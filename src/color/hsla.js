@@ -1,8 +1,8 @@
 // @flow
-
 import hslToHex from '../internalHelpers/_hslToHex'
 import hslToRgb from '../internalHelpers/_hslToRgb'
 import type { HslaColor } from '../types/color'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
@@ -36,6 +36,12 @@ function hsla(
   lightness?: number,
   alpha?: number,
 ): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/hsla.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (
     typeof value === 'number' &&
     typeof saturation === 'number' &&

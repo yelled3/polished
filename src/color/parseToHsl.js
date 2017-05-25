@@ -1,7 +1,7 @@
 // @flow
-
 import parseToRgb from './parseToRgb'
 import rgbToHsl from '../internalHelpers/_rgbToHsl'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 import type { HslColor, HslaColor } from '../types/color'
 
 /**
@@ -16,6 +16,12 @@ import type { HslColor, HslaColor } from '../types/color'
  * const color2 = 'hsla(210, 10%, 40%, 0.75)';
  */
 function parseToHsl(color: string): HslColor | HslaColor {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/parseToHsl.js'
+    deprecatedCheck(modulePath)
+  }
+
   // Note: At a later stage we can optimize this function as right now a hsl
   // color would be parsed converted to rgb values and converted back to hsl.
   return rgbToHsl(parseToRgb(color))

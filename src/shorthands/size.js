@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Shorthand to set the height and width properties in a single statement.
@@ -22,6 +23,12 @@
  */
 
 function size(height: string, width: string = height) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'shorthands/size.js'
+    deprecatedCheck(modulePath)
+  }
+
   return {
     height,
     width,

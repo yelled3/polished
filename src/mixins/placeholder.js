@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * CSS to style the selection psuedo-element.
@@ -33,6 +34,12 @@
  */
 
 function placeholder(styles: Object, parent: string = '&') {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/placeholder.js'
+    deprecatedCheck(modulePath)
+  }
+
   return {
     [`${parent}::-webkit-input-placeholder`]: {
       ...styles,

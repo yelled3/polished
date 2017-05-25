@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Shorthand that accepts any number of transition values as parameters for creating a single transition statement.
@@ -21,6 +22,12 @@
  */
 
 function transitions(...properties: Array<string>) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'shorthands/transitions.js'
+    deprecatedCheck(modulePath)
+  }
+
   return {
     transition: properties.join(', '),
   }

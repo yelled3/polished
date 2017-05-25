@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * CSS to represent truncated text with an ellipsis.
@@ -27,13 +28,19 @@
  */
 
 function ellipsis(width: string = '100%') {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/ellipsis.js'
+    deprecatedCheck(modulePath)
+  }
+
   return {
-    'display': 'inline-block',
-    'maxWidth': width,
-    'overflow': 'hidden',
-    'textOverflow': 'ellipsis',
-    'whiteSpace': 'nowrap',
-    'wordWrap': 'normal',
+    display: 'inline-block',
+    maxWidth: width,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    wordWrap: 'normal',
   }
 }
 

@@ -1,8 +1,8 @@
 // @flow
-
 import rgba from './rgba'
 import parseToRgb from './parseToRgb'
 import curry from '../internalHelpers/_curry'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Mixes two colors together by calculating the average of each of the RGB components.
@@ -36,6 +36,12 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 function mix(weight: number = 0.5, color: string, otherColor: string): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/mix.js'
+    deprecatedCheck(modulePath)
+  }
+
   const parsedColor1 = parseToRgb(color)
   const color1 = {
     ...parsedColor1,

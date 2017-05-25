@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Provides an easy way to change the `wordWrap` property.
@@ -24,6 +25,12 @@
  */
 
 function wordWrap(wrap: string = 'break-word') {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/wordWrap.js'
+    deprecatedCheck(modulePath)
+  }
+
   const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
   return {
     overflowWrap: wrap,

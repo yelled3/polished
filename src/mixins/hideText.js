@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * CSS to hide text to show a background image in a SEO-friendly way.
@@ -27,6 +28,12 @@
  */
 
 function hideText() {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/hideText.js'
+    deprecatedCheck(modulePath)
+  }
+
   return {
     textIndent: '101%',
     overflow: 'hidden',

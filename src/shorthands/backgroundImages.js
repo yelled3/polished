@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.
@@ -21,6 +22,12 @@
  */
 
 function backgroundImages(...properties: Array<string>) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'shorthands/backgroundImages.js'
+    deprecatedCheck(modulePath)
+  }
+
   return {
     backgroundImage: properties.join(', '),
   }

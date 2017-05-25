@@ -1,9 +1,9 @@
 // @flow
-
 import rgb from './rgb'
 import rgba from './rgba'
 import hsl from './hsl'
 import hsla from './hsla'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 import type { RgbColor, RgbaColor, HslColor, HslaColor } from '../types/color'
 
 const isRgb = (color): boolean =>
@@ -71,6 +71,12 @@ const isHsla = (color): boolean =>
 function toColorString(
   color: RgbColor | RgbaColor | HslColor | HslaColor,
 ): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/toColorString.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (isRgba(color)) {
     // $FlowIgnoreNextLine not sure why this complains
     return rgba(color)

@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /** */
 type FontFaceConfiguration = {
@@ -80,6 +81,12 @@ function fontFace({
   localFonts,
   unicodeRange,
 }: FontFaceConfiguration) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/fontFace.js'
+    deprecatedCheck(modulePath)
+  }
+
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
   if (!fontFilePath && !localFonts) {

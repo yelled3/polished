@@ -1,4 +1,6 @@
 // @flow
+import deprecated from './_deprecated'
+
 const errorStyles =
   'padding: 2px; font-weight: bold; background: red; color: black'
 const warningStyles =
@@ -7,10 +9,10 @@ const warningStyles =
 function formatMessage(
   type: string,
   messageBody: string,
-  moduleName: string,
-  modulePath: string,
+  moduleName: string = 'moduleName',
+  modulePath: string = 'modulePath',
 ) {
-  const header = `%c -- ${type} --------------------------------------------------- ${modulePath} -- `
+  const header = `%c -- ${type.toUpperCase()} --------------------------------------------------- ${modulePath} -- `
 
   const body = `%c
 
@@ -20,7 +22,7 @@ ${moduleName} %c${messageBody}
   `
 
   const info = `%c
-Please see the documentation at %chttps://www.polished.js.org/#${moduleName} %cfor more information.
+Please see the documentation at %chttps://polished.js.org/docs/#${moduleName} %cfor more information.
 
   `
 
@@ -36,58 +38,40 @@ function generateHeaderStyles(type: string) {
  * @private
  */
 
-function messageHandler(
-  type: string,
-  messageBody: string,
-  moduleName: string,
-  modulePath: string,
-) {
+function messageHandler(type: string, messageBody: string, modulePath: string) {
+  const moduleName = modulePath.match(/([^/]+)(?=\.\w+$)/)[0]
   const message = formatMessage(type, messageBody, moduleName, modulePath)
   const headerStyles = generateHeaderStyles(type)
-  // eslint-disable-next-line no-console
-  console.log(
-    message,
-    headerStyles,
-    'color: black',
-    'color: slategray; font-weight: bold',
-    'color: slategray',
-    'color: blue',
-    'color: slategray',
-  )
-}
-
-function getCaller() {
-  let file
-  let frame
-
-  const pst = Error.prepareStackTrace
-  Error.prepareStackTrace = (_, stack) => {
-    Error.prepareStackTrace = pst
-    return stack
+  if (type === 'error') {
+    // eslint-disable-next-line no-console
+    console.error(
+      message,
+      headerStyles,
+      'color: black; font-weight: bold',
+      'color: slategray',
+      'color: slategray',
+      'color: blue',
+      'color: slategray',
+    )
+  } else {
+    // eslint-disable-next-line no-console
+    console.warn(
+      message,
+      headerStyles,
+      'color: black',
+      'color: slategray; font-weight: bold',
+      'color: slategray',
+      'color: blue',
+      'color: slategray',
+    )
   }
-
-  let stack = new Error().stack
-  stack = stack.slice(2)
-
-  do {
-    frame = stack.shift()
-    file = frame && frame.getFileName()
-  } while (stack.length && file === 'module.js')
-
-  return file
 }
 
-function getModuleInfo(callerModule) {
-  const moduleName = callerModule.match(/([^/]+)(?=\.\w+$)/)[0]
-  const callerArray = callerModule.split('/')
-  const modulePath = `${callerArray[callerArray.length - 2]}/${callerArray[callerArray.length - 1]}`
-  return [moduleName, modulePath]
-}
-
-export function error(messageBody: string) {
-  messageHandler('error', messageBody, ...getModuleInfo(getCaller()))
-}
-
-export function warning(messageBody: string) {
-  messageHandler('warning', messageBody, ...getModuleInfo(getCaller()))
+// eslint-disable-next-line import/prefer-default-export
+export function deprecatedCheck(modulePath: string) {
+  const deprecationInfo = deprecated[modulePath]
+  if (deprecationInfo) {
+    const messageBody = `will be deprecated as of version ${deprecationInfo.version} of ✨ polished. ${deprecationInfo.guidance}`
+    messageHandler('warning', messageBody, modulePath)
+  }
 }

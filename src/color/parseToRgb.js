@@ -1,8 +1,8 @@
 // @flow
-
 import hslToRgb from '../internalHelpers/_hslToRgb'
-import type { RgbColor, RgbaColor } from '../types/color'
 import nameToHex from '../internalHelpers/_nameToHex'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import type { RgbColor, RgbaColor } from '../types/color'
 
 const hexRegex = /^#[a-fA-F0-9]{6}$/
 const reducedHexRegex = /^#[a-fA-F0-9]{3}$/
@@ -23,6 +23,12 @@ const hslaRegex = /^hsla\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*(
  * const color2 = 'hsla(210, 10%, 40%, 0.75)';
  */
 function parseToRgb(color: string): RgbColor | RgbaColor {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/parseToRgb.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (typeof color !== 'string') {
     throw new Error(
       'Passed an incorrect argument to a color function, please pass a string representation of a color.',

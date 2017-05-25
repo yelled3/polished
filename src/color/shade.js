@@ -1,7 +1,7 @@
 // @flow
-
 import mix from './mix'
 import curry from '../internalHelpers/_curry'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Shades a color by mixing it with black. `shade` can produce
@@ -27,6 +27,12 @@ import curry from '../internalHelpers/_curry'
  */
 
 function shade(percentage: number, color: string) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/shade.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {
     throw new Error(
       'Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.',

@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * CSS to style the selection psuedo-element.
@@ -29,6 +30,12 @@
  */
 
 function selection(styles: Object, parent: string = '') {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/selection.js'
+    deprecatedCheck(modulePath)
+  }
+
   return {
     [`${parent}::-moz-selection`]: {
       ...styles,

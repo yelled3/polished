@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
@@ -22,6 +23,12 @@
  */
 
 function stripUnit(value: string): number | string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'helpers/stripUnit.js'
+    deprecatedCheck(modulePath)
+  }
+
   const unitlessValue = parseFloat(value)
   if (isNaN(unitlessValue)) return value
   return unitlessValue

@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Thorthand that accepts any number of background values as parameters for creating a single background statement.
@@ -20,6 +21,12 @@
  * }
  */
 function backgrounds(...properties: Array<string>) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'shorthands/backgrounds.js'
+    deprecatedCheck(modulePath)
+  }
+
   return {
     background: properties.join(', '),
   }

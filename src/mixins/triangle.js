@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /** */
 type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
@@ -76,6 +77,12 @@ function triangle({
   foregroundColor,
   backgroundColor = 'transparent',
 }: TriangleArgs) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/triangle.js'
+    deprecatedCheck(modulePath)
+  }
+
   const unitlessHeight = parseFloat(height)
   const unitlessWidth = parseFloat(width)
   if (isNaN(unitlessHeight) || isNaN(unitlessWidth)) {
@@ -88,7 +95,11 @@ function triangle({
     borderColor: backgroundColor,
     width: '0',
     height: '0',
-    borderWidth: getBorderWidth(pointingDirection, unitlessHeight, unitlessWidth),
+    borderWidth: getBorderWidth(
+      pointingDirection,
+      unitlessHeight,
+      unitlessWidth,
+    ),
     borderStyle: 'solid',
     /*
     * javascript Object sorting orders 'border-color' after 'border-bottom-color'

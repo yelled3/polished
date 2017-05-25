@@ -1,7 +1,7 @@
 // @flow
-
 import reduceHexValue from '../internalHelpers/_reduceHexValue'
 import toHex from '../internalHelpers/_numberToHex'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 import type { RgbColor } from '../types/color'
 
 /**
@@ -28,6 +28,12 @@ import type { RgbColor } from '../types/color'
  * }
  */
 function rgb(value: RgbColor | number, green?: number, blue?: number): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/rgb.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (
     typeof value === 'number' &&
     typeof green === 'number' &&

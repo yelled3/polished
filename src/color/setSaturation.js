@@ -1,8 +1,8 @@
 // @flow
-
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import curry from '../internalHelpers/_curry'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Sets the saturation of a color to the provided value. The lightness range can be
@@ -28,6 +28,12 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 function setSaturation(saturation: number, color: string): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/setSaturation.js'
+    deprecatedCheck(modulePath)
+  }
+
   return toColorString({
     ...parseToHsl(color),
     saturation,

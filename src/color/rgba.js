@@ -1,6 +1,6 @@
 // @flow
-
 import rgb from './rgb'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 import type { RgbaColor } from '../types/color'
 
 /**
@@ -35,6 +35,12 @@ function rgba(
   blue?: number,
   alpha?: number,
 ): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/rgba.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (
     typeof value === 'number' &&
     typeof green === 'number' &&

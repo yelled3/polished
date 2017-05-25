@@ -1,6 +1,6 @@
 // @flow
-
 import hiDPI from './hiDPI'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * A helper to generate a retina background image and non-retina
@@ -37,6 +37,12 @@ function retinaImage(
   retinaFilename?: string,
   retinaSuffix?: string = '_2x',
 ) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/retinaImage.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (!filename) {
     throw new Error(
       'Please supply a filename to retinaImage() as the first argument.',

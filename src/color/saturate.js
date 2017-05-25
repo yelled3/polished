@@ -1,9 +1,9 @@
 // @flow
-
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import guard from '../internalHelpers/_guard'
 import curry from '../internalHelpers/_curry'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /**
  * Increases the intensity of a color. Its range is between 0 to 1. The first
@@ -31,6 +31,12 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 function saturate(amount: number, color: string): string {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'color/saturate.js'
+    deprecatedCheck(modulePath)
+  }
+
   const hslColor = parseToHsl(color)
   return toColorString({
     ...hslColor,

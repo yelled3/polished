@@ -1,5 +1,6 @@
 // @flow
 import statefulSelectors from '../internalHelpers/_statefulSelectors'
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 const stateMap = [undefined, null, 'active', 'focus', 'hover']
 
@@ -41,6 +42,12 @@ type ButtonState = typeof undefined | null | 'active' | 'focus' | 'hover'
  */
 
 function buttons(...states: Array<ButtonState>) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'shorthands/buttons.js'
+    deprecatedCheck(modulePath)
+  }
+
   return statefulSelectors(states, template, stateMap)
 }
 

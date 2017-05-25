@@ -1,4 +1,6 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+
 const opinionatedRules = {
   html: {
     fontFamily: 'sans-serif',
@@ -286,6 +288,12 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  * } ...
  */
 function normalize(excludeOpinionated?: boolean) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/normalize.js'
+    deprecatedCheck(modulePath)
+  }
+
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
 }

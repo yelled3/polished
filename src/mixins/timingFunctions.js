@@ -1,4 +1,5 @@
 // @flow
+import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 
 /* eslint-disable key-spacing */
 const functionsMap = {
@@ -80,6 +81,12 @@ type TimingFunction =
  */
 
 function timingFunctions(timingFunction: TimingFunction) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    const modulePath = 'mixins/timingFunctions.js'
+    deprecatedCheck(modulePath)
+  }
+
   return functionsMap[timingFunction]
 }
 
