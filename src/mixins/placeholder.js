@@ -4,7 +4,7 @@ import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 /**
  * CSS to style the selection psuedo-element.
  *
- * @deprecated This mixin has been deprecated and will be removed in version 3.0.
+ * **Deprecation Warning:** This mixin has been deprecated and will be removed in version 3.0.
  *
  * @example
  * // Styles as object usage
@@ -34,7 +34,6 @@ import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
  *   },
  * },
  */
-
 function placeholder(styles: Object, parent: string = '&') {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
