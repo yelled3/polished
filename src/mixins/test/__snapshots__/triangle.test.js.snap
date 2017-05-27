@@ -31,18 +31,6 @@ Object {
 }
 `;
 
-exports[`triangle should properly add rules when block has existing rules 1`] = `
-Object {
-  "background": "red",
-  "borderColor": "transparent",
-  "borderLeftColor": "grey !important",
-  "borderStyle": "solid",
-  "borderWidth": "5px 0 5px 20px",
-  "height": "0",
-  "width": "0",
-}
-`;
-
 exports[`triangle should properly render bottom pointing arrow with red foregroundColor, width of 20px and height 20px 1`] = `
 Object {
   "borderColor": "transparent",
@@ -85,4 +73,251 @@ Object {
   "height": "0",
   "width": "0",
 }
+`;
+
+exports[`triangle should throw a warning when passed more than one parameter 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when not passed a foregroundColor 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a value(string) for foregroundColor. However, you did not provide one.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when not passed a height 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a value(string) for height. However, you did not provide one.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when not passed a pointingDirection 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a value(string) for pointingDirection. However, you did not provide one.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when not passed a width 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a value(string) for width. However, you did not provide one.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when not passed any parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects 1 parameter. However, you only passed 0 parameters. Please provide 1 additional parameter.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %crequires a config object as its only parameter. However, you did not provide one.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when passed a non-object value 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a parameter of type object. However, you passed 1(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when passed a non-string value for foregroundColor 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a 4th parameter of type string. However, you passed true(boolean) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when passed a non-string value for height 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a 2nd parameter of type string. However, you passed 10(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when passed a non-string value for pointingDirection 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a 1st parameter of type string. However, you passed true(boolean) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when passed a non-string value for width 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a 3rd parameter of type string. However, you passed 10(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when passed an invalid height 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %crequires a pixel based value for height.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when passed an invalid width 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %crequires a pixel based value for height.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
 `;

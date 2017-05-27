@@ -1,5 +1,5 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import messageHandlers from '../internalHelpers/_messageHandlers'
 
 /**
  * Generates a media query to target HiDPI devices.
@@ -30,11 +30,18 @@ import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
  * }
  */
 
-function hiDPI(ratio: number = 1.3) {
+function hiDPI(ratio?: number = 1.3) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'mixins/hiDPI.js'
-    deprecatedCheck(modulePath)
+    if (
+      messageHandlers('mixins/hiDPI.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, max: 1 },
+        typeChecks: { param: ratio, type: 'number' },
+      })
+    ) {
+      return ''
+    }
   }
 
   return `

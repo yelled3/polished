@@ -1,5 +1,5 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import messageHandlers from '../internalHelpers/_messageHandlers'
 
 /**
  * CSS to represent truncated text with an ellipsis.
@@ -27,11 +27,18 @@ import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
  * }
  */
 
-function ellipsis(width: string = '100%') {
+function ellipsis(width?: string = '100%') {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'mixins/ellipsis.js'
-    deprecatedCheck(modulePath)
+    if (
+      messageHandlers('mixins/ellipsis.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, max: 1 },
+        typeChecks: { param: width, type: 'string' },
+      })
+    ) {
+      return {}
+    }
   }
 
   return {

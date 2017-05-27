@@ -1,5 +1,5 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import messageHandlers from '../internalHelpers/_messageHandlers'
 
 /**
  * CSS to hide text to show a background image in a SEO-friendly way.
@@ -30,8 +30,14 @@ import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
 function hideText() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'mixins/hideText.js'
-    deprecatedCheck(modulePath)
+    if (
+      messageHandlers('mixins/hideText.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, max: 0 },
+      })
+    ) {
+      return {}
+    }
   }
 
   return {

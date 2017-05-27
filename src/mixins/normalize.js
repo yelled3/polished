@@ -1,5 +1,5 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import messageHandlers from '../internalHelpers/_messageHandlers'
 
 const opinionatedRules = {
   html: {
@@ -287,13 +287,19 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  *   textSizeAdjust: 100%,
  * } ...
  */
-function normalize(excludeOpinionated?: boolean) {
+function normalize(excludeOpinionated?: boolean = false) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'mixins/normalize.js'
-    deprecatedCheck(modulePath)
+    if (
+      messageHandlers('mixins/normalize.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, max: 1 },
+        typeChecks: { param: excludeOpinionated, type: 'boolean' },
+      })
+    ) {
+      return {}
+    }
   }
-
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
 }

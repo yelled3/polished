@@ -1,10 +1,4 @@
-exports[`wordWrap should accept other values 1`] = `
-Object {
-  "overflowWrap": "break-all",
-  "wordBreak": "break-all",
-  "wordWrap": "break-all",
-}
-`;
+exports[`wordWrap should accept other values 1`] = `Object {}`;
 
 exports[`wordWrap should default wrap to break-word 1`] = `
 Object {
@@ -12,4 +6,94 @@ Object {
   "wordBreak": "break-all",
   "wordWrap": "break-word",
 }
+`;
+
+exports[`wordWrap should throw a warning when called with more than 1 parameter 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- mixins/wordWrap.js --%c
+
+wordWrap %cexpects a maximum of 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#wordWrap%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`wordWrap should throw an error and a warning when called with multiple non-string values 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/wordWrap.js --%c
+
+wordWrap %creceived an enumerable value(1) that was not one of the available options.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#wordWrap%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`wordWrap should throw an error and a warning when called with multiple non-string values 2`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- mixins/wordWrap.js --%c
+
+wordWrap %cexpects a maximum of 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#wordWrap%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`wordWrap should throw an error when called with a non-string value 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/wordWrap.js --%c
+
+wordWrap %creceived an enumerable value(1) that was not one of the available options.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#wordWrap%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`wordWrap should throw an error when called with an invalid string value 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/wordWrap.js --%c
+
+wordWrap %creceived an enumerable value(break-things) that was not one of the available options.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#wordWrap%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
 `;

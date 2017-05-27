@@ -6,18 +6,23 @@ describe('selection', () => {
     'background-color': 'blue',
   }
 
+  beforeAll(() => {
+    global.console = {
+      error: jest.fn(),
+      warn: jest.fn(),
+    }
+  })
+
+  afterEach(() => {
+    // eslint-disable-next-line no-console
+    console.error.mockClear()
+    // eslint-disable-next-line no-console
+    console.warn.mockClear()
+  })
+
   it('should properly pass styles object and parent', () => {
     expect({
       div: {
-        ...selection(styles, 'section'),
-      },
-    }).toMatchSnapshot()
-  })
-
-  it('should properly add rules when block has existing rules', () => {
-    expect({
-      div: {
-        background: 'white',
         ...selection(styles, 'section'),
       },
     }).toMatchSnapshot()
@@ -29,5 +34,32 @@ describe('selection', () => {
         ...selection(styles),
       },
     }).toMatchSnapshot()
+  })
+
+  it('should throw an error when not passed any parameters', () => {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    selection()
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-object as its first parameter', () => {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    selection('styles')
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string as its second parameter', () => {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    selection(styles, 1)
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw a warning when passed more than 2 parameters', () => {
+    selection(styles, 'input', true)
+    // eslint-disable-next-line no-console
+    expect(console.warn.mock.calls).toMatchSnapshot()
   })
 })

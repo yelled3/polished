@@ -17,3 +17,75 @@ Object {
   },
 }
 `;
+
+exports[`clearFix should throw a warning when called with more than 1 parameter 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- mixins/clearFix.js --%c
+
+clearFix %cexpects a maximum of 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#clearFix%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`clearFix should throw an error and a warning when called with multiple non-string values 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/clearFix.js --%c
+
+clearFix %cexpects a parameter of type string. However, you passed 1(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#clearFix%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`clearFix should throw an error and a warning when called with multiple non-string values 2`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- mixins/clearFix.js --%c
+
+clearFix %cexpects a maximum of 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#clearFix%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`clearFix should throw an error when called with a non-string value 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/clearFix.js --%c
+
+clearFix %cexpects a parameter of type string. However, you passed 1(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#clearFix%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;

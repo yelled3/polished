@@ -141,3 +141,75 @@ Object {
   "transition-timing-function": "cubic-bezier(0.390,  0.575, 0.565, 1.000)",
 }
 `;
+
+exports[`timingFunctions should throw a warning when called with more than one parameter 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- mixins/timingFunctions.js --%c
+
+timingFunctions %cexpects 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#timingFunctions%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`timingFunctions should throw an error when called no parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/timingFunctions.js --%c
+
+timingFunctions %cexpects a string value representing the timingFunction you would like returned. However, you did not provide one.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#timingFunctions%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`timingFunctions should throw an error when called with a non-string value 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/timingFunctions.js --%c
+
+timingFunctions %creceived an enumerable value(1) that was not one of the available options.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#timingFunctions%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`timingFunctions should throw an error when called with an invalid string value 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/timingFunctions.js --%c
+
+timingFunctions %creceived an enumerable value(all-the-timings) that was not one of the available options.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#timingFunctions%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;

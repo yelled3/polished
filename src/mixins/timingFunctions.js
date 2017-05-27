@@ -1,7 +1,6 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import messageHandlers from '../internalHelpers/_messageHandlers'
 
-/* eslint-disable key-spacing */
 const functionsMap = {
   easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
   easeInCirc: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
@@ -30,7 +29,6 @@ const functionsMap = {
   easeInOutQuint: 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
   easeInOutSine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)',
 }
-/* eslint-enable key-spacing */
 
 /** */
 type TimingFunction =
@@ -83,8 +81,20 @@ type TimingFunction =
 function timingFunctions(timingFunction: TimingFunction) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'mixins/timingFunctions.js'
-    deprecatedCheck(modulePath)
+    if (
+      messageHandlers('mixins/timingFunctions.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, exactly: 1 },
+        typeChecks: {
+          param: timingFunction,
+          type: 'enumerable',
+          map: functionsMap,
+          required: 'expects a string value representing the timingFunction you would like returned. However, you did not provide one.',
+        },
+      })
+    ) {
+      return ''
+    }
   }
 
   return functionsMap[timingFunction]

@@ -1,11 +1,11 @@
 // @flow
 import hiDPI from './hiDPI'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import messageHandlers from '../internalHelpers/_messageHandlers'
 
 /**
  * A helper to generate a retina background image and non-retina
  * background image. The retina background image will output to a HiDPI media query. The mixin uses
- * a _2x.png filename suffix by default.
+ * a _2x.png fileName suffix by default.
  *
  * @example
  * // Styles as object usage
@@ -31,33 +31,45 @@ import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
  * }
  */
 function retinaImage(
-  filename: string,
+  fileName: string,
   backgroundSize?: string,
   extension?: string = 'png',
-  retinaFilename?: string,
+  retinaFileName?: string,
   retinaSuffix?: string = '_2x',
 ) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'mixins/retinaImage.js'
-    deprecatedCheck(modulePath)
+    if (
+      messageHandlers('mixins/placeholder.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, min: 1, max: 5 },
+        typeChecks: [
+          {
+            param: fileName,
+            type: 'string',
+            required: 'requires a fileName as its first parameter. However, you did not provide one.',
+          },
+          { param: backgroundSize, type: 'string' },
+          { param: extension, type: 'string' },
+          { param: retinaFileName, type: 'string' },
+          { param: retinaSuffix, type: 'string' },
+        ],
+      })
+    ) {
+      return {}
+    }
   }
 
-  if (!filename) {
-    throw new Error(
-      'Please supply a filename to retinaImage() as the first argument.',
-    )
-  }
   // Replace the dot at the beginning of the passed extension if one exists
   const ext = extension.replace(/^\./, '')
-  const rFilename = retinaFilename
-    ? `${retinaFilename}.${ext}`
-    : `${filename}${retinaSuffix}.${ext}`
+  const rFileName = retinaFileName
+    ? `${retinaFileName}.${ext}`
+    : `${fileName}${retinaSuffix}.${ext}`
 
   return {
-    backgroundImage: `url(${filename}.${ext})`,
+    backgroundImage: `url(${fileName}.${ext})`,
     [hiDPI()]: {
-      backgroundImage: `url(${rFilename})`,
+      backgroundImage: `url(${rFileName})`,
       backgroundSize,
     },
   }

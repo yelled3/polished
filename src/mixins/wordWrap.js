@@ -1,5 +1,9 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import messageHandlers from '../internalHelpers/_messageHandlers'
+
+type WrapKeywords = 'break-all' | 'normal'
+
+const wrapKeywords = ['break-word', 'normal']
 
 /**
  * Provides an easy way to change the `wordWrap` property.
@@ -24,11 +28,18 @@ import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
  * }
  */
 
-function wordWrap(wrap: string = 'break-word') {
+function wordWrap(wrap?: WrapKeywords | string = 'break-word') {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'mixins/wordWrap.js'
-    deprecatedCheck(modulePath)
+    if (
+      messageHandlers('mixins/wordWrap.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, max: 1 },
+        typeChecks: { param: wrap, type: 'enumerable', map: wrapKeywords },
+      })
+    ) {
+      return {}
+    }
   }
 
   const wordBreak = wrap === 'break-word' ? 'break-all' : wrap

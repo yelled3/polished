@@ -1,5 +1,7 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import messageHandlers, {
+  typeChecks,
+} from '../internalHelpers/_messageHandlers'
 
 /** */
 type FontFaceConfiguration = {
@@ -70,35 +72,63 @@ function generateSources(
  * }
  */
 
-function fontFace({
-  fontFamily,
-  fontFilePath,
-  fontStretch,
-  fontStyle,
-  fontVariant,
-  fontWeight,
-  fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
-  localFonts,
-  unicodeRange,
-}: FontFaceConfiguration) {
+function fontFace(config: FontFaceConfiguration) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'mixins/fontFace.js'
-    deprecatedCheck(modulePath)
+    if (
+      messageHandlers('mixins/fontFace.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, exactly: 1, throw: true },
+        typeChecks: {
+          param: config,
+          type: 'object',
+          throw: true,
+          required: 'requires a config object as its only parameter. However, you did not provide one.',
+        },
+      })
+    ) {
+      return {}
+    }
   }
 
-  // Error Handling
-  if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
+  const {
+    fontFamily,
+    fontFilePath,
+    fontStretch,
+    fontStyle,
+    fontVariant,
+    fontWeight,
+    fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
+    localFonts,
+    unicodeRange,
+  } = config
+
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    if (
+      !typeChecks('mixins/fontFace.js', [
+        {
+          param: fontFamily,
+          type: 'string',
+          required: 'expects parameter to have a key of fontFamily that provides a name of a font-family(string).',
+        },
+        { param: fontFilePath, type: 'string' },
+        { param: fontStretch, type: 'string' },
+        { param: fontStyle, type: 'string' },
+        { param: fontVariant, type: 'string' },
+        { param: fileFormats, type: 'array', throw: true },
+        { param: localFonts, type: 'array' },
+        { param: unicodeRange, type: 'string' },
+      ])
+    ) {
+      return {}
+    }
+  }
+
   if (!fontFilePath && !localFonts) {
     throw new Error(
       'fontFace expects either the path to the font file(s) or a name of a local copy.',
     )
-  }
-  if (localFonts && !Array.isArray(localFonts)) {
-    throw new Error('fontFace expects localFonts to be an array.')
-  }
-  if (!Array.isArray(fileFormats)) {
-    throw new Error('fontFace expects fileFormats to be an array.')
   }
 
   const fontFaceDeclaration = {

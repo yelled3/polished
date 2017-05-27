@@ -1,5 +1,7 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import messageHandlers, {
+  typeChecks,
+} from '../internalHelpers/_messageHandlers'
 
 /** */
 type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
@@ -7,8 +9,8 @@ type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
 type TriangleArgs = {
   backgroundColor?: string,
   foregroundColor: string,
-  height: number | string,
-  width: number | string,
+  height: string,
+  width: string,
   pointingDirection: PointingDirection,
 }
 
@@ -25,12 +27,8 @@ const getBorderWidth = (
     case 'bottom':
       return `${height}px ${width / 2}px 0 ${width / 2}px`
     case 'right':
-      return `${height / 2}px 0 ${height / 2}px ${width}px`
-
     default:
-      throw new Error(
-        "Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'.",
-      )
+      return `${height / 2}px 0 ${height / 2}px ${width}px`
   }
 }
 
@@ -70,25 +68,88 @@ const reverseDirection = {
  * }
  */
 
-function triangle({
-  pointingDirection,
-  height,
-  width,
-  foregroundColor,
-  backgroundColor = 'transparent',
-}: TriangleArgs) {
+function triangle(config: TriangleArgs) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'mixins/triangle.js'
-    deprecatedCheck(modulePath)
+    if (
+      messageHandlers('mixins/triangle.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, exactly: 1, throw: true },
+        typeChecks: {
+          param: config,
+          type: 'object',
+          throw: true,
+          required: 'requires a config object as its only parameter. However, you did not provide one.',
+        },
+      })
+    ) {
+      return {}
+    }
+  }
+
+  const {
+    pointingDirection,
+    height,
+    width,
+    foregroundColor,
+    backgroundColor = 'transparent',
+  } = config
+
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    if (
+      !typeChecks('mixins/triangle.js', [
+        // TODO: Needs to be a proper enumberable
+        {
+          param: pointingDirection,
+          type: 'string',
+          required: 'expects a value(string) for pointingDirection. However, you did not provide one.',
+        },
+        {
+          param: height,
+          type: 'string',
+          required: 'expects a value(string) for height. However, you did not provide one.',
+        },
+        {
+          param: width,
+          type: 'string',
+          required: 'expects a value(string) for width. However, you did not provide one.',
+        },
+        {
+          param: foregroundColor,
+          type: 'string',
+          required: 'expects a value(string) for foregroundColor. However, you did not provide one.',
+        },
+        { param: backgroundColor, type: 'string' },
+      ])
+    ) {
+      return {}
+    }
   }
 
   const unitlessHeight = parseFloat(height)
   const unitlessWidth = parseFloat(width)
-  if (isNaN(unitlessHeight) || isNaN(unitlessWidth)) {
-    throw new Error(
-      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
-    )
+
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    if (
+      !typeChecks('mixins/triangle.js', [
+        {
+          param: unitlessHeight,
+          type: 'number',
+          required: 'requires a pixel based value for height.',
+          throw: true,
+        },
+        {
+          param: unitlessWidth,
+          type: 'number',
+          required: 'requires a pixel based value for width.',
+          throw: true,
+        },
+      ])
+    ) {
+      return {}
+    }
   }
 
   return {

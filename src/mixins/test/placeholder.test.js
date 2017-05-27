@@ -6,15 +6,22 @@ describe('placeholder', () => {
     color: 'blue',
   }
 
-  it('should properly pass styles object and parent', () => {
-    expect({
-      ...placeholder(styles, 'input'),
-    }).toMatchSnapshot()
+  beforeAll(() => {
+    global.console = {
+      error: jest.fn(),
+      warn: jest.fn(),
+    }
   })
 
-  it('should properly add rules when block has existing rules', () => {
+  afterEach(() => {
+    // eslint-disable-next-line no-console
+    console.error.mockClear()
+    // eslint-disable-next-line no-console
+    console.warn.mockClear()
+  })
+
+  it('should properly pass styles object and parent', () => {
     expect({
-      background: 'white',
       ...placeholder(styles, 'input'),
     }).toMatchSnapshot()
   })
@@ -25,5 +32,32 @@ describe('placeholder', () => {
         ...placeholder(styles),
       },
     }).toMatchSnapshot()
+  })
+
+  it('should throw an error when not passed any parameters', () => {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    placeholder()
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-object as its first parameter', () => {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    placeholder('styles')
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string as its second parameter', () => {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    placeholder(styles, 1)
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw a warning when passed more than 2 parameters', () => {
+    placeholder(styles, 'input', true)
+    // eslint-disable-next-line no-console
+    expect(console.warn.mock.calls).toMatchSnapshot()
   })
 })

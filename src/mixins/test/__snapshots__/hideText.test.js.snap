@@ -14,3 +14,21 @@ Object {
   "whiteSpace": "nowrap",
 }
 `;
+
+exports[`hideText should throw a warning when called with any parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- mixins/hideText.js --%c
+
+hideText %cexpects a maximum of 0 parameters. However, you passed 1 parameter. This additional parameter was ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#hideText%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
