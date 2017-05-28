@@ -2,7 +2,7 @@
 import hslToHex from '../internalHelpers/_hslToHex'
 import hslToRgb from '../internalHelpers/_hslToRgb'
 import type { HslaColor } from '../types/color'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
@@ -39,7 +39,7 @@ function hsla(
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/hsla.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   if (

@@ -3,7 +3,7 @@ import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import guard from '../internalHelpers/_guard'
 import curry from '../internalHelpers/_curry'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Decreases the intensity of a color. Its range is between 0 to 1. The first
@@ -33,7 +33,7 @@ function desaturate(amount: number, color: string): string {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/desaturate.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   const hslColor = parseToHsl(color)

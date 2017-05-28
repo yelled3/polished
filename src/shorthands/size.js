@@ -1,5 +1,5 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Shorthand to set the height and width properties in a single statement.
@@ -26,7 +26,7 @@ function size(height: string, width: string = height) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'shorthands/size.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   return {

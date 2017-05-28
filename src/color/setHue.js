@@ -2,7 +2,7 @@
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import curry from '../internalHelpers/_curry'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Sets the hue of a color to the provided value. The hue range can be
@@ -31,7 +31,7 @@ function setHue(hue: number, color: string): string {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/setHue.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   return toColorString({

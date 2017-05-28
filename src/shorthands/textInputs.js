@@ -1,6 +1,6 @@
 // @flow
 import statefulSelectors from '../internalHelpers/_statefulSelectors'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 const stateMap = [undefined, null, 'active', 'focus', 'hover']
 
@@ -69,7 +69,7 @@ function textInputs(...states: Array<InputState>) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'shorthands/textInputs.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   return statefulSelectors(states, template, stateMap)

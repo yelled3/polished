@@ -1,6 +1,6 @@
 // @flow
 import statefulSelectors from '../internalHelpers/_statefulSelectors'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 const stateMap = [undefined, null, 'active', 'focus', 'hover']
 
@@ -45,7 +45,7 @@ function buttons(...states: Array<ButtonState>) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'shorthands/buttons.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   return statefulSelectors(states, template, stateMap)

@@ -1,7 +1,7 @@
 // @flow
 import hslToHex from '../internalHelpers/_hslToHex'
 import type { HslColor } from '../types/color'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible hex notation.
@@ -34,7 +34,7 @@ function hsl(
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/hls.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   if (

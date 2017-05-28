@@ -2,7 +2,7 @@
 import rgba from './rgba'
 import parseToRgb from './parseToRgb'
 import curry from '../internalHelpers/_curry'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Mixes two colors together by calculating the average of each of the RGB components.
@@ -39,7 +39,7 @@ function mix(weight: number = 0.5, color: string, otherColor: string): string {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/mix.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   const parsedColor1 = parseToRgb(color)

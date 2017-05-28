@@ -1,7 +1,7 @@
 // @flow
 import mix from './mix'
 import curry from '../internalHelpers/_curry'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Tints a color by mixing it with white. `tint` can produce
@@ -30,7 +30,7 @@ function tint(percentage: number, color: string) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/tint.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {

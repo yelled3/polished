@@ -3,7 +3,7 @@ import rgba from './rgba'
 import parseToRgb from './parseToRgb'
 import guard from '../internalHelpers/_guard'
 import curry from '../internalHelpers/_curry'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -36,7 +36,7 @@ function transparentize(amount: number, color: string) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/transparentize.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   const parsedColor = parseToRgb(color)

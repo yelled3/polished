@@ -1,7 +1,7 @@
 // @flow
 import parseToRgb from './parseToRgb'
 import rgbToHsl from '../internalHelpers/_rgbToHsl'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 import type { HslColor, HslaColor } from '../types/color'
 
 /**
@@ -19,7 +19,7 @@ function parseToHsl(color: string): HslColor | HslaColor {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/parseToHsl.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   // Note: At a later stage we can optimize this function as right now a hsl

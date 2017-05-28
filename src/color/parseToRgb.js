@@ -1,7 +1,7 @@
 // @flow
 import hslToRgb from '../internalHelpers/_hslToRgb'
 import nameToHex from '../internalHelpers/_nameToHex'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 import type { RgbColor, RgbaColor } from '../types/color'
 
 const hexRegex = /^#[a-fA-F0-9]{6}$/
@@ -26,7 +26,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/parseToRgb.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   if (typeof color !== 'string') {

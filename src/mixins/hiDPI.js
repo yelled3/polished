@@ -1,5 +1,5 @@
 // @flow
-import messageHandlers from '../internalHelpers/_messageHandlers'
+import validateModule from '../validation/_validateModule'
 
 /**
  * Generates a media query to target HiDPI devices.
@@ -34,10 +34,10 @@ function hiDPI(ratio?: number = 1.3) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/hiDPI.js', {
+      !validateModule('mixins/hiDPI.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, max: 1 },
-        typeChecks: { param: ratio, type: 'number' },
+        typeCheck: { param: ratio, type: 'number' },
       })
     ) {
       return ''

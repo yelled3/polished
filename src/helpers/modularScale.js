@@ -1,6 +1,6 @@
 // @flow
 import stripUnit from './stripUnit'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 const ratioNames = {
   minorSecond: 1.067,
@@ -72,7 +72,7 @@ function modularScale(
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'helpers/modularScale.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   if (typeof steps !== 'number') {

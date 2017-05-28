@@ -1,5 +1,5 @@
 // @flow
-import messageHandlers from '../internalHelpers/_messageHandlers'
+import validateModule from '../validation/_validateModule'
 
 const opinionatedRules = {
   html: {
@@ -291,10 +291,10 @@ function normalize(excludeOpinionated?: boolean = false) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/normalize.js', {
+      !validateModule('mixins/normalize.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, max: 1 },
-        typeChecks: { param: excludeOpinionated, type: 'boolean' },
+        typeCheck: { param: excludeOpinionated, type: 'boolean' },
       })
     ) {
       return {}

@@ -3,7 +3,7 @@ import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import guard from '../internalHelpers/_guard'
 import curry from '../internalHelpers/_curry'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Returns a string value for the darkened color.
@@ -32,7 +32,7 @@ function darken(amount: number, color: string): string {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/darken.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   const hslColor = parseToHsl(color)

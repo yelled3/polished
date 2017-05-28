@@ -1,6 +1,6 @@
 // @flow
 import hiDPI from './hiDPI'
-import messageHandlers from '../internalHelpers/_messageHandlers'
+import validateModule from '../validation/_validateModule'
 
 /**
  * A helper to generate a retina background image and non-retina
@@ -40,10 +40,10 @@ function retinaImage(
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/placeholder.js', {
+      !validateModule('mixins/placeholder.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, min: 1, max: 5 },
-        typeChecks: [
+        typeCheck: [
           {
             param: fileName,
             type: 'string',

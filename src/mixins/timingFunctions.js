@@ -1,5 +1,5 @@
 // @flow
-import messageHandlers from '../internalHelpers/_messageHandlers'
+import validateModule from '../validation/_validateModule'
 
 const functionsMap = {
   easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
@@ -82,10 +82,10 @@ function timingFunctions(timingFunction: TimingFunction) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/timingFunctions.js', {
+      !validateModule('mixins/timingFunctions.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, exactly: 1 },
-        typeChecks: {
+        typeCheck: {
           param: timingFunction,
           type: 'enumerable',
           map: functionsMap,

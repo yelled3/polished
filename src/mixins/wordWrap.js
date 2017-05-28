@@ -1,5 +1,5 @@
 // @flow
-import messageHandlers from '../internalHelpers/_messageHandlers'
+import validateModule from '../validation/_validateModule'
 
 type WrapKeywords = 'break-all' | 'break-word' | 'normal'
 
@@ -32,10 +32,10 @@ function wordWrap(wrap?: WrapKeywords | string = 'break-word') {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/wordWrap.js', {
+      !validateModule('mixins/wordWrap.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, max: 1 },
-        typeChecks: { param: wrap, type: 'enumerable', map: wrapKeywords },
+        typeCheck: { param: wrap, type: 'enumerable', map: wrapKeywords },
       })
     ) {
       return {}

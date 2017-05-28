@@ -1,6 +1,6 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 const positionMap = ['Top', 'Right', 'Bottom', 'Left']
 
@@ -52,7 +52,7 @@ function directionalProperty(property: string, ...values: Array<?string>) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'helpers/directionalProperty.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
   //  prettier-ignore
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.

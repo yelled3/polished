@@ -1,5 +1,5 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.
@@ -25,7 +25,7 @@ function backgroundImages(...properties: Array<string>) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'shorthands/backgroundImages.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   return {

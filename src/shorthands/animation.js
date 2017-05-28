@@ -1,5 +1,5 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /** */
 type AnimationProperty = string | number
@@ -46,7 +46,7 @@ function animation(
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'shorthands/animation.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   // Allow single or multiple animations passed

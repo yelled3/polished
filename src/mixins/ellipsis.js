@@ -1,5 +1,5 @@
 // @flow
-import messageHandlers from '../internalHelpers/_messageHandlers'
+import validateModule from '../validation/_validateModule'
 
 /**
  * CSS to represent truncated text with an ellipsis.
@@ -31,10 +31,10 @@ function ellipsis(width?: string = '100%') {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/ellipsis.js', {
+      !validateModule('mixins/ellipsis.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, max: 1 },
-        typeChecks: { param: width, type: 'string' },
+        typeCheck: { param: width, type: 'string' },
       })
     ) {
       return {}

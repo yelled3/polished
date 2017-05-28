@@ -3,7 +3,7 @@ import rgb from './rgb'
 import rgba from './rgba'
 import hsl from './hsl'
 import hsla from './hsla'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 import type { RgbColor, RgbaColor, HslColor, HslaColor } from '../types/color'
 
 const isRgb = (color): boolean =>
@@ -74,7 +74,7 @@ function toColorString(
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/toColorString.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   if (isRgba(color)) {

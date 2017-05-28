@@ -1,7 +1,7 @@
 // @flow
 import mix from './mix'
 import curry from '../internalHelpers/_curry'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Shades a color by mixing it with black. `shade` can produce
@@ -30,7 +30,7 @@ function shade(percentage: number, color: string) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/shade.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {

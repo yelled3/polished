@@ -1,5 +1,5 @@
 // @flow
-import messageHandlers from '../internalHelpers/_messageHandlers'
+import validateModule from '../validation/_validateModule'
 
 /**
  * CSS to style the selection psuedo-element.
@@ -38,10 +38,10 @@ function placeholder(styles: Object, parent?: string = '&') {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/placeholder.js', {
+      !validateModule('mixins/placeholder.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, min: 1, max: 2 },
-        typeChecks: [
+        typeCheck: [
           { param: styles, type: 'object' },
           { param: parent, type: 'string' },
         ],

@@ -1,6 +1,6 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * A shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
@@ -27,7 +27,7 @@ function borderRadius(side: string, radius: string) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'shorthands/borderRadius.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   const uppercaseSide = capitalizeString(side)

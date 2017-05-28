@@ -1,8 +1,8 @@
 // @flow
-import messageHandlers, {
-  customRules,
-  typeChecks,
-} from '../internalHelpers/_messageHandlers'
+import validateModule, {
+  customRule,
+  typeCheck,
+} from '../validation/_validateModule'
 
 /** */
 type RadialGradientConfiguration = {
@@ -83,10 +83,10 @@ function radialGradient(config: RadialGradientConfiguration) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/radialGradient.js', {
+      !validateModule('mixins/radialGradient.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, exactly: 1 },
-        typeChecks: {
+        typeCheck: {
           param: config,
           type: 'object',
           required: 'requires a config object as its only parameter. However, you did not provide one.',
@@ -102,7 +102,7 @@ function radialGradient(config: RadialGradientConfiguration) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !typeChecks('mixins/radialGradient.js', [
+      !typeCheck('mixins/radialGradient.js', [
         {
           param: colorStops,
           type: 'array',
@@ -113,7 +113,7 @@ function radialGradient(config: RadialGradientConfiguration) {
         { param: position, type: 'string' },
         { param: shape, type: 'string' },
       ]) ||
-      !customRules('mixins/radialGradient.js', {
+      !customRule('mixins/radialGradient.js', {
         enforce: colorStops.length > 1,
         msg: `expects an array of at least 2 color-stops. However, the one you provided only had ${colorStops.length}.`,
       })

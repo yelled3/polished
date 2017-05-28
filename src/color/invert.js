@@ -1,7 +1,7 @@
 // @flow
 import parseToRgb from './parseToRgb'
 import toColorString from './toColorString'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Inverts the red, green and blue values of a color.
@@ -30,7 +30,7 @@ function invert(color: string): string {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/invert.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   // parse color string to rgb

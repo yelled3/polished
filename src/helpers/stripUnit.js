@@ -1,5 +1,5 @@
 // @flow
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
@@ -26,7 +26,7 @@ function stripUnit(value: string): number | string {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'helpers/stripUnit.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   const unitlessValue = parseFloat(value)

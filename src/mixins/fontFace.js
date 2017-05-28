@@ -1,8 +1,8 @@
 // @flow
-import messageHandlers, {
-  customRules,
-  typeChecks,
-} from '../internalHelpers/_messageHandlers'
+import validateModule, {
+  customRule,
+  typeCheck,
+} from '../validation/_validateModule'
 
 /** */
 type FontFaceConfiguration = {
@@ -77,10 +77,10 @@ function fontFace(config: FontFaceConfiguration) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/fontFace.js', {
+      !validateModule('mixins/fontFace.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, exactly: 1 },
-        typeChecks: {
+        typeCheck: {
           param: config,
           type: 'object',
           required: 'requires a config object as its only parameter. However, you did not provide one.',
@@ -106,7 +106,7 @@ function fontFace(config: FontFaceConfiguration) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !typeChecks('mixins/fontFace.js', [
+      !typeCheck('mixins/fontFace.js', [
         {
           param: fontFamily,
           type: 'string',
@@ -121,7 +121,7 @@ function fontFace(config: FontFaceConfiguration) {
         { param: localFonts, type: 'array' },
         { param: unicodeRange, type: 'string' },
       ]) ||
-      !customRules('mixins/fontFace.js', {
+      !customRule('mixins/fontFace.js', {
         enforce: fontFilePath || localFonts,
         msg: 'fontFace expects either the path to the font file(s) or a name of a local copy.',
       })

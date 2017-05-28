@@ -1,6 +1,6 @@
 // @flow
 import directionalProperty from '../helpers/directionalProperty'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -29,7 +29,7 @@ function borderStyle(...values: Array<?string>) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'shorthands/borderStyle.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   return directionalProperty('borderStyle', ...values)

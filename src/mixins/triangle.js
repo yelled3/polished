@@ -1,7 +1,5 @@
 // @flow
-import messageHandlers, {
-  typeChecks,
-} from '../internalHelpers/_messageHandlers'
+import validateModule, { typeCheck } from '../validation/_validateModule'
 
 /** */
 type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
@@ -72,10 +70,10 @@ function triangle(config: TriangleArgs) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/triangle.js', {
+      !validateModule('mixins/triangle.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, exactly: 1 },
-        typeChecks: {
+        typeCheck: {
           param: config,
           type: 'object',
           required: 'requires a config object as its only parameter. However, you did not provide one.',
@@ -97,7 +95,7 @@ function triangle(config: TriangleArgs) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !typeChecks('mixins/triangle.js', [
+      !typeCheck('mixins/triangle.js', [
         // TODO: Needs to be a proper enumberable
         {
           param: pointingDirection,
@@ -132,7 +130,7 @@ function triangle(config: TriangleArgs) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !typeChecks('mixins/triangle.js', [
+      !typeCheck('mixins/triangle.js', [
         {
           param: unitlessHeight,
           type: 'number',

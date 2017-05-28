@@ -2,7 +2,7 @@
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import curry from '../internalHelpers/_curry'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Changes the hue of the color. Hue is a number between 0 to 360. The first
@@ -32,7 +32,7 @@ function adjustHue(degree: number, color: string): string {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/adjustHue.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   const hslColor = parseToHsl(color)

@@ -1,5 +1,5 @@
 // @flow
-import messageHandlers from '../internalHelpers/_messageHandlers'
+import validateModule from '../validation/_validateModule'
 
 /**
  * CSS to hide text to show a background image in a SEO-friendly way.
@@ -31,7 +31,7 @@ function hideText() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      messageHandlers('mixins/hideText.js', {
+      !validateModule('mixins/hideText.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, max: 0 },
       })

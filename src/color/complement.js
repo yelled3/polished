@@ -1,7 +1,7 @@
 // @flow
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 
 /**
  * Returns the complement of the provided color. This is identical to adjustHue(180, <color>).
@@ -29,7 +29,7 @@ function complement(color: string): string {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/complement.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   const hslColor = parseToHsl(color)

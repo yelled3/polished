@@ -1,6 +1,6 @@
 // @flow
 import rgb from './rgb'
-import { deprecatedCheck } from '../internalHelpers/_messageHandlers'
+import deprecationCheck from '../validation/_deprecationCheck'
 import type { RgbaColor } from '../types/color'
 
 /**
@@ -38,7 +38,7 @@ function rgba(
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     const modulePath = 'color/rgba.js'
-    deprecatedCheck(modulePath)
+    deprecationCheck(modulePath)
   }
 
   if (
