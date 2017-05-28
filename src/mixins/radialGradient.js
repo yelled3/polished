@@ -85,11 +85,10 @@ function radialGradient(config: RadialGradientConfiguration) {
     if (
       messageHandlers('mixins/radialGradient.js', {
         // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, exactly: 1, throw: true },
+        arrityCheck: { args: arguments, exactly: 1 },
         typeChecks: {
           param: config,
           type: 'object',
-          throw: true,
           required: 'requires a config object as its only parameter. However, you did not provide one.',
         },
       })
@@ -108,7 +107,6 @@ function radialGradient(config: RadialGradientConfiguration) {
           param: colorStops,
           type: 'array',
           required: 'expects an array of at least 2 color-stops.',
-          throw: true,
         },
         { param: extent, type: 'string' },
         { param: fallback, type: 'string' },

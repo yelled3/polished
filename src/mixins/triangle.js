@@ -74,11 +74,10 @@ function triangle(config: TriangleArgs) {
     if (
       messageHandlers('mixins/triangle.js', {
         // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, exactly: 1, throw: true },
+        arrityCheck: { args: arguments, exactly: 1 },
         typeChecks: {
           param: config,
           type: 'object',
-          throw: true,
           required: 'requires a config object as its only parameter. However, you did not provide one.',
         },
       })
@@ -138,13 +137,11 @@ function triangle(config: TriangleArgs) {
           param: unitlessHeight,
           type: 'number',
           required: 'requires a pixel based value for height.',
-          throw: true,
         },
         {
           param: unitlessWidth,
           type: 'number',
           required: 'requires a pixel based value for width.',
-          throw: true,
         },
       ])
     ) {
