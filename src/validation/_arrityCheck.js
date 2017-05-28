@@ -1,6 +1,11 @@
 // @flow
 import message from './_message'
 
+/**
+ * Handles arrity validation of polished modules.
+ * @private
+ */
+
 function arrityCheck(modulePath: string, msgConfig: Object) {
   if (msgConfig.exactly && msgConfig.args.length !== msgConfig.exactly) {
     if (msgConfig.args.length > msgConfig.exactly) {

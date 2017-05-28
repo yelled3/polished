@@ -1,3 +1,5 @@
+// @flow
+
 const deprecated = {
   'mixins/placeholder.js': {
     version: '3.0',

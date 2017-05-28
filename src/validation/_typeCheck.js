@@ -1,6 +1,11 @@
 // @flow
 import message from './_message'
 
+/**
+ * Handles type validation of polished modules.
+ * @private
+ */
+
 function validateType(param: any, type: string, map: Object | Array<any>) {
   switch (type) {
     case 'array':

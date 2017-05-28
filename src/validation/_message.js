@@ -1,5 +1,10 @@
 // @flow
 
+/**
+ * Formats and generates validation messages for polished modules
+ * @private
+ */
+
 function formatMessage(
   type: string,
   messageBody: string,
