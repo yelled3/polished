@@ -1,4 +1,18 @@
-exports[`wordWrap should accept other values 1`] = `Object {}`;
+exports[`wordWrap should accept break-word and properly set word-break to break-all 1`] = `
+Object {
+  "overflowWrap": "break-word",
+  "wordBreak": "break-all",
+  "wordWrap": "break-word",
+}
+`;
+
+exports[`wordWrap should accept normal as a value 1`] = `
+Object {
+  "overflowWrap": "normal",
+  "wordBreak": "normal",
+  "wordWrap": "normal",
+}
+`;
 
 exports[`wordWrap should default wrap to break-word 1`] = `
 Object {
@@ -85,7 +99,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/wordWrap.js --%c
 
-wordWrap %creceived an enumerable value(break-things) that was not one of the available options.
+wordWrap %creceived an enumerable value(break-all) that was not one of the available options.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#wordWrap%c for more information.",
     "font-weight: bold; color: black",

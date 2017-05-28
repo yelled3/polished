@@ -1,7 +1,7 @@
 // @flow
 import messageHandlers from '../internalHelpers/_messageHandlers'
 
-type WrapKeywords = 'break-all' | 'normal'
+type WrapKeywords = 'break-all' | 'break-word' | 'normal'
 
 const wrapKeywords = ['break-word', 'normal']
 
@@ -11,19 +11,19 @@ const wrapKeywords = ['break-word', 'normal']
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...wordWrap('break-all')
+ *   ...wordWrap('break-word')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${wordWrap('break-all')}
+ *   ${wordWrap('break-word')}
  * `
  *
  * // CSS as JS Output
  *
  * const styles = {
- *   overflowWrap: 'break-all',
- *   wordWrap: 'break-all',
+ *   overflowWrap: 'break-word',
+ *   wordWrap: 'break-word',
  *   wordBreak: 'break-all',
  * }
  */

@@ -56,3 +56,250 @@ Object {
   },
 }
 `;
+
+exports[`fontFace should throw a warning when passed more than one parameter 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when not passed a fontFilePath or localFonts 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cfontFace expects either the path to the font file(s) or a name of a local copy.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when not passed a value for fontFamily 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a value for fontFamily that provides a name of a font-family(string).
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when not provided any parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects 1 parameter. However, you only passed 0 parameters. Please provide 1 additional parameter.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %crequires a config object as its only parameter. However, you did not provide one.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when passed a non-array value for localFonts 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a 8th parameter of type array. However, you passed sans-pro(string) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when passed a non-object value 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a parameter of type object. However, you passed 1(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when passed a non-string value for fontFamily 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a 1st parameter of type string. However, you passed 100(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when passed a non-string value for fontFilePath 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a 2nd parameter of type string. However, you passed 100(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when passed a non-string value for fontStretch 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a 3rd parameter of type string. However, you passed true(boolean) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when passed a non-string value for fontStyle 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a 4th parameter of type string. However, you passed 100(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when passed a non-string value for fontVariant 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a 5th parameter of type string. However, you passed 100(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when passed a non-string value for fontWeight 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a 6th parameter of type string. However, you passed true(boolean) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`fontFace should throw an error when passed a non-string value for unicodeRange 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
+
+fontFace %cexpects a 9th parameter of type string. However, you passed 26(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;

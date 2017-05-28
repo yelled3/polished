@@ -2,6 +2,20 @@
 import fontFace from '../fontFace'
 
 describe('fontFace', () => {
+  beforeAll(() => {
+    global.console = {
+      error: jest.fn(),
+      warn: jest.fn(),
+    }
+  })
+
+  afterEach(() => {
+    // eslint-disable-next-line no-console
+    console.error.mockClear()
+    // eslint-disable-next-line no-console
+    console.warn.mockClear()
+  })
+
   it('should return a valid object when passed just a family and source', () => {
     expect({
       ...fontFace({
@@ -64,44 +78,132 @@ describe('fontFace', () => {
     }).toMatchSnapshot()
   })
 
-  it('should throw an error when not passed a fontfamily', () => {
-    expect(() => {
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-      fontFace({
-        fontFilePath: 'path/to/file',
-      })
-    }).toThrow('fontFace expects a name of a font-family.')
-  })
-
-  it('should throw an error when not passed a file path or a local source', () => {
-    expect(() => {
-      fontFace({
+  it('should throw a warning when passed more than one parameter', () => {
+    fontFace(
+      {
         fontFamily: 'Sans Pro',
-      })
-    }).toThrow(
-      'fontFace expects either the path to the font file(s) or a name of a local copy.',
+        localFonts: ['sans-pro'],
+        fontFilePath: 'path/to/file',
+      },
+      1,
     )
+    // eslint-disable-next-line no-console
+    expect(console.warn.mock.calls).toMatchSnapshot()
   })
 
-  it('should throw an error when localFonts is not an array', () => {
-    expect(() => {
-      fontFace({
-        fontFamily: 'Sans Pro',
-        fontFilePath: 'path/to/file',
-        // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-        localFonts: 'Helvetica',
-      })
-    }).toThrow('fontFace expects localFonts to be an array.')
+  it('should throw an error when not provided any parameters', () => {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    fontFace()
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
   })
 
-  it('should throw an error when fileFormats is not an array', () => {
-    expect(() => {
-      fontFace({
-        fontFamily: 'Sans Pro',
-        fontFilePath: 'path/to/file',
-        // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-        fileFormats: 'svg',
-      })
-    }).toThrow('fontFace expects fileFormats to be an array.')
+  it('should throw an error when passed a non-object value', () => {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    fontFace(1)
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when not passed a value for fontFamily', () => {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    fontFace({
+      fontFilePath: 'path/to/file',
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string value for fontFamily', () => {
+    fontFace({
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      fontFamily: 100,
+      fontFilePath: 'path/to/file',
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string value for fontFilePath', () => {
+    fontFace({
+      fontFamily: 'Sans Pro',
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      fontFilePath: 100,
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string value for fontStyle', () => {
+    fontFace({
+      fontFamily: 'Sans Pro',
+      fontFilePath: 'path/to/file',
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      fontStyle: 100,
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string value for fontStretch', () => {
+    fontFace({
+      fontFamily: 'Sans Pro',
+      fontFilePath: 'path/to/file',
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      fontStretch: true,
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string value for fontWeight', () => {
+    fontFace({
+      fontFamily: 'Sans Pro',
+      fontFilePath: 'path/to/file',
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      fontWeight: true,
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string value for fontVariant', () => {
+    fontFace({
+      fontFamily: 'Sans Pro',
+      fontFilePath: 'path/to/file',
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      fontVariant: 100,
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-array value for localFonts', () => {
+    fontFace({
+      fontFamily: 'Sans Pro',
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      localFonts: 'sans-pro',
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string value for unicodeRange', () => {
+    fontFace({
+      fontFamily: 'Sans Pro',
+      fontFilePath: 'path/to/file',
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      unicodeRange: 26,
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when not passed a fontFilePath or localFonts', () => {
+    fontFace({
+      fontFamily: 'Sans Pro',
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
   })
 })

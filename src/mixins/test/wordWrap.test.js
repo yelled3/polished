@@ -16,9 +16,15 @@ describe('wordWrap', () => {
     console.warn.mockClear()
   })
 
-  it('should accept other values', () => {
+  it('should accept break-word and properly set word-break to break-all', () => {
     expect({
-      ...wordWrap('break-all'),
+      ...wordWrap('break-word'),
+    }).toMatchSnapshot()
+  })
+
+  it('should accept normal as a value', () => {
+    expect({
+      ...wordWrap('normal'),
     }).toMatchSnapshot()
   })
 
@@ -36,7 +42,7 @@ describe('wordWrap', () => {
   })
 
   it('should throw an error when called with an invalid string value', () => {
-    wordWrap('break-things')
+    wordWrap('break-all')
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })

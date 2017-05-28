@@ -1,5 +1,6 @@
 // @flow
 import messageHandlers, {
+  customRules,
   typeChecks,
 } from '../internalHelpers/_messageHandlers'
 
@@ -110,25 +111,24 @@ function fontFace(config: FontFaceConfiguration) {
         {
           param: fontFamily,
           type: 'string',
-          required: 'expects parameter to have a key of fontFamily that provides a name of a font-family(string).',
+          required: 'expects a value for fontFamily that provides a name of a font-family(string).',
         },
         { param: fontFilePath, type: 'string' },
         { param: fontStretch, type: 'string' },
         { param: fontStyle, type: 'string' },
         { param: fontVariant, type: 'string' },
-        { param: fileFormats, type: 'array', throw: true },
+        { param: fontWeight, type: 'string' },
+        { param: fileFormats, type: 'array' },
         { param: localFonts, type: 'array' },
         { param: unicodeRange, type: 'string' },
-      ])
+      ]) ||
+      !customRules('mixins/fontFace.js', {
+        enforce: fontFilePath || localFonts,
+        msg: 'fontFace expects either the path to the font file(s) or a name of a local copy.',
+      })
     ) {
       return {}
     }
-  }
-
-  if (!fontFilePath && !localFonts) {
-    throw new Error(
-      'fontFace expects either the path to the font file(s) or a name of a local copy.',
-    )
   }
 
   const fontFaceDeclaration = {
