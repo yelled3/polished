@@ -9,20 +9,33 @@ import typeCheck from './_typeCheck'
  * @private
  */
 
+function setValidationStatus(currentStatus, newStatus) {
+  return !currentStatus ? currentStatus : newStatus
+}
+
 function validateModule(modulePath: string, msgConfig?: Object) {
-  let messageStatus
   deprecationCheck(modulePath)
-  if (!msgConfig) return false
+  if (!msgConfig) return true
+  let validationStatus = true
   if (msgConfig.arrityCheck) {
-    messageStatus = arrityCheck(modulePath, msgConfig.arrityCheck)
+    validationStatus = setValidationStatus(
+      validationStatus,
+      arrityCheck(modulePath, msgConfig.arrityCheck),
+    )
   }
   if (msgConfig.typeCheck) {
-    messageStatus = typeCheck(modulePath, msgConfig.typeCheck)
+    validationStatus = setValidationStatus(
+      validationStatus,
+      typeCheck(modulePath, msgConfig.typeCheck),
+    )
   }
   if (msgConfig.customRule) {
-    messageStatus = customRule(modulePath, msgConfig.customRules)
+    validationStatus = setValidationStatus(
+      validationStatus,
+      customRule(modulePath, msgConfig.customRules),
+    )
   }
-  return messageStatus
+  return validationStatus
 }
 
 export { arrityCheck, customRule, deprecationCheck, typeCheck }
