@@ -10,8 +10,14 @@ import message from './_message'
 function deprecationCheck(modulePath: string) {
   const deprecationInfo = deprecated[modulePath]
   if (deprecationInfo) {
-    const messageBody = `will be deprecated as of version ${deprecationInfo.version} of ✨ polished. ${deprecationInfo.guidance}`
-    message('warning', messageBody, modulePath)
+    const messageBody = `will be deprecated as of %cversion ${deprecationInfo.version}%c of ✨ polished. ${deprecationInfo.guidance}`
+    const additionalStyles = [
+      'color: black; font-size: 12px; font-weight: bold;',
+      'color: black; font-size: 12px',
+      'color: black; font-size: 12px; font-weight: bold;',
+      'color: black; font-size: 12px',
+    ]
+    message('warning', messageBody, modulePath, additionalStyles)
   }
   return true
 }

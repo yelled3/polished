@@ -38,11 +38,15 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+radialGradient %cexpects %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -74,11 +78,15 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects 1 parameter. However, you only passed 0 parameters. Please provide 1 additional parameter.
+radialGradient %cexpects %c1 parameter%c. However, you passed %c0 parameters%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: red",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

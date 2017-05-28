@@ -147,11 +147,15 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/timingFunctions.js --%c
 
-timingFunctions %cexpects 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+timingFunctions %cexpects %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#timingFunctions%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

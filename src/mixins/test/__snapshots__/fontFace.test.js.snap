@@ -62,11 +62,15 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects 1 parameter. However, you passed 2 parameters. These additional parameters were ignored.
+fontFace %cexpects %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -116,11 +120,15 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects 1 parameter. However, you only passed 0 parameters. Please provide 1 additional parameter.
+fontFace %cexpects %c1 parameter%c. However, you passed %c0 parameters%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: red",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

@@ -11,14 +11,16 @@ function capitalizeString(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+//      
+
 var deprecated = {
   'mixins/placeholder.js': {
     version: '3.0',
-    guidance: 'You should use the ::placeholder pseudo-element instead.'
+    guidance: 'You should use the %c::placeholder pseudo-element%c instead.'
   },
   'mixins/selection.js': {
     version: '3.0',
-    guidance: 'You should use the ::selection pseudo-element instead.'
+    guidance: 'You should use the %c::selection pseudo-element%c instead.'
   }
 };
 
@@ -150,7 +152,31 @@ var taggedTemplateLiteral = function (strings, raw) {
   }));
 };
 
+
+
+
+
+
+
+
+
+var toConsumableArray = function (arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  } else {
+    return Array.from(arr);
+  }
+};
+
 //      
+
+/**
+ * Formats and generates validation messages for polished modules
+ * @private
+ */
+
 function formatMessage(type, messageBody, moduleName, modulePath) {
   var header = '%c \u2728 ' + type.toUpperCase() + ' \u2728 ---- ' + modulePath + ' --';
 
@@ -162,124 +188,41 @@ function formatMessage(type, messageBody, moduleName, modulePath) {
 }
 
 function message(type, messageBody, modulePath) {
+  var additionalStyles = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
+
   var moduleNameMatch = modulePath.match(/([^/]+)(?=\.\w+$)/);
   var moduleName = moduleNameMatch ? moduleNameMatch[0] : '';
   var formattedMessage = formatMessage(type, messageBody, moduleName, modulePath);
   var headerStyles = 'font-weight: bold; color: black';
-  var messageStyles = ['color: black; font-size: 12px; font-weight: bold', 'color: black; font-size: 12px', 'color: gray; line-height: 1.4', 'color: blue; line-height: 1.4', 'color: gray; line-height: 1.4'];
+  var messageStyles = ['color: black; font-size: 12px; font-weight: bold', 'color: black; font-size: 12px'].concat(toConsumableArray(additionalStyles), ['color: gray; line-height: 1.4', 'color: blue; line-height: 1.4', 'color: gray; line-height: 1.4']);
 
   if (type === 'error') {
     var _console;
 
     // eslint-disable-next-line no-console
-    (_console = console).error.apply(_console, [formattedMessage, headerStyles].concat(messageStyles));
+    (_console = console).error.apply(_console, [formattedMessage, headerStyles].concat(toConsumableArray(messageStyles)));
   } else {
     var _console2;
 
     // eslint-disable-next-line no-console
-    (_console2 = console).warn.apply(_console2, [formattedMessage, headerStyles].concat(messageStyles));
+    (_console2 = console).warn.apply(_console2, [formattedMessage, headerStyles].concat(toConsumableArray(messageStyles)));
   }
 }
 
-function arrityCheck(modulePath, msgConfig) {
-  if (msgConfig.exactly && msgConfig.args.length !== msgConfig.exactly) {
-    if (msgConfig.args.length > msgConfig.exactly) {
-      var messageBody = 'expects ' + msgConfig.exactly + ' ' + (msgConfig.exactly === 1 ? 'parameter' : 'parameters') + '. However, you passed ' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '. These additional parameters were ignored.';
-      message('warning', messageBody, modulePath, 110);
-    } else {
-      var _messageBody = 'expects ' + msgConfig.exactly + ' ' + (msgConfig.exactly === 1 ? 'parameter' : 'parameters') + '. However, you only passed ' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '. Please provide ' + (msgConfig.exactly - msgConfig.args.length) + ' additional ' + (msgConfig.exactly - msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '.';
-      message('error', _messageBody, modulePath, 210);
-      if (msgConfig.throw) return false;
-    }
-  }
-
-  if (msgConfig.min && msgConfig.args.length < msgConfig.min) {
-    var _messageBody2 = 'expects a minimum of ' + msgConfig.min + ' ' + (msgConfig.min === 1 ? 'parameter' : 'parameters') + '. However, you only passed ' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '.';
-    message('error', _messageBody2, modulePath, 211);
-    if (msgConfig.throw) return false;
-  }
-
-  if ((msgConfig.max || msgConfig.max === 0) && msgConfig.args.length > msgConfig.max) {
-    var _messageBody3 = 'expects a maximum of ' + msgConfig.max + ' ' + (msgConfig.max === 1 ? 'parameter' : 'parameters') + '. However, you passed ' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '. ' + (msgConfig.args.length === 1 ? 'This additional parameter was' : 'These additional parameters were') + ' ignored.';
-    message('warning', _messageBody3, modulePath, 111);
-  }
-  return true;
-}
-
-function deprecatedCheck(modulePath) {
-  var deprecationInfo = deprecated[modulePath];
-  if (deprecationInfo) {
-    var messageBody = 'will be deprecated as of version ' + deprecationInfo.version + ' of \u2728 polished. ' + deprecationInfo.guidance;
-    message('warning', messageBody, modulePath, 100);
-  }
-  return true;
-}
-
-function checkType(param, type, map) {
-  switch (type) {
-    case 'array':
-      return Array.isArray(param);
-    case 'object':
-      return (typeof param === 'undefined' ? 'undefined' : _typeof(param)) === 'object' && param !== null;
-    case 'enumerable':
-      if (Array.isArray(map)) return map.includes(param);
-      return map[param];
-    default:
-      // eslint-disable-next-line valid-typeof
-      return (typeof param === 'undefined' ? 'undefined' : _typeof(param)) === type;
-  }
-}
-
-var ordinal = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'];
-
-function typeChecks(modulePath, msgConfig) {
-  if (Array.isArray(msgConfig)) {
-    msgConfig.forEach(function (config, index) {
-      if (config.param && !checkType(config.param, config.type, config.map)) {
-        var messageBody = 'expects a ' + ordinal[index] + ' parameter of type ' + config.type + '. However, you passed ' + config.param + '(' + _typeof(config.param) + ') instead.';
-        message('error', messageBody, modulePath, 220);
-        if (msgConfig.throw) return false;
-      }
-      if (!config.param && config.required) {
-        message('error', config.required, modulePath, 221);
-        if (msgConfig.throw) return false;
-      }
-    });
-    return true;
-  } else {
-    if (msgConfig.param && !checkType(msgConfig.param, msgConfig.type, msgConfig.map)) {
-      var messageBody = void 0;
-      if (msgConfig.type === 'enumerable') {
-        messageBody = 'received an enumerable value(' + msgConfig.param + ') that was not one of the available options.';
-      } else {
-        messageBody = 'expects a parameter of type ' + msgConfig.type + '. However, you passed ' + msgConfig.param + '(' + _typeof(msgConfig.param) + ') instead.';
-      }
-      message('error', messageBody, modulePath, 220);
-      if (msgConfig.throw) return false;
-    }
-    if (!msgConfig.param && msgConfig.required) {
-      message('error', msgConfig.required, modulePath, 221);
-      if (msgConfig.throw) return false;
-    }
-    return true;
-  }
-}
-
+//      
 /**
- * Handles the formatting of errors and warnings generated by modules.
+ * Handles deprecation validation of polished modules.
  * @private
  */
 
-function messageHandlers(modulePath, msgConfig) {
-  var messageStatus = void 0;
-  deprecatedCheck(modulePath);
-  if (msgConfig && msgConfig.arrityCheck) {
-    messageStatus = arrityCheck(modulePath, msgConfig.arrityCheck);
+function deprecationCheck(modulePath) {
+  var deprecationInfo = deprecated[modulePath];
+  if (deprecationInfo) {
+    var messageBody = 'will be deprecated as of %cversion ' + deprecationInfo.version + '%c of \u2728 polished. ' + deprecationInfo.guidance;
+    var additionalStyles = ['color: black; font-size: 12px; font-weight: bold;', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold;', 'color: black; font-size: 12px'];
+    message('warning', messageBody, modulePath, additionalStyles);
   }
-  if (msgConfig && msgConfig.typeChecks) {
-    messageStatus = typeChecks(modulePath, msgConfig.typeChecks);
-  }
-  return !messageStatus;
+  return true;
 }
 
 //      
@@ -335,7 +278,7 @@ function directionalProperty(property) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'helpers/directionalProperty.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
   //  prettier-ignore
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
@@ -392,7 +335,7 @@ function stripUnit(value) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'helpers/stripUnit.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var unitlessValue = parseFloat(value);
@@ -516,7 +459,7 @@ function modularScale(steps) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'helpers/modularScale.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   if (typeof steps !== 'number') {
@@ -564,6 +507,141 @@ var rem = pxtoFactory$1('rem');
 
 //      
 /**
+ * Handles arrity validation of polished modules.
+ * @private
+ */
+
+function arrityCheck(modulePath, msgConfig) {
+  if (msgConfig.exactly && msgConfig.args.length !== msgConfig.exactly) {
+    if (msgConfig.args.length > msgConfig.exactly) {
+      var messageBody = 'expects %c' + msgConfig.exactly + ' ' + (msgConfig.exactly === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '%c. ' + (msgConfig.args.length === 1 ? 'This additional parameter was' : 'These additional parameters were') + ' ignored.';
+      var additionalStyles = ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: goldenrod', 'color: black; font-size: 12px'];
+      message('warning', messageBody, modulePath, additionalStyles);
+    } else {
+      var _messageBody = 'expects %c' + msgConfig.exactly + ' ' + (msgConfig.exactly === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '%c.';
+      var _additionalStyles = ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: red', 'color: black; font-size: 12px'];
+      message('error', _messageBody, modulePath, _additionalStyles);
+      return false;
+    }
+  }
+
+  if (msgConfig.min && msgConfig.args.length < msgConfig.min) {
+    var _messageBody2 = 'expects a minimum of %c' + msgConfig.min + ' ' + (msgConfig.min === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '%c.';
+    var _additionalStyles2 = ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: red', 'color: black; font-size: 12px'];
+    message('error', _messageBody2, modulePath, _additionalStyles2);
+    return false;
+  }
+
+  if ((msgConfig.max || msgConfig.max === 0) && msgConfig.args.length > msgConfig.max) {
+    var _messageBody3 = 'expects a maximum of %c' + msgConfig.max + ' ' + (msgConfig.max === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '%c. ' + (msgConfig.args.length === 1 ? 'This additional parameter was' : 'These additional parameters were') + ' ignored.';
+    var _additionalStyles3 = ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: goldenrod', 'color: black; font-size: 12px'];
+    message('warning', _messageBody3, modulePath, _additionalStyles3);
+  }
+  return true;
+}
+
+//      
+/**
+ * Handles custom validation of polished modules.
+ * @private
+ */
+
+function customRule(modulePath, msgConfig) {
+  if (!msgConfig.enforce) {
+    message('error', msgConfig.msg, modulePath);
+    return false;
+  }
+  return true;
+}
+
+//      
+/**
+ * Handles type validation of polished modules.
+ * @private
+ */
+
+function validateType(param, type, map) {
+  switch (type) {
+    case 'array':
+      return Array.isArray(param);
+    case 'object':
+      return (typeof param === 'undefined' ? 'undefined' : _typeof(param)) === 'object' && param !== null;
+    case 'enumerable':
+      if (Array.isArray(map)) return map.includes(param);
+      return map[param];
+    default:
+      // eslint-disable-next-line valid-typeof
+      return (typeof param === 'undefined' ? 'undefined' : _typeof(param)) === type;
+  }
+}
+
+var ordinal = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'];
+
+function setReturnStatus(currentStatus, newStatus) {
+  return !currentStatus ? currentStatus : newStatus;
+}
+
+function typeCheck(modulePath, msgConfig) {
+  if (Array.isArray(msgConfig)) {
+    var returnStatus = true;
+    msgConfig.forEach(function (config, index) {
+      if (config.param && !validateType(config.param, config.type, config.map)) {
+        var messageBody = 'expects a ' + ordinal[index] + ' parameter of type ' + config.type + '. However, you passed ' + config.param + '(' + _typeof(config.param) + ') instead.';
+        message('error', messageBody, modulePath);
+        returnStatus = setReturnStatus(returnStatus, false);
+        return;
+      }
+      if (!config.param && config.required) {
+        message('error', config.required, modulePath);
+        returnStatus = setReturnStatus(returnStatus, false);
+        return;
+      }
+      returnStatus = setReturnStatus(returnStatus, true);
+    });
+    return returnStatus;
+  } else {
+    if (msgConfig.param && !validateType(msgConfig.param, msgConfig.type, msgConfig.map)) {
+      var messageBody = void 0;
+      if (msgConfig.type === 'enumerable') {
+        messageBody = 'received an enumerable value(' + msgConfig.param + ') that was not one of the available options.';
+      } else {
+        messageBody = 'expects a parameter of type ' + msgConfig.type + '. However, you passed ' + msgConfig.param + '(' + _typeof(msgConfig.param) + ') instead.';
+      }
+      message('error', messageBody, modulePath);
+      return false;
+    }
+    if (!msgConfig.param && msgConfig.required) {
+      message('error', msgConfig.required, modulePath);
+      return false;
+    }
+    return true;
+  }
+}
+
+//      
+/**
+ * Handles validation of polished modules.
+ * @private
+ */
+
+function validateModule(modulePath, msgConfig) {
+  var messageStatus = void 0;
+  deprecationCheck(modulePath);
+  if (!msgConfig) return false;
+  if (msgConfig.arrityCheck) {
+    messageStatus = arrityCheck(modulePath, msgConfig.arrityCheck);
+  }
+  if (msgConfig.typeCheck) {
+    messageStatus = typeCheck(modulePath, msgConfig.typeCheck);
+  }
+  if (msgConfig.customRule) {
+    messageStatus = customRule(modulePath, msgConfig.customRules);
+  }
+  return messageStatus;
+}
+
+//      
+/**
  * CSS to contain a float (credit to CSSMojo).
  *
  * @example
@@ -591,10 +669,10 @@ function clearFix() {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/clearFix.js', {
+    if (!validateModule('mixins/clearFix.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, max: 1 },
-      typeChecks: { param: parent, type: 'string' }
+      typeCheck: { param: parent, type: 'string' }
     })) {
       return {};
     }
@@ -640,10 +718,10 @@ function ellipsis() {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/ellipsis.js', {
+    if (!validateModule('mixins/ellipsis.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, max: 1 },
-      typeChecks: { param: width, type: 'string' }
+      typeCheck: { param: width, type: 'string' }
     })) {
       return {};
     }
@@ -716,13 +794,12 @@ function generateSources(fontFilePath, localFonts, fileFormats) {
 function fontFace(config) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/fontFace.js', {
+    if (!validateModule('mixins/fontFace.js', {
       // eslint-disable-next-line prefer-rest-params
-      arrityCheck: { args: arguments, exactly: 1, throw: true },
-      typeChecks: {
+      arrityCheck: { args: arguments, exactly: 1 },
+      typeCheck: {
         param: config,
         type: 'object',
-        throw: true,
         required: 'requires a config object as its only parameter. However, you did not provide one.'
       }
     })) {
@@ -744,17 +821,16 @@ function fontFace(config) {
   /* istanbul ignore next */
 
   if (process.env.NODE_ENV !== 'production') {
-    if (!typeChecks('mixins/fontFace.js', [{
+    if (!typeCheck('mixins/fontFace.js', [{
       param: fontFamily,
       type: 'string',
-      required: 'expects parameter to have a key of fontFamily that provides a name of a font-family(string).'
-    }, { param: fontFilePath, type: 'string' }, { param: fontStretch, type: 'string' }, { param: fontStyle, type: 'string' }, { param: fontVariant, type: 'string' }, { param: fileFormats, type: 'array', throw: true }, { param: localFonts, type: 'array' }, { param: unicodeRange, type: 'string' }])) {
+      required: 'expects a value for fontFamily that provides a name of a font-family(string).'
+    }, { param: fontFilePath, type: 'string' }, { param: fontStretch, type: 'string' }, { param: fontStyle, type: 'string' }, { param: fontVariant, type: 'string' }, { param: fontWeight, type: 'string' }, { param: fileFormats, type: 'array' }, { param: localFonts, type: 'array' }, { param: unicodeRange, type: 'string' }]) || !customRule('mixins/fontFace.js', {
+      enforce: fontFilePath || localFonts,
+      msg: 'fontFace expects either the path to the font file(s) or a name of a local copy.'
+    })) {
       return {};
     }
-  }
-
-  if (!fontFilePath && !localFonts) {
-    throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.');
   }
 
   var fontFaceDeclaration = {
@@ -803,7 +879,7 @@ function fontFace(config) {
 function hideText() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/hideText.js', {
+    if (!validateModule('mixins/hideText.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, max: 0 }
     })) {
@@ -853,10 +929,10 @@ function hiDPI() {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/hiDPI.js', {
+    if (!validateModule('mixins/hiDPI.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, max: 1 },
-      typeChecks: { param: ratio, type: 'number' }
+      typeCheck: { param: ratio, type: 'number' }
     })) {
       return '';
     }
@@ -1035,10 +1111,10 @@ function normalize() {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/normalize.js', {
+    if (!validateModule('mixins/normalize.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, max: 1 },
-      typeChecks: { param: excludeOpinionated, type: 'boolean' }
+      typeCheck: { param: excludeOpinionated, type: 'boolean' }
     })) {
       return {};
     }
@@ -1088,10 +1164,10 @@ function placeholder(styles) {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/placeholder.js', {
+    if (!validateModule('mixins/placeholder.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, min: 1, max: 2 },
-      typeChecks: [{ param: styles, type: 'object' }, { param: parent, type: 'string' }]
+      typeCheck: [{ param: styles, type: 'object' }, { param: parent, type: 'string' }]
     })) {
       return {};
     }
@@ -1163,13 +1239,12 @@ function constructGradientValue(literals) {
 function radialGradient(config) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/radialGradient.js', {
+    if (!validateModule('mixins/radialGradient.js', {
       // eslint-disable-next-line prefer-rest-params
-      arrityCheck: { args: arguments, exactly: 1, throw: true },
-      typeChecks: {
+      arrityCheck: { args: arguments, exactly: 1 },
+      typeCheck: {
         param: config,
         type: 'object',
-        throw: true,
         required: 'requires a config object as its only parameter. However, you did not provide one.'
       }
     })) {
@@ -1186,13 +1261,14 @@ function radialGradient(config) {
   /* istanbul ignore next */
 
   if (process.env.NODE_ENV !== 'production') {
-    if (!typeChecks('mixins/fontFace.js', [{
+    if (!typeCheck('mixins/radialGradient.js', [{
       param: colorStops,
       type: 'array',
-      minLength: 2,
-      required: 'expects an array of at least 2 color-stops.',
-      throw: true
-    }, { param: extent, type: 'string' }, { param: fallback, type: 'string' }, { param: position, type: 'string' }, { param: shape, type: 'string' }])) {
+      required: 'expects an array of at least 2 color-stops.'
+    }, { param: extent, type: 'string' }, { param: fallback, type: 'string' }, { param: position, type: 'string' }, { param: shape, type: 'string' }]) || !customRule('mixins/radialGradient.js', {
+      enforce: colorStops.length > 1,
+      msg: 'expects an array of at least 2 color-stops. However, the one you provided only had ' + colorStops.length + '.'
+    })) {
       return {};
     }
   }
@@ -1239,10 +1315,10 @@ function retinaImage(fileName, backgroundSize) {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/placeholder.js', {
+    if (!validateModule('mixins/placeholder.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, min: 1, max: 5 },
-      typeChecks: [{
+      typeCheck: [{
         param: fileName,
         type: 'string',
         required: 'requires a fileName as its first parameter. However, you did not provide one.'
@@ -1302,10 +1378,10 @@ function selection(styles) {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/selection.js', {
+    if (!validateModule('mixins/selection.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, min: 1, max: 2 },
-      typeChecks: [{ param: styles, type: 'object' }, { param: parent, type: 'string' }]
+      typeCheck: [{ param: styles, type: 'object' }, { param: parent, type: 'string' }]
     })) {
       return {};
     }
@@ -1370,10 +1446,10 @@ var functionsMap = {
 function timingFunctions(timingFunction) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/timingFunctions.js', {
+    if (!validateModule('mixins/timingFunctions.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, exactly: 1 },
-      typeChecks: {
+      typeCheck: {
         param: timingFunction,
         type: 'enumerable',
         map: functionsMap,
@@ -1399,10 +1475,8 @@ var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
     case 'bottom':
       return height + 'px ' + width / 2 + 'px 0 ' + width / 2 + 'px';
     case 'right':
-      return height / 2 + 'px 0 ' + height / 2 + 'px ' + width + 'px';
-
     default:
-      throw new Error("Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'.");
+      return height / 2 + 'px 0 ' + height / 2 + 'px ' + width + 'px';
   }
 };
 
@@ -1445,10 +1519,14 @@ var reverseDirection = {
 function triangle(config) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/triangle.js', {
+    if (!validateModule('mixins/triangle.js', {
       // eslint-disable-next-line prefer-rest-params
-      arrityCheck: { args: arguments, exactly: 1, throw: true },
-      typeChecks: { param: config, type: 'object', throw: true }
+      arrityCheck: { args: arguments, exactly: 1 },
+      typeCheck: {
+        param: config,
+        type: 'object',
+        required: 'requires a config object as its only parameter. However, you did not provide one.'
+      }
     })) {
       return {};
     }
@@ -1464,7 +1542,7 @@ function triangle(config) {
   /* istanbul ignore next */
 
   if (process.env.NODE_ENV !== 'production') {
-    if (!typeChecks('mixins/fontFace.js', [
+    if (!typeCheck('mixins/triangle.js', [
     // TODO: Needs to be a proper enumberable
     {
       param: pointingDirection,
@@ -1473,15 +1551,15 @@ function triangle(config) {
     }, {
       param: height,
       type: 'string',
-      required: 'expects a value(string) for height. However, you did not pass one.'
+      required: 'expects a value(string) for height. However, you did not provide one.'
     }, {
       param: width,
       type: 'string',
-      required: 'expects a value(string) for width. However, you did not pass one.'
+      required: 'expects a value(string) for width. However, you did not provide one.'
     }, {
       param: foregroundColor,
       type: 'string',
-      required: 'expects a value(string) for foregroundColor. However, you did not parovide one.'
+      required: 'expects a value(string) for foregroundColor. However, you did not provide one.'
     }, { param: backgroundColor, type: 'string' }])) {
       return {};
     }
@@ -1492,16 +1570,14 @@ function triangle(config) {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (!typeChecks('mixins/fontFace.js', [{
+    if (!typeCheck('mixins/triangle.js', [{
       param: unitlessHeight,
       type: 'number',
-      required: 'requires a pixel based value for height.',
-      throw: true
+      required: 'requires a pixel based value for height.'
     }, {
       param: unitlessWidth,
       type: 'number',
-      required: 'requires a pixel based value for width.',
-      throw: true
+      required: 'requires a pixel based value for width.'
     }])) {
       return {};
     }
@@ -1525,19 +1601,19 @@ var wrapKeywords = ['break-word', 'normal'];
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...wordWrap('break-all')
+ *   ...wordWrap('break-word')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${wordWrap('break-all')}
+ *   ${wordWrap('break-word')}
  * `
  *
  * // CSS as JS Output
  *
  * const styles = {
- *   overflowWrap: 'break-all',
- *   wordWrap: 'break-all',
+ *   overflowWrap: 'break-word',
+ *   wordWrap: 'break-word',
  *   wordBreak: 'break-all',
  * }
  */
@@ -1547,10 +1623,10 @@ function wordWrap() {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    if (messageHandlers('mixins/wordWrap.js', {
+    if (!validateModule('mixins/wordWrap.js', {
       // eslint-disable-next-line prefer-rest-params
       arrityCheck: { args: arguments, max: 1 },
-      typeChecks: { param: wrap, type: 'enumerable', map: wrapKeywords }
+      typeCheck: { param: wrap, type: 'enumerable', map: wrapKeywords }
     })) {
       return {};
     }
@@ -1804,7 +1880,7 @@ function parseToRgb(color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/parseToRgb.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   if (typeof color !== 'string') {
@@ -1933,7 +2009,7 @@ function parseToHsl(color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/parseToHsl.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   // Note: At a later stage we can optimize this function as right now a hsl
@@ -1989,7 +2065,7 @@ function rgb(value, green, blue) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/rgb.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
@@ -2032,7 +2108,7 @@ function rgba(value, green, blue, alpha) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/rgba.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number' && typeof alpha === 'number') {
@@ -2086,7 +2162,7 @@ function hsl(value, saturation, lightness) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/hls.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number') {
@@ -2129,7 +2205,7 @@ function hsla(value, saturation, lightness, alpha) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/hsla.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number' && typeof alpha === 'number') {
@@ -2200,7 +2276,7 @@ function toColorString(color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/toColorString.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   if (isRgba(color)) {
@@ -2273,7 +2349,7 @@ function adjustHue(degree, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/adjustHue.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var hslColor = parseToHsl(color);
@@ -2311,7 +2387,7 @@ function complement(color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/complement.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var hslColor = parseToHsl(color);
@@ -2354,7 +2430,7 @@ function darken(amount, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/darken.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var hslColor = parseToHsl(color);
@@ -2394,7 +2470,7 @@ function desaturate(amount, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/desaturate.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var hslColor = parseToHsl(color);
@@ -2432,7 +2508,7 @@ function grayscale(color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/grayscale.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   return toColorString(_extends({}, parseToHsl(color), {
@@ -2468,7 +2544,7 @@ function invert(color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/invert.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   // parse color string to rgb
@@ -2508,7 +2584,7 @@ function lighten(amount, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/lighten.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var hslColor = parseToHsl(color);
@@ -2559,7 +2635,7 @@ function mix() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/mix.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var parsedColor1 = parseToRgb(color);
@@ -2625,7 +2701,7 @@ function opacify(amount, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/opacify.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var parsedColor = parseToRgb(color);
@@ -2668,7 +2744,7 @@ function saturate(amount, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/saturate.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var hslColor = parseToHsl(color);
@@ -2707,7 +2783,7 @@ function setHue(hue, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/setHue.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   return toColorString(_extends({}, parseToHsl(color), {
@@ -2745,7 +2821,7 @@ function setLightness(lightness, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/setLightness.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   return toColorString(_extends({}, parseToHsl(color), {
@@ -2783,7 +2859,7 @@ function setSaturation(saturation, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/setSaturation.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   return toColorString(_extends({}, parseToHsl(color), {
@@ -2821,7 +2897,7 @@ function shade(percentage, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/shade.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {
@@ -2863,7 +2939,7 @@ function tint(percentage, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/tint.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {
@@ -2909,7 +2985,7 @@ function transparentize(amount, color) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'color/transparentize.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var parsedColor = parseToRgb(color);
@@ -2965,7 +3041,7 @@ function animation() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/animation.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   // Allow single or multiple animations passed
@@ -3019,7 +3095,7 @@ function backgroundImages() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/backgroundImages.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, properties = Array(_len), _key = 0; _key < _len; _key++) {
@@ -3055,7 +3131,7 @@ function backgrounds() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/backgrounds.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, properties = Array(_len), _key = 0; _key < _len; _key++) {
@@ -3095,7 +3171,7 @@ function borderColor() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/borderColor.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
@@ -3131,7 +3207,7 @@ function borderRadius(side, radius) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/borderRadius.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   var uppercaseSide = capitalizeString(side);
@@ -3181,7 +3257,7 @@ function borderStyle() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/borderStyle.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
@@ -3219,7 +3295,7 @@ function borderWidth() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/borderWidth.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
@@ -3293,7 +3369,7 @@ function buttons() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/buttons.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, states = Array(_len), _key = 0; _key < _len; _key++) {
@@ -3331,7 +3407,7 @@ function margin() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/margin.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
@@ -3369,7 +3445,7 @@ function padding() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/padding.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
@@ -3429,7 +3505,7 @@ function position(positionKeyword) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/position.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -3474,7 +3550,7 @@ function size(height) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/size.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   return {
@@ -3535,7 +3611,7 @@ function textInputs() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/textInputs.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, states = Array(_len), _key = 0; _key < _len; _key++) {
@@ -3570,7 +3646,7 @@ function transitions() {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     var modulePath = 'shorthands/transitions.js';
-    deprecatedCheck(modulePath);
+    deprecationCheck(modulePath);
   }
 
   for (var _len = arguments.length, properties = Array(_len), _key = 0; _key < _len; _key++) {
