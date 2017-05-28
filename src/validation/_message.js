@@ -1,10 +1,5 @@
 // @flow
 
-/**
- * Formats and generates validation messages for polished modules
- * @private
- */
-
 function formatMessage(
   type: string,
   messageBody: string,
@@ -24,6 +19,15 @@ Please see the documentation at %chttps://polished.js.org/docs/#${moduleName}%c 
   return `${header}${body}${info}`
 }
 
+// Styles
+const headerStyles = 'font-weight: bold; color: black'
+const docStyles = color => `color: ${color}; line-height: 1.4`
+const baseStyles = 'color: black; font-size: 12px'
+
+/**
+ * Formats and generates validation messages for polished modules
+ * @private
+ */
 function message(
   type: string,
   messageBody: string,
@@ -38,14 +42,14 @@ function message(
     moduleName,
     modulePath,
   )
-  const headerStyles = 'font-weight: bold; color: black'
+
   const messageStyles = [
-    'color: black; font-size: 12px; font-weight: bold',
-    'color: black; font-size: 12px',
+    `${baseStyles}; font-weight: bold`,
+    baseStyles,
     ...additionalStyles,
-    'color: gray; line-height: 1.4',
-    'color: blue; line-height: 1.4',
-    'color: gray; line-height: 1.4',
+    docStyles('gray'),
+    docStyles('blue'),
+    docStyles('gray'),
   ]
 
   if (type === 'error') {

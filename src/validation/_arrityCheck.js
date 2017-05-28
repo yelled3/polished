@@ -1,44 +1,66 @@
 // @flow
 import message from './_message'
 
+// Message Styling
+function generateAdditionalStyles(color) {
+  const baseStyle = 'color: black; font-size: 12px'
+  const highlightStyle = `${baseStyle}; font-weight: bold; color:`
+  return [
+    `${highlightStyle} green`,
+    baseStyle,
+    `${highlightStyle} ${color}`,
+    baseStyle,
+  ]
+}
+
+const warningStyles = generateAdditionalStyles('goldenrod')
+const errorStyles = generateAdditionalStyles('red')
+
+// Message Fragments
+const parametersFrag = parameters =>
+  `${parameters === 1 ? 'parameter' : 'parameters'}%c.`
+const actualFrag = actual =>
+  `However, you passed %c${actual} ${parametersFrag(actual)}`
+const additionalFrag = additional =>
+  `${additional === 1 ? 'This additional parameter was' : 'These additional parameters were'} ignored.`
+const expectedFrag = expected =>
+  `expects %c${expected} ${parametersFrag(expected)}`
+const expectedMaxFrag = expected =>
+  `expects a maximum of %c${expected} ${parametersFrag(expected)}`
+const expectedMinFrag = expected =>
+  `expects a minimum of %c${expected} ${parametersFrag(expected)}`
+
 /**
  * Handles arrity validation of polished modules.
  * @private
  */
-
 function arrityCheck(modulePath: string, msgConfig: Object) {
   if (msgConfig.exactly && msgConfig.args.length !== msgConfig.exactly) {
     if (msgConfig.args.length > msgConfig.exactly) {
-      const messageBody = `expects %c${msgConfig.exactly} ${msgConfig.exactly === 1 ? 'parameter' : 'parameters'}%c. However, you passed %c${msgConfig.args.length} ${msgConfig.args.length === 1 ? 'parameter' : 'parameters'}%c. ${msgConfig.args.length === 1 ? 'This additional parameter was' : 'These additional parameters were'} ignored.`
-      const additionalStyles = [
-        'color: black; font-size: 12px; font-weight: bold; color: green',
-        'color: black; font-size: 12px',
-        'color: black; font-size: 12px; font-weight: bold; color: goldenrod',
-        'color: black; font-size: 12px',
-      ]
-      message('warning', messageBody, modulePath, additionalStyles)
+      message(
+        'warning',
+        `${expectedFrag(msgConfig.exactly)} ${actualFrag(msgConfig.args.length)} ${additionalFrag(msgConfig.args.length)}`,
+        modulePath,
+        warningStyles,
+      )
     } else {
-      const messageBody = `expects %c${msgConfig.exactly} ${msgConfig.exactly === 1 ? 'parameter' : 'parameters'}%c. However, you passed %c${msgConfig.args.length} ${msgConfig.args.length === 1 ? 'parameter' : 'parameters'}%c.`
-      const additionalStyles = [
-        'color: black; font-size: 12px; font-weight: bold; color: green',
-        'color: black; font-size: 12px',
-        'color: black; font-size: 12px; font-weight: bold; color: red',
-        'color: black; font-size: 12px',
-      ]
-      message('error', messageBody, modulePath, additionalStyles)
+      message(
+        'error',
+        `${expectedFrag(msgConfig.exactly)} ${actualFrag(msgConfig.args.length)}`,
+        modulePath,
+        errorStyles,
+      )
       return false
     }
   }
 
   if (msgConfig.min && msgConfig.args.length < msgConfig.min) {
-    const messageBody = `expects a minimum of %c${msgConfig.min} ${msgConfig.min === 1 ? 'parameter' : 'parameters'}%c. However, you passed %c${msgConfig.args.length} ${msgConfig.args.length === 1 ? 'parameter' : 'parameters'}%c.`
-    const additionalStyles = [
-      'color: black; font-size: 12px; font-weight: bold; color: green',
-      'color: black; font-size: 12px',
-      'color: black; font-size: 12px; font-weight: bold; color: red',
-      'color: black; font-size: 12px',
-    ]
-    message('error', messageBody, modulePath, additionalStyles)
+    message(
+      'error',
+      `${expectedMinFrag(msgConfig.min)} ${actualFrag(msgConfig.args.length)}`,
+      modulePath,
+      errorStyles,
+    )
     return false
   }
 
@@ -46,14 +68,12 @@ function arrityCheck(modulePath: string, msgConfig: Object) {
     (msgConfig.max || msgConfig.max === 0) &&
     msgConfig.args.length > msgConfig.max
   ) {
-    const messageBody = `expects a maximum of %c${msgConfig.max} ${msgConfig.max === 1 ? 'parameter' : 'parameters'}%c. However, you passed %c${msgConfig.args.length} ${msgConfig.args.length === 1 ? 'parameter' : 'parameters'}%c. ${msgConfig.args.length === 1 ? 'This additional parameter was' : 'These additional parameters were'} ignored.`
-    const additionalStyles = [
-      'color: black; font-size: 12px; font-weight: bold; color: green',
-      'color: black; font-size: 12px',
-      'color: black; font-size: 12px; font-weight: bold; color: goldenrod',
-      'color: black; font-size: 12px',
-    ]
-    message('warning', messageBody, modulePath, additionalStyles)
+    message(
+      'warning',
+      `${expectedMaxFrag(msgConfig.max)} ${actualFrag(msgConfig.args.length)} ${additionalFrag(msgConfig.args.length)}`,
+      modulePath,
+      warningStyles,
+    )
   }
   return true
 }
