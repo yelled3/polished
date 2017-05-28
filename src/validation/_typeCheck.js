@@ -47,12 +47,12 @@ function typeCheck(modulePath: string, msgConfig: Object | Array<Object>) {
         !validateType(config.param, config.type, config.map)
       ) {
         const messageBody = `expects a ${ordinal[index]} parameter of type ${config.type}. However, you passed ${config.param}(${typeof config.param}) instead.`
-        message('error', messageBody, modulePath, 220)
+        message('error', messageBody, modulePath)
         returnStatus = setReturnStatus(returnStatus, false)
         return
       }
       if (!config.param && config.required) {
-        message('error', config.required, modulePath, 221)
+        message('error', config.required, modulePath)
         returnStatus = setReturnStatus(returnStatus, false)
         return
       }
@@ -70,11 +70,11 @@ function typeCheck(modulePath: string, msgConfig: Object | Array<Object>) {
       } else {
         messageBody = `expects a parameter of type ${msgConfig.type}. However, you passed ${msgConfig.param}(${typeof msgConfig.param}) instead.`
       }
-      message('error', messageBody, modulePath, 220)
+      message('error', messageBody, modulePath)
       return false
     }
     if (!msgConfig.param && msgConfig.required) {
-      message('error', msgConfig.required, modulePath, 221)
+      message('error', msgConfig.required, modulePath)
       return false
     }
     return true

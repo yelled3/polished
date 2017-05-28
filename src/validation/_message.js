@@ -24,7 +24,12 @@ Please see the documentation at %chttps://polished.js.org/docs/#${moduleName}%c 
   return `${header}${body}${info}`
 }
 
-function message(type: string, messageBody: string, modulePath: string) {
+function message(
+  type: string,
+  messageBody: string,
+  modulePath: string,
+  additionalStyles: Array<string> = [],
+) {
   const moduleNameMatch = modulePath.match(/([^/]+)(?=\.\w+$)/)
   const moduleName = moduleNameMatch ? moduleNameMatch[0] : ''
   const formattedMessage = formatMessage(
@@ -37,6 +42,7 @@ function message(type: string, messageBody: string, modulePath: string) {
   const messageStyles = [
     'color: black; font-size: 12px; font-weight: bold',
     'color: black; font-size: 12px',
+    ...additionalStyles,
     'color: gray; line-height: 1.4',
     'color: blue; line-height: 1.4',
     'color: gray; line-height: 1.4',
