@@ -12,7 +12,7 @@ describe('arrity', () => {
   })
 
   // Exactly
-  it('should return true (which continues module execution) when passed exactly the arguments needed', () => {
+  it('should return true when passed exactly the arguments needed', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1],
@@ -21,7 +21,7 @@ describe('arrity', () => {
     ).toBeTruthy()
   })
 
-  it('should return true (which continues module execution) when passed more arguments than exactly needed', () => {
+  it('should return true when passed more arguments than exactly needed', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1, 2],
@@ -35,7 +35,7 @@ describe('arrity', () => {
     console.warn.mockClear()
   })
 
-  it('should return false (which stops module execution) when passed less arguments than exactly needed', () => {
+  it('should return false when passed less arguments than exactly needed', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1, 2],
@@ -50,7 +50,7 @@ describe('arrity', () => {
   })
 
   // Min
-  it('should return true (which continues module execution) when passed at least the arguments needed', () => {
+  it('should return true when passed at least the arguments needed', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1],
@@ -59,7 +59,7 @@ describe('arrity', () => {
     ).toBeTruthy()
   })
 
-  it('should return true (which continues module execution) when passed more arguments than minimially needed', () => {
+  it('should return true when passed more arguments than minimially needed', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1, 2],
@@ -68,7 +68,7 @@ describe('arrity', () => {
     ).toBeTruthy()
   })
 
-  it('should return false (which stops module execution) when passed less arguments than minimially needed', () => {
+  it('should return false when passed less arguments than minimially needed', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1, 2],
@@ -83,7 +83,7 @@ describe('arrity', () => {
   })
 
   // Max
-  it('should return true (which continues module execution) when passed at less than the arguments needed', () => {
+  it('should return true when passed at less than the arguments needed', () => {
     expect(
       arrityCheck(modulePath, {
         args: [0],
@@ -92,7 +92,7 @@ describe('arrity', () => {
     ).toBeTruthy()
   })
 
-  it('should return true (which continues module execution) when passed the maximum arguments needed', () => {
+  it('should return true when passed the maximum arguments needed', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1, 2],
@@ -101,7 +101,7 @@ describe('arrity', () => {
     ).toBeTruthy()
   })
 
-  it('should return true (which continues module execution) when passed more than the maximum arguments needed', () => {
+  it('should return true when passed more than the maximum arguments needed', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1, 2],
@@ -115,7 +115,7 @@ describe('arrity', () => {
     console.warn.mockClear()
   })
 
-  it('should return true (which continues module execution) when passed more than the maximum arguments needed and max is 0', () => {
+  it('should return true when passed more than the maximum arguments needed and max is 0', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1, 2],
@@ -129,7 +129,7 @@ describe('arrity', () => {
     console.warn.mockClear()
   })
 
-  it('should return true (which continues module execution) when passed no limitations', () => {
+  it('should return true when passed no limitations', () => {
     expect(
       arrityCheck(modulePath, {
         args: [1, 2],
