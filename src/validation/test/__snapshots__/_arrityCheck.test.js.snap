@@ -1,4 +1,4 @@
-exports[`arrity should throw a properly formatted warning when difference in expected and actual is not equal to 1 1`] = `
+exports[`arrityCheck should throw a properly formatted warning when difference in expected and actual is not equal to 1 1`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- module/testModule.js --%c
@@ -20,7 +20,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for
 ]
 `;
 
-exports[`arrity should throw a warning when passed more arguments than exactly needed 1`] = `
+exports[`arrityCheck should throw a warning when passed more arguments than exactly needed 1`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- module/testModule.js --%c
@@ -42,7 +42,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for
 ]
 `;
 
-exports[`arrity should throw a warning when passed more arguments than maximally needed 1`] = `
+exports[`arrityCheck should throw a warning when passed more arguments than maximally needed 1`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- module/testModule.js --%c
@@ -64,7 +64,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for
 ]
 `;
 
-exports[`arrity should throw a warning when passed more arguments than maximally needed and max is 0 1`] = `
+exports[`arrityCheck should throw a warning when passed more arguments than maximally needed and max is 0 1`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- module/testModule.js --%c
@@ -86,7 +86,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for
 ]
 `;
 
-exports[`arrity should throw an error when passed less arguments than exactly needed 1`] = `
+exports[`arrityCheck should throw an error when passed less arguments than exactly needed 1`] = `
 Array [
   Array [
     "%c ✨ ERROR ✨ ---- module/testModule.js --%c
@@ -108,7 +108,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for
 ]
 `;
 
-exports[`arrity should throw an error when passed less arguments than minimially needed 1`] = `
+exports[`arrityCheck should throw an error when passed less arguments than minimially needed 1`] = `
 Array [
   Array [
     "%c ✨ ERROR ✨ ---- module/testModule.js --%c

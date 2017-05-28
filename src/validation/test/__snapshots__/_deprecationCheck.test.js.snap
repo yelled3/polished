@@ -1,0 +1,23 @@
+exports[`deprecationCheck should not throw a warning when the module is not deprecated 1`] = `Array []`;
+
+exports[`deprecationCheck should throw a warning when the module is deprecated 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- module/deprecatedModule.js --%c
+
+deprecatedModule %cwill be deprecated as of %cversion 3.0%c of ✨ polished. You should use the %c::currentModule%c instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#deprecatedModule%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;

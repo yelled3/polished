@@ -1,7 +1,7 @@
 // @flow
 import arrityCheck from '../_arrityCheck'
 
-describe('arrity', () => {
+describe('arrityCheck', () => {
   const modulePath = 'module/testModule.js'
 
   beforeAll(() => {
@@ -31,7 +31,9 @@ describe('arrity', () => {
   })
 
   it('should throw a warning when passed more arguments than exactly needed', () => {
+    // eslint-disable-next-line no-console
     expect(console.warn.mock.calls).toMatchSnapshot()
+    // eslint-disable-next-line no-console
     console.warn.mockClear()
   })
 
@@ -45,7 +47,9 @@ describe('arrity', () => {
   })
 
   it('should throw an error when passed less arguments than exactly needed', () => {
+    // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
+    // eslint-disable-next-line no-console
     console.error.mockClear()
   })
 
@@ -78,7 +82,9 @@ describe('arrity', () => {
   })
 
   it('should throw an error when passed less arguments than minimially needed', () => {
+    // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
+    // eslint-disable-next-line no-console
     console.error.mockClear()
   })
 
@@ -111,7 +117,9 @@ describe('arrity', () => {
   })
 
   it('should throw a warning when passed more arguments than maximally needed', () => {
+    // eslint-disable-next-line no-console
     expect(console.warn.mock.calls).toMatchSnapshot()
+    // eslint-disable-next-line no-console
     console.warn.mockClear()
   })
 
@@ -125,7 +133,9 @@ describe('arrity', () => {
   })
 
   it('should throw a warning when passed more arguments than maximally needed and max is 0', () => {
+    // eslint-disable-next-line no-console
     expect(console.warn.mock.calls).toMatchSnapshot()
+    // eslint-disable-next-line no-console
     console.warn.mockClear()
   })
 
@@ -142,7 +152,9 @@ describe('arrity', () => {
       args: [1, 2, 3, 4],
       exactly: 1,
     })
+    // eslint-disable-next-line no-console
     expect(console.warn.mock.calls).toMatchSnapshot()
+    // eslint-disable-next-line no-console
     console.warn.mockClear()
   })
 })
