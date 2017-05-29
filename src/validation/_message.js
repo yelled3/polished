@@ -35,7 +35,7 @@ function message(
   additionalStyles: Array<string> = [],
 ) {
   const moduleNameMatch = modulePath.match(/([^/]+)(?=\.\w+$)/)
-  const moduleName = moduleNameMatch ? moduleNameMatch[0] : ''
+  const moduleName = moduleNameMatch ? moduleNameMatch[0] : modulePath
   const formattedMessage = formatMessage(
     type,
     messageBody,

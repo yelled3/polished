@@ -1,0 +1,7 @@
+exports[`message should add styles when passed additionalStyles 1`] = `undefined`;
+
+exports[`message should set modulePath to moduleName when modulePath format is incorrect 1`] = `undefined`;
+
+exports[`message should throw a warning when passed a warning message 1`] = `undefined`;
+
+exports[`message should throw an error when passed an error message 1`] = `undefined`;
