@@ -72,7 +72,7 @@ function modularScale(
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !validateModule('helpers/stripUnit.js', {
+      !validateModule('helpers/modularScale.js', {
         // eslint-disable-next-line prefer-rest-params
         arrityCheck: { args: arguments, min: 1, max: 3 },
         typeCheck: { param: steps, type: 'number' },
@@ -99,7 +99,7 @@ function modularScale(
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !customRule('helpers/stripUnit.js', {
+      !customRule('helpers/modularScale.js', {
         enforce: typeof realBase === 'number',
         msg: `expects base to be a valid em-based string value. However, you passed ${base} instead.`,
       })

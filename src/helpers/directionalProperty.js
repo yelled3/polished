@@ -1,6 +1,6 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
-import deprecationCheck from '../validation/_deprecationCheck'
+import validateModule from '../validation/_validateModule'
 
 const positionMap = ['Top', 'Right', 'Bottom', 'Left']
 
@@ -18,7 +18,7 @@ function generateProperty(property: string, position: string) {
 function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
   const styles = {}
   for (let i = 0; i < valuesWithDefaults.length; i += 1) {
-    if (valuesWithDefaults[i]) {
+    if (valuesWithDefaults[i] && i < 4) {
       styles[generateProperty(property, positionMap[i])] = valuesWithDefaults[i]
     }
   }
@@ -51,8 +51,15 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
 function directionalProperty(property: string, ...values: Array<?string>) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'helpers/directionalProperty.js'
-    deprecationCheck(modulePath)
+    if (
+      !validateModule('helpers/directionalProperty.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, min: 2, max: 5 },
+        typeCheck: { param: property, type: 'string' },
+      })
+    ) {
+      return {}
+    }
   }
   //  prettier-ignore
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.

@@ -2,6 +2,18 @@
 import directionalProperty from '../directionalProperty'
 
 describe('directionalProperty', () => {
+  beforeAll(() => {
+    global.console = {
+      error: jest.fn(),
+      warn: jest.fn(),
+    }
+  })
+
+  afterEach(() => {
+    // eslint-disable-next-line no-console
+    console.error.mockClear()
+  })
+
   it('properly generates properties when passed a hyphenated property', () => {
     expect(directionalProperty('border-width', '12px')).toMatchSnapshot()
   })
@@ -77,5 +89,26 @@ describe('directionalProperty', () => {
     expect(
       directionalProperty('border', '12px', '24px', '36px', null),
     ).toMatchSnapshot()
+  })
+
+  // Overloaded
+  it('throws a warning when passed more than 5 parameters and properly ignores extra parameters', () => {
+    expect(
+      directionalProperty('border', '10px', '10px', '10px', '10px', '10px'),
+    ).toMatchSnapshot()
+    // eslint-disable-next-line no-console
+    expect(console.warn.mock.calls).toMatchSnapshot()
+  })
+
+  // Errors
+  it('throws an error when passed a non-string value for property', () => {
+    directionalProperty(true, '12px')
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+  it('throws an error when passed less than 2 parameters', () => {
+    directionalProperty('border')
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
   })
 })

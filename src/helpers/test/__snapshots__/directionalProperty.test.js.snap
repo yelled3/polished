@@ -129,3 +129,74 @@ Object {
   "borderRight": "24px",
 }
 `;
+
+exports[`directionalProperty throws a warning when passed more than 5 parameters and properly ignores extra parameters 1`] = `
+Object {
+  "borderBottom": "10px",
+  "borderLeft": "10px",
+  "borderRight": "10px",
+  "borderTop": "10px",
+}
+`;
+
+exports[`directionalProperty throws a warning when passed more than 5 parameters and properly ignores extra parameters 2`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- helpers/directionalProperty.js --%c
+
+directionalProperty %cexpects a maximum of %c5 parameters%c. However, you passed %c6 parameters%c. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#directionalProperty%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`directionalProperty throws an error when passed a non-string value for property 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/directionalProperty.js --%c
+
+directionalProperty %cexpects a parameter of type string. However, you passed true(boolean) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#directionalProperty%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`directionalProperty throws an error when passed less than 2 parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/directionalProperty.js --%c
+
+directionalProperty %cexpects a minimum of %c2 parameters%c. However, you passed %c1 parameter%c.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#directionalProperty%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: red",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;

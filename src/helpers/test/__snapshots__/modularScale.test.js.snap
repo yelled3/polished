@@ -121,11 +121,11 @@ Object {
 exports[`modularScale should throw a warning if more than 3 parameters are provided 1`] = `
 Array [
   Array [
-    "%c ✨ WARNING ✨ ---- helpers/stripUnit.js --%c
+    "%c ✨ WARNING ✨ ---- helpers/modularScale.js --%c
 
-stripUnit %cexpects a maximum of %c3 parameters%c. However, you passed %c4 parameters%c. These additional parameters were ignored.
+modularScale %cexpects a maximum of %c3 parameters%c. However, you passed %c4 parameters%c. These additional parameters were ignored.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
@@ -143,11 +143,11 @@ Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for 
 exports[`modularScale should throw an error if a non-number or non-string value for base is provided 1`] = `
 Array [
   Array [
-    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+    "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-stripUnit %cexpects an optional 2nd parameter of type string or number to represent the base. However, you passed true(boolean) instead.
+modularScale %cexpects an optional 2nd parameter of type string or number to represent the base. However, you passed true(boolean) instead.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
@@ -161,11 +161,11 @@ Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for 
 exports[`modularScale should throw an error if a non-number value for steps is provided 1`] = `
 Array [
   Array [
-    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+    "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-stripUnit %cexpects a parameter of type number. However, you passed invalid(string) instead.
+modularScale %cexpects a parameter of type number. However, you passed invalid(string) instead.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
@@ -179,11 +179,11 @@ Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for 
 exports[`modularScale should throw an error if an invalid ratio is provided 1`] = `
 Array [
   Array [
-    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+    "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-stripUnit %cexpects an optional 3rd parameter of type number or a string enumberable to represent ratio, However, you passed invalid(string) instead.
+modularScale %cexpects an optional 3rd parameter of type number or a string enumberable to represent ratio, However, you passed invalid(string) instead.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
@@ -197,11 +197,11 @@ Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for 
 exports[`modularScale should throw an error if an invalid string-based value for base is provided 1`] = `
 Array [
   Array [
-    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+    "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-stripUnit %cexpects base to be a valid em-based string value. However, you passed invalid instead.
+modularScale %cexpects base to be a valid em-based string value. However, you passed invalid instead.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
