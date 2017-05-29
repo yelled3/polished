@@ -35,45 +35,58 @@ const expectedMinFrag = expected =>
  * @private
  */
 function arrityCheck(modulePath: string, msgConfig: Object) {
-  if (msgConfig.exactly && msgConfig.args.length !== msgConfig.exactly) {
-    if (msgConfig.args.length > msgConfig.exactly) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    if (msgConfig.exactly && msgConfig.args.length > msgConfig.exactly) {
       message(
         'warning',
         `${expectedFrag(msgConfig.exactly)} ${actualFrag(msgConfig.args.length)} ${additionalFrag(msgConfig.args.length)}`,
         modulePath,
         warningStyles,
       )
-    } else {
+    }
+  }
+
+  /* istanbul ignore next */
+  if (msgConfig.exactly && msgConfig.args.length < msgConfig.exactly) {
+    if (process.env.NODE_ENV !== 'production') {
       message(
         'error',
         `${expectedFrag(msgConfig.exactly)} ${actualFrag(msgConfig.args.length)}`,
         modulePath,
         errorStyles,
       )
-      return false
     }
-  }
 
-  if (msgConfig.min && msgConfig.args.length < msgConfig.min) {
-    message(
-      'error',
-      `${expectedMinFrag(msgConfig.min)} ${actualFrag(msgConfig.args.length)}`,
-      modulePath,
-      errorStyles,
-    )
     return false
   }
 
-  if (
-    (msgConfig.max || msgConfig.max === 0) &&
-    msgConfig.args.length > msgConfig.max
-  ) {
-    message(
-      'warning',
-      `${expectedMaxFrag(msgConfig.max)} ${actualFrag(msgConfig.args.length)} ${additionalFrag(msgConfig.args.length)}`,
-      modulePath,
-      warningStyles,
-    )
+  if (msgConfig.min && msgConfig.args.length < msgConfig.min) {
+    /* istanbul ignore next */
+    if (process.env.NODE_ENV !== 'production') {
+      message(
+        'error',
+        `${expectedMinFrag(msgConfig.min)} ${actualFrag(msgConfig.args.length)}`,
+        modulePath,
+        errorStyles,
+      )
+    }
+    return false
+  }
+
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    if (
+      (msgConfig.max || msgConfig.max === 0) &&
+      msgConfig.args.length > msgConfig.max
+    ) {
+      message(
+        'warning',
+        `${expectedMaxFrag(msgConfig.max)} ${actualFrag(msgConfig.args.length)} ${additionalFrag(msgConfig.args.length)}`,
+        modulePath,
+        warningStyles,
+      )
+    }
   }
   return true
 }

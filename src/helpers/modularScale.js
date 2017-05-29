@@ -69,37 +69,13 @@ function modularScale(
   base?: number | string = '1em',
   ratio?: Ratio = 'perfectFourth',
 ) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('helpers/modularScale.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, min: 1, max: 3 },
-        typeCheck: { param: steps, type: 'number' },
-        customRule: [
-          {
-            enforce: typeof base === 'number' || typeof base === 'string',
-            msg: `expects an optional 2nd parameter of type string or number to represent the base. However, you passed ${base}(${typeof base}) instead.`,
-          },
-          {
-            enforce: typeof ratio === 'number' ||
-              (typeof ratio === 'string' && ratioNames[ratio]),
-            msg: `expects an optional 3rd parameter of type number or a string enumberable to represent ratio, However, you passed ${ratio}(${typeof ratio}) instead.`,
-          },
-        ],
-      })
-    ) {
-      return ''
-    }
-  }
-
   const realBase = typeof base === 'string' ? stripUnit(base) : base
   const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !customRule('helpers/modularScale.js', {
+      !customRule('helpers/modularScale', {
         enforce: typeof realBase === 'number',
         msg: `expects base to be a valid em-based string value. However, you passed ${base} instead.`,
       })
@@ -112,4 +88,28 @@ function modularScale(
 }
 
 export { ratioNames }
-export default modularScale
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'helpers/modularScale',
+      arrityCheck: { args, min: 1, max: 3 },
+      typeCheck: { param: args[0], type: 'number' },
+      customRule: [
+        {
+          enforce: typeof args[1] === 'number' ||
+            typeof args[1] === 'string' ||
+            !args[1],
+          msg: `expects an optional 2nd parameter of type string or number to represent the base. However, you passed ${args[1]}(${typeof args[1]}) instead.`,
+        },
+        {
+          enforce: typeof args[2] === 'number' ||
+            (typeof args[2] === 'string' && ratioNames[args[2]]) ||
+            !args[2],
+          msg: `expects an optional 3rd parameter of type number or a string enumberable to represent ratio, However, you passed ${args[2]}(${typeof args[2]}) instead.`,
+        },
+      ],
+      errReturn: '',
+    },
+    modularScale,
+    args,
+  )

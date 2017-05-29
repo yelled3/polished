@@ -79,25 +79,21 @@ type TimingFunction =
  */
 
 function timingFunctions(timingFunction: TimingFunction) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('mixins/timingFunctions.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, exactly: 1 },
-        typeCheck: {
-          param: timingFunction,
-          type: 'enumerable',
-          map: functionsMap,
-          required: 'expects a string value representing the timingFunction you would like returned. However, you did not provide one.',
-        },
-      })
-    ) {
-      return ''
-    }
-  }
-
   return functionsMap[timingFunction]
 }
 
-export default timingFunctions
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/timingFunctions',
+      arrityCheck: { args, exactly: 1 },
+      typeCheck: {
+        param: args[0],
+        type: 'enumerable',
+        map: functionsMap,
+        required: 'expects a string value representing the timingFunction you would like returned. However, you did not provide one.',
+      },
+    },
+    timingFunctions,
+    args,
+  )

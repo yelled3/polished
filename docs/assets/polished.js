@@ -11,19 +11,6 @@ function capitalizeString(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-//      
-
-var deprecated = {
-  'mixins/placeholder.js': {
-    version: '3.0',
-    guidance: 'You should use the %c::placeholder pseudo-element%c instead.'
-  },
-  'mixins/selection.js': {
-    version: '3.0',
-    guidance: 'You should use the %c::selection pseudo-element%c instead.'
-  }
-};
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
 } : function (obj) {
@@ -172,11 +159,6 @@ var toConsumableArray = function (arr) {
 
 //      
 
-/**
- * Formats and generates validation messages for polished modules
- * @private
- */
-
 function formatMessage(type, messageBody, moduleName, modulePath) {
   var header = '%c \u2728 ' + type.toUpperCase() + ' \u2728 ---- ' + modulePath + ' --';
 
@@ -187,14 +169,25 @@ function formatMessage(type, messageBody, moduleName, modulePath) {
   return '' + header + body + info;
 }
 
+// Styles
+var headerStyles = 'font-weight: bold; color: black';
+var docStyles = function docStyles(color) {
+  return 'color: ' + color + '; line-height: 1.4';
+};
+var baseStyles = 'color: black; font-size: 12px';
+
+/**
+ * Formats and generates validation messages for polished modules
+ * @private
+ */
 function message(type, messageBody, modulePath) {
   var additionalStyles = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
 
   var moduleNameMatch = modulePath.match(/([^/]+)(?=\.\w+$)/);
-  var moduleName = moduleNameMatch ? moduleNameMatch[0] : '';
+  var moduleName = moduleNameMatch ? moduleNameMatch[0] : modulePath;
   var formattedMessage = formatMessage(type, messageBody, moduleName, modulePath);
-  var headerStyles = 'font-weight: bold; color: black';
-  var messageStyles = ['color: black; font-size: 12px; font-weight: bold', 'color: black; font-size: 12px'].concat(toConsumableArray(additionalStyles), ['color: gray; line-height: 1.4', 'color: blue; line-height: 1.4', 'color: gray; line-height: 1.4']);
+
+  var messageStyles = [baseStyles + '; font-weight: bold', baseStyles].concat(toConsumableArray(additionalStyles), [docStyles('gray'), docStyles('blue'), docStyles('gray')]);
 
   if (type === 'error') {
     var _console;
@@ -210,19 +203,211 @@ function message(type, messageBody, modulePath) {
 }
 
 //      
+// Message Styling
+function generateAdditionalStyles(color) {
+  var baseStyle = 'color: black; font-size: 12px';
+  var highlightStyle = baseStyle + '; font-weight: bold; color:';
+  return [highlightStyle + ' green', baseStyle, highlightStyle + ' ' + color, baseStyle];
+}
+
+var warningStyles = generateAdditionalStyles('goldenrod');
+var errorStyles = generateAdditionalStyles('red');
+
+// Message Fragments
+var parametersFrag = function parametersFrag(parameters) {
+  return (parameters === 1 ? 'parameter' : 'parameters') + '%c.';
+};
+var actualFrag = function actualFrag(actual) {
+  return 'However, you passed %c' + actual + ' ' + parametersFrag(actual);
+};
+var additionalFrag = function additionalFrag(additional) {
+  return (additional === 1 ? 'This additional parameter was' : 'These additional parameters were') + ' ignored.';
+};
+var expectedFrag = function expectedFrag(expected) {
+  return 'expects %c' + expected + ' ' + parametersFrag(expected);
+};
+var expectedMaxFrag = function expectedMaxFrag(expected) {
+  return 'expects a maximum of %c' + expected + ' ' + parametersFrag(expected);
+};
+var expectedMinFrag = function expectedMinFrag(expected) {
+  return 'expects a minimum of %c' + expected + ' ' + parametersFrag(expected);
+};
+
+/**
+ * Handles arrity validation of polished modules.
+ * @private
+ */
+function arrityCheck(modulePath, msgConfig) {
+  if (msgConfig.exactly && msgConfig.args.length !== msgConfig.exactly) {
+    if (msgConfig.args.length > msgConfig.exactly) {
+      message('warning', expectedFrag(msgConfig.exactly) + ' ' + actualFrag(msgConfig.args.length) + ' ' + additionalFrag(msgConfig.args.length), modulePath, warningStyles);
+    } else {
+      message('error', expectedFrag(msgConfig.exactly) + ' ' + actualFrag(msgConfig.args.length), modulePath, errorStyles);
+      return false;
+    }
+  }
+
+  if (msgConfig.min && msgConfig.args.length < msgConfig.min) {
+    message('error', expectedMinFrag(msgConfig.min) + ' ' + actualFrag(msgConfig.args.length), modulePath, errorStyles);
+    return false;
+  }
+
+  if ((msgConfig.max || msgConfig.max === 0) && msgConfig.args.length > msgConfig.max) {
+    message('warning', expectedMaxFrag(msgConfig.max) + ' ' + actualFrag(msgConfig.args.length) + ' ' + additionalFrag(msgConfig.args.length), modulePath, warningStyles);
+  }
+  return true;
+}
+
+//      
+/**
+ * Handles custom validation of polished modules.
+ * @private
+ */
+
+function isEnforceable(modulePath, validation) {
+  if (!validation.enforce) {
+    message('error', validation.msg, modulePath);
+    return false;
+  }
+  return true;
+}
+
+function setValidationStatus$1(currentStatus, newStatus) {
+  return !currentStatus ? currentStatus : newStatus;
+}
+
+function customValidation(modulePath, validations) {
+  if (Array.isArray(validations)) {
+    var validationStatus = true;
+    validations.forEach(function (validation) {
+      validationStatus = setValidationStatus$1(validationStatus, isEnforceable(modulePath, validation));
+    });
+    return validationStatus;
+  } else {
+    return isEnforceable(modulePath, validations);
+  }
+}
+
+//      
+
+var deprecated = {
+  'mixins/placeholder.js': {
+    version: '3.0',
+    guidance: 'You should use the %c::placeholder pseudo-element%c instead.'
+  },
+  'mixins/selection.js': {
+    version: '3.0',
+    guidance: 'You should use the %c::selection pseudo-element%c instead.'
+  }
+};
+
+//      
 /**
  * Handles deprecation validation of polished modules.
  * @private
  */
 
+var baseStyles$1 = 'color: black; font-size: 12px';
+var highlightStyles = '; font-weight: bold';
+
 function deprecationCheck(modulePath) {
   var deprecationInfo = deprecated[modulePath];
   if (deprecationInfo) {
     var messageBody = 'will be deprecated as of %cversion ' + deprecationInfo.version + '%c of \u2728 polished. ' + deprecationInfo.guidance;
-    var additionalStyles = ['color: black; font-size: 12px; font-weight: bold;', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold;', 'color: black; font-size: 12px'];
+    var additionalStyles = ['' + baseStyles$1 + highlightStyles, baseStyles$1, '' + baseStyles$1 + highlightStyles, baseStyles$1];
     message('warning', messageBody, modulePath, additionalStyles);
   }
   return true;
+}
+
+//      
+/**
+ * Handles type validation of polished modules.
+ * @private
+ */
+
+function validateType(param, type, map) {
+  switch (type) {
+    case 'array':
+      return Array.isArray(param);
+    case 'object':
+      return (typeof param === 'undefined' ? 'undefined' : _typeof(param)) === 'object' && param !== null;
+    case 'enumerable':
+      if (Array.isArray(map)) return map.includes(param);
+      return map[param];
+    default:
+      // eslint-disable-next-line valid-typeof
+      return (typeof param === 'undefined' ? 'undefined' : _typeof(param)) === type;
+  }
+}
+
+var ordinal = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'];
+
+function setReturnStatus(currentStatus, newStatus) {
+  return !currentStatus ? currentStatus : newStatus;
+}
+
+function typeCheck(modulePath, msgConfig) {
+  if (Array.isArray(msgConfig)) {
+    var returnStatus = true;
+    msgConfig.forEach(function (config, index) {
+      if (config.param && !validateType(config.param, config.type, config.map)) {
+        var messageBody = 'expects a ' + ordinal[index] + ' parameter of type ' + config.type + '. However, you passed ' + config.param + '(' + _typeof(config.param) + ') instead.';
+        message('error', messageBody, modulePath);
+        returnStatus = setReturnStatus(returnStatus, false);
+        return;
+      }
+      if (!config.param && config.required) {
+        message('error', config.required, modulePath);
+        returnStatus = setReturnStatus(returnStatus, false);
+        return;
+      }
+      returnStatus = setReturnStatus(returnStatus, true);
+    });
+    return returnStatus;
+  } else {
+    if (msgConfig.param && !validateType(msgConfig.param, msgConfig.type, msgConfig.map)) {
+      var messageBody = void 0;
+      if (msgConfig.type === 'enumerable') {
+        messageBody = 'received an enumerable value(' + msgConfig.param + ') that was not one of the available options.';
+      } else {
+        messageBody = 'expects a parameter of type ' + msgConfig.type + '. However, you passed ' + msgConfig.param + '(' + _typeof(msgConfig.param) + ') instead.';
+      }
+      message('error', messageBody, modulePath);
+      return false;
+    }
+    if (!msgConfig.param && msgConfig.required) {
+      message('error', msgConfig.required, modulePath);
+      return false;
+    }
+    return true;
+  }
+}
+
+//      
+/**
+ * Handles validation of polished modules.
+ * @private
+ */
+
+function setValidationStatus(currentStatus, newStatus) {
+  return !currentStatus ? currentStatus : newStatus;
+}
+
+function validateModule(modulePath, msgConfig) {
+  deprecationCheck(modulePath);
+  if (!msgConfig) return true;
+  var validationStatus = true;
+  if (msgConfig.arrityCheck) {
+    validationStatus = setValidationStatus(validationStatus, arrityCheck(modulePath, msgConfig.arrityCheck));
+  }
+  if (msgConfig.typeCheck) {
+    validationStatus = setValidationStatus(validationStatus, typeCheck(modulePath, msgConfig.typeCheck));
+  }
+  if (msgConfig.customRule) {
+    validationStatus = setValidationStatus(validationStatus, customValidation(modulePath, msgConfig.customRule));
+  }
+  return validationStatus;
 }
 
 //      
@@ -244,7 +429,7 @@ function generateProperty(property, position) {
 function generateStyles(property, valuesWithDefaults) {
   var styles = {};
   for (var i = 0; i < valuesWithDefaults.length; i += 1) {
-    if (valuesWithDefaults[i]) {
+    if (valuesWithDefaults[i] && i < 4) {
       styles[generateProperty(property, positionMap[i])] = valuesWithDefaults[i];
     }
   }
@@ -275,18 +460,22 @@ function generateStyles(property, valuesWithDefaults) {
  */
 
 function directionalProperty(property) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    var modulePath = 'helpers/directionalProperty.js';
-    deprecationCheck(modulePath);
-  }
-  //  prettier-ignore
-  // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
-
   for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
     values[_key - 1] = arguments[_key];
   }
 
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    if (!validateModule('helpers/directionalProperty.js', {
+      // eslint-disable-next-line prefer-rest-params
+      arrityCheck: { args: arguments, min: 2, max: 5 },
+      typeCheck: { param: property, type: 'string' }
+    })) {
+      return {};
+    }
+  }
+  //  prettier-ignore
+  // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
   var firstValue = values[0],
       _values$ = values[1],
       secondValue = _values$ === undefined ? firstValue : _values$,
@@ -311,17 +500,17 @@ var endsWith = function (string, suffix) {
 
 //      
 /**
- * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
+ * Strip the unit from a given CSS value, returning just the number.
  *
  * @example
  * // Styles as object usage
  * const styles = {
- *   '--dimension': stripUnit(100px)
+ *   '--dimension': stripUnit('100px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   --dimension: ${stripUnit(100px)}
+ *   --dimension: ${stripUnit('100px')}
  * `
  *
  * // CSS in JS Output
@@ -334,8 +523,13 @@ var endsWith = function (string, suffix) {
 function stripUnit(value) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    var modulePath = 'helpers/stripUnit.js';
-    deprecationCheck(modulePath);
+    if (!validateModule('helpers/stripUnit.js', {
+      // eslint-disable-next-line prefer-rest-params
+      arrityCheck: { args: arguments, exactly: 1 },
+      typeCheck: { param: value, type: 'string' }
+    })) {
+      return '';
+    }
   }
 
   var unitlessValue = parseFloat(value);
@@ -458,22 +652,33 @@ function modularScale(steps) {
 
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    var modulePath = 'helpers/modularScale.js';
-    deprecationCheck(modulePath);
-  }
-
-  if (typeof steps !== 'number') {
-    throw new Error('Please provide a number of steps to the modularScale helper.');
-  }
-  if (typeof ratio === 'string' && !ratioNames[ratio]) {
-    throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.');
+    if (!validateModule('helpers/modularScale.js', {
+      // eslint-disable-next-line prefer-rest-params
+      arrityCheck: { args: arguments, min: 1, max: 3 },
+      typeCheck: { param: steps, type: 'number' },
+      customRule: [{
+        enforce: typeof base === 'number' || typeof base === 'string',
+        msg: 'expects an optional 2nd parameter of type string or number to represent the base. However, you passed ' + base + '(' + (typeof base === 'undefined' ? 'undefined' : _typeof(base)) + ') instead.'
+      }, {
+        enforce: typeof ratio === 'number' || typeof ratio === 'string' && ratioNames[ratio],
+        msg: 'expects an optional 3rd parameter of type number or a string enumberable to represent ratio, However, you passed ' + ratio + '(' + (typeof ratio === 'undefined' ? 'undefined' : _typeof(ratio)) + ') instead.'
+      }]
+    })) {
+      return '';
+    }
   }
 
   var realBase = typeof base === 'string' ? stripUnit(base) : base;
   var realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio;
 
-  if (typeof realBase === 'string') {
-    throw new Error('Invalid value passed as base to modularScale, expected number or em string but got "' + base + '"');
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    if (!customValidation('helpers/modularScale.js', {
+      enforce: typeof realBase === 'number',
+      msg: 'expects base to be a valid em-based string value. However, you passed ' + base + ' instead.'
+    })) {
+      return '';
+    }
   }
 
   return realBase * Math.pow(realRatio, steps) + 'em';
@@ -504,141 +709,6 @@ function modularScale(steps) {
  * }
  */
 var rem = pxtoFactory$1('rem');
-
-//      
-/**
- * Handles arrity validation of polished modules.
- * @private
- */
-
-function arrityCheck(modulePath, msgConfig) {
-  if (msgConfig.exactly && msgConfig.args.length !== msgConfig.exactly) {
-    if (msgConfig.args.length > msgConfig.exactly) {
-      var messageBody = 'expects %c' + msgConfig.exactly + ' ' + (msgConfig.exactly === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '%c. ' + (msgConfig.args.length === 1 ? 'This additional parameter was' : 'These additional parameters were') + ' ignored.';
-      var additionalStyles = ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: goldenrod', 'color: black; font-size: 12px'];
-      message('warning', messageBody, modulePath, additionalStyles);
-    } else {
-      var _messageBody = 'expects %c' + msgConfig.exactly + ' ' + (msgConfig.exactly === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '%c.';
-      var _additionalStyles = ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: red', 'color: black; font-size: 12px'];
-      message('error', _messageBody, modulePath, _additionalStyles);
-      return false;
-    }
-  }
-
-  if (msgConfig.min && msgConfig.args.length < msgConfig.min) {
-    var _messageBody2 = 'expects a minimum of %c' + msgConfig.min + ' ' + (msgConfig.min === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '%c.';
-    var _additionalStyles2 = ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: red', 'color: black; font-size: 12px'];
-    message('error', _messageBody2, modulePath, _additionalStyles2);
-    return false;
-  }
-
-  if ((msgConfig.max || msgConfig.max === 0) && msgConfig.args.length > msgConfig.max) {
-    var _messageBody3 = 'expects a maximum of %c' + msgConfig.max + ' ' + (msgConfig.max === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + msgConfig.args.length + ' ' + (msgConfig.args.length === 1 ? 'parameter' : 'parameters') + '%c. ' + (msgConfig.args.length === 1 ? 'This additional parameter was' : 'These additional parameters were') + ' ignored.';
-    var _additionalStyles3 = ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: goldenrod', 'color: black; font-size: 12px'];
-    message('warning', _messageBody3, modulePath, _additionalStyles3);
-  }
-  return true;
-}
-
-//      
-/**
- * Handles custom validation of polished modules.
- * @private
- */
-
-function customRule(modulePath, msgConfig) {
-  if (!msgConfig.enforce) {
-    message('error', msgConfig.msg, modulePath);
-    return false;
-  }
-  return true;
-}
-
-//      
-/**
- * Handles type validation of polished modules.
- * @private
- */
-
-function validateType(param, type, map) {
-  switch (type) {
-    case 'array':
-      return Array.isArray(param);
-    case 'object':
-      return (typeof param === 'undefined' ? 'undefined' : _typeof(param)) === 'object' && param !== null;
-    case 'enumerable':
-      if (Array.isArray(map)) return map.includes(param);
-      return map[param];
-    default:
-      // eslint-disable-next-line valid-typeof
-      return (typeof param === 'undefined' ? 'undefined' : _typeof(param)) === type;
-  }
-}
-
-var ordinal = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'];
-
-function setReturnStatus(currentStatus, newStatus) {
-  return !currentStatus ? currentStatus : newStatus;
-}
-
-function typeCheck(modulePath, msgConfig) {
-  if (Array.isArray(msgConfig)) {
-    var returnStatus = true;
-    msgConfig.forEach(function (config, index) {
-      if (config.param && !validateType(config.param, config.type, config.map)) {
-        var messageBody = 'expects a ' + ordinal[index] + ' parameter of type ' + config.type + '. However, you passed ' + config.param + '(' + _typeof(config.param) + ') instead.';
-        message('error', messageBody, modulePath);
-        returnStatus = setReturnStatus(returnStatus, false);
-        return;
-      }
-      if (!config.param && config.required) {
-        message('error', config.required, modulePath);
-        returnStatus = setReturnStatus(returnStatus, false);
-        return;
-      }
-      returnStatus = setReturnStatus(returnStatus, true);
-    });
-    return returnStatus;
-  } else {
-    if (msgConfig.param && !validateType(msgConfig.param, msgConfig.type, msgConfig.map)) {
-      var messageBody = void 0;
-      if (msgConfig.type === 'enumerable') {
-        messageBody = 'received an enumerable value(' + msgConfig.param + ') that was not one of the available options.';
-      } else {
-        messageBody = 'expects a parameter of type ' + msgConfig.type + '. However, you passed ' + msgConfig.param + '(' + _typeof(msgConfig.param) + ') instead.';
-      }
-      message('error', messageBody, modulePath);
-      return false;
-    }
-    if (!msgConfig.param && msgConfig.required) {
-      message('error', msgConfig.required, modulePath);
-      return false;
-    }
-    return true;
-  }
-}
-
-//      
-/**
- * Handles validation of polished modules.
- * @private
- */
-
-function validateModule(modulePath, msgConfig) {
-  var messageStatus = void 0;
-  deprecationCheck(modulePath);
-  if (!msgConfig) return false;
-  if (msgConfig.arrityCheck) {
-    messageStatus = arrityCheck(modulePath, msgConfig.arrityCheck);
-  }
-  if (msgConfig.typeCheck) {
-    messageStatus = typeCheck(modulePath, msgConfig.typeCheck);
-  }
-  if (msgConfig.customRule) {
-    messageStatus = customRule(modulePath, msgConfig.customRules);
-  }
-  return messageStatus;
-}
 
 //      
 /**
@@ -825,7 +895,7 @@ function fontFace(config) {
       param: fontFamily,
       type: 'string',
       required: 'expects a value for fontFamily that provides a name of a font-family(string).'
-    }, { param: fontFilePath, type: 'string' }, { param: fontStretch, type: 'string' }, { param: fontStyle, type: 'string' }, { param: fontVariant, type: 'string' }, { param: fontWeight, type: 'string' }, { param: fileFormats, type: 'array' }, { param: localFonts, type: 'array' }, { param: unicodeRange, type: 'string' }]) || !customRule('mixins/fontFace.js', {
+    }, { param: fontFilePath, type: 'string' }, { param: fontStretch, type: 'string' }, { param: fontStyle, type: 'string' }, { param: fontVariant, type: 'string' }, { param: fontWeight, type: 'string' }, { param: fileFormats, type: 'array' }, { param: localFonts, type: 'array' }, { param: unicodeRange, type: 'string' }]) || !customValidation('mixins/fontFace.js', {
       enforce: fontFilePath || localFonts,
       msg: 'fontFace expects either the path to the font file(s) or a name of a local copy.'
     })) {
@@ -1265,7 +1335,7 @@ function radialGradient(config) {
       param: colorStops,
       type: 'array',
       required: 'expects an array of at least 2 color-stops.'
-    }, { param: extent, type: 'string' }, { param: fallback, type: 'string' }, { param: position, type: 'string' }, { param: shape, type: 'string' }]) || !customRule('mixins/radialGradient.js', {
+    }, { param: extent, type: 'string' }, { param: fallback, type: 'string' }, { param: position, type: 'string' }, { param: shape, type: 'string' }]) || !customValidation('mixins/radialGradient.js', {
       enforce: colorStops.length > 1,
       msg: 'expects an array of at least 2 color-stops. However, the one you provided only had ' + colorStops.length + '.'
     })) {

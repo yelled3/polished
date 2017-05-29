@@ -28,18 +28,6 @@ import validateModule from '../validation/_validateModule'
  */
 
 function hideText() {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('mixins/hideText.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, max: 0 },
-      })
-    ) {
-      return {}
-    }
-  }
-
   return {
     textIndent: '101%',
     overflow: 'hidden',
@@ -47,4 +35,12 @@ function hideText() {
   }
 }
 
-export default hideText
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/hideText',
+      arrityCheck: { args, max: 0 },
+    },
+    hideText,
+    args,
+  )

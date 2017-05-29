@@ -13,29 +13,44 @@ function setValidationStatus(currentStatus, newStatus) {
   return !currentStatus ? currentStatus : newStatus
 }
 
-function validateModule(modulePath: string, msgConfig?: Object) {
-  deprecationCheck(modulePath)
-  if (!msgConfig) return true
-  let validationStatus = true
-  if (msgConfig.arrityCheck) {
-    validationStatus = setValidationStatus(
-      validationStatus,
-      arrityCheck(modulePath, msgConfig.arrityCheck),
+function validateModule(config: Object, mixin: Function, args) {
+  let isValid = true
+
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    deprecationCheck(config.modulePath)
+  }
+
+  if (config.arrityCheck) {
+    isValid = setValidationStatus(
+      isValid,
+      arrityCheck(config.modulePath, config.arrityCheck),
     )
   }
-  if (msgConfig.typeCheck) {
-    validationStatus = setValidationStatus(
-      validationStatus,
-      typeCheck(modulePath, msgConfig.typeCheck),
+  if (config.typeCheck) {
+    isValid = setValidationStatus(
+      isValid,
+      typeCheck(config.modulePath, config.typeCheck),
     )
   }
-  if (msgConfig.customRule) {
-    validationStatus = setValidationStatus(
-      validationStatus,
-      customRule(modulePath, msgConfig.customRule),
+  if (config.customRule) {
+    isValid = setValidationStatus(
+      isValid,
+      customRule(config.modulePath, config.customRule),
     )
   }
-  return validationStatus
+
+  const errReturnValue = config.errReturn ? config.errReturn : {}
+
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV === 'production' && !isValid) {
+    console.warn(
+      'You have incured 1 or more minified ✨ polished errors. You can use the non-minified dev environment for full errors and additional helpful warnings.',
+    )
+    return errReturnValue
+  }
+
+  return isValid ? mixin(...args) : errReturnValue
 }
 
 export { arrityCheck, customRule, deprecationCheck, typeCheck }

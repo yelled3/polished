@@ -37,29 +37,6 @@ function retinaImage(
   retinaFileName?: string,
   retinaSuffix?: string = '_2x',
 ) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('mixins/placeholder.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, min: 1, max: 5 },
-        typeCheck: [
-          {
-            param: fileName,
-            type: 'string',
-            required: 'requires a fileName as its first parameter. However, you did not provide one.',
-          },
-          { param: backgroundSize, type: 'string' },
-          { param: extension, type: 'string' },
-          { param: retinaFileName, type: 'string' },
-          { param: retinaSuffix, type: 'string' },
-        ],
-      })
-    ) {
-      return {}
-    }
-  }
-
   // Replace the dot at the beginning of the passed extension if one exists
   const ext = extension.replace(/^\./, '')
   const rFileName = retinaFileName
@@ -75,4 +52,23 @@ function retinaImage(
   }
 }
 
-export default retinaImage
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/retinaImage',
+      arrityCheck: { args, min: 1, max: 5 },
+      typeCheck: [
+        {
+          param: args[0],
+          type: 'string',
+          required: 'requires a fileName as its first parameter. However, you did not provide one.',
+        },
+        { param: args[1], type: 'string' },
+        { param: args[2], type: 'string' },
+        { param: args[3], type: 'string' },
+        { param: args[4], type: 'string' },
+      ],
+    },
+    retinaImage,
+    args,
+  )

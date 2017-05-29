@@ -2,7 +2,7 @@
 import arrityCheck from '../_arrityCheck'
 
 describe('arrityCheck', () => {
-  const modulePath = 'module/testModule.js'
+  const modulePath = 'module/testModule'
 
   beforeAll(() => {
     global.console = {

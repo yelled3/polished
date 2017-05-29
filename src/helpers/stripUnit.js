@@ -23,22 +23,19 @@ import validateModule from '../validation/_validateModule'
  */
 
 function stripUnit(value: string) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('helpers/stripUnit.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, exactly: 1 },
-        typeCheck: { param: value, type: 'string' },
-      })
-    ) {
-      return ''
-    }
-  }
-
   const unitlessValue = parseFloat(value)
   if (isNaN(unitlessValue)) return value
   return unitlessValue
 }
 
-export default stripUnit
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'helpers/stripUnit',
+      arrityCheck: { args, exactly: 1 },
+      typeCheck: { param: args[0], type: 'string' },
+      errReturn: '',
+    },
+    stripUnit,
+    args,
+  )

@@ -73,40 +73,21 @@ function generateSources(
  * }
  */
 
-function fontFace(config: FontFaceConfiguration) {
+function fontFace({
+  fontFamily,
+  fontFilePath,
+  fontStretch,
+  fontStyle,
+  fontVariant,
+  fontWeight,
+  fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
+  localFonts,
+  unicodeRange,
+}: FontFaceConfiguration) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !validateModule('mixins/fontFace.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, exactly: 1 },
-        typeCheck: {
-          param: config,
-          type: 'object',
-          required: 'requires a config object as its only parameter. However, you did not provide one.',
-        },
-      })
-    ) {
-      return {}
-    }
-  }
-
-  const {
-    fontFamily,
-    fontFilePath,
-    fontStretch,
-    fontStyle,
-    fontVariant,
-    fontWeight,
-    fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
-    localFonts,
-    unicodeRange,
-  } = config
-
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !typeCheck('mixins/fontFace.js', [
+      !typeCheck('mixins/fontFace', [
         {
           param: fontFamily,
           type: 'string',
@@ -121,7 +102,7 @@ function fontFace(config: FontFaceConfiguration) {
         { param: localFonts, type: 'array' },
         { param: unicodeRange, type: 'string' },
       ]) ||
-      !customRule('mixins/fontFace.js', {
+      !customRule('mixins/fontFace', {
         enforce: fontFilePath || localFonts,
         msg: 'fontFace expects either the path to the font file(s) or a name of a local copy.',
       })
@@ -145,5 +126,17 @@ function fontFace(config: FontFaceConfiguration) {
   // Removes undefined fields for cleaner css object.
   return JSON.parse(JSON.stringify(fontFaceDeclaration))
 }
-
-export default fontFace
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/fontFace',
+      arrityCheck: { args, exactly: 1 },
+      typeCheck: {
+        param: args[0],
+        type: 'object',
+        required: 'requires a config object as its only parameter. However, you did not provide one.',
+      },
+    },
+    fontFace,
+    args,
+  )

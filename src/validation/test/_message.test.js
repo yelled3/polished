@@ -5,7 +5,7 @@ const additionalStyles = [
   'font-weight: bold; font-size: 12px',
   'font-size: 12px',
 ]
-const modulePath = 'modules/moduleName.js'
+const modulePath = 'modules/moduleName'
 const messageBody = 'expects this to be a %ctest message%c.'
 
 describe('message', () => {

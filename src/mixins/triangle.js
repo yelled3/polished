@@ -66,36 +66,17 @@ const reverseDirection = {
  * }
  */
 
-function triangle(config: TriangleArgs) {
+function triangle({
+  pointingDirection,
+  height,
+  width,
+  foregroundColor,
+  backgroundColor = 'transparent',
+}: TriangleArgs) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !validateModule('mixins/triangle.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, exactly: 1 },
-        typeCheck: {
-          param: config,
-          type: 'object',
-          required: 'requires a config object as its only parameter. However, you did not provide one.',
-        },
-      })
-    ) {
-      return {}
-    }
-  }
-
-  const {
-    pointingDirection,
-    height,
-    width,
-    foregroundColor,
-    backgroundColor = 'transparent',
-  } = config
-
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !typeCheck('mixins/triangle.js', [
+      !typeCheck('mixins/triangle', [
         // TODO: Needs to be a proper enumberable
         {
           param: pointingDirection,
@@ -130,7 +111,7 @@ function triangle(config: TriangleArgs) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !typeCheck('mixins/triangle.js', [
+      !typeCheck('mixins/triangle', [
         {
           param: unitlessHeight,
           type: 'number',
@@ -166,4 +147,17 @@ function triangle(config: TriangleArgs) {
   }
 }
 
-export default triangle
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/triangle',
+      arrityCheck: { args, exactly: 1 },
+      typeCheck: {
+        param: args[0],
+        type: 'object',
+        required: 'requires a config object as its only parameter. However, you did not provide one.',
+      },
+    },
+    triangle,
+    args,
+  )

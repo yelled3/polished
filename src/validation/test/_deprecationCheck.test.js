@@ -2,7 +2,7 @@
 import deprecationCheck from '../_deprecationCheck'
 
 jest.mock('../_deprecated', () => ({
-  'module/deprecatedModule.js': {
+  'module/deprecatedModule': {
     version: '3.0',
     guidance: 'You should use the %c::currentModule%c instead.',
   },
@@ -21,7 +21,7 @@ describe('deprecationCheck', () => {
   })
 
   it('should throw a warning when the module is deprecated', () => {
-    deprecationCheck('module/deprecatedModule.js')
+    deprecationCheck('module/deprecatedModule')
     // eslint-disable-next-line no-console
     expect(console.warn.mock.calls).toMatchSnapshot()
     // eslint-disable-next-line no-console
@@ -29,7 +29,7 @@ describe('deprecationCheck', () => {
   })
 
   it('should not throw a warning when the module is not deprecated', () => {
-    deprecationCheck('module/currentModule.js')
+    deprecationCheck('module/currentModule')
     // eslint-disable-next-line no-console
     expect(console.warn.mock.calls).toMatchSnapshot()
     // eslint-disable-next-line no-console

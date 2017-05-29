@@ -79,30 +79,17 @@ function constructGradientValue(
  * }
  */
 
-function radialGradient(config: RadialGradientConfiguration) {
+function radialGradient({
+  colorStops,
+  extent,
+  fallback,
+  position,
+  shape,
+}: RadialGradientConfiguration) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     if (
-      !validateModule('mixins/radialGradient.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, exactly: 1 },
-        typeCheck: {
-          param: config,
-          type: 'object',
-          required: 'requires a config object as its only parameter. However, you did not provide one.',
-        },
-      })
-    ) {
-      return {}
-    }
-  }
-
-  const { colorStops, extent, fallback, position, shape } = config
-
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !typeCheck('mixins/radialGradient.js', [
+      !typeCheck('mixins/radialGradient', [
         {
           param: colorStops,
           type: 'array',
@@ -113,7 +100,7 @@ function radialGradient(config: RadialGradientConfiguration) {
         { param: position, type: 'string' },
         { param: shape, type: 'string' },
       ]) ||
-      !customRule('mixins/radialGradient.js', {
+      !customRule('mixins/radialGradient', {
         enforce: colorStops.length > 1,
         msg: `expects an array of at least 2 color-stops. However, the one you provided only had ${colorStops.length}.`,
       })
@@ -128,4 +115,17 @@ function radialGradient(config: RadialGradientConfiguration) {
   }
 }
 
-export default radialGradient
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/radialGradient',
+      arrityCheck: { args, exactly: 1 },
+      typeCheck: {
+        param: args[0],
+        type: 'object',
+        required: 'requires a config object as its only parameter. However, you did not provide one.',
+      },
+    },
+    radialGradient,
+    args,
+  )

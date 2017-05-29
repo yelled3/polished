@@ -6,7 +6,7 @@ function formatMessage(
   moduleName: string,
   modulePath: string,
 ) {
-  const header = `%c ✨ ${type.toUpperCase()} ✨ ---- ${modulePath} --`
+  const header = `%c ✨ ${type.toUpperCase()} ✨ ---- ${modulePath}.js --`
 
   const body = `%c
 
@@ -34,8 +34,8 @@ function message(
   modulePath: string,
   additionalStyles: Array<string> = [],
 ) {
-  const moduleNameMatch = modulePath.match(/([^/]+)(?=\.\w+$)/)
-  const moduleName = moduleNameMatch ? moduleNameMatch[0] : modulePath
+  const moduleNameMatch = modulePath.split('/')
+  const moduleName = moduleNameMatch ? moduleNameMatch[1] : modulePath
   const formattedMessage = formatMessage(
     type,
     messageBody,

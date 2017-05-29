@@ -49,18 +49,6 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
  */
 
 function directionalProperty(property: string, ...values: Array<?string>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('helpers/directionalProperty.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, min: 2, max: 5 },
-        typeCheck: { param: property, type: 'string' },
-      })
-    ) {
-      return {}
-    }
-  }
   //  prettier-ignore
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
   const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values
@@ -68,4 +56,13 @@ function directionalProperty(property: string, ...values: Array<?string>) {
   return generateStyles(property, valuesWithDefaults)
 }
 
-export default directionalProperty
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'helpers/directionalProperty',
+      arrityCheck: { args, min: 2, max: 5 },
+      typeCheck: { param: args[0], type: 'string' },
+    },
+    directionalProperty,
+    args,
+  )

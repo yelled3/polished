@@ -28,19 +28,6 @@ import validateModule from '../validation/_validateModule'
  */
 
 function ellipsis(width?: string = '100%') {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('mixins/ellipsis.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, max: 1 },
-        typeCheck: { param: width, type: 'string' },
-      })
-    ) {
-      return {}
-    }
-  }
-
   return {
     display: 'inline-block',
     maxWidth: width,
@@ -51,4 +38,13 @@ function ellipsis(width?: string = '100%') {
   }
 }
 
-export default ellipsis
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/ellipsis',
+      arrityCheck: { args, max: 1 },
+      typeCheck: { param: args[0], type: 'string' },
+    },
+    ellipsis,
+    args,
+  )

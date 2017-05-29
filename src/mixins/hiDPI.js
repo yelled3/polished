@@ -31,19 +31,6 @@ import validateModule from '../validation/_validateModule'
  */
 
 function hiDPI(ratio?: number = 1.3) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('mixins/hiDPI.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, max: 1 },
-        typeCheck: { param: ratio, type: 'number' },
-      })
-    ) {
-      return ''
-    }
-  }
-
   return `
     @media only screen and (-webkit-min-device-pixel-ratio: ${ratio}),
     only screen and (min--moz-device-pixel-ratio: ${ratio}),
@@ -53,4 +40,14 @@ function hiDPI(ratio?: number = 1.3) {
   `
 }
 
-export default hiDPI
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/hiDPI',
+      arrityCheck: { args, max: 1 },
+      typeCheck: { param: args[0], type: 'number' },
+      errReturn: '',
+    },
+    hiDPI,
+    args,
+  )

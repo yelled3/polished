@@ -8,7 +8,10 @@ import message from './_message'
 
 function isEnforceable(modulePath, validation) {
   if (!validation.enforce) {
-    message('error', validation.msg, modulePath)
+    /* istanbul ignore next */
+    if (process.env.NODE_ENV !== 'production') {
+      message('error', validation.msg, modulePath)
+    }
     return false
   }
   return true

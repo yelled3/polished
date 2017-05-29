@@ -288,20 +288,17 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  * } ...
  */
 function normalize(excludeOpinionated?: boolean = false) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('mixins/normalize.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, max: 1 },
-        typeCheck: { param: excludeOpinionated, type: 'boolean' },
-      })
-    ) {
-      return {}
-    }
-  }
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
 }
 
-export default normalize
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/normalize',
+      arrityCheck: { args, max: 1 },
+      typeCheck: { param: args[0], type: 'boolean' },
+    },
+    normalize,
+    args,
+  )

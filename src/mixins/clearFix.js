@@ -25,22 +25,8 @@ import validateModule from '../validation/_validateModule'
  */
 
 function clearFix(parent?: string = '&') {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('mixins/clearFix.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, max: 1 },
-        typeCheck: { param: parent, type: 'string' },
-      })
-    ) {
-      return {}
-    }
-  }
-
-  const pseudoSelector = `${parent}::after`
   return {
-    [pseudoSelector]: {
+    [`${parent}::after`]: {
       clear: 'both',
       content: '""',
       display: 'table',
@@ -48,4 +34,13 @@ function clearFix(parent?: string = '&') {
   }
 }
 
-export default clearFix
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/clearFix',
+      arrityCheck: { args, max: 1 },
+      typeCheck: { param: args[0], type: 'string' },
+    },
+    clearFix,
+    args,
+  )

@@ -29,19 +29,6 @@ const wrapKeywords = ['break-word', 'normal']
  */
 
 function wordWrap(wrap?: WrapKeywords | string = 'break-word') {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !validateModule('mixins/wordWrap.js', {
-        // eslint-disable-next-line prefer-rest-params
-        arrityCheck: { args: arguments, max: 1 },
-        typeCheck: { param: wrap, type: 'enumerable', map: wrapKeywords },
-      })
-    ) {
-      return {}
-    }
-  }
-
   const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
   return {
     overflowWrap: wrap,
@@ -50,4 +37,13 @@ function wordWrap(wrap?: WrapKeywords | string = 'break-word') {
   }
 }
 
-export default wordWrap
+export default (...args) =>
+  validateModule(
+    {
+      modulePath: 'mixins/wordWrap',
+      arrityCheck: { args, max: 1 },
+      typeCheck: { param: args[0], type: 'enumerable', map: wrapKeywords },
+    },
+    wordWrap,
+    args,
+  )

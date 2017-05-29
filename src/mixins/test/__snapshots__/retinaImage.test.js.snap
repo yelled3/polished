@@ -81,11 +81,11 @@ Object {
 exports[`retinaImage should throw 2 errors when no parameters are passed 1`] = `
 Array [
   Array [
-    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
+    "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-placeholder %cexpects a minimum of %c1 parameter%c. However, you passed %c0 parameters%c.
+retinaImage %cexpects a minimum of %c1 parameter%c. However, you passed %c0 parameters%c.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
@@ -98,11 +98,11 @@ Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c fo
     "color: gray; line-height: 1.4",
   ],
   Array [
-    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
+    "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-placeholder %crequires a fileName as its first parameter. However, you did not provide one.
+retinaImage %crequires a fileName as its first parameter. However, you did not provide one.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
@@ -116,11 +116,11 @@ Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c fo
 exports[`retinaImage should throw an error when a non-string value is passed for backgroundSize 1`] = `
 Array [
   Array [
-    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
+    "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-placeholder %cexpects a 2nd parameter of type string. However, you passed 100(number) instead.
+retinaImage %cexpects a 2nd parameter of type string. However, you passed 100(number) instead.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
@@ -134,11 +134,11 @@ Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c fo
 exports[`retinaImage should throw an error when a non-string value is passed for extension 1`] = `
 Array [
   Array [
-    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
+    "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-placeholder %cexpects a 3rd parameter of type string. However, you passed true(boolean) instead.
+retinaImage %cexpects a 3rd parameter of type string. However, you passed true(boolean) instead.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
@@ -152,11 +152,11 @@ Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c fo
 exports[`retinaImage should throw an error when a non-string value is passed for fileName 1`] = `
 Array [
   Array [
-    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
+    "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-placeholder %cexpects a 1st parameter of type string. However, you passed 1(number) instead.
+retinaImage %cexpects a 1st parameter of type string. However, you passed 1(number) instead.
   %c
-Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
+Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
