@@ -201,3 +201,65 @@ Object {
   "--dimension": 100,
 }
 `;
+
+exports[`stripUnit should throw a warning when passed more than 1 parameter 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- helpers/stripUnit.js --%c
+
+stripUnit %cexpects %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`stripUnit should throw an error when not passed any parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+
+stripUnit %cexpects %c1 parameter%c. However, you passed %c0 parameters%c.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: red",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`stripUnit should throw an error when passed a non-string parameter 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+
+stripUnit %cexpects a parameter of type string. However, you passed 100(number) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;

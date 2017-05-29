@@ -2,12 +2,21 @@
 import modularScale, { ratioNames } from '../modularScale'
 
 describe('modularScale', () => {
-  it('should throw an error if no steps are provided', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-    expect(() => ({ 'font-size': modularScale() })).toThrow()
+  beforeAll(() => {
+    global.console = {
+      error: jest.fn(),
+      warn: jest.fn(),
+    }
   })
 
-  it('should use perfect fourth and 1em base by default', () => {
+  afterEach(() => {
+    // eslint-disable-next-line no-console
+    console.error.mockClear()
+    // eslint-disable-next-line no-console
+    console.warn.mockClear()
+  })
+
+  it('should use perfectFourth and 1em base by default', () => {
     expect({ 'font-size': modularScale(1) }).toMatchSnapshot()
     expect({ 'font-size': modularScale(2) }).toMatchSnapshot()
     expect({ 'font-size': modularScale(0) }).toMatchSnapshot()
@@ -15,6 +24,10 @@ describe('modularScale', () => {
 
   it('should allow adjusting the base', () => {
     expect({ 'font-size': modularScale(1, '2em') }).toMatchSnapshot()
+  })
+
+  it('should allow adjusting the base with a number value', () => {
+    expect({ 'font-size': modularScale(1, 2) }).toMatchSnapshot()
   })
 
   it('should allow adjusting the ratio', () => {
@@ -29,16 +42,33 @@ describe('modularScale', () => {
     })
   })
 
-  it('should throw an error if an invalid base is provided', () => {
-    expect(() => {
-      modularScale(2, 'invalid')
-    }).toThrow()
+  it('should throw a warning if more than 3 parameters are provided', () => {
+    modularScale(1, '1em', 'perfectFourth', true)
+    // eslint-disable-next-line no-console
+    expect(console.warn.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error if a non-number value for steps is provided', () => {
+    modularScale('invalid')
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error if a non-number or non-string value for base is provided', () => {
+    modularScale(2, true)
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error if an invalid string-based value for base is provided', () => {
+    modularScale(2, 'invalid')
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error if an invalid ratio is provided', () => {
-    expect(() => {
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-      modularScale(2, '1em', 'invalid')
-    }).toThrow()
+    modularScale(2, '1em', 'invalid')
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
   })
 })

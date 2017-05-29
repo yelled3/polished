@@ -32,7 +32,7 @@ function validateModule(modulePath: string, msgConfig?: Object) {
   if (msgConfig.customRule) {
     validationStatus = setValidationStatus(
       validationStatus,
-      customRule(modulePath, msgConfig.customRules),
+      customRule(modulePath, msgConfig.customRule),
     )
   }
   return validationStatus

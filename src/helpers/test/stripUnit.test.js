@@ -2,6 +2,20 @@
 import stripUnit from '../stripUnit'
 
 describe('stripUnit', () => {
+  beforeAll(() => {
+    global.console = {
+      error: jest.fn(),
+      warn: jest.fn(),
+    }
+  })
+
+  afterEach(() => {
+    // eslint-disable-next-line no-console
+    console.error.mockClear()
+    // eslint-disable-next-line no-console
+    console.warn.mockClear()
+  })
+
   it('should strip px from whole values', () => {
     expect({ '--dimension': stripUnit('1px') }).toMatchSnapshot()
   })
@@ -136,5 +150,23 @@ describe('stripUnit', () => {
 
   it('should return an untouched string when passed', () => {
     expect({ '--dimension': stripUnit('red') }).toMatchSnapshot()
+  })
+
+  it('should throw a warning when passed more than 1 parameter', () => {
+    stripUnit('100px', true)
+    // eslint-disable-next-line no-console
+    expect(console.warn.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when not passed any parameters', () => {
+    stripUnit()
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string parameter', () => {
+    stripUnit(100)
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
   })
 })

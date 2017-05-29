@@ -4,6 +4,12 @@ Object {
 }
 `;
 
+exports[`modularScale should allow adjusting the base with a number value 1`] = `
+Object {
+  "font-size": "2.666em",
+}
+`;
+
 exports[`modularScale should allow adjusting the ratio 1`] = `
 Object {
   "font-size": "1em",
@@ -112,19 +118,113 @@ Object {
 }
 `;
 
-exports[`modularScale should use perfect fourth and 1em base by default 1`] = `
+exports[`modularScale should throw a warning if more than 3 parameters are provided 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- helpers/stripUnit.js --%c
+
+stripUnit %cexpects a maximum of %c3 parameters%c. However, you passed %c4 parameters%c. These additional parameters were ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`modularScale should throw an error if a non-number or non-string value for base is provided 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+
+stripUnit %cexpects an optional 2nd parameter of type string or number to represent the base. However, you passed true(boolean) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`modularScale should throw an error if a non-number value for steps is provided 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+
+stripUnit %cexpects a parameter of type number. However, you passed invalid(string) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`modularScale should throw an error if an invalid ratio is provided 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+
+stripUnit %cexpects an optional 3rd parameter of type number or a string enumberable to represent ratio, However, you passed invalid(string) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`modularScale should throw an error if an invalid string-based value for base is provided 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+
+stripUnit %cexpects base to be a valid em-based string value. However, you passed invalid instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`modularScale should use perfectFourth and 1em base by default 1`] = `
 Object {
   "font-size": "1.333em",
 }
 `;
 
-exports[`modularScale should use perfect fourth and 1em base by default 2`] = `
+exports[`modularScale should use perfectFourth and 1em base by default 2`] = `
 Object {
   "font-size": "1.776889em",
 }
 `;
 
-exports[`modularScale should use perfect fourth and 1em base by default 3`] = `
+exports[`modularScale should use perfectFourth and 1em base by default 3`] = `
 Object {
   "font-size": "1em",
 }

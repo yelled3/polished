@@ -1,18 +1,18 @@
 // @flow
-import deprecationCheck from '../validation/_deprecationCheck'
+import validateModule from '../validation/_validateModule'
 
 /**
- * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
+ * Strip the unit from a given CSS value, returning just the number.
  *
  * @example
  * // Styles as object usage
  * const styles = {
- *   '--dimension': stripUnit(100px)
+ *   '--dimension': stripUnit('100px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   --dimension: ${stripUnit(100px)}
+ *   --dimension: ${stripUnit('100px')}
  * `
  *
  * // CSS in JS Output
@@ -22,11 +22,18 @@ import deprecationCheck from '../validation/_deprecationCheck'
  * }
  */
 
-function stripUnit(value: string): number | string {
+function stripUnit(value: string) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'helpers/stripUnit.js'
-    deprecationCheck(modulePath)
+    if (
+      !validateModule('helpers/stripUnit.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, exactly: 1 },
+        typeCheck: { param: value, type: 'string' },
+      })
+    ) {
+      return ''
+    }
   }
 
   const unitlessValue = parseFloat(value)

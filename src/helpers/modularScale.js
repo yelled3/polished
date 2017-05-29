@@ -1,6 +1,6 @@
 // @flow
 import stripUnit from './stripUnit'
-import deprecationCheck from '../validation/_deprecationCheck'
+import validateModule, { customRule } from '../validation/_validateModule'
 
 const ratioNames = {
   minorSecond: 1.067,
@@ -71,28 +71,41 @@ function modularScale(
 ) {
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'helpers/modularScale.js'
-    deprecationCheck(modulePath)
-  }
-
-  if (typeof steps !== 'number') {
-    throw new Error(
-      'Please provide a number of steps to the modularScale helper.',
-    )
-  }
-  if (typeof ratio === 'string' && !ratioNames[ratio]) {
-    throw new Error(
-      'Please pass a number or one of the predefined scales to the modularScale helper as the ratio.',
-    )
+    if (
+      !validateModule('helpers/stripUnit.js', {
+        // eslint-disable-next-line prefer-rest-params
+        arrityCheck: { args: arguments, min: 1, max: 3 },
+        typeCheck: { param: steps, type: 'number' },
+        customRule: [
+          {
+            enforce: typeof base === 'number' || typeof base === 'string',
+            msg: `expects an optional 2nd parameter of type string or number to represent the base. However, you passed ${base}(${typeof base}) instead.`,
+          },
+          {
+            enforce: typeof ratio === 'number' ||
+              (typeof ratio === 'string' && ratioNames[ratio]),
+            msg: `expects an optional 3rd parameter of type number or a string enumberable to represent ratio, However, you passed ${ratio}(${typeof ratio}) instead.`,
+          },
+        ],
+      })
+    ) {
+      return ''
+    }
   }
 
   const realBase = typeof base === 'string' ? stripUnit(base) : base
   const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
 
-  if (typeof realBase === 'string') {
-    throw new Error(
-      `Invalid value passed as base to modularScale, expected number or em string but got "${base}"`,
-    )
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    if (
+      !customRule('helpers/stripUnit.js', {
+        enforce: typeof realBase === 'number',
+        msg: `expects base to be a valid em-based string value. However, you passed ${base} instead.`,
+      })
+    ) {
+      return ''
+    }
   }
 
   return `${realBase * realRatio ** steps}em`
