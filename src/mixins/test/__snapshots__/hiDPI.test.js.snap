@@ -48,7 +48,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#hiDPI%c for more
 ]
 `;
 
-exports[`hiDPI should throw an error and a warning when called with multiple non-string values 1`] = `
+exports[`hiDPI should throw an error and a warning when called with multiple string values 1`] = `
 Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/hiDPI.js --%c
@@ -66,7 +66,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#hiDPI%c for more
 ]
 `;
 
-exports[`hiDPI should throw an error and a warning when called with multiple non-string values 2`] = `
+exports[`hiDPI should throw an error and a warning when called with multiple string values 2`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/hiDPI.js --%c

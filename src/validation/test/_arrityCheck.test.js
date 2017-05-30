@@ -8,25 +8,32 @@ describe('arrityCheck', () => {
     global.console = {
       error: jest.fn(),
       warn: jest.fn(),
+      log: global.console.log,
     }
   })
 
   // Exactly
   it('should return true when passed exactly the arguments needed', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [1],
-        exactly: 1,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          exactly: 1,
+        },
+        [1],
+      ),
     ).toBeTruthy()
   })
 
   it('should return true when passed more arguments than exactly needed', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [1, 2],
-        exactly: 1,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          exactly: 1,
+        },
+        [1, 2],
+      ),
     ).toBeTruthy()
   })
 
@@ -39,10 +46,13 @@ describe('arrityCheck', () => {
 
   it('should return false when passed less arguments than exactly needed', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [1, 2],
-        exactly: 3,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          exactly: 3,
+        },
+        [1, 2],
+      ),
     ).toBeFalsy()
   })
 
@@ -56,28 +66,37 @@ describe('arrityCheck', () => {
   // Min
   it('should return true when passed at least the arguments needed', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [1],
-        min: 1,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          min: 1,
+        },
+        [1],
+      ),
     ).toBeTruthy()
   })
 
   it('should return true when passed more arguments than minimially needed', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [1, 2],
-        min: 1,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          min: 1,
+        },
+        [1, 2],
+      ),
     ).toBeTruthy()
   })
 
   it('should return false when passed less arguments than minimially needed', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [1, 2],
-        min: 3,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          min: 3,
+        },
+        [1, 2],
+      ),
     ).toBeFalsy()
   })
 
@@ -91,28 +110,37 @@ describe('arrityCheck', () => {
   // Max
   it('should return true when passed at less than the arguments needed', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [0],
-        max: 1,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          max: 1,
+        },
+        [0],
+      ),
     ).toBeTruthy()
   })
 
   it('should return true when passed the maximum arguments needed', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [1, 2],
-        max: 2,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          max: 2,
+        },
+        [1, 2],
+      ),
     ).toBeTruthy()
   })
 
   it('should return true when passed more than the maximum arguments needed', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [1, 2],
-        max: 1,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          max: 1,
+        },
+        [1, 2],
+      ),
     ).toBeTruthy()
   })
 
@@ -125,10 +153,13 @@ describe('arrityCheck', () => {
 
   it('should return true when passed more than the maximum arguments needed and max is 0', () => {
     expect(
-      arrityCheck(modulePath, {
-        args: [1, 2],
-        max: 0,
-      }),
+      arrityCheck(
+        modulePath,
+        {
+          max: 0,
+        },
+        [1, 2],
+      ),
     ).toBeTruthy()
   })
 
@@ -140,18 +171,17 @@ describe('arrityCheck', () => {
   })
 
   it('should return true when passed no limitations', () => {
-    expect(
-      arrityCheck(modulePath, {
-        args: [1, 2],
-      }),
-    ).toBeTruthy()
+    expect(arrityCheck(modulePath, {}, [1, 2])).toBeTruthy()
   })
 
   it('should throw a properly formatted warning when difference in expected and actual is not equal to 1', () => {
-    arrityCheck(modulePath, {
-      args: [1, 2, 3, 4],
-      exactly: 1,
-    })
+    arrityCheck(
+      modulePath,
+      {
+        exactly: 1,
+      },
+      [1, 2, 3, 4],
+    )
     // eslint-disable-next-line no-console
     expect(console.warn.mock.calls).toMatchSnapshot()
     // eslint-disable-next-line no-console

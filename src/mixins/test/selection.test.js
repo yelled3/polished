@@ -10,6 +10,7 @@ describe('selection', () => {
     global.console = {
       error: jest.fn(),
       warn: jest.fn(),
+      log: global.console.log,
     }
   })
 
@@ -20,10 +21,10 @@ describe('selection', () => {
     console.warn.mockClear()
   })
 
-  it('should properly pass styles object and parent', () => {
+  it('should properly pass parent and styles object', () => {
     expect({
       div: {
-        ...selection(styles, 'section'),
+        ...selection('section', styles),
       },
     }).toMatchSnapshot()
   })
@@ -31,34 +32,34 @@ describe('selection', () => {
   it('should properly default to no parent when not passed one', () => {
     expect({
       div: {
-        ...selection(styles),
+        ...selection(undefined, styles),
       },
     }).toMatchSnapshot()
   })
 
-  it('should throw an error when not passed any parameters', () => {
+  it('should throw 2 errors when not passed any parameters', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     selection()
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
-  it('should throw an error when passed a non-object as its first parameter', () => {
+  it('should throw an error when passed a non-string as its first parameter', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-    selection('styles')
+    selection(1, styles)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
-  it('should throw an error when passed a non-string as its second parameter', () => {
+  it('should throw an error when passed a non-object as its second parameter', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-    selection(styles, 1)
+    selection('main', 'style')
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw a warning when passed more than 2 parameters', () => {
-    selection(styles, 'input', true)
+    selection('input', styles, true)
     // eslint-disable-next-line no-console
     expect(console.warn.mock.calls).toMatchSnapshot()
   })

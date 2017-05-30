@@ -6,6 +6,7 @@ describe('hiDPI', () => {
     global.console = {
       error: jest.fn(),
       warn: jest.fn(),
+      log: global.console.log,
     }
   })
 
@@ -45,7 +46,7 @@ describe('hiDPI', () => {
     expect(console.warn.mock.calls).toMatchSnapshot()
   })
 
-  it('should throw an error and a warning when called with multiple non-string values', () => {
+  it('should throw an error and a warning when called with multiple string values', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     hiDPI('1px', '2px')
     // eslint-disable-next-line no-console

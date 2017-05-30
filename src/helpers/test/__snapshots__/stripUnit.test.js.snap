@@ -243,6 +243,19 @@ Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for 
     "color: blue; line-height: 1.4",
     "color: gray; line-height: 1.4",
   ],
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
+
+stripUnit %ctrue
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
 ]
 `;
 

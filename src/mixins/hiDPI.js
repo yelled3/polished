@@ -40,14 +40,9 @@ function hiDPI(ratio?: number = 1.3) {
   `
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'mixins/hiDPI',
-      arrityCheck: { args, max: 1 },
-      typeCheck: { param: args[0], type: 'number' },
-      errReturn: '',
-    },
-    hiDPI,
-    args,
-  )
+export default validateModule({
+  modulePath: 'mixins/hiDPI',
+  arrityCheck: { max: 1 },
+  typeCheck: { type: 'number' },
+  errReturn: '',
+})(hiDPI)

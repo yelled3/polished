@@ -6,12 +6,15 @@ describe('directionalProperty', () => {
     global.console = {
       error: jest.fn(),
       warn: jest.fn(),
+      log: global.console.log,
     }
   })
 
   afterEach(() => {
     // eslint-disable-next-line no-console
     console.error.mockClear()
+    // eslint-disable-next-line no-console
+    console.warn.mockClear()
   })
 
   it('properly generates properties when passed a hyphenated property', () => {

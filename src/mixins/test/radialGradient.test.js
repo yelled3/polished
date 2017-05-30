@@ -64,29 +64,9 @@ describe('radialGradient', () => {
     }).toMatchSnapshot()
   })
 
-  it('should throw a warning when passed more than one parameter', () => {
-    radialGradient(
-      {
-        colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
-        extent: 'farthest-corner at 45px 45px',
-        fallback: '#FFF',
-      },
-      1,
-    )
-    // eslint-disable-next-line no-console
-    expect(console.warn.mock.calls).toMatchSnapshot()
-  })
-
   it('should throw an error when not provided any parameters', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     radialGradient()
-    // eslint-disable-next-line no-console
-    expect(console.error.mock.calls).toMatchSnapshot()
-  })
-
-  it('should throw an error when passed a non-object value', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-    radialGradient(1)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
@@ -118,6 +98,16 @@ describe('radialGradient', () => {
       extent: true,
       position: 'center',
       shape: 'ellipse',
+    })
+    // eslint-disable-next-line no-console
+    expect(console.error.mock.calls).toMatchSnapshot()
+  })
+
+  it('should throw an error when passed a non-string value for fallback', () => {
+    radialGradient({
+      colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      fallback: true,
     })
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()

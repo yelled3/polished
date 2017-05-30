@@ -1,16 +1,8 @@
 // @flow
-import validateModule, { typeCheck } from '../validation/_validateModule'
+import validateModule from '../validation/_validateModule'
 
 /** */
 type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
-
-type TriangleArgs = {
-  backgroundColor?: string,
-  foregroundColor: string,
-  height: string,
-  width: string,
-  pointingDirection: PointingDirection,
-}
 
 const getBorderWidth = (
   pointingDirection: PointingDirection,
@@ -65,71 +57,19 @@ const reverseDirection = {
  *  'width': '0',
  * }
  */
-
-function triangle({
-  pointingDirection,
-  height,
-  width,
-  foregroundColor,
-  backgroundColor = 'transparent',
-}: TriangleArgs) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !typeCheck('mixins/triangle', [
-        // TODO: Needs to be a proper enumberable
-        {
-          param: pointingDirection,
-          type: 'string',
-          required: 'expects a value(string) for pointingDirection. However, you did not provide one.',
-        },
-        {
-          param: height,
-          type: 'string',
-          required: 'expects a value(string) for height. However, you did not provide one.',
-        },
-        {
-          param: width,
-          type: 'string',
-          required: 'expects a value(string) for width. However, you did not provide one.',
-        },
-        {
-          param: foregroundColor,
-          type: 'string',
-          required: 'expects a value(string) for foregroundColor. However, you did not provide one.',
-        },
-        { param: backgroundColor, type: 'string' },
-      ])
-    ) {
-      return {}
-    }
-  }
-
+function triangle(
+  pointingDirection: PointingDirection,
+  height: string,
+  width: string,
+  foregroundColor: string,
+  backgroundColor?: string = 'transparent',
+) {
   const unitlessHeight = parseFloat(height)
   const unitlessWidth = parseFloat(width)
 
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !typeCheck('mixins/triangle', [
-        {
-          param: unitlessHeight,
-          type: 'number',
-          required: 'requires a pixel based value for height.',
-        },
-        {
-          param: unitlessWidth,
-          type: 'number',
-          required: 'requires a pixel based value for width.',
-        },
-      ])
-    ) {
-      return {}
-    }
-  }
-
   return {
     borderColor: backgroundColor,
+    [`border${reverseDirection[pointingDirection]}Color`]: foregroundColor,
     width: '0',
     height: '0',
     borderWidth: getBorderWidth(
@@ -138,26 +78,33 @@ function triangle({
       unitlessWidth,
     ),
     borderStyle: 'solid',
-    /*
-    * javascript Object sorting orders 'border-color' after 'border-bottom-color'
-    * (bottom-b) is before (bottom-c) - !important is needed
-    * { border-bottom-color: 'red', border-color: 'transparent' }
-    */
-    [`border${reverseDirection[pointingDirection]}Color`]: `${foregroundColor} !important`,
   }
 }
 
-export default (...args) =>
-  validateModule(
+export default validateModule({
+  modulePath: 'mixins/triangle',
+  arrityCheck: { min: 4, max: 5 },
+  typeCheck: [
     {
-      modulePath: 'mixins/triangle',
-      arrityCheck: { args, exactly: 1 },
-      typeCheck: {
-        param: args[0],
-        type: 'object',
-        required: 'requires a config object as its only parameter. However, you did not provide one.',
-      },
+      key: 'pointingDirection',
+      type: 'string',
+      required: true,
     },
-    triangle,
-    args,
-  )
+    {
+      key: 'height',
+      type: 'string',
+      required: true,
+    },
+    {
+      key: 'width',
+      type: 'string',
+      required: true,
+    },
+    {
+      key: 'foregroundColor',
+      type: 'string',
+      required: true,
+    },
+    { key: 'backgroundColor', type: 'string' },
+  ],
+})(triangle)

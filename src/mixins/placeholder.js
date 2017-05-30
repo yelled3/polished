@@ -34,7 +34,7 @@ import validateModule from '../validation/_validateModule'
  *   },
  * },
  */
-function placeholder(styles: Object, parent?: string = '&') {
+function placeholder(parent?: string = '&', styles: Object) {
   return {
     [`${parent}::-webkit-input-placeholder`]: {
       ...styles,
@@ -51,16 +51,8 @@ function placeholder(styles: Object, parent?: string = '&') {
   }
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'mixins/placeholder',
-      arrityCheck: { args, min: 1, max: 2 },
-      typeCheck: [
-        { param: args[0], type: 'object' },
-        { param: args[1], type: 'string' },
-      ],
-    },
-    placeholder,
-    args,
-  )
+export default validateModule({
+  modulePath: 'mixins/placeholder',
+  arrityCheck: { min: 1, max: 2 },
+  typeCheck: [{ type: 'string' }, { type: 'object', required: true }],
+})(placeholder)

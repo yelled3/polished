@@ -34,13 +34,8 @@ function clearFix(parent?: string = '&') {
   }
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'mixins/clearFix',
-      arrityCheck: { args, max: 1 },
-      typeCheck: { param: args[0], type: 'string' },
-    },
-    clearFix,
-    args,
-  )
+export default validateModule({
+  modulePath: 'mixins/clearFix',
+  arrityCheck: { max: 1 },
+  typeCheck: { type: 'string' },
+})(clearFix)

@@ -21,23 +21,24 @@ const modulePath = 'module/moduleName'
 
 const mockModule = jest.fn().mockImplementation(css => css)
 
-describe('deprecationCheck', () => {
-  beforeEach(() => {
-    jest.clearAllMocks()
+describe('validateModule', () => {
+  beforeAll(() => {
+    global.console = {
+      error: jest.fn(),
+      warn: jest.fn(),
+      log: global.console.log,
+    }
   })
 
-  afterAll(() => {
-    jest.clearAllMocks()
+  afterEach(() => {
+    // eslint-disable-next-line no-console
+    console.error.mockClear()
+    // eslint-disable-next-line no-console
+    console.warn.mockClear()
   })
 
-  it('should call only deprecationCheck to have been called when passed only module path', () => {
-    validateModule(
-      {
-        modulePath,
-      },
-      mockModule,
-      [{ css: 'yes ' }],
-    )
+  it('should call only deprecationCheck when passed just module path', () => {
+    validateModule({ modulePath })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
     expect(arrityCheck).not.toHaveBeenCalled()
     expect(typeCheck).not.toHaveBeenCalled()
@@ -45,26 +46,14 @@ describe('deprecationCheck', () => {
   })
 
   it('should return the mixins value when passed no validation checks', () => {
-    expect(
-      validateModule(
-        {
-          modulePath,
-        },
-        mockModule,
-        [{ css: 'yes ' }],
-      ),
-    ).toEqual({ css: 'yes ' })
+    expect(validateModule({ modulePath })(mockModule)('yes')).toEqual('yes')
   })
 
   it('should call only deprecationCheck and arrityCheck when passed associated validation options', () => {
-    validateModule(
-      {
-        modulePath,
-        arrityCheck: { args: [1], max: 1 },
-      },
-      mockModule,
-      [{ css: 'yes ' }],
-    )
+    validateModule({
+      modulePath,
+      arrityCheck: { max: 1 },
+    })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
     expect(arrityCheck).toHaveBeenCalled()
     expect(typeCheck).not.toHaveBeenCalled()
@@ -73,27 +62,19 @@ describe('deprecationCheck', () => {
 
   it('should return the mixins return value when arrityCheck passes', () => {
     expect(
-      validateModule(
-        {
-          modulePath,
-          arrityCheck: { args: [1], max: 1 },
-        },
-        mockModule,
-        [{ css: 'yes ' }],
-      ),
-    ).toEqual({ css: 'yes ' })
+      validateModule({
+        modulePath,
+        arrityCheck: { max: 1 },
+      })(mockModule)('yes'),
+    ).toEqual('yes')
   })
 
   it('should call only deprecationCheck, arrityCheck, typeCheck when passed associated validation options', () => {
-    validateModule(
-      {
-        modulePath,
-        arrityCheck: { args: [1], max: 1 },
-        typeCheck: { param: 'string', type: 'string' },
-      },
-      mockModule,
-      [{ css: 'yes ' }],
-    )
+    validateModule({
+      modulePath,
+      arrityCheck: { max: 1 },
+      typeCheck: { param: 'string', type: 'string' },
+    })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
     expect(arrityCheck).toHaveBeenCalled()
     expect(typeCheck).toHaveBeenCalled()
@@ -102,29 +83,21 @@ describe('deprecationCheck', () => {
 
   it('should return the mixins return value when arrityCheck and typecheck passes', () => {
     expect(
-      validateModule(
-        {
-          modulePath,
-          arrityCheck: { args: [1], max: 1 },
-          typeCheck: { param: 'string', type: 'string' },
-        },
-        mockModule,
-        [{ css: 'yes ' }],
-      ),
-    ).toEqual({ css: 'yes ' })
+      validateModule({
+        modulePath,
+        arrityCheck: { max: 1 },
+        typeCheck: { param: 'string', type: 'string' },
+      })(mockModule)('yes'),
+    ).toEqual('yes')
   })
 
   it('should call deprecationCheck, arrityCheck, typeCheck, customRule when passed associated config options validation', () => {
-    validateModule(
-      {
-        modulePath,
-        arrityCheck: { args: [1], max: 1 },
-        typeCheck: { param: 'string', type: 'string' },
-        customRule: { enforce: true, msg: '1 equals 1' },
-      },
-      mockModule,
-      [{ css: 'yes ' }],
-    )
+    validateModule({
+      modulePath,
+      arrityCheck: { max: 1 },
+      typeCheck: { param: 'string', type: 'string' },
+      customRule: { enforce: true, msg: '1 equals 1' },
+    })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
     expect(arrityCheck).toHaveBeenCalled()
     expect(typeCheck).toHaveBeenCalled()
@@ -133,17 +106,13 @@ describe('deprecationCheck', () => {
 
   it('should return the mixins return value when all validation passes', () => {
     expect(
-      validateModule(
-        {
-          modulePath,
-          arrityCheck: { args: [1], max: 1 },
-          typeCheck: { param: 'string', type: 'string' },
-          customRule: { enforce: true, msg: '1 equals 1' },
-        },
-        mockModule,
-        [{ css: 'yes ' }],
-      ),
-    ).toEqual({ css: 'yes ' })
+      validateModule({
+        modulePath,
+        arrityCheck: { max: 1 },
+        typeCheck: { param: 'string', type: 'string' },
+        customRule: { enforce: true, msg: '1 equals 1' },
+      })(mockModule)('yes'),
+    ).toEqual('yes')
   })
 
   // TODO: Failure Cases

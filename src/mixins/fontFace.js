@@ -1,21 +1,5 @@
 // @flow
-import validateModule, {
-  customRule,
-  typeCheck,
-} from '../validation/_validateModule'
-
-/** */
-type FontFaceConfiguration = {
-  fontFamily: string,
-  fontFilePath?: string,
-  fontStretch?: string,
-  fontStyle?: string,
-  fontVariant?: string,
-  fontWeight?: string,
-  fileFormats?: Array<string>,
-  localFonts?: Array<string>,
-  unicodeRange?: string,
-}
+import validateModule, { customRule } from '../validation/_validateModule'
 
 function generateFileReferences(
   fontFilePath: string,
@@ -73,42 +57,24 @@ function generateSources(
  * }
  */
 
-function fontFace({
-  fontFamily,
-  fontFilePath,
-  fontStretch,
-  fontStyle,
-  fontVariant,
-  fontWeight,
-  fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
-  localFonts,
-  unicodeRange,
-}: FontFaceConfiguration) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !typeCheck('mixins/fontFace', [
-        {
-          param: fontFamily,
-          type: 'string',
-          required: 'expects a value for fontFamily that provides a name of a font-family(string).',
-        },
-        { param: fontFilePath, type: 'string' },
-        { param: fontStretch, type: 'string' },
-        { param: fontStyle, type: 'string' },
-        { param: fontVariant, type: 'string' },
-        { param: fontWeight, type: 'string' },
-        { param: fileFormats, type: 'array' },
-        { param: localFonts, type: 'array' },
-        { param: unicodeRange, type: 'string' },
-      ]) ||
-      !customRule('mixins/fontFace', {
-        enforce: fontFilePath || localFonts,
-        msg: 'fontFace expects either the path to the font file(s) or a name of a local copy.',
-      })
-    ) {
-      return {}
-    }
+function fontFace(
+  fontFamily: string,
+  fontFilePath?: string,
+  fontStretch?: string,
+  fontStyle?: string,
+  fontVariant?: string,
+  fontWeight?: string,
+  fileFormats?: Array<string> = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
+  localFonts?: Array<string>,
+  unicodeRange?: string,
+) {
+  if (
+    !customRule('mixins/fontFace', {
+      enforce: fontFilePath || localFonts,
+      msg: 'fontFace expects either the path to the font file(s) or a name of a local copy. However, you provided neither.',
+    })
+  ) {
+    return {}
   }
 
   const fontFaceDeclaration = {
@@ -126,17 +92,22 @@ function fontFace({
   // Removes undefined fields for cleaner css object.
   return JSON.parse(JSON.stringify(fontFaceDeclaration))
 }
-export default (...args) =>
-  validateModule(
+export default validateModule({
+  modulePath: 'mixins/fontFace',
+  arrityCheck: { min: 1, max: 9 },
+  typeCheck: [
     {
-      modulePath: 'mixins/fontFace',
-      arrityCheck: { args, exactly: 1 },
-      typeCheck: {
-        param: args[0],
-        type: 'object',
-        required: 'requires a config object as its only parameter. However, you did not provide one.',
-      },
+      key: 'fontFamily',
+      type: 'string',
+      required: true,
     },
-    fontFace,
-    args,
-  )
+    { key: 'fontFilePath', type: 'string' },
+    { key: 'fontStretch', type: 'string' },
+    { key: 'fontStyle', type: 'string' },
+    { key: 'fontVariant', type: 'string' },
+    { key: 'fontWeight', type: 'string' },
+    { key: 'fileFormats', type: 'array' },
+    { key: 'localFonts', type: 'array' },
+    { key: 'unicodeRange', type: 'string' },
+  ],
+})(fontFace)

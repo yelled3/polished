@@ -31,7 +31,7 @@ import validateModule from '../validation/_validateModule'
  * }
  */
 
-function selection(styles: Object, parent: string = '') {
+function selection(parent?: string = '', styles: Object) {
   return {
     [`${parent}::-moz-selection`]: {
       ...styles,
@@ -42,16 +42,8 @@ function selection(styles: Object, parent: string = '') {
   }
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'mixins/selection',
-      arrityCheck: { args, min: 1, max: 2 },
-      typeCheck: [
-        { param: args[0], type: 'object' },
-        { param: args[1], type: 'string' },
-      ],
-    },
-    selection,
-    args,
-  )
+export default validateModule({
+  modulePath: 'mixins/selection',
+  arrityCheck: { min: 1, max: 2 },
+  typeCheck: [{ type: 'string' }, { type: 'object', required: true }],
+})(selection)

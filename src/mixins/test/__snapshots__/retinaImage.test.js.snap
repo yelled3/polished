@@ -100,7 +100,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c fo
   Array [
     "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-retinaImage %crequires a fileName as its first parameter. However, you did not provide one.
+retinaImage %cexpects a 1st parameter of type string. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",

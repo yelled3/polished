@@ -56,13 +56,14 @@ function directionalProperty(property: string, ...values: Array<?string>) {
   return generateStyles(property, valuesWithDefaults)
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'helpers/directionalProperty',
-      arrityCheck: { args, min: 2, max: 5 },
-      typeCheck: { param: args[0], type: 'string' },
-    },
-    directionalProperty,
-    args,
-  )
+export default validateModule({
+  modulePath: 'helpers/directionalProperty',
+  arrityCheck: { min: 2, max: 5 },
+  typeCheck: [
+    { type: 'string' },
+    { type: 'string' },
+    { type: 'string' },
+    { type: 'string' },
+    { type: 'string' },
+  ],
+})(directionalProperty)

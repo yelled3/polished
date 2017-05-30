@@ -11,13 +11,17 @@ jest.mock('../_deprecated', () => ({
 describe('deprecationCheck', () => {
   beforeAll(() => {
     global.console = {
+      error: jest.fn(),
       warn: jest.fn(),
       log: global.console.log,
     }
   })
 
-  afterAll(() => {
-    jest.clearAllMocks()
+  afterEach(() => {
+    // eslint-disable-next-line no-console
+    console.error.mockClear()
+    // eslint-disable-next-line no-console
+    console.warn.mockClear()
   })
 
   it('should throw a warning when the module is deprecated', () => {

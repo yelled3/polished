@@ -675,16 +675,6 @@
             
               
               <li><a
-                href='#fontfaceconfiguration'
-                class="">
-                FontFaceConfiguration
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
                 href='#hslcolor'
                 class="">
                 HslColor
@@ -718,16 +708,6 @@
                 href='#pointingdirection'
                 class="">
                 PointingDirection
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#radialgradientconfiguration'
-                class="">
-                RadialGradientConfiguration
                 
               </a>
               
@@ -778,6 +758,16 @@
                 href='#tocolorstring'
                 class="">
                 toColorString
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#parsefallback'
+                class="">
+                parseFallback
                 
               </a>
               
@@ -845,7 +835,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/clearFix.js#L27-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/clearFix.js#L27-L35'>
       <span>src/mixins/clearFix.js</span>
       </a>
     
@@ -931,7 +921,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/ellipsis.js#L30-L39'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/ellipsis.js#L30-L39'>
       <span>src/mixins/ellipsis.js</span>
       </a>
     
@@ -1020,7 +1010,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/fontFace.js#L76-L128'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/fontFace.js#L60-L94'>
       <span>src/mixins/fontFace.js</span>
       </a>
     
@@ -1030,7 +1020,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   <p>CSS for a @font-face declaration.</p>
 
 
-  <div class='pre p1 fill-light mt0'>fontFace($0: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <div class='pre p1 fill-light mt0'>fontFace(fontFamily: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fontFilePath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fontStretch: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fontStyle: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fontVariant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fontWeight: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fileFormats: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;], localFonts: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;, unicodeRange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1046,81 +1036,74 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>fontFamily</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    
           </div>
           
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontFamily</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontFilePath</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontStretch</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontStyle</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontVariant</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontWeight</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fileFormats</span> <code class='quiet'>Any</code>
-                  
-                    (default <code>[&#39;eot&#39;, &#39;woff2&#39;, &#39;woff&#39;, &#39;ttf&#39;, &#39;svg&#39;]</code>)
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.localFonts</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.unicodeRange</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-            </tbody>
-          </table>
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fontFilePath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fontStretch</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fontStyle</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fontVariant</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fontWeight</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fileFormats</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;]
+            = <code>[&#39;eot&#39;, &#39;woff2&#39;, &#39;woff&#39;, &#39;ttf&#39;, &#39;svg&#39;]</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>localFonts</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>unicodeRange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
           
         </div>
       
@@ -1182,7 +1165,7 @@ injectGlobal`${
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/hiDPI.js#L33-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/hiDPI.js#L33-L41'>
       <span>src/mixins/hiDPI.js</span>
       </a>
     
@@ -1274,7 +1257,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/hideText.js#L30-L36'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/hideText.js#L30-L36'>
       <span>src/mixins/hideText.js</span>
       </a>
     
@@ -1349,7 +1332,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/normalize.js#L290-L293'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/normalize.js#L290-L293'>
       <span>src/mixins/normalize.js</span>
       </a>
     
@@ -1359,7 +1342,7 @@ const div = styled.div`
   <p>CSS to normalize abnormalities across browsers (normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css)</p>
 
 
-  <div class='pre p1 fill-light mt0'>normalize(excludeOpinionated: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>])</div>
+  <div class='pre p1 fill-light mt0'>normalize(excludeOpinionated: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
   
   
 
@@ -1375,8 +1358,7 @@ const div = styled.div`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>excludeOpinionated</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>]
-            = <code>false</code>)</code>
+            <span class='code bold'>excludeOpinionated</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
 	    
           </div>
           
@@ -1433,7 +1415,7 @@ html {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/placeholder.js#L37-L52'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/placeholder.js#L37-L52'>
       <span>src/mixins/placeholder.js</span>
       </a>
     
@@ -1444,7 +1426,7 @@ html {
 <p><strong><em>Deprecation Warning:</em></strong> <em>This mixin has been deprecated and will be removed in version 3.0.</em></p>
 
 
-  <div class='pre p1 fill-light mt0'>placeholder(styles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, parent: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
+  <div class='pre p1 fill-light mt0'>placeholder(parent: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>], styles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -1460,7 +1442,8 @@ html {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>styles</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>parent</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
+            = <code>&#39;&amp;&#39;</code>)</code>
 	    
           </div>
           
@@ -1468,8 +1451,7 @@ html {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>parent</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>&#39;&amp;&#39;</code>)</code>
+            <span class='code bold'>styles</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    
           </div>
           
@@ -1537,7 +1519,7 @@ const div = styled.input`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/radialGradient.js#L82-L116'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/radialGradient.js#L70-L81'>
       <span>src/mixins/radialGradient.js</span>
       </a>
     
@@ -1547,7 +1529,7 @@ const div = styled.input`
   <p>CSS for declaring a radial gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.</p>
 
 
-  <div class='pre p1 fill-light mt0'>radialGradient($0: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <div class='pre p1 fill-light mt0'>radialGradient(colorStops: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;, extent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fallback: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, position: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, shape: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1563,55 +1545,41 @@ const div = styled.input`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>colorStops</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
 	    
           </div>
           
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.colorStops</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.extent</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fallback</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.position</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.shape</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-            </tbody>
-          </table>
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>extent</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fallback</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>position</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>shape</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
           
         </div>
       
@@ -1677,7 +1645,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/retinaImage.js#L33-L53'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/retinaImage.js#L33-L53'>
       <span>src/mixins/retinaImage.js</span>
       </a>
     
@@ -1802,7 +1770,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/selection.js#L34-L43'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/selection.js#L34-L43'>
       <span>src/mixins/selection.js</span>
       </a>
     
@@ -1813,7 +1781,7 @@ div {
 <p><strong><em>Deprecation Warning:</em></strong> <em>This mixin has been deprecated and will be removed in version 3.0.</em></p>
 
 
-  <div class='pre p1 fill-light mt0'>selection(styles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, parent: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
+  <div class='pre p1 fill-light mt0'>selection(parent: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>], styles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -1829,7 +1797,8 @@ div {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>styles</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>parent</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
+            = <code>&#39;&#39;</code>)</code>
 	    
           </div>
           
@@ -1837,8 +1806,7 @@ div {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>parent</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>&#39;&#39;</code>)</code>
+            <span class='code bold'>styles</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    
           </div>
           
@@ -1902,7 +1870,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/timingFunctions.js#L81-L83'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/timingFunctions.js#L81-L83'>
       <span>src/mixins/timingFunctions.js</span>
       </a>
     
@@ -1985,7 +1953,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/triangle.js#L69-L148'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/triangle.js#L60-L82'>
       <span>src/mixins/triangle.js</span>
       </a>
     
@@ -1995,7 +1963,7 @@ const div = styled.div`
   <p>CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.</p>
 
 
-  <div class='pre p1 fill-light mt0'>triangle($0: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <div class='pre p1 fill-light mt0'>triangle(pointingDirection: <a href="#pointingdirection">PointingDirection</a>, height: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, width: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, foregroundColor: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, backgroundColor: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
   
   
 
@@ -2011,57 +1979,42 @@ const div = styled.div`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>pointingDirection</span> <code class='quiet'>(<a href="#pointingdirection">PointingDirection</a>)</code>
 	    
           </div>
           
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.pointingDirection</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.height</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.width</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.foregroundColor</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.backgroundColor</span> <code class='quiet'>Any</code>
-                  
-                    (default <code>&#39;transparent&#39;</code>)
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-            </tbody>
-          </table>
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>height</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>width</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>foregroundColor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>backgroundColor</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
+            = <code>&#39;transparent&#39;</code>)</code>
+	    
+          </div>
           
         </div>
       
@@ -2123,7 +2076,7 @@ div:</span> {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/wordWrap.js#L31-L38'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/wordWrap.js#L31-L38'>
       <span>src/mixins/wordWrap.js</span>
       </a>
     
@@ -2221,7 +2174,7 @@ div:</span> {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/adjustHue.js#L31-L43'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/adjustHue.js#L31-L43'>
       <span>src/color/adjustHue.js</span>
       </a>
     
@@ -2321,7 +2274,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/complement.js#L28-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/complement.js#L28-L40'>
       <span>src/color/complement.js</span>
       </a>
     
@@ -2411,7 +2364,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/darken.js#L31-L43'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/darken.js#L31-L43'>
       <span>src/color/darken.js</span>
       </a>
     
@@ -2510,7 +2463,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/desaturate.js#L32-L44'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/desaturate.js#L32-L44'>
       <span>src/color/desaturate.js</span>
       </a>
     
@@ -2610,7 +2563,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/grayscale.js#L28-L39'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/grayscale.js#L28-L39'>
       <span>src/color/grayscale.js</span>
       </a>
     
@@ -2700,7 +2653,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/hsl.js#L29-L57'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/hsl.js#L29-L57'>
       <span>src/color/hsl.js</span>
       </a>
     
@@ -2807,7 +2760,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/hsla.js#L33-L68'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/hsla.js#L33-L68'>
       <span>src/color/hsla.js</span>
       </a>
     
@@ -2925,7 +2878,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/invert.js#L29-L44'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/invert.js#L29-L44'>
       <span>src/color/invert.js</span>
       </a>
     
@@ -3016,7 +2969,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/lighten.js#L31-L43'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/lighten.js#L31-L43'>
       <span>src/color/lighten.js</span>
       </a>
     
@@ -3115,7 +3068,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/mix.js#L38-L74'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/mix.js#L38-L74'>
       <span>src/color/mix.js</span>
       </a>
     
@@ -3230,7 +3183,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/opacify.js#L35-L51'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/opacify.js#L35-L51'>
       <span>src/color/opacify.js</span>
       </a>
     
@@ -3327,7 +3280,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/parseToHsl.js#L18-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/parseToHsl.js#L18-L28'>
       <span>src/color/parseToHsl.js</span>
       </a>
     
@@ -3406,7 +3359,7 @@ const color2 = 'hsla(<span class="hljs-number">210</span>, <span class="hljs-num
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/parseToRgb.js#L25-L99'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/parseToRgb.js#L25-L99'>
       <span>src/color/parseToRgb.js</span>
       </a>
     
@@ -3485,7 +3438,7 @@ const color2 = 'hsla(<span class="hljs-number">210</span>, <span class="hljs-num
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/rgb.js#L30-L56'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/rgb.js#L30-L56'>
       <span>src/color/rgb.js</span>
       </a>
     
@@ -3592,7 +3545,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/rgba.js#L32-L67'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/rgba.js#L32-L67'>
       <span>src/color/rgba.js</span>
       </a>
     
@@ -3710,7 +3663,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/saturate.js#L33-L45'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/saturate.js#L33-L45'>
       <span>src/color/saturate.js</span>
       </a>
     
@@ -3811,7 +3764,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/setHue.js#L30-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/setHue.js#L30-L41'>
       <span>src/color/setHue.js</span>
       </a>
     
@@ -3910,7 +3863,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/setLightness.js#L30-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/setLightness.js#L30-L41'>
       <span>src/color/setLightness.js</span>
       </a>
     
@@ -4009,7 +3962,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/setSaturation.js#L30-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/setSaturation.js#L30-L41'>
       <span>src/color/setSaturation.js</span>
       </a>
     
@@ -4108,7 +4061,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/shade.js#L29-L47'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/shade.js#L29-L47'>
       <span>src/color/shade.js</span>
       </a>
     
@@ -4201,7 +4154,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/tint.js#L29-L47'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/tint.js#L29-L47'>
       <span>src/color/tint.js</span>
       </a>
     
@@ -4294,7 +4247,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/transparentize.js#L35-L51'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/transparentize.js#L35-L51'>
       <span>src/color/transparentize.js</span>
       </a>
     
@@ -4403,7 +4356,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/animation.js#L43-L82'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/animation.js#L43-L82'>
       <span>src/shorthands/animation.js</span>
       </a>
     
@@ -4504,7 +4457,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/backgroundImages.js#L24-L34'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/backgroundImages.js#L24-L34'>
       <span>src/shorthands/backgroundImages.js</span>
       </a>
     
@@ -4587,7 +4540,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/backgrounds.js#L23-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/backgrounds.js#L23-L33'>
       <span>src/shorthands/backgrounds.js</span>
       </a>
     
@@ -4670,7 +4623,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/borderColor.js#L28-L36'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/borderColor.js#L28-L36'>
       <span>src/shorthands/borderColor.js</span>
       </a>
     
@@ -4756,7 +4709,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/borderRadius.js#L26-L56'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/borderRadius.js#L26-L56'>
       <span>src/shorthands/borderRadius.js</span>
       </a>
     
@@ -4848,7 +4801,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/borderStyle.js#L28-L36'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/borderStyle.js#L28-L36'>
       <span>src/shorthands/borderStyle.js</span>
       </a>
     
@@ -4934,7 +4887,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/borderWidth.js#L28-L36'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/borderWidth.js#L28-L36'>
       <span>src/shorthands/borderWidth.js</span>
       </a>
     
@@ -5020,7 +4973,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/buttons.js#L44-L52'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/buttons.js#L44-L52'>
       <span>src/shorthands/buttons.js</span>
       </a>
     
@@ -5110,7 +5063,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/margin.js#L28-L36'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/margin.js#L28-L36'>
       <span>src/shorthands/margin.js</span>
       </a>
     
@@ -5196,7 +5149,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/padding.js#L28-L36'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/padding.js#L28-L36'>
       <span>src/shorthands/padding.js</span>
       </a>
     
@@ -5282,7 +5235,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/position.js#L50-L66'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/position.js#L50-L66'>
       <span>src/shorthands/position.js</span>
       </a>
     
@@ -5396,7 +5349,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/size.js#L25-L36'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/size.js#L25-L36'>
       <span>src/shorthands/size.js</span>
       </a>
     
@@ -5489,7 +5442,7 @@ const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/textInputs.js#L68-L76'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/textInputs.js#L68-L76'>
       <span>src/shorthands/textInputs.js</span>
       </a>
     
@@ -5591,7 +5544,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/transitions.js#L24-L34'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/transitions.js#L24-L34'>
       <span>src/shorthands/transitions.js</span>
       </a>
     
@@ -5686,7 +5639,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/helpers/directionalProperty.js#L51-L57'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/helpers/directionalProperty.js#L51-L57'>
       <span>src/helpers/directionalProperty.js</span>
       </a>
     
@@ -5780,7 +5733,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/helpers/em.js#L28-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/helpers/em.js#L28-L28'>
       <span>src/helpers/em.js</span>
       </a>
     
@@ -5873,7 +5826,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/helpers/modularScale.js#L67-L88'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/helpers/modularScale.js#L67-L88'>
       <span>src/helpers/modularScale.js</span>
       </a>
     
@@ -5976,7 +5929,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/helpers/rem.js#L27-L27'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/helpers/rem.js#L27-L27'>
       <span>src/helpers/rem.js</span>
       </a>
     
@@ -6069,7 +6022,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/helpers/stripUnit.js#L25-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/helpers/stripUnit.js#L25-L29'>
       <span>src/helpers/stripUnit.js</span>
       </a>
     
@@ -6164,7 +6117,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/animation.js#L5-L5'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/animation.js#L5-L5'>
       <span>src/shorthands/animation.js</span>
       </a>
     
@@ -6213,7 +6166,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/buttons.js#L15-L15'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/buttons.js#L15-L15'>
       <span>src/shorthands/buttons.js</span>
       </a>
     
@@ -6257,120 +6210,12 @@ element {
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='fontfaceconfiguration'>
-      FontFaceConfiguration
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/fontFace.js#L8-L18'>
-      <span>src/mixins/fontFace.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>FontFaceConfiguration</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontFamily</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontFilePath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontStretch</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontStyle</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontVariant</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontWeight</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fileFormats</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>localFonts</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>unicodeRange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='hslcolor'>
       HslColor
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/types/color.js#L11-L15'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/types/color.js#L11-L15'>
       <span>src/types/color.js</span>
       </a>
     
@@ -6442,7 +6287,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/types/color.js#L23-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/types/color.js#L23-L28'>
       <span>src/types/color.js</span>
       </a>
     
@@ -6520,7 +6365,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/shorthands/textInputs.js#L27-L27'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/shorthands/textInputs.js#L27-L27'>
       <span>src/shorthands/textInputs.js</span>
       </a>
     
@@ -6569,7 +6414,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/triangle.js#L5-L5'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/triangle.js#L5-L5'>
       <span>src/mixins/triangle.js</span>
       </a>
     
@@ -6613,96 +6458,12 @@ element {
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='radialgradientconfiguration'>
-      RadialGradientConfiguration
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/radialGradient.js#L8-L14'>
-      <span>src/mixins/radialGradient.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>RadialGradientConfiguration</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>colorStops</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>extent</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fallback</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>position</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>shape</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='ratio'>
       Ratio
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/helpers/modularScale.js#L26-L44'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/helpers/modularScale.js#L26-L44'>
       <span>src/helpers/modularScale.js</span>
       </a>
     
@@ -6751,7 +6512,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/types/color.js#L47-L52'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/types/color.js#L47-L52'>
       <span>src/types/color.js</span>
       </a>
     
@@ -6829,7 +6590,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/types/color.js#L35-L39'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/types/color.js#L35-L39'>
       <span>src/types/color.js</span>
       </a>
     
@@ -6901,7 +6662,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/mixins/timingFunctions.js#L34-L58'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/timingFunctions.js#L34-L58'>
       <span>src/mixins/timingFunctions.js</span>
       </a>
     
@@ -6950,7 +6711,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8f506782aa974c91577f8cb3772569a6d1a24aaf/src/color/toColorString.js#L71-L96'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/color/toColorString.js#L71-L96'>
       <span>src/color/toColorString.js</span>
       </a>
     
@@ -7026,6 +6787,68 @@ element {
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(179,25,25,0.72)"</span>;
 }</pre>
     
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='parsefallback'>
+      parseFallback
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/73d2dc9df6efc0030c8ad7ff37fd09e7c1ae50b8/src/mixins/radialGradient.js#L5-L7'>
+      <span>src/mixins/radialGradient.js</span>
+      </a>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light mt0'>parseFallback(colorStops: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>colorStops</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
   
 
   

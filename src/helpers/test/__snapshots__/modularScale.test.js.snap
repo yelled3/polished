@@ -1,120 +1,120 @@
 exports[`modularScale should allow adjusting the base 1`] = `
 Object {
-  "font-size": "2.666em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow adjusting the base with a number value 1`] = `
 Object {
-  "font-size": "2.666em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow adjusting the ratio 1`] = `
 Object {
-  "font-size": "1em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 1`] = `
 Object {
-  "font-size": "1.067em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 2`] = `
 Object {
-  "font-size": "1.125em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 3`] = `
 Object {
-  "font-size": "1.2em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 4`] = `
 Object {
-  "font-size": "1.25em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 5`] = `
 Object {
-  "font-size": "1.333em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 6`] = `
 Object {
-  "font-size": "1.414em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 7`] = `
 Object {
-  "font-size": "1.5em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 8`] = `
 Object {
-  "font-size": "1.6em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 9`] = `
 Object {
-  "font-size": "1.618em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 10`] = `
 Object {
-  "font-size": "1.667em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 11`] = `
 Object {
-  "font-size": "1.778em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 12`] = `
 Object {
-  "font-size": "1.875em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 13`] = `
 Object {
-  "font-size": "2em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 14`] = `
 Object {
-  "font-size": "2.5em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 15`] = `
 Object {
-  "font-size": "2.667em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 16`] = `
 Object {
-  "font-size": "3em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 17`] = `
 Object {
-  "font-size": "4em",
+  "font-size": Object {},
 }
 `;
 
@@ -145,7 +145,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects an optional 2nd parameter of type string or number to represent the base. However, you passed true(boolean) instead.
+modularScale %cexpects a 2nd parameter of type number,string. However, you passed true(boolean) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
@@ -163,7 +163,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a parameter of type number. However, you passed invalid(string) instead.
+modularScale %cexpects a 1st parameter of type number. However, you passed invalid(string) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
@@ -181,7 +181,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects an optional 3rd parameter of type number or a string enumberable to represent ratio, However, you passed invalid(string) instead.
+modularScale %cexpects a 3rd parameter of type number,enumberable. However, you passed invalid(string) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
@@ -194,23 +194,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c f
 ]
 `;
 
-exports[`modularScale should throw an error if an invalid string-based value for base is provided 1`] = `
-Array [
-  Array [
-    "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
-
-modularScale %cexpects base to be a valid em-based string value. However, you passed invalid instead.
-  %c
-Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
-    "font-weight: bold; color: black",
-    "color: black; font-size: 12px; font-weight: bold",
-    "color: black; font-size: 12px",
-    "color: gray; line-height: 1.4",
-    "color: blue; line-height: 1.4",
-    "color: gray; line-height: 1.4",
-  ],
-]
-`;
+exports[`modularScale should throw an error if an invalid string-based value for base is provided 1`] = `Array []`;
 
 exports[`modularScale should use perfectFourth and 1em base by default 1`] = `
 Object {
@@ -226,6 +210,6 @@ Object {
 
 exports[`modularScale should use perfectFourth and 1em base by default 3`] = `
 Object {
-  "font-size": "1em",
+  "font-size": Object {},
 }
 `;

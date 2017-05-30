@@ -6,6 +6,7 @@ describe('hideText', () => {
     global.console = {
       error: jest.fn(),
       warn: jest.fn(),
+      log: global.console.log,
     }
   })
 
@@ -18,13 +19,6 @@ describe('hideText', () => {
 
   it('should return the CSS in JS', () => {
     expect({ ...hideText() }).toMatchSnapshot()
-  })
-
-  it('should add rules when block has existing rules', () => {
-    expect({
-      'background-image': 'url(logo.png)',
-      ...hideText(),
-    }).toMatchSnapshot()
   })
 
   it('should throw a warning when called with any parameters', () => {

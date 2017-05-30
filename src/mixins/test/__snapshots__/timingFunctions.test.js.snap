@@ -169,7 +169,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/timingFunctions.js --%c
 
-timingFunctions %cexpects a string value representing the timingFunction you would like returned. However, you did not provide one.
+timingFunctions %ctrue
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#timingFunctions%c for more information.",
     "font-weight: bold; color: black",

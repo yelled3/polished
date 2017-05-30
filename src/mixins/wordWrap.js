@@ -37,13 +37,8 @@ function wordWrap(wrap?: WrapKeywords | string = 'break-word') {
   }
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'mixins/wordWrap',
-      arrityCheck: { args, max: 1 },
-      typeCheck: { param: args[0], type: 'enumerable', map: wrapKeywords },
-    },
-    wordWrap,
-    args,
-  )
+export default validateModule({
+  modulePath: 'mixins/wordWrap',
+  arrityCheck: { max: 1 },
+  typeCheck: { type: 'enumerable', map: wrapKeywords },
+})(wordWrap)

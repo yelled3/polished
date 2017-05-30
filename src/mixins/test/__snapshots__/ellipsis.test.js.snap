@@ -20,18 +20,6 @@ Object {
 }
 `;
 
-exports[`ellipsis should properly add rules when block has existing rules 1`] = `
-Object {
-  "background": "red",
-  "display": "inline-block",
-  "maxWidth": "300px",
-  "overflow": "hidden",
-  "textOverflow": "ellipsis",
-  "whiteSpace": "nowrap",
-  "wordWrap": "normal",
-}
-`;
-
 exports[`ellipsis should throw a warning when called with more than 1 parameter 1`] = `
 Array [
   Array [

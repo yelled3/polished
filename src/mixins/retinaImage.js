@@ -52,23 +52,17 @@ function retinaImage(
   }
 }
 
-export default (...args) =>
-  validateModule(
+export default validateModule({
+  modulePath: 'mixins/retinaImage',
+  arrityCheck: { min: 1, max: 5 },
+  typeCheck: [
     {
-      modulePath: 'mixins/retinaImage',
-      arrityCheck: { args, min: 1, max: 5 },
-      typeCheck: [
-        {
-          param: args[0],
-          type: 'string',
-          required: 'requires a fileName as its first parameter. However, you did not provide one.',
-        },
-        { param: args[1], type: 'string' },
-        { param: args[2], type: 'string' },
-        { param: args[3], type: 'string' },
-        { param: args[4], type: 'string' },
-      ],
+      type: 'string',
+      required: true,
     },
-    retinaImage,
-    args,
-  )
+    { type: 'string' },
+    { type: 'string' },
+    { type: 'string' },
+    { type: 'string' },
+  ],
+})(retinaImage)

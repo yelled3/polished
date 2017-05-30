@@ -35,12 +35,7 @@ function hideText() {
   }
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'mixins/hideText',
-      arrityCheck: { args, max: 0 },
-    },
-    hideText,
-    args,
-  )
+export default validateModule({
+  modulePath: 'mixins/hideText',
+  arrityCheck: { max: 0 },
+})(hideText)

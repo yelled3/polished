@@ -6,6 +6,7 @@ describe('fontFace', () => {
     global.console = {
       error: jest.fn(),
       warn: jest.fn(),
+      log: global.console.log,
     }
   })
 
@@ -78,29 +79,17 @@ describe('fontFace', () => {
     }).toMatchSnapshot()
   })
 
-  it('should throw a warning when passed more than one parameter', () => {
-    fontFace(
-      {
-        fontFamily: 'Sans Pro',
-        localFonts: ['sans-pro'],
-        fontFilePath: 'path/to/file',
-      },
-      1,
-    )
+  it('should throw an error when not passed a fontFilePath or localFonts', () => {
+    fontFace({
+      fontFamily: 'Sans Pro',
+    })
     // eslint-disable-next-line no-console
-    expect(console.warn.mock.calls).toMatchSnapshot()
+    expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when not provided any parameters', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     fontFace()
-    // eslint-disable-next-line no-console
-    expect(console.error.mock.calls).toMatchSnapshot()
-  })
-
-  it('should throw an error when passed a non-object value', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-    fontFace(1)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
@@ -194,14 +183,6 @@ describe('fontFace', () => {
       fontFilePath: 'path/to/file',
       // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       unicodeRange: 26,
-    })
-    // eslint-disable-next-line no-console
-    expect(console.error.mock.calls).toMatchSnapshot()
-  })
-
-  it('should throw an error when not passed a fontFilePath or localFonts', () => {
-    fontFace({
-      fontFamily: 'Sans Pro',
     })
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()

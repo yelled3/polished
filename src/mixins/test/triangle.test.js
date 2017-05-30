@@ -96,30 +96,9 @@ describe('triangle', () => {
     }).toMatchSnapshot()
   })
 
-  it('should throw a warning when passed more than one parameter', () => {
-    triangle(
-      {
-        foregroundColor: 'blue',
-        pointingDirection: 'left',
-        height: '20px',
-        width: '10px',
-      },
-      1,
-    )
-    // eslint-disable-next-line no-console
-    expect(console.warn.mock.calls).toMatchSnapshot()
-  })
-
   it('should throw an error when not passed any parameters', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     triangle()
-    // eslint-disable-next-line no-console
-    expect(console.error.mock.calls).toMatchSnapshot()
-  })
-
-  it('should throw an error when passed a non-object value', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-    triangle(1)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })

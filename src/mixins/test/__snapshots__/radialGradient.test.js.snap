@@ -33,34 +33,12 @@ Object {
 }
 `;
 
-exports[`radialGradient should throw a warning when passed more than one parameter 1`] = `
-Array [
-  Array [
-    "%c ✨ WARNING ✨ ---- mixins/radialGradient.js --%c
-
-radialGradient %cexpects %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
-  %c
-Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
-    "font-weight: bold; color: black",
-    "color: black; font-size: 12px; font-weight: bold",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: green",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
-    "color: black; font-size: 12px",
-    "color: gray; line-height: 1.4",
-    "color: blue; line-height: 1.4",
-    "color: gray; line-height: 1.4",
-  ],
-]
-`;
-
 exports[`radialGradient should throw an error when not passed a value for colorStops 1`] = `
 Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects an array of at least 2 color-stops.
+radialGradient %cexpects a 1st parameter of type array. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -78,7 +56,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects %c1 parameter%c. However, you passed %c0 parameters%c.
+radialGradient %cexpects a minimum of %c1 parameter%c. However, you passed %c0 parameters%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -95,7 +73,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %crequires a config object as its only parameter. However, you did not provide one.
+radialGradient %cexpects a 1st parameter of type array. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -126,12 +104,12 @@ Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c
 ]
 `;
 
-exports[`radialGradient should throw an error when passed a non-object value 1`] = `
+exports[`radialGradient should throw an error when passed a non-string value for extent 1`] = `
 Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects a parameter of type object. However, you passed 1(number) instead.
+radialGradient %cexpects a 2nd parameter of type string. However, you passed true(boolean) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -144,12 +122,12 @@ Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c
 ]
 `;
 
-exports[`radialGradient should throw an error when passed a non-string value for extent 1`] = `
+exports[`radialGradient should throw an error when passed a non-string value for fallback 1`] = `
 Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects a 2nd parameter of type string. However, you passed true(boolean) instead.
+radialGradient %cexpects a 3rd parameter of type string. However, you passed true(boolean) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -203,7 +181,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects an array of at least 2 color-stops. However, the one you provided only had 1.
+radialGradient %cexpects a 1st parameter of type array. However, you passed #00FFFF 0%(object) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",

@@ -287,18 +287,13 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  *   textSizeAdjust: 100%,
  * } ...
  */
-function normalize(excludeOpinionated?: boolean = false) {
+function normalize(excludeOpinionated?: boolean) {
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'mixins/normalize',
-      arrityCheck: { args, max: 1 },
-      typeCheck: { param: args[0], type: 'boolean' },
-    },
-    normalize,
-    args,
-  )
+export default validateModule({
+  modulePath: 'mixins/normalize',
+  arrityCheck: { max: 1 },
+  typeCheck: { type: 'boolean' },
+})(normalize)

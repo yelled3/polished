@@ -82,18 +82,12 @@ function timingFunctions(timingFunction: TimingFunction) {
   return functionsMap[timingFunction]
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'mixins/timingFunctions',
-      arrityCheck: { args, exactly: 1 },
-      typeCheck: {
-        param: args[0],
-        type: 'enumerable',
-        map: functionsMap,
-        required: 'expects a string value representing the timingFunction you would like returned. However, you did not provide one.',
-      },
-    },
-    timingFunctions,
-    args,
-  )
+export default validateModule({
+  modulePath: 'mixins/timingFunctions',
+  arrityCheck: { exactly: 1 },
+  typeCheck: {
+    type: 'enumerable',
+    map: functionsMap,
+    required: true,
+  },
+})(timingFunctions)

@@ -38,13 +38,8 @@ function ellipsis(width?: string = '100%') {
   }
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'mixins/ellipsis',
-      arrityCheck: { args, max: 1 },
-      typeCheck: { param: args[0], type: 'string' },
-    },
-    ellipsis,
-    args,
-  )
+export default validateModule({
+  modulePath: 'mixins/ellipsis',
+  arrityCheck: { max: 1 },
+  typeCheck: { type: 'string' },
+})(ellipsis)

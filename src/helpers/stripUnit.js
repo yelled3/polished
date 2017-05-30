@@ -28,14 +28,9 @@ function stripUnit(value: string) {
   return unitlessValue
 }
 
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'helpers/stripUnit',
-      arrityCheck: { args, exactly: 1 },
-      typeCheck: { param: args[0], type: 'string' },
-      errReturn: '',
-    },
-    stripUnit,
-    args,
-  )
+export default validateModule({
+  modulePath: 'helpers/stripUnit',
+  arrityCheck: { exactly: 1 },
+  typeCheck: { type: 'string', required: true },
+  errReturn: '',
+})(stripUnit)

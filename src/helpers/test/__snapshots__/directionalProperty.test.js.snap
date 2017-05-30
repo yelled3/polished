@@ -166,7 +166,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/directionalProperty.js --%c
 
-directionalProperty %cexpects a parameter of type string. However, you passed true(boolean) instead.
+directionalProperty %cexpects a 1st parameter of type string. However, you passed true(boolean) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#directionalProperty%c for more information.",
     "font-weight: bold; color: black",

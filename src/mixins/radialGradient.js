@@ -1,18 +1,7 @@
 // @flow
-import validateModule, {
-  customRule,
-  typeCheck,
-} from '../validation/_validateModule'
+import validateModule from '../validation/_validateModule'
 
 /** */
-type RadialGradientConfiguration = {
-  colorStops: Array<string>,
-  extent?: string,
-  fallback?: string,
-  position?: string,
-  shape?: string,
-}
-
 function parseFallback(colorStops: Array<string>) {
   return colorStops[0].split(' ')[0]
 }
@@ -78,54 +67,32 @@ function constructGradientValue(
  *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
  * }
  */
-
-function radialGradient({
-  colorStops,
-  extent,
-  fallback,
-  position,
-  shape,
-}: RadialGradientConfiguration) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !typeCheck('mixins/radialGradient', [
-        {
-          param: colorStops,
-          type: 'array',
-          required: 'expects an array of at least 2 color-stops.',
-        },
-        { param: extent, type: 'string' },
-        { param: fallback, type: 'string' },
-        { param: position, type: 'string' },
-        { param: shape, type: 'string' },
-      ]) ||
-      !customRule('mixins/radialGradient', {
-        enforce: colorStops.length > 1,
-        msg: `expects an array of at least 2 color-stops. However, the one you provided only had ${colorStops.length}.`,
-      })
-    ) {
-      return {}
-    }
-  }
-
+function radialGradient(
+  colorStops: Array<string>,
+  extent?: string,
+  fallback?: string,
+  position?: string,
+  shape?: string,
+) {
   return {
     backgroundColor: fallback || parseFallback(colorStops),
     backgroundImage: constructGradientValue`radial-gradient(${position}${shape}${extent}${colorStops.join(', ')})`,
   }
 }
 
-export default (...args) =>
-  validateModule(
+export default validateModule({
+  modulePath: 'mixins/radialGradient',
+  arrityCheck: { min: 1, max: 5 },
+  typeCheck: [
     {
-      modulePath: 'mixins/radialGradient',
-      arrityCheck: { args, exactly: 1 },
-      typeCheck: {
-        param: args[0],
-        type: 'object',
-        required: 'requires a config object as its only parameter. However, you did not provide one.',
-      },
+      key: 'colorStops',
+      type: 'array',
+      min: '2',
+      required: true,
     },
-    radialGradient,
-    args,
-  )
+    { key: 'extent', type: 'string' },
+    { key: 'fallback', type: 'string' },
+    { key: 'position', type: 'string' },
+    { key: 'shape', type: 'string' },
+  ],
+})(radialGradient)

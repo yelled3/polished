@@ -88,28 +88,13 @@ function modularScale(
 }
 
 export { ratioNames }
-export default (...args) =>
-  validateModule(
-    {
-      modulePath: 'helpers/modularScale',
-      arrityCheck: { args, min: 1, max: 3 },
-      typeCheck: { param: args[0], type: 'number' },
-      customRule: [
-        {
-          enforce: typeof args[1] === 'number' ||
-            typeof args[1] === 'string' ||
-            !args[1],
-          msg: `expects an optional 2nd parameter of type string or number to represent the base. However, you passed ${args[1]}(${typeof args[1]}) instead.`,
-        },
-        {
-          enforce: typeof args[2] === 'number' ||
-            (typeof args[2] === 'string' && ratioNames[args[2]]) ||
-            !args[2],
-          msg: `expects an optional 3rd parameter of type number or a string enumberable to represent ratio, However, you passed ${args[2]}(${typeof args[2]}) instead.`,
-        },
-      ],
-      errReturn: '',
-    },
-    modularScale,
-    args,
-  )
+export default validateModule({
+  modulePath: 'helpers/modularScale',
+  arrityCheck: { min: 1, max: 3 },
+  typeCheck: [
+    { type: 'number', required: true },
+    { type: ['number', 'string'] },
+    { type: ['number', 'enumberable'], map: ratioNames },
+  ],
+  errReturn: '',
+})(modularScale)

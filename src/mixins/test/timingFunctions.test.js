@@ -6,6 +6,7 @@ describe('timingFunctions', () => {
     global.console = {
       error: jest.fn(),
       warn: jest.fn(),
+      log: global.console.log,
     }
   })
 
