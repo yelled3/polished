@@ -90,8 +90,7 @@ function modularScale(
 export { ratioNames }
 export default validateModule({
   modulePath: 'helpers/modularScale',
-  arrityCheck: { min: 1, max: 3 },
-  typeCheck: [
+  types: [
     { type: 'number', required: true },
     { type: ['number', 'string'] },
     { type: ['number', 'enumberable'], map: ratioNames },

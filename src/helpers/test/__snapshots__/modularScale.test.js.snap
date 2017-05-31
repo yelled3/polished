@@ -123,7 +123,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a maximum of %c3 parameters%c. However, you passed %c4 parameters%c. These additional parameters were ignored.
+modularScale %cexpects a maximum of %c3 parameters%c. However, you passed %c4 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",

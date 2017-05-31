@@ -3,7 +3,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- module/testModule.js --%c
 
-testModule %cexpects %c1 parameter%c. However, you passed %c4 parameters%c. These additional parameters were ignored.
+testModule %cexpects a maximum of %c1 parameter%c. However, you passed %c4 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for more information.",
     "font-weight: bold; color: black",
@@ -20,12 +20,12 @@ Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for
 ]
 `;
 
-exports[`arrityCheck should throw a warning when passed more arguments than exactly needed 1`] = `
+exports[`arrityCheck should throw a warning when passed more arguments than needed 1`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- module/testModule.js --%c
 
-testModule %cexpects %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
+testModule %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for more information.",
     "font-weight: bold; color: black",
@@ -34,94 +34,6 @@ Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for
     "color: black; font-size: 12px; font-weight: bold; color: green",
     "color: black; font-size: 12px",
     "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
-    "color: black; font-size: 12px",
-    "color: gray; line-height: 1.4",
-    "color: blue; line-height: 1.4",
-    "color: gray; line-height: 1.4",
-  ],
-]
-`;
-
-exports[`arrityCheck should throw a warning when passed more arguments than maximally needed 1`] = `
-Array [
-  Array [
-    "%c ✨ WARNING ✨ ---- module/testModule.js --%c
-
-testModule %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
-  %c
-Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for more information.",
-    "font-weight: bold; color: black",
-    "color: black; font-size: 12px; font-weight: bold",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: green",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
-    "color: black; font-size: 12px",
-    "color: gray; line-height: 1.4",
-    "color: blue; line-height: 1.4",
-    "color: gray; line-height: 1.4",
-  ],
-]
-`;
-
-exports[`arrityCheck should throw a warning when passed more arguments than maximally needed and max is 0 1`] = `
-Array [
-  Array [
-    "%c ✨ WARNING ✨ ---- module/testModule.js --%c
-
-testModule %cexpects a maximum of %c0 parameters%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
-  %c
-Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for more information.",
-    "font-weight: bold; color: black",
-    "color: black; font-size: 12px; font-weight: bold",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: green",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
-    "color: black; font-size: 12px",
-    "color: gray; line-height: 1.4",
-    "color: blue; line-height: 1.4",
-    "color: gray; line-height: 1.4",
-  ],
-]
-`;
-
-exports[`arrityCheck should throw an error when passed less arguments than exactly needed 1`] = `
-Array [
-  Array [
-    "%c ✨ ERROR ✨ ---- module/testModule.js --%c
-
-testModule %cexpects %c3 parameters%c. However, you passed %c2 parameters%c.
-  %c
-Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for more information.",
-    "font-weight: bold; color: black",
-    "color: black; font-size: 12px; font-weight: bold",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: green",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: red",
-    "color: black; font-size: 12px",
-    "color: gray; line-height: 1.4",
-    "color: blue; line-height: 1.4",
-    "color: gray; line-height: 1.4",
-  ],
-]
-`;
-
-exports[`arrityCheck should throw an error when passed less arguments than minimially needed 1`] = `
-Array [
-  Array [
-    "%c ✨ ERROR ✨ ---- module/testModule.js --%c
-
-testModule %cexpects a minimum of %c3 parameters%c. However, you passed %c2 parameters%c.
-  %c
-Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for more information.",
-    "font-weight: bold; color: black",
-    "color: black; font-size: 12px; font-weight: bold",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: green",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: red",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

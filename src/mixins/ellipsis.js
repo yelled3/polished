@@ -40,6 +40,5 @@ function ellipsis(width?: string = '100%') {
 
 export default validateModule({
   modulePath: 'mixins/ellipsis',
-  arrityCheck: { max: 1 },
-  typeCheck: { type: 'string' },
+  types: { type: 'string' },
 })(ellipsis)

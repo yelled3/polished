@@ -84,8 +84,7 @@ function timingFunctions(timingFunction: TimingFunction) {
 
 export default validateModule({
   modulePath: 'mixins/timingFunctions',
-  arrityCheck: { exactly: 1 },
-  typeCheck: {
+  types: {
     type: 'enumerable',
     map: functionsMap,
     required: true,

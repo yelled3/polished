@@ -23,7 +23,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/clearFix.js --%c
 
-clearFix %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
+clearFix %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#clearFix%c for more information.",
     "font-weight: bold; color: black",
@@ -63,7 +63,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/clearFix.js --%c
 
-clearFix %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
+clearFix %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#clearFix%c for more information.",
     "font-weight: bold; color: black",

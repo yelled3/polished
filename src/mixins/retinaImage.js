@@ -54,8 +54,7 @@ function retinaImage(
 
 export default validateModule({
   modulePath: 'mixins/retinaImage',
-  arrityCheck: { min: 1, max: 5 },
-  typeCheck: [
+  types: [
     {
       type: 'string',
       required: true,

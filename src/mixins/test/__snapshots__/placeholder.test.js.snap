@@ -34,47 +34,12 @@ Object {
 }
 `;
 
-exports[`placeholder should throw 2 errors when not passed any parameters 1`] = `
-Array [
-  Array [
-    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
-
-placeholder %cexpects a minimum of %c1 parameter%c. However, you passed %c0 parameters%c.
-  %c
-Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
-    "font-weight: bold; color: black",
-    "color: black; font-size: 12px; font-weight: bold",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: green",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: red",
-    "color: black; font-size: 12px",
-    "color: gray; line-height: 1.4",
-    "color: blue; line-height: 1.4",
-    "color: gray; line-height: 1.4",
-  ],
-  Array [
-    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
-
-placeholder %cexpects a 2nd parameter of type object. However, you did not pass one.
-  %c
-Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
-    "font-weight: bold; color: black",
-    "color: black; font-size: 12px; font-weight: bold",
-    "color: black; font-size: 12px",
-    "color: gray; line-height: 1.4",
-    "color: blue; line-height: 1.4",
-    "color: gray; line-height: 1.4",
-  ],
-]
-`;
-
 exports[`placeholder should throw a warning when passed more than 2 parameters 1`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/placeholder.js --%c
 
-placeholder %cexpects a maximum of %c2 parameters%c. However, you passed %c3 parameters%c. These additional parameters were ignored.
+placeholder %cexpects a maximum of %c2 parameters%c. However, you passed %c3 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
     "font-weight: bold; color: black",
@@ -83,6 +48,24 @@ Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c fo
     "color: black; font-size: 12px; font-weight: bold; color: green",
     "color: black; font-size: 12px",
     "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`placeholder should throw an error when not passed any parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
+
+placeholder %cexpects a 2nd parameter of type object. However, you did not pass one.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

@@ -37,10 +37,10 @@ describe('validateModule', () => {
     console.warn.mockClear()
   })
 
-  it('should call only deprecationCheck when passed just module path', () => {
+  it('should call deprecationCheck and arrityCheck when passed just module path', () => {
     validateModule({ modulePath })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
-    expect(arrityCheck).not.toHaveBeenCalled()
+    expect(arrityCheck).toHaveBeenCalled()
     expect(typeCheck).not.toHaveBeenCalled()
     expect(customRule).not.toHaveBeenCalled()
   })
@@ -49,31 +49,10 @@ describe('validateModule', () => {
     expect(validateModule({ modulePath })(mockModule)('yes')).toEqual('yes')
   })
 
-  it('should call only deprecationCheck and arrityCheck when passed associated validation options', () => {
+  it('should call deprecationCheck, arrityCheck, typeCheck when passed associated validation options', () => {
     validateModule({
       modulePath,
-      arrityCheck: { max: 1 },
-    })(mockModule)('yes')
-    expect(deprecationCheck).toHaveBeenCalled()
-    expect(arrityCheck).toHaveBeenCalled()
-    expect(typeCheck).not.toHaveBeenCalled()
-    expect(customRule).not.toHaveBeenCalled()
-  })
-
-  it('should return the mixins return value when arrityCheck passes', () => {
-    expect(
-      validateModule({
-        modulePath,
-        arrityCheck: { max: 1 },
-      })(mockModule)('yes'),
-    ).toEqual('yes')
-  })
-
-  it('should call only deprecationCheck, arrityCheck, typeCheck when passed associated validation options', () => {
-    validateModule({
-      modulePath,
-      arrityCheck: { max: 1 },
-      typeCheck: { param: 'string', type: 'string' },
+      types: { param: 'string', type: 'string' },
     })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
     expect(arrityCheck).toHaveBeenCalled()
@@ -85,8 +64,7 @@ describe('validateModule', () => {
     expect(
       validateModule({
         modulePath,
-        arrityCheck: { max: 1 },
-        typeCheck: { param: 'string', type: 'string' },
+        types: { param: 'string', type: 'string' },
       })(mockModule)('yes'),
     ).toEqual('yes')
   })
@@ -94,8 +72,7 @@ describe('validateModule', () => {
   it('should call deprecationCheck, arrityCheck, typeCheck, customRule when passed associated config options validation', () => {
     validateModule({
       modulePath,
-      arrityCheck: { max: 1 },
-      typeCheck: { param: 'string', type: 'string' },
+      types: { param: 'string', type: 'string' },
       customRule: { enforce: true, msg: '1 equals 1' },
     })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
@@ -108,8 +85,7 @@ describe('validateModule', () => {
     expect(
       validateModule({
         modulePath,
-        arrityCheck: { max: 1 },
-        typeCheck: { param: 'string', type: 'string' },
+        types: { param: 'string', type: 'string' },
         customRule: { enforce: true, msg: '1 equals 1' },
       })(mockModule)('yes'),
     ).toEqual('yes')

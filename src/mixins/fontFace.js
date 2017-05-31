@@ -94,8 +94,7 @@ function fontFace(
 }
 export default validateModule({
   modulePath: 'mixins/fontFace',
-  arrityCheck: { min: 1, max: 9 },
-  typeCheck: [
+  types: [
     {
       key: 'fontFamily',
       type: 'string',

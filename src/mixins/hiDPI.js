@@ -42,7 +42,6 @@ function hiDPI(ratio?: number = 1.3) {
 
 export default validateModule({
   modulePath: 'mixins/hiDPI',
-  arrityCheck: { max: 1 },
-  typeCheck: { type: 'number' },
+  types: { type: 'number' },
   errReturn: '',
 })(hiDPI)

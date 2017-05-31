@@ -83,8 +83,7 @@ function triangle(
 
 export default validateModule({
   modulePath: 'mixins/triangle',
-  arrityCheck: { min: 4, max: 5 },
-  typeCheck: [
+  types: [
     {
       key: 'pointingDirection',
       type: 'string',

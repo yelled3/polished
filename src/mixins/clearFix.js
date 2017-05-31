@@ -36,6 +36,5 @@ function clearFix(parent?: string = '&') {
 
 export default validateModule({
   modulePath: 'mixins/clearFix',
-  arrityCheck: { max: 1 },
-  typeCheck: { type: 'string' },
+  types: { type: 'string' },
 })(clearFix)

@@ -58,8 +58,7 @@ function directionalProperty(property: string, ...values: Array<?string>) {
 
 export default validateModule({
   modulePath: 'helpers/directionalProperty',
-  arrityCheck: { min: 2, max: 5 },
-  typeCheck: [
+  types: [
     { type: 'string' },
     { type: 'string' },
     { type: 'string' },

@@ -109,9 +109,4 @@ describe('directionalProperty', () => {
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
-  it('throws an error when passed less than 2 parameters', () => {
-    directionalProperty('border')
-    // eslint-disable-next-line no-console
-    expect(console.error.mock.calls).toMatchSnapshot()
-  })
 })

@@ -207,7 +207,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- helpers/stripUnit.js --%c
 
-stripUnit %cexpects %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
+stripUnit %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
     "font-weight: bold; color: black",
@@ -226,23 +226,6 @@ Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for 
 
 exports[`stripUnit should throw an error when not passed any parameters 1`] = `
 Array [
-  Array [
-    "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
-
-stripUnit %cexpects %c1 parameter%c. However, you passed %c0 parameters%c.
-  %c
-Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
-    "font-weight: bold; color: black",
-    "color: black; font-size: 12px; font-weight: bold",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: green",
-    "color: black; font-size: 12px",
-    "color: black; font-size: 12px; font-weight: bold; color: red",
-    "color: black; font-size: 12px",
-    "color: gray; line-height: 1.4",
-    "color: blue; line-height: 1.4",
-    "color: gray; line-height: 1.4",
-  ],
   Array [
     "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
 

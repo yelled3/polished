@@ -382,7 +382,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/normalize.js --%c
 
-normalize %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
+normalize %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#normalize%c for more information.",
     "font-weight: bold; color: black",
@@ -422,7 +422,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/normalize.js --%c
 
-normalize %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
+normalize %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#normalize%c for more information.",
     "font-weight: bold; color: black",

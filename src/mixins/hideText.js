@@ -37,5 +37,4 @@ function hideText() {
 
 export default validateModule({
   modulePath: 'mixins/hideText',
-  arrityCheck: { max: 0 },
 })(hideText)

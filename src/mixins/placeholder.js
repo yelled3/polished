@@ -53,6 +53,5 @@ function placeholder(parent?: string = '&', styles: Object) {
 
 export default validateModule({
   modulePath: 'mixins/placeholder',
-  arrityCheck: { min: 1, max: 2 },
-  typeCheck: [{ type: 'string' }, { type: 'object', required: true }],
+  types: [{ type: 'string' }, { type: 'object', required: true }],
 })(placeholder)

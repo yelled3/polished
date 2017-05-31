@@ -294,6 +294,5 @@ function normalize(excludeOpinionated?: boolean) {
 
 export default validateModule({
   modulePath: 'mixins/normalize',
-  arrityCheck: { max: 1 },
-  typeCheck: { type: 'boolean' },
+  types: { type: 'boolean' },
 })(normalize)

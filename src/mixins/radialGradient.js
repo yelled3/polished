@@ -82,8 +82,7 @@ function radialGradient(
 
 export default validateModule({
   modulePath: 'mixins/radialGradient',
-  arrityCheck: { min: 1, max: 5 },
-  typeCheck: [
+  types: [
     {
       key: 'colorStops',
       type: 'array',

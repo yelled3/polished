@@ -37,7 +37,7 @@ describe('selection', () => {
     }).toMatchSnapshot()
   })
 
-  it('should throw 2 errors when not passed any parameters', () => {
+  it('should throw an error when not passed any parameters', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     selection()
     // eslint-disable-next-line no-console

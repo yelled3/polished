@@ -25,7 +25,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/ellipsis.js --%c
 
-ellipsis %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
+ellipsis %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#ellipsis%c for more information.",
     "font-weight: bold; color: black",
@@ -65,7 +65,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/ellipsis.js --%c
 
-ellipsis %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. These additional parameters were ignored.
+ellipsis %cexpects a maximum of %c1 parameter%c. However, you passed %c2 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#ellipsis%c for more information.",
     "font-weight: bold; color: black",

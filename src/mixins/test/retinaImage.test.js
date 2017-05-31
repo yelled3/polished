@@ -45,7 +45,7 @@ describe('retinaImage', () => {
     }).toMatchSnapshot()
   })
 
-  it('should throw 2 errors when no parameters are passed', () => {
+  it('should throw an error when no parameters are passed', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     retinaImage()
     // eslint-disable-next-line no-console

@@ -35,7 +35,7 @@ describe('placeholder', () => {
     }).toMatchSnapshot()
   })
 
-  it('should throw 2 errors when not passed any parameters', () => {
+  it('should throw an error when not passed any parameters', () => {
     // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     placeholder()
     // eslint-disable-next-line no-console

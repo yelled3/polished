@@ -30,7 +30,6 @@ function stripUnit(value: string) {
 
 export default validateModule({
   modulePath: 'helpers/stripUnit',
-  arrityCheck: { exactly: 1 },
-  typeCheck: { type: 'string', required: true },
+  types: { type: 'string', required: true },
   errReturn: '',
 })(stripUnit)

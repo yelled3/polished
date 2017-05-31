@@ -15,7 +15,7 @@ function setValidationStatus(currentStatus, newStatus) {
 
 function unpackObject(args, config) {
   const argsArray = []
-  config.typeCheck.forEach(conf => {
+  config.types.forEach(conf => {
     argsArray.push(args[conf.key])
   })
   return argsArray
@@ -36,16 +36,18 @@ function validateModule(config) {
         ? unpackObject(args[0], config)
         : args
 
-      if (config.arrityCheck) {
+      /* istanbul ignore next */
+      if (process.env.NODE_ENV !== 'production') {
         isValid = setValidationStatus(
           isValid,
-          arrityCheck(config.modulePath, config.arrityCheck, unpackedArgs),
+          arrityCheck(config.modulePath, config.types, unpackedArgs),
         )
       }
-      if (config.typeCheck) {
+
+      if (config.types) {
         isValid = setValidationStatus(
           isValid,
-          typeCheck(config.modulePath, config.typeCheck, unpackedArgs),
+          typeCheck(config.modulePath, config.types, unpackedArgs),
         )
       }
       if (config.customRule) {
