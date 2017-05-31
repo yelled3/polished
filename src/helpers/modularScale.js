@@ -1,6 +1,6 @@
 // @flow
 import stripUnit from './stripUnit'
-import validateModule, { customRule } from '../validation/_validateModule'
+import validateModule from '../validation/_validateModule'
 
 const ratioNames = {
   minorSecond: 1.067,
@@ -72,18 +72,6 @@ function modularScale(
   const realBase = typeof base === 'string' ? stripUnit(base) : base
   const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
 
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    if (
-      !customRule('helpers/modularScale', {
-        enforce: typeof realBase === 'number',
-        msg: `expects base to be a valid em-based string value. However, you passed ${base} instead.`,
-      })
-    ) {
-      return ''
-    }
-  }
-
   return `${realBase * realRatio ** steps}em`
 }
 
@@ -92,7 +80,7 @@ export default validateModule({
   modulePath: 'helpers/modularScale',
   types: [
     { type: 'number', required: true },
-    { type: ['number', 'string'] },
+    { type: ['number', 'em'] },
     { type: ['number', 'enumberable'], map: ratioNames },
   ],
   errReturn: '',

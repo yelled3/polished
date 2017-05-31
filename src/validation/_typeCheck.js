@@ -1,4 +1,5 @@
 // @flow
+import getUnit from '../helpers/getUnit'
 import message from './_message'
 
 /**
@@ -22,8 +23,12 @@ function validateArray(config) {
       config.param.length < config.max - 1
     )
   }
-  if (config.min) { return Array.isArray(config.param) && config.param.length > config.min - 1 }
-  if (config.max) { return Array.isArray(config.param) && config.param.length > config.max - 1 }
+  if (config.min) {
+    return Array.isArray(config.param) && config.param.length > config.min - 1
+  }
+  if (config.max) {
+    return Array.isArray(config.param) && config.param.length > config.max - 1
+  }
   return Array.isArray(config.param)
 }
 
@@ -47,10 +52,30 @@ function validateType(config) {
     case 'enumerable':
       if (Array.isArray(config.map)) return config.map.includes(config.param)
       return config.map[config.param]
-    case 'cssUnit':
-    case 'px':
+    case 'cssMeasure':
+      return getUnit(config.param)
+    case '%':
+    case 'ch':
+    case 'cm':
     case 'em':
+    case 'ex':
+    case 'ic':
+    case 'in':
+    case 'mm':
+    case 'lh':
+    case 'pc':
+    case 'pt':
+    case 'px':
     case 'rem':
+    case 'rlh':
+    case 'vh':
+    case 'vi':
+    case 'vb':
+    case 'q':
+    case 'vmax':
+    case 'vmin':
+    case 'vw':
+      return config.type === getUnit(config.param)
     default:
       // eslint-disable-next-line valid-typeof
       return typeof config.param === config.type
@@ -71,7 +96,10 @@ const ordinal = [
 ]
 
 function generateMessages(config, modulePath, args) {
-  if (args[0] && !validateType({ ...config, param: args[0] })) {
+  if (
+    (args[0] || args[0] === 0) &&
+    !validateType({ ...config, param: args[0] })
+  ) {
     let messageBody
     if (config.type === 'enumerable') {
       messageBody = `received an enumerable value(${args[0]}) that was not one of the available options.`
@@ -81,7 +109,7 @@ function generateMessages(config, modulePath, args) {
     message('error', messageBody, modulePath)
     return false
   }
-  if (!args[0] && config.required) {
+  if (!args[0] && args[0] !== 0 && config.required) {
     message('error', config.required, modulePath)
     return false
   }
@@ -96,13 +124,16 @@ function typeCheck(
   if (Array.isArray(msgConfig)) {
     let returnStatus = true
     msgConfig.forEach((config, i) => {
-      if (args[i] && !validateType({ ...config, param: args[i] })) {
+      if (
+        (args[i] || args[i] === 0) &&
+        !validateType({ ...config, param: args[i] })
+      ) {
         const messageBody = `expects a ${ordinal[i]} parameter of type ${config.type}. However, you passed ${args[i]}(${typeof args[i]}) instead.`
         message('error', messageBody, modulePath)
         returnStatus = setReturnStatus(returnStatus, false)
         return
       }
-      if (!args[i] && config.required) {
+      if (!args[i] && args[i] !== 0 && config.required) {
         message(
           'error',
           `expects a ${ordinal[i]} parameter of type ${config.type}. However, you did not pass one.`,

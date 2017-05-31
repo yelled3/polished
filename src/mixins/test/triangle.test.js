@@ -97,14 +97,12 @@ describe('triangle', () => {
   })
 
   it('should throw an error when not passed any parameters', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     triangle()
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when not passed a foregroundColor', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     triangle({
       pointingDirection: 'left',
       height: '20px',
@@ -115,7 +113,6 @@ describe('triangle', () => {
   })
 
   it('should throw an error when not passed a pointingDirection', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     triangle({
       foregroundColor: 'blue',
       height: '20px',
@@ -126,7 +123,6 @@ describe('triangle', () => {
   })
 
   it('should throw an error when not passed a height', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     triangle({
       foregroundColor: 'blue',
       pointingDirection: 'left',
@@ -137,7 +133,6 @@ describe('triangle', () => {
   })
 
   it('should throw an error when not passed a width', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     triangle({
       foregroundColor: 'blue',
       pointingDirection: 'left',
@@ -149,10 +144,9 @@ describe('triangle', () => {
 
   it('should throw an error when passed a non-string value for foregroundColor', () => {
     triangle({
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       foregroundColor: true,
       pointingDirection: 'left',
-      height: 'inherit',
+      height: '100px',
       width: '10px',
     })
     // eslint-disable-next-line no-console
@@ -162,9 +156,8 @@ describe('triangle', () => {
   it('should throw an error when passed a non-string value for pointingDirection', () => {
     triangle({
       foregroundColor: 'blue',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       pointingDirection: true,
-      height: 'inherit',
+      height: '100px',
       width: '10px',
     })
     // eslint-disable-next-line no-console
@@ -175,7 +168,6 @@ describe('triangle', () => {
     triangle({
       foregroundColor: 'blue',
       pointingDirection: 'left',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       height: 10,
       width: '10px',
     })
@@ -188,7 +180,6 @@ describe('triangle', () => {
       foregroundColor: 'blue',
       pointingDirection: 'left',
       height: '10px',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       width: 10,
     })
     // eslint-disable-next-line no-console

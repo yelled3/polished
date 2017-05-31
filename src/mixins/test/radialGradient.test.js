@@ -65,21 +65,18 @@ describe('radialGradient', () => {
   })
 
   it('should throw an error when not provided any parameters', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     radialGradient()
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when not passed a value for colorStops', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     radialGradient({})
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when passed a non-array value for colorStops', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     radialGradient({ colorStops: true })
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
@@ -106,7 +103,6 @@ describe('radialGradient', () => {
   it('should throw an error when passed a non-string value for fallback', () => {
     radialGradient({
       colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       fallback: true,
     })
     // eslint-disable-next-line no-console
@@ -116,7 +112,6 @@ describe('radialGradient', () => {
   it('should throw an error when passed a non-string value for position', () => {
     radialGradient({
       colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       position: true,
     })
     // eslint-disable-next-line no-console
@@ -126,7 +121,6 @@ describe('radialGradient', () => {
   it('should throw an error when passed a non-string value for shape', () => {
     radialGradient({
       colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       shape: true,
     })
     // eslint-disable-next-line no-console

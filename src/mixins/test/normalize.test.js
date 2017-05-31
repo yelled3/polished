@@ -26,7 +26,6 @@ describe('normalize', () => {
   })
 
   it('should throw an error when called with a non-boolean value', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     normalize('false')
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
@@ -39,7 +38,6 @@ describe('normalize', () => {
   })
 
   it('should throw an error and a warning when called with multiple non-boolean values', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     normalize('1', 'rules')
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()

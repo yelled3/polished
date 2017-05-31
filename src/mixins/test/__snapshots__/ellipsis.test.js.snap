@@ -47,7 +47,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/ellipsis.js --%c
 
-ellipsis %cexpects a parameter of type string. However, you passed 1(number) instead.
+ellipsis %cexpects a parameter of type cssMeasure. However, you passed 1(number) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#ellipsis%c for more information.",
     "font-weight: bold; color: black",
@@ -87,7 +87,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/ellipsis.js --%c
 
-ellipsis %cexpects a parameter of type string. However, you passed 1(number) instead.
+ellipsis %cexpects a parameter of type cssMeasure. However, you passed 1(number) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#ellipsis%c for more information.",
     "font-weight: bold; color: black",

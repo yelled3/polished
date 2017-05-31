@@ -60,9 +60,9 @@ export default validateModule({
   modulePath: 'helpers/directionalProperty',
   types: [
     { type: 'string' },
-    { type: 'string' },
-    { type: 'string' },
-    { type: 'string' },
-    { type: 'string' },
+    { type: ['string', 'cssMeasure'] },
+    { type: ['string', 'cssMeasure'] },
+    { type: ['string', 'cssMeasure'] },
+    { type: ['string', 'cssMeasure'] },
   ],
 })(directionalProperty)

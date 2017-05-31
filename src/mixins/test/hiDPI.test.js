@@ -34,7 +34,6 @@ describe('hiDPI', () => {
   })
 
   it('should throw an error when called with a non-number value', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     hiDPI('1px')
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
@@ -47,7 +46,6 @@ describe('hiDPI', () => {
   })
 
   it('should throw an error and a warning when called with multiple string values', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     hiDPI('1px', '2px')
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()

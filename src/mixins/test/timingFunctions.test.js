@@ -162,21 +162,18 @@ describe('timingFunctions', () => {
   })
 
   it('should throw an error when called no parameters', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     timingFunctions(0)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when called with a non-string value', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     timingFunctions(1)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when called with an invalid string value', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     timingFunctions('all-the-timings')
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()

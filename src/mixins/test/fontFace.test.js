@@ -88,14 +88,12 @@ describe('fontFace', () => {
   })
 
   it('should throw an error when not provided any parameters', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     fontFace()
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when not passed a value for fontFamily', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     fontFace({
       fontFilePath: 'path/to/file',
     })
@@ -105,7 +103,6 @@ describe('fontFace', () => {
 
   it('should throw an error when passed a non-string value for fontFamily', () => {
     fontFace({
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       fontFamily: 100,
       fontFilePath: 'path/to/file',
     })
@@ -116,7 +113,6 @@ describe('fontFace', () => {
   it('should throw an error when passed a non-string value for fontFilePath', () => {
     fontFace({
       fontFamily: 'Sans Pro',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       fontFilePath: 100,
     })
     // eslint-disable-next-line no-console
@@ -127,7 +123,6 @@ describe('fontFace', () => {
     fontFace({
       fontFamily: 'Sans Pro',
       fontFilePath: 'path/to/file',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       fontStyle: 100,
     })
     // eslint-disable-next-line no-console
@@ -138,7 +133,6 @@ describe('fontFace', () => {
     fontFace({
       fontFamily: 'Sans Pro',
       fontFilePath: 'path/to/file',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       fontStretch: true,
     })
     // eslint-disable-next-line no-console
@@ -149,7 +143,6 @@ describe('fontFace', () => {
     fontFace({
       fontFamily: 'Sans Pro',
       fontFilePath: 'path/to/file',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       fontWeight: true,
     })
     // eslint-disable-next-line no-console
@@ -160,7 +153,6 @@ describe('fontFace', () => {
     fontFace({
       fontFamily: 'Sans Pro',
       fontFilePath: 'path/to/file',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       fontVariant: 100,
     })
     // eslint-disable-next-line no-console
@@ -170,7 +162,6 @@ describe('fontFace', () => {
   it('should throw an error when passed a non-array value for localFonts', () => {
     fontFace({
       fontFamily: 'Sans Pro',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       localFonts: 'sans-pro',
     })
     // eslint-disable-next-line no-console
@@ -181,7 +172,6 @@ describe('fontFace', () => {
     fontFace({
       fontFamily: 'Sans Pro',
       fontFilePath: 'path/to/file',
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       unicodeRange: 26,
     })
     // eslint-disable-next-line no-console

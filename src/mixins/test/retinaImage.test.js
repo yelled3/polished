@@ -46,28 +46,24 @@ describe('retinaImage', () => {
   })
 
   it('should throw an error when no parameters are passed', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     retinaImage()
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when a non-string value is passed for fileName', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     retinaImage(1)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when a non-string value is passed for backgroundSize', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     retinaImage('img', 100)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when a non-string value is passed for extension', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     retinaImage('img', undefined, true)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()

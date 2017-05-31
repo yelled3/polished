@@ -91,12 +91,12 @@ export default validateModule({
     },
     {
       key: 'height',
-      type: 'string',
+      type: 'cssMeasure',
       required: true,
     },
     {
       key: 'width',
-      type: 'string',
+      type: 'cssMeasure',
       required: true,
     },
     {

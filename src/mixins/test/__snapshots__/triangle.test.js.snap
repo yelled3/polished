@@ -98,7 +98,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type string. However, you did not pass one.
+triangle %cexpects a 2nd parameter of type cssMeasure. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -134,7 +134,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 3rd parameter of type string. However, you did not pass one.
+triangle %cexpects a 3rd parameter of type cssMeasure. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -165,7 +165,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for m
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type string. However, you did not pass one.
+triangle %cexpects a 2nd parameter of type cssMeasure. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -178,7 +178,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for m
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 3rd parameter of type string. However, you did not pass one.
+triangle %cexpects a 3rd parameter of type cssMeasure. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -227,7 +227,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type string. However, you passed 10(number) instead.
+triangle %cexpects a 2nd parameter of type cssMeasure. However, you passed 10(number) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -263,7 +263,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 3rd parameter of type string. However, you passed 10(number) instead.
+triangle %cexpects a 3rd parameter of type cssMeasure. However, you passed 10(number) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -276,6 +276,38 @@ Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for m
 ]
 `;
 
-exports[`triangle should throw an error when passed an invalid height 1`] = `Array []`;
+exports[`triangle should throw an error when passed an invalid height 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-exports[`triangle should throw an error when passed an invalid width 1`] = `Array []`;
+triangle %cexpects a 2nd parameter of type cssMeasure. However, you passed inherit(string) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`triangle should throw an error when passed an invalid width 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
+
+triangle %cexpects a 2nd parameter of type cssMeasure. However, you passed inherit(string) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;

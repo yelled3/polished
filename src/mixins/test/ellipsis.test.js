@@ -26,7 +26,6 @@ describe('ellipsis', () => {
   })
 
   it('should throw an error when called with a non-string value', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     ellipsis(1)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
@@ -39,7 +38,6 @@ describe('ellipsis', () => {
   })
 
   it('should throw an error and a warning when called with multiple non-string values', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     ellipsis(1, 2)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()

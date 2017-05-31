@@ -38,21 +38,18 @@ describe('selection', () => {
   })
 
   it('should throw an error when not passed any parameters', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     selection()
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when passed a non-string as its first parameter', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     selection(1, styles)
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()
   })
 
   it('should throw an error when passed a non-object as its second parameter', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     selection('main', 'style')
     // eslint-disable-next-line no-console
     expect(console.error.mock.calls).toMatchSnapshot()

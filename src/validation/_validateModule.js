@@ -21,17 +21,17 @@ function unpackObject(args, config) {
   return argsArray
 }
 
-function validateModule(config) {
+function validateModule(config: Object) {
   const isDev = process.env.NODE_ENV !== 'production'
   /* istanbul ignore next */
   if (isDev) {
     deprecationCheck(config.modulePath)
   }
 
-  return function(module) {
+  return function(module: Function) {
     let isValid = true
 
-    return function(...args) {
+    return function(...args: Array<any>) {
       const unpackedArgs = typeof args[0] === 'object' && args[0] !== null
         ? unpackObject(args[0], config)
         : args

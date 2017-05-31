@@ -169,7 +169,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/timingFunctions.js --%c
 
-timingFunctions %ctrue
+timingFunctions %creceived an enumerable value(0) that was not one of the available options.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#timingFunctions%c for more information.",
     "font-weight: bold; color: black",
