@@ -25,3 +25,180 @@ Object {
   "borderTopRightRadius": "5px",
 }
 `;
+
+exports[`borderRadius should throw 2 errors when not passed any parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %crequires a %c1st parameter%c(%cside%c: %ccssDirection%c). However, you did not pass %cside%c.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %crequires a %c2nd parameter%c(%cradius%c: %ccssMeasure%c). However, you did not pass %cradius%c.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`borderRadius should throw a warrning when passed too many parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %cexpects a maximum of %c2 parameters%c. However, you passed %c3 parameters%c. This additional parameter was ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`borderRadius should throw an error when not passed a direction 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %crequires a %c1st parameter%c(%cside%c: %ccssDirection%c). However, you did not pass %cside%c.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`borderRadius should throw an error when not passed a radius 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %crequires a %c2nd parameter%c(%cradius%c: %ccssMeasure%c). However, you did not pass %cradius%c.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`borderRadius should throw an error when passed an invalid direction 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %cexpects a %c1st parameter%c(%cside%c: %ccssDirection%c). However, you passed (%c\'all\'%c:%cstring%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`borderRadius should throw an error when passed an invalid radius 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %cexpects a %c2nd parameter%c(%cradius%c: %ccssMeasure%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;

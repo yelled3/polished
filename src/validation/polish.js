@@ -27,8 +27,8 @@ function unpackObject(args, types) {
  */
 function polish({ modulePath, types, errReturn }: PolishConfiguration) {
   return function validateModule(module: Function) {
-    // eslint-disable-next-line no-console
     if (typeof module !== 'function') {
+      // eslint-disable-next-line no-console
       console.error('You must submit a valid function to be ✨ polished errors.')
     }
 

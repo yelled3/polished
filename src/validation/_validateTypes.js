@@ -1,4 +1,6 @@
 // @flow
+import { validateBorderStyle } from '../validation/_cssBorderStyle'
+import { validateDirection } from '../validation/_cssDirection'
 import { validateUnit, validateKeyword } from '../validation/_cssMeasure'
 import message from './_message'
 
@@ -62,6 +64,10 @@ function typeCheck(typeInfo, arg) {
         return typeInfo.map.indexOf(arg) >= 0
       }
       return typeInfo.map[arg]
+    case 'cssBorderStyle':
+      return validateBorderStyle(arg)
+    case 'cssDirection':
+      return validateDirection(arg)
     case 'cssMeasure':
       return validateUnit(arg) || validateKeyword(arg)
     case 'cssLength':
@@ -139,9 +145,8 @@ function validateTypes(
   if (Array.isArray(types)) {
     let returnStatus = true
     types.forEach((type, index) => {
-      returnStatus = !returnStatus
-        ? returnStatus
-        : generateMessages(modulePath, type, args[index], index)
+      const newStatus = generateMessages(modulePath, type, args[index], index)
+      returnStatus = !returnStatus ? returnStatus : newStatus
     })
     return returnStatus
   } else {

@@ -48,7 +48,10 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
  * }
  */
 
-function directionalProperty(property: string, ...values: Array<?string>) {
+export function directionalProperty(
+  property: string,
+  ...values: Array<?string>
+) {
   //  prettier-ignore
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
   const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values

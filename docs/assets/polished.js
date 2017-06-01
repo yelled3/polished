@@ -11,6 +11,19 @@ function capitalizeString(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+//      
+
+var deprecated = {
+  'mixins/placeholder': {
+    version: '3.0',
+    guidance: 'You should use the %c::placeholder pseudo-element%c instead.'
+  },
+  'mixins/selection': {
+    version: '3.0',
+    guidance: 'You should use the %c::selection pseudo-element%c instead.'
+  }
+};
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
 } : function (obj) {
@@ -203,15 +216,26 @@ function message(type, messageBody, modulePath) {
 }
 
 //      
-// Message Styling
-var warningStyles = ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: goldenrod', 'color: black; font-size: 12px'];
+/**
+ * Handles deprecation validation of polished modules.
+ * @private
+ */
+function deprecationCheck(modulePath) {
+  var deprecationInfo = deprecated[modulePath];
+  if (deprecationInfo) {
+    var messageBody = 'will be deprecated as of %cversion ' + deprecationInfo.version + '%c of \u2728 polished. ' + deprecationInfo.guidance;
+    var additionalStyles = ['color: black; font-size: 12px; font-weight: bold', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold', 'color: black; font-size: 12px'];
+    message('warning', messageBody, modulePath, additionalStyles);
+  }
+  return true;
+}
 
+//      
 /**
  * Handles arrity validation of polished modules.
  * @private
  */
-
-function arrityCheck(modulePath, types, args) {
+function validateArrity(modulePath, types, args) {
   var arrity = void 0;
   if (!types) {
     arrity = 0;
@@ -219,74 +243,21 @@ function arrityCheck(modulePath, types, args) {
     arrity = types.length ? types.length : 1;
   }
   if (args.length > arrity) {
-    message('warning', 'expects a maximum of %c' + arrity + ' ' + (arrity === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + args.length + ' ' + (args.length === 1 ? 'parameter' : 'parameters') + '%c. ' + (args.length - arrity === 1 ? 'This additional parameter was' : 'These additional parameters were') + ' ignored.', modulePath, warningStyles);
+    message('warning', 'expects a maximum of %c' + arrity + ' ' + (arrity === 1 ? 'parameter' : 'parameters') + '%c. However, you passed %c' + args.length + ' ' + (args.length === 1 ? 'parameter' : 'parameters') + '%c. ' + (args.length - arrity === 1 ? 'This additional parameter was' : 'These additional parameters were') + ' ignored.', modulePath, ['color: black; font-size: 12px; font-weight: bold; color: green', 'color: black; font-size: 12px', 'color: black; font-size: 12px; font-weight: bold; color: goldenrod', 'color: black; font-size: 12px']);
   }
   return true;
 }
 
 //      
+
 /**
- * Handles custom validation of polished modules.
- * @private
+ * @private returns if valud is a valid CSS direction
  */
 
-function isEnforceable(modulePath, validation) {
-  if (!validation.enforce) {
-    /* istanbul ignore next */
-    if (process.env.NODE_ENV !== 'production') {
-      message('error', validation.msg, modulePath);
-    }
-    return false;
-  }
-  return true;
-}
+var directions = ['top', 'right', 'bottom', 'left'];
 
-function setValidationStatus$1(currentStatus, newStatus) {
-  return !currentStatus ? currentStatus : newStatus;
-}
-
-function customValidation(modulePath, validations) {
-  if (Array.isArray(validations)) {
-    var validationStatus = true;
-    validations.forEach(function (validation) {
-      validationStatus = setValidationStatus$1(validationStatus, isEnforceable(modulePath, validation));
-    });
-    return validationStatus;
-  } else {
-    return isEnforceable(modulePath, validations);
-  }
-}
-
-//      
-
-var deprecated = {
-  'mixins/placeholder': {
-    version: '3.0',
-    guidance: 'You should use the %c::placeholder pseudo-element%c instead.'
-  },
-  'mixins/selection': {
-    version: '3.0',
-    guidance: 'You should use the %c::selection pseudo-element%c instead.'
-  }
-};
-
-//      
-/**
- * Handles deprecation validation of polished modules.
- * @private
- */
-
-var baseStyles$1 = 'color: black; font-size: 12px';
-var highlightStyles = '; font-weight: bold';
-
-function deprecationCheck(modulePath) {
-  var deprecationInfo = deprecated[modulePath];
-  if (deprecationInfo) {
-    var messageBody = 'will be deprecated as of %cversion ' + deprecationInfo.version + '%c of \u2728 polished. ' + deprecationInfo.guidance;
-    var additionalStyles = ['' + baseStyles$1 + highlightStyles, baseStyles$1, '' + baseStyles$1 + highlightStyles, baseStyles$1];
-    message('warning', messageBody, modulePath, additionalStyles);
-  }
-  return true;
+function validateDirection(value) {
+  return directions.indexOf(value.toLowerCase()) >= 0;
 }
 
 //      
@@ -297,7 +268,13 @@ function deprecationCheck(modulePath) {
 
 var units = ['%', 'ch', 'cm', 'em', 'ex', 'ic', 'in', 'mm', 'lh', 'pc', 'pt', 'px', 'rem', 'rlh', 'vh', 'vi', 'vb', 'q', 'vmax', 'vmin', 'vw'];
 
-function getUnit(value) {
+var measureKeywords = ['auto', 'max-content', 'min-content', 'fill-available', 'fit-content', 'inherit', 'initial', 'unset'];
+
+function validateKeyword(value) {
+  return measureKeywords.indexOf(value) >= 0;
+}
+
+function validateUnit(value) {
   if (typeof value !== 'string') return null;
   var unit = value.replace(/[^a-zA-Z-%]/g, '');
   return units.indexOf(unit) >= 0 ? unit : null;
@@ -309,56 +286,49 @@ function getUnit(value) {
  * @private
  */
 
-var measureKeywords = ['auto', 'max-content', 'min-content', 'fill-available', 'fit-content', 'inherit', 'initial', 'unset'];
-
+// Styles
 var requiredStyles = ['color: black; font-size: 12px; font-weight: bold', 'color: black; font-size: 12px', 'color: green; font-size: 12px; font-weight: bold', 'color: black; font-size: 12px', 'color: green; font-size: 12px; font-style: italic', 'color: black; font-size: 12px', 'color: red; font-size: 12px; font-weight: bold', 'color: black; font-size: 12px'];
 
 var expectedStyles = [].concat(requiredStyles, ['color: red; font-size: 12px; font-style: italic', 'color: black; font-size: 12px']);
 
-function setValidationStatus$2(currentStatus, newStatus) {
-  return currentStatus || newStatus;
+function validateArray(type, arg) {
+  if (type.min && type.max) {
+    return Array.isArray(arg) && arg.length > type.min - 1 && arg.length < type.max - 1;
+  }
+  if (type.min) {
+    return Array.isArray(arg) && arg.length > type.min - 1;
+  }
+  if (type.max) {
+    return Array.isArray(arg) && arg.length > type.max - 1;
+  }
+  return Array.isArray(arg);
 }
 
-function setReturnStatus(currentStatus, newStatus) {
-  return !currentStatus ? currentStatus : newStatus;
-}
-
-function validateArray(config) {
-  if (config.min && config.max) {
-    return Array.isArray(config.param) && config.param.length > config.min - 1 && config.param.length < config.max - 1;
-  }
-  if (config.min) {
-    return Array.isArray(config.param) && config.param.length > config.min - 1;
-  }
-  if (config.max) {
-    return Array.isArray(config.param) && config.param.length > config.max - 1;
-  }
-  return Array.isArray(config.param);
-}
-
-function validateTypes(config) {
-  if (Array.isArray(config.type)) {
+function typeCheck(typeInfo, arg) {
+  if (Array.isArray(typeInfo.type)) {
     var validationStatus = false;
-    config.type.forEach(function (type) {
-      validationStatus = setValidationStatus$2(validationStatus, validateTypes(_extends({}, config, { type: type })));
+    typeInfo.type.forEach(function (type) {
+      validationStatus = validationStatus || typeCheck(_extends({}, typeInfo, { type: type }), arg);
     });
     return validationStatus;
   }
 
-  switch (config.type) {
+  switch (typeInfo.type) {
     case 'array':
-      return validateArray(config);
+      return validateArray(typeInfo, arg);
     case 'object':
-      return _typeof(config.param) === 'object' && config.param !== null;
+      return (typeof arg === 'undefined' ? 'undefined' : _typeof(arg)) === 'object' && arg !== null;
     case 'enumerable':
-      if (Array.isArray(config.map)) {
-        return config.map.indexOf(config.param) >= 0;
+      if (Array.isArray(typeInfo.map)) {
+        return typeInfo.map.indexOf(arg) >= 0;
       }
-      return config.map[config.param];
+      return typeInfo.map[arg];
+    case 'cssDirection':
+      return validateDirection(arg);
     case 'cssMeasure':
-      return getUnit(config.param) || measureKeywords.indexOf(config.param) >= 0;
+      return validateUnit(arg) || validateKeyword(arg);
     case 'cssLength':
-      return getUnit(config.param);
+      return validateUnit(arg);
     case '%':
     case 'ch':
     case 'cm':
@@ -380,10 +350,10 @@ function validateTypes(config) {
     case 'vmax':
     case 'vmin':
     case 'vw':
-      return config.type === getUnit(config.param);
+      return typeInfo.type === validateUnit(arg);
     default:
       // eslint-disable-next-line valid-typeof
-      return _typeof(config.param) === config.type;
+      return (typeof arg === 'undefined' ? 'undefined' : _typeof(arg)) === typeInfo.type;
   }
 }
 
@@ -400,23 +370,24 @@ function ordinalSuffix(index) {
   }
 }
 
-function generateMessages(modulePath, type, arg, index) {
-  if ((arg || arg) && !validateTypes(_extends({}, type, { param: arg }))) {
+function generateMessages(modulePath, typeInfo, arg, index) {
+  console.log(arg);
+  if ((arg || arg) && !typeCheck(typeInfo, arg)) {
     var messageBody = void 0;
     if (index >= 0) {
-      messageBody = 'expects a %c' + (index + 1) + ordinalSuffix(index + 1) + ' parameter%c(%c' + type.key + '%c: %c' + type.type + '%c). However, you passed (%c\'' + arg + '\'%c:%c' + (typeof arg === 'undefined' ? 'undefined' : _typeof(arg)) + '%c) instead.';
+      messageBody = 'expects a %c' + (index + 1) + ordinalSuffix(index + 1) + ' parameter%c(%c' + typeInfo.key + '%c: %c' + typeInfo.type + '%c). However, you passed (%c\'' + arg + '\'%c:%c' + (typeof arg === 'undefined' ? 'undefined' : _typeof(arg)) + '%c) instead.';
     } else {
-      messageBody = 'expects a a %cparameter%c(%c' + type.key + '%c: %c' + type.type + '%c). However, you passed (%c\'' + arg + '\'%c:%c' + (typeof arg === 'undefined' ? 'undefined' : _typeof(arg)) + '%c) instead.';
+      messageBody = 'expects a %cparameter%c(%c' + typeInfo.key + '%c: %c' + typeInfo.type + '%c). However, you passed (%c\'' + arg + '\'%c:%c' + (typeof arg === 'undefined' ? 'undefined' : _typeof(arg)) + '%c) instead.';
     }
     message('error', messageBody, modulePath, expectedStyles);
     return false;
   }
-  if (!arg && arg !== 0 && type.required) {
+  if (!arg && arg !== 0 && typeInfo.required) {
     var _messageBody = void 0;
     if (index >= 0) {
-      _messageBody = 'requires a %c' + (index + 1) + ordinalSuffix(index + 1) + ' parameter%c(%c' + type.key + '%c: %c' + type.type + '%c). However, you did not pass %c' + type.key + '%c.';
+      _messageBody = 'requires a %c' + (index + 1) + ordinalSuffix(index + 1) + ' parameter%c(%c' + typeInfo.key + '%c: %c' + typeInfo.type + '%c). However, you did not pass %c' + typeInfo.key + '%c.';
     } else {
-      _messageBody = 'requires a %cparameter%c(%c' + type.key + '%c: %c' + type.type + '%c). However, you did not pass %c' + type.key + '%c.';
+      _messageBody = 'requires a %cparameter%c(%c' + typeInfo.key + '%c: %c' + typeInfo.type + '%c). However, you did not pass %c' + typeInfo.key + '%c.';
     }
     message('error', _messageBody, modulePath, requiredStyles);
     return false;
@@ -424,11 +395,11 @@ function generateMessages(modulePath, type, arg, index) {
   return true;
 }
 
-function typeCheck(modulePath, types, args) {
+function validateTypes(modulePath, types, args) {
   if (Array.isArray(types)) {
     var returnStatus = true;
     types.forEach(function (type, index) {
-      returnStatus = setReturnStatus(returnStatus, generateMessages(modulePath, type, args[index], index));
+      returnStatus = !returnStatus ? returnStatus : generateMessages(modulePath, type, args[index], index);
     });
     return returnStatus;
   } else {
@@ -437,33 +408,38 @@ function typeCheck(modulePath, types, args) {
 }
 
 //      
-/**
- * Handles validation of polished modules.
- * @private
- */
-
 function setValidationStatus(currentStatus, newStatus) {
   return !currentStatus ? currentStatus : newStatus;
 }
 
-function unpackObject(args, config) {
+function unpackObject(args, types) {
   var argsArray = [];
-  config.types.forEach(function (conf) {
-    argsArray.push(args[conf.key]);
+  types.forEach(function (type) {
+    argsArray.push(args[type.key]);
   });
   return argsArray;
 }
 
-function validateModule(config) {
+/**
+ * Handles validation of polished modules.
+ * @private
+ */
+function polish(_ref) {
+  var modulePath = _ref.modulePath,
+      types = _ref.types,
+      errReturn = _ref.errReturn;
 
-  return function (module) {
+  return function validateModule(module) {
+    // eslint-disable-next-line no-console
+    if (typeof module !== 'function') {
+      console.error('You must submit a valid function to be ✨ polished errors.');
+    }
 
-    return function () {
-
+    return function validateInput() {
       var isDev = process.env.NODE_ENV !== 'production';
       /* istanbul ignore next */
       if (isDev) {
-        deprecationCheck(config.modulePath);
+        deprecationCheck(modulePath);
       }
 
       var isValid = true;
@@ -472,23 +448,23 @@ function validateModule(config) {
         args[_key] = arguments[_key];
       }
 
-      var unpackedArgs = _typeof(args[0]) === 'object' && args[0] !== null ? unpackObject(args[0], config) : args;
+      var unpackedArgs = _typeof(args[0]) === 'object' && args[0] !== null ? unpackObject(args[0], types) : args;
 
       /* istanbul ignore next */
-      if (process.env.NODE_ENV !== 'production') {
-        isValid = setValidationStatus(isValid, arrityCheck(config.modulePath, config.types, unpackedArgs));
+      if (isDev) {
+        isValid = setValidationStatus(isValid, validateArrity(modulePath, types, unpackedArgs));
       }
 
-      if (config.types) {
-        isValid = setValidationStatus(isValid, typeCheck(config.modulePath, config.types, unpackedArgs));
+      if (types) {
+        isValid = setValidationStatus(isValid, validateTypes(modulePath, types, unpackedArgs));
       }
 
-      var errReturnValue = config.errReturn ? config.errReturn : {};
+      var errReturnValue = errReturn || {};
 
       /* istanbul ignore next */
       if (!isDev && !isValid) {
         // eslint-disable-next-line no-console
-        console.warn('You have experience 1 or more minified ✨ polished errors. You can use the non-minified dev environment for full errors and additional helpful warnings.');
+        console.error('You have experience 1 or more minified ✨ polished errors. You can use the non-minified dev environment for full errors and additional helpful warnings.');
       }
 
       return isValid ? module.apply(undefined, toConsumableArray(unpackedArgs)) : errReturnValue;
@@ -564,7 +540,7 @@ function directionalProperty(property) {
   return generateStyles(property, valuesWithDefaults);
 }
 
-var directionalProperty$1 = validateModule({
+var directionalProperty$1 = polish({
   modulePath: 'helpers/directionalProperty',
   types: [{ type: 'string' }, { type: ['string', 'cssMeasure'] }, { type: ['string', 'cssMeasure'] }, { type: ['string', 'cssMeasure'] }, { type: ['string', 'cssMeasure'] }]
 })(directionalProperty);
@@ -607,9 +583,13 @@ function stripUnit(value) {
   return unitlessValue;
 }
 
-var stripUnit$1 = validateModule({
+var stripUnit$1 = polish({
   modulePath: 'helpers/stripUnit',
-  types: { key: 'value', type: ['cssMeasure', 'number', 'string'], required: true },
+  types: {
+    key: 'value',
+    type: ['cssMeasure', 'number', 'string'],
+    required: true
+  },
   errReturn: ''
 })(stripUnit);
 
@@ -732,7 +712,7 @@ function modularScale(steps) {
   return realBase * Math.pow(realRatio, steps) + 'em';
 }
 
-var modularScale$1 = validateModule({
+var modularScale$1 = polish({
   modulePath: 'helpers/modularScale',
   types: [{ type: 'number', required: true }, { type: ['number', 'em'] }, { type: ['number', 'enumberable'], map: ratioNames }],
   errReturn: ''
@@ -798,7 +778,7 @@ function clearFix() {
   });
 }
 
-var clearFix$1 = validateModule({
+var clearFix$1 = polish({
   modulePath: 'mixins/clearFix',
   types: { type: 'string' }
 })(clearFix);
@@ -843,10 +823,43 @@ function ellipsis() {
   };
 }
 
-var ellipsis$1 = validateModule({
+var ellipsis$1 = polish({
   modulePath: 'mixins/ellipsis',
   types: { type: 'cssMeasure' }
 })(ellipsis);
+
+//      
+/**
+ * Handles custom validation of polished modules.
+ * @private
+ */
+
+function isEnforceable(modulePath, validation) {
+  if (!validation.enforce) {
+    /* istanbul ignore next */
+    if (process.env.NODE_ENV !== 'production') {
+      message('error', validation.msg, modulePath);
+    }
+    return false;
+  }
+  return true;
+}
+
+function setValidationStatus$1(currentStatus, newStatus) {
+  return !currentStatus ? currentStatus : newStatus;
+}
+
+function customValidation(modulePath, validations) {
+  if (Array.isArray(validations)) {
+    var validationStatus = true;
+    validations.forEach(function (validation) {
+      validationStatus = setValidationStatus$1(validationStatus, isEnforceable(modulePath, validation));
+    });
+    return validationStatus;
+  } else {
+    return isEnforceable(modulePath, validations);
+  }
+}
 
 //      
 function generateFileReferences(fontFilePath, fileFormats) {
@@ -927,7 +940,7 @@ function fontFace(fontFamily, fontFilePath, fontStretch, fontStyle, fontVariant,
   // Removes undefined fields for cleaner css object.
   return JSON.parse(JSON.stringify(fontFaceDeclaration));
 }
-var fontFace$1 = validateModule({
+var fontFace$1 = polish({
   modulePath: 'mixins/fontFace',
   types: [{
     key: 'fontFamily',
@@ -971,7 +984,7 @@ function hideText() {
   };
 }
 
-var hideText$1 = validateModule({
+var hideText$1 = polish({
   modulePath: 'mixins/hideText'
 })(hideText);
 
@@ -1011,7 +1024,7 @@ function hiDPI() {
   return '\n    @media only screen and (-webkit-min-device-pixel-ratio: ' + ratio + '),\n    only screen and (min--moz-device-pixel-ratio: ' + ratio + '),\n    only screen and (-o-min-device-pixel-ratio: ' + ratio + '/1),\n    only screen and (min-resolution: ' + Math.round(ratio * 96) + 'dpi),\n    only screen and (min-resolution: ' + ratio + 'dppx)\n  ';
 }
 
-var hiDPI$1 = validateModule({
+var hiDPI$1 = polish({
   modulePath: 'mixins/hiDPI',
   types: { type: 'number' },
   errReturn: ''
@@ -1187,7 +1200,7 @@ function normalize(excludeOpinionated) {
   return mergeRules(unopinionatedRules, opinionatedRules);
 }
 
-var normalize$1 = validateModule({
+var normalize$1 = polish({
   modulePath: 'mixins/normalize',
   types: { type: 'boolean' }
 })(normalize);
@@ -1235,7 +1248,7 @@ function placeholder() {
   return _ref = {}, defineProperty(_ref, parent + '::-webkit-input-placeholder', _extends({}, styles)), defineProperty(_ref, parent + ':-moz-placeholder', _extends({}, styles)), defineProperty(_ref, parent + '::-moz-placeholder', _extends({}, styles)), defineProperty(_ref, parent + ':-ms-input-placeholder', _extends({}, styles)), _ref;
 }
 
-var placeholder$1 = validateModule({
+var placeholder$1 = polish({
   modulePath: 'mixins/placeholder',
   types: [{ type: 'string' }, { type: 'object', required: true }]
 })(placeholder);
@@ -1305,7 +1318,7 @@ function radialGradient(colorStops, extent, fallback, position, shape) {
   };
 }
 
-var radialGradient$1 = validateModule({
+var radialGradient$1 = polish({
   modulePath: 'mixins/radialGradient',
   types: [{
     key: 'colorStops',
@@ -1361,7 +1374,7 @@ function retinaImage(fileName, backgroundSize) {
   });
 }
 
-var retinaImage$1 = validateModule({
+var retinaImage$1 = polish({
   modulePath: 'mixins/retinaImage',
   types: [{
     type: 'string',
@@ -1409,7 +1422,7 @@ function selection() {
   return _ref = {}, defineProperty(_ref, parent + '::-moz-selection', _extends({}, styles)), defineProperty(_ref, parent + '::selection', _extends({}, styles)), _ref;
 }
 
-var selection$1 = validateModule({
+var selection$1 = polish({
   modulePath: 'mixins/selection',
   types: [{ type: 'string' }, { type: 'object', required: true }]
 })(selection);
@@ -1471,7 +1484,7 @@ function timingFunctions(timingFunction) {
   return functionsMap[timingFunction];
 }
 
-var timingFunctions$1 = validateModule({
+var timingFunctions$1 = polish({
   modulePath: 'mixins/timingFunctions',
   types: {
     type: 'enumerable',
@@ -1545,7 +1558,7 @@ function triangle(pointingDirection, height, width, foregroundColor) {
   }, defineProperty(_ref, 'border' + reverseDirection[pointingDirection] + 'Color', foregroundColor), defineProperty(_ref, 'width', '0'), defineProperty(_ref, 'height', '0'), defineProperty(_ref, 'borderWidth', getBorderWidth(pointingDirection, unitlessHeight, unitlessWidth)), defineProperty(_ref, 'borderStyle', 'solid'), _ref;
 }
 
-var triangle$1 = validateModule({
+var triangle$1 = polish({
   modulePath: 'mixins/triangle',
   types: [{
     key: 'pointingDirection',
@@ -1603,7 +1616,7 @@ function wordWrap() {
   };
 }
 
-var wordWrap$1 = validateModule({
+var wordWrap$1 = polish({
   modulePath: 'mixins/wordWrap',
   types: { type: 'enumerable', map: wrapKeywords }
 })(wordWrap);
@@ -3172,16 +3185,7 @@ function borderColor() {
  */
 
 function borderRadius(side, radius) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    var modulePath = 'shorthands/borderRadius.js';
-    deprecationCheck(modulePath);
-  }
-
   var uppercaseSide = capitalizeString(side);
-  if (!radius || typeof radius !== 'string') {
-    throw new Error('borderRadius expects a radius value as a string as the second argument.');
-  }
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     var _ref;
 
@@ -3193,9 +3197,12 @@ function borderRadius(side, radius) {
 
     return _ref2 = {}, defineProperty(_ref2, 'borderTop' + uppercaseSide + 'Radius', radius), defineProperty(_ref2, 'borderBottom' + uppercaseSide + 'Radius', radius), _ref2;
   }
-
-  throw new Error('borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.');
 }
+
+var borderRadius$1 = polish({
+  modulePath: 'shorthands/borderRadius',
+  types: [{ key: 'side', type: 'cssDirection', required: true }, { key: 'radius', type: 'cssMeasure', required: true }]
+})(borderRadius);
 
 //      
 /**
@@ -3637,7 +3644,7 @@ exports.animation = animation;
 exports.backgroundImages = backgroundImages;
 exports.backgrounds = backgrounds;
 exports.borderColor = borderColor;
-exports.borderRadius = borderRadius;
+exports.borderRadius = borderRadius$1;
 exports.borderStyle = borderStyle;
 exports.borderWidth = borderWidth;
 exports.buttons = buttons;

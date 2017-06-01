@@ -1,6 +1,6 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
-import deprecationCheck from '../validation/_deprecationCheck'
+import polish from '../validation/polish'
 
 /**
  * A shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
@@ -24,18 +24,7 @@ import deprecationCheck from '../validation/_deprecationCheck'
  */
 
 function borderRadius(side: string, radius: string) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/borderRadius.js'
-    deprecationCheck(modulePath)
-  }
-
   const uppercaseSide = capitalizeString(side)
-  if (!radius || typeof radius !== 'string') {
-    throw new Error(
-      'borderRadius expects a radius value as a string as the second argument.',
-    )
-  }
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     return {
       [`border${uppercaseSide}RightRadius`]: radius,
@@ -49,10 +38,13 @@ function borderRadius(side: string, radius: string) {
       [`borderBottom${uppercaseSide}Radius`]: radius,
     }
   }
-
-  throw new Error(
-    'borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.',
-  )
+  return {}
 }
 
-export default borderRadius
+export default polish({
+  modulePath: 'shorthands/borderRadius',
+  types: [
+    { key: 'side', type: 'cssDirection', required: true },
+    { key: 'radius', type: 'cssMeasure', required: true },
+  ],
+})(borderRadius)

@@ -1,6 +1,6 @@
 // @flow
-import directionalProperty from '../helpers/directionalProperty'
-import deprecationCheck from '../validation/_deprecationCheck'
+import { directionalProperty } from '../helpers/directionalProperty'
+import polish from '../validation/polish'
 
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -26,13 +26,15 @@ import deprecationCheck from '../validation/_deprecationCheck'
  */
 
 function borderWidth(...values: Array<?string>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/borderWidth.js'
-    deprecationCheck(modulePath)
-  }
-
   return directionalProperty('borderWidth', ...values)
 }
 
-export default borderWidth
+export default polish({
+  modulePath: 'shorthands/borderWidth',
+  types: [
+    { key: 'firstWidth', type: 'cssMeasure' },
+    { key: 'secondWidth', type: 'cssMeasure' },
+    { key: 'thirdWidth', type: 'cssMeasure' },
+    { key: 'fourthWidth', type: 'cssMeasure' },
+  ],
+})(borderWidth)
