@@ -31,7 +31,7 @@ const units = [
 function getUnit(value: string): string | null {
   if (typeof value !== 'string') return null
   const unit = value.replace(/[^a-zA-Z-%]/g, '')
-  return units.includes(unit) ? unit : null
+  return units.indexOf(unit) >= 0 ? unit : null
 }
 
 export default getUnit

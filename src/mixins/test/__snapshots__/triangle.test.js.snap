@@ -98,7 +98,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type cssMeasure. However, you did not pass one.
+triangle %cexpects a 2nd parameter of type px. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -134,7 +134,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 3rd parameter of type cssMeasure. However, you did not pass one.
+triangle %cexpects a 3rd parameter of type px. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -165,7 +165,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for m
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type cssMeasure. However, you did not pass one.
+triangle %cexpects a 2nd parameter of type px. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -178,7 +178,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for m
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 3rd parameter of type cssMeasure. However, you did not pass one.
+triangle %cexpects a 3rd parameter of type px. However, you did not pass one.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -227,7 +227,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type cssMeasure. However, you passed 10(number) instead.
+triangle %cexpects a 2nd parameter of type px. However, you passed 10(number) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -263,7 +263,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 3rd parameter of type cssMeasure. However, you passed 10(number) instead.
+triangle %cexpects a 3rd parameter of type px. However, you passed 10(number) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -281,7 +281,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type cssMeasure. However, you passed inherit(string) instead.
+triangle %cexpects a 2nd parameter of type px. However, you passed inherit(string) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
@@ -299,7 +299,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type cssMeasure. However, you passed inherit(string) instead.
+triangle %cexpects a 2nd parameter of type px. However, you passed inherit(string) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",

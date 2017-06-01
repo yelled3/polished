@@ -7,6 +7,17 @@ import message from './_message'
  * @private
  */
 
+const measureKeywords = [
+  'auto',
+  'max-content',
+  'min-content',
+  'fill-available',
+  'fit-content',
+  'inherit',
+  'initial',
+  'unset',
+]
+
 function setValidationStatus(currentStatus, newStatus) {
   return currentStatus || newStatus
 }
@@ -50,9 +61,11 @@ function validateType(config) {
     case 'object':
       return typeof config.param === 'object' && config.param !== null
     case 'enumerable':
-      if (Array.isArray(config.map)) return config.map.includes(config.param)
+      if (Array.isArray(config.map)) { return config.map.indexOf(config.param) >= 0 }
       return config.map[config.param]
     case 'cssMeasure':
+      return getUnit(config.param) || measureKeywords.indexOf(config.param) >= 0
+    case 'cssLength':
       return getUnit(config.param)
     case '%':
     case 'ch':
