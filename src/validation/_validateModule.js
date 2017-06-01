@@ -22,16 +22,15 @@ function unpackObject(args, config) {
 }
 
 function validateModule(config: Object) {
-  const isDev = process.env.NODE_ENV !== 'production'
-  /* istanbul ignore next */
-  if (isDev) {
-    deprecationCheck(config.modulePath)
-  }
-
   return function(module: Function) {
-    let isValid = true
-
     return function(...args: Array<any>) {
+      const isDev = process.env.NODE_ENV !== 'production'
+      /* istanbul ignore next */
+      if (isDev) {
+        deprecationCheck(config.modulePath)
+      }
+
+      let isValid = true
       const unpackedArgs = typeof args[0] === 'object' && args[0] !== null
         ? unpackObject(args[0], config)
         : args
@@ -48,12 +47,6 @@ function validateModule(config: Object) {
         isValid = setValidationStatus(
           isValid,
           typeCheck(config.modulePath, config.types, unpackedArgs),
-        )
-      }
-      if (config.customRule) {
-        isValid = setValidationStatus(
-          isValid,
-          customRule(config.modulePath, config.customRule),
         )
       }
 

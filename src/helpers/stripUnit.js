@@ -30,6 +30,10 @@ function stripUnit(value: string) {
 
 export default validateModule({
   modulePath: 'helpers/stripUnit',
-  types: { type: ['cssMeasure', 'number', 'string'], required: true },
+  types: {
+    key: 'value',
+    type: ['cssMeasure', 'number', 'string'],
+    required: true,
+  },
   errReturn: '',
 })(stripUnit)
