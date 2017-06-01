@@ -25,57 +25,47 @@ const expectedStyles = [
   'color: black; font-size: 12px',
 ]
 
-function setReturnStatus(currentStatus, newStatus) {
-  return !currentStatus ? currentStatus : newStatus
-}
-
-function setValidationStatus(currentStatus, newStatus) {
-  return currentStatus || newStatus
-}
-
-function validateArray(config) {
-  if (config.min && config.max) {
+function validateArray(type, arg) {
+  if (type.min && type.max) {
     return (
-      Array.isArray(config.param) &&
-      config.param.length > config.min - 1 &&
-      config.param.length < config.max - 1
+      Array.isArray(arg) &&
+      arg.length > type.min - 1 &&
+      arg.length < type.max - 1
     )
   }
-  if (config.min) {
-    return Array.isArray(config.param) && config.param.length > config.min - 1
+  if (type.min) {
+    return Array.isArray(arg) && arg.length > type.min - 1
   }
-  if (config.max) {
-    return Array.isArray(config.param) && config.param.length > config.max - 1
+  if (type.max) {
+    return Array.isArray(arg) && arg.length > type.max - 1
   }
-  return Array.isArray(config.param)
+  return Array.isArray(arg)
 }
 
-function typeCheck(config) {
-  if (Array.isArray(config.type)) {
+function typeCheck(typeInfo, arg) {
+  if (Array.isArray(typeInfo.type)) {
     let validationStatus = false
-    config.type.forEach(type => {
-      validationStatus = setValidationStatus(
-        validationStatus,
-        typeCheck({ ...config, type }),
-      )
+    typeInfo.type.forEach(type => {
+      validationStatus =
+        validationStatus || typeCheck({ ...typeInfo, type }, arg)
     })
     return validationStatus
   }
 
-  switch (config.type) {
+  switch (typeInfo.type) {
     case 'array':
-      return validateArray(config)
+      return validateArray(typeInfo, arg)
     case 'object':
-      return typeof config.param === 'object' && config.param !== null
+      return typeof arg === 'object' && arg !== null
     case 'enumerable':
-      if (Array.isArray(config.map)) {
-        return config.map.indexOf(config.param) >= 0
+      if (Array.isArray(typeInfo.map)) {
+        return typeInfo.map.indexOf(arg) >= 0
       }
-      return config.map[config.param]
+      return typeInfo.map[arg]
     case 'cssMeasure':
-      return validateUnit(config.param) || validateKeyword(config.param)
+      return validateUnit(arg) || validateKeyword(arg)
     case 'cssLength':
-      return validateUnit(config.param)
+      return validateUnit(arg)
     case '%':
     case 'ch':
     case 'cm':
@@ -97,10 +87,10 @@ function typeCheck(config) {
     case 'vmax':
     case 'vmin':
     case 'vw':
-      return config.type === validateUnit(config.param)
+      return typeInfo.type === validateUnit(arg)
     default:
       // eslint-disable-next-line valid-typeof
-      return typeof config.param === config.type
+      return typeof arg === typeInfo.type
   }
 }
 
@@ -117,23 +107,23 @@ function ordinalSuffix(index) {
   }
 }
 
-function generateMessages(modulePath, type, arg, index) {
-  if ((arg || arg) && !typeCheck({ ...type, param: arg })) {
+function generateMessages(modulePath, typeInfo, arg, index) {
+  if ((arg || arg) && !typeCheck(typeInfo, arg)) {
     let messageBody
     if (index >= 0) {
-      messageBody = `expects a %c${index + 1}${ordinalSuffix(index + 1)} parameter%c(%c${type.key}%c: %c${type.type}%c). However, you passed (%c'${arg}'%c:%c${typeof arg}%c) instead.`
+      messageBody = `expects a %c${index + 1}${ordinalSuffix(index + 1)} parameter%c(%c${typeInfo.key}%c: %c${typeInfo.type}%c). However, you passed (%c'${arg}'%c:%c${typeof arg}%c) instead.`
     } else {
-      messageBody = `expects a %cparameter%c(%c${type.key}%c: %c${type.type}%c). However, you passed (%c'${arg}'%c:%c${typeof arg}%c) instead.`
+      messageBody = `expects a %cparameter%c(%c${typeInfo.key}%c: %c${typeInfo.type}%c). However, you passed (%c'${arg}'%c:%c${typeof arg}%c) instead.`
     }
     message('error', messageBody, modulePath, expectedStyles)
     return false
   }
-  if (!arg && arg !== 0 && type.required) {
+  if (!arg && arg !== 0 && typeInfo.required) {
     let messageBody
     if (index >= 0) {
-      messageBody = `requires a %c${index + 1}${ordinalSuffix(index + 1)} parameter%c(%c${type.key}%c: %c${type.type}%c). However, you did not pass %c${type.key}%c.`
+      messageBody = `requires a %c${index + 1}${ordinalSuffix(index + 1)} parameter%c(%c${typeInfo.key}%c: %c${typeInfo.type}%c). However, you did not pass %c${typeInfo.key}%c.`
     } else {
-      messageBody = `requires a %cparameter%c(%c${type.key}%c: %c${type.type}%c). However, you did not pass %c${type.key}%c.`
+      messageBody = `requires a %cparameter%c(%c${typeInfo.key}%c: %c${typeInfo.type}%c). However, you did not pass %c${typeInfo.key}%c.`
     }
     message('error', messageBody, modulePath, requiredStyles)
     return false
@@ -149,10 +139,9 @@ function validateTypes(
   if (Array.isArray(types)) {
     let returnStatus = true
     types.forEach((type, index) => {
-      returnStatus = setReturnStatus(
-        returnStatus,
-        generateMessages(modulePath, type, args[index], index),
-      )
+      returnStatus = !returnStatus
+        ? returnStatus
+        : generateMessages(modulePath, type, args[index], index)
     })
     return returnStatus
   } else {
