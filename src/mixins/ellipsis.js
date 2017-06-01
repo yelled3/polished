@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 /**
  * CSS to represent truncated text with an ellipsis.
@@ -38,7 +38,7 @@ function ellipsis(width?: string = '100%') {
   }
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/ellipsis',
   types: { type: 'cssMeasure' },
 })(ellipsis)

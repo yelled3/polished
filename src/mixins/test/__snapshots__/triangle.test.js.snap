@@ -80,11 +80,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 4th parameter of type string. However, you did not pass one.
+triangle %crequires a %c4th parameter%c(%cforegroundColor%c: %cstring%c). However, you did not pass %cforegroundColor%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -98,11 +106,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type px. However, you did not pass one.
+triangle %crequires a %c2nd parameter%c(%cheight%c: %cpx%c). However, you did not pass %cheight%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -116,11 +132,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 1st parameter of type string. However, you did not pass one.
+triangle %crequires a %c1st parameter%c(%cpointingDirection%c: %cstring%c). However, you did not pass %cpointingDirection%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -134,11 +158,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 3rd parameter of type px. However, you did not pass one.
+triangle %crequires a %c3rd parameter%c(%cwidth%c: %cpx%c). However, you did not pass %cwidth%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -152,11 +184,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 1st parameter of type string. However, you did not pass one.
+triangle %crequires a %c1st parameter%c(%cpointingDirection%c: %cstring%c). However, you did not pass %cpointingDirection%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -165,11 +205,19 @@ Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for m
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type px. However, you did not pass one.
+triangle %crequires a %c2nd parameter%c(%cheight%c: %cpx%c). However, you did not pass %cheight%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -178,11 +226,19 @@ Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for m
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 3rd parameter of type px. However, you did not pass one.
+triangle %crequires a %c3rd parameter%c(%cwidth%c: %cpx%c). However, you did not pass %cwidth%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -191,11 +247,19 @@ Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for m
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 4th parameter of type string. However, you did not pass one.
+triangle %crequires a %c4th parameter%c(%cforegroundColor%c: %cstring%c). However, you did not pass %cforegroundColor%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -209,11 +273,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 4th parameter of type string. However, you passed true(boolean) instead.
+triangle %cexpects a %c4th parameter%c(%cforegroundColor%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -227,11 +301,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type px. However, you passed 10(number) instead.
+triangle %cexpects a %c2nd parameter%c(%cheight%c: %cpx%c). However, you passed (%c\'10\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -245,11 +329,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 1st parameter of type string. However, you passed true(boolean) instead.
+triangle %cexpects a %c1st parameter%c(%cpointingDirection%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -263,11 +357,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 3rd parameter of type px. However, you passed 10(number) instead.
+triangle %cexpects a %c3rd parameter%c(%cwidth%c: %cpx%c). However, you passed (%c\'10\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -281,11 +385,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type px. However, you passed inherit(string) instead.
+triangle %cexpects a %c2nd parameter%c(%cheight%c: %cpx%c). However, you passed (%c\'inherit\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -299,11 +413,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/triangle.js --%c
 
-triangle %cexpects a 2nd parameter of type px. However, you passed inherit(string) instead.
+triangle %cexpects a %c2nd parameter%c(%cheight%c: %cpx%c). However, you passed (%c\'inherit\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#triangle%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

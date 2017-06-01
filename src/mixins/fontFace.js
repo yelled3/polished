@@ -1,5 +1,6 @@
 // @flow
-import validateModule, { customRule } from '../validation/_validateModule'
+import polish from '../validation/polish'
+import customRule from '../validation/_customRule'
 
 function generateFileReferences(
   fontFilePath: string,
@@ -92,7 +93,7 @@ function fontFace(
   // Removes undefined fields for cleaner css object.
   return JSON.parse(JSON.stringify(fontFaceDeclaration))
 }
-export default validateModule({
+export default polish({
   modulePath: 'mixins/fontFace',
   types: [
     {

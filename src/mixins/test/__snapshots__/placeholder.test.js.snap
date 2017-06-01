@@ -39,6 +39,23 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- mixins/placeholder.js --%c
 
+placeholder %cwill be deprecated as of %cversion 3.0%c of ✨ polished. You should use the %c::placeholder pseudo-element%c instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ WARNING ✨ ---- mixins/placeholder.js --%c
+
 placeholder %cexpects a maximum of %c2 parameters%c. However, you passed %c3 parameters%c. This additional parameter was ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
@@ -61,11 +78,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
 
-placeholder %cexpects a 2nd parameter of type object. However, you did not pass one.
+placeholder %crequires a %c2nd parameter%c(%cundefined%c: %cobject%c). However, you did not pass %cundefined%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -79,11 +104,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
 
-placeholder %cexpects a 2nd parameter of type object. However, you passed styles(string) instead.
+placeholder %cexpects a %c2nd parameter%c(%cundefined%c: %cobject%c). However, you passed (%c\'styles\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -97,11 +132,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
 
-placeholder %cexpects a 1st parameter of type string. However, you passed 1(number) instead.
+placeholder %cexpects a %c1st parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

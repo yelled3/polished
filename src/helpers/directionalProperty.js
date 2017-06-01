@@ -1,6 +1,6 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 const positionMap = ['Top', 'Right', 'Bottom', 'Left']
 
@@ -56,7 +56,7 @@ function directionalProperty(property: string, ...values: Array<?string>) {
   return generateStyles(property, valuesWithDefaults)
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'helpers/directionalProperty',
   types: [
     { type: 'string' },

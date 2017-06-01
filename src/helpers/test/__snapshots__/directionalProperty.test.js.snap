@@ -166,11 +166,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/directionalProperty.js --%c
 
-directionalProperty %cexpects a 1st parameter of type string. However, you passed true(boolean) instead.
+directionalProperty %cexpects a %c1st parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#directionalProperty%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

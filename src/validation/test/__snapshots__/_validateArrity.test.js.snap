@@ -1,4 +1,4 @@
-exports[`arrityCheck should throw a properly formatted warning when difference in expected and actual is not equal to 1 1`] = `
+exports[`validateArrity should throw a properly formatted warning when difference in expected and actual is not equal to 1 1`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- module/testModule.js --%c
@@ -20,7 +20,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#testModule%c for
 ]
 `;
 
-exports[`arrityCheck should throw a warning when passed more arguments than needed 1`] = `
+exports[`validateArrity should throw a warning when passed more arguments than needed 1`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- module/testModule.js --%c

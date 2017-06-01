@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 /**
  * CSS to hide text to show a background image in a SEO-friendly way.
@@ -35,6 +35,6 @@ function hideText() {
   }
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/hideText',
 })(hideText)

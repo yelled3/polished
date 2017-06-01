@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 /**
  * Strip the unit from a given CSS value, returning just the number.
@@ -28,7 +28,7 @@ function stripUnit(value: string) {
   return unitlessValue
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'helpers/stripUnit',
   types: {
     key: 'value',

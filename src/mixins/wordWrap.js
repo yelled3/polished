@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 type WrapKeywords = 'break-all' | 'break-word' | 'normal'
 
@@ -37,7 +37,7 @@ function wordWrap(wrap?: WrapKeywords | string = 'break-word') {
   }
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/wordWrap',
   types: { type: 'enumerable', map: wrapKeywords },
 })(wordWrap)

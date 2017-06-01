@@ -2,7 +2,7 @@ exports[`fontFace should respect the file format configuration object 1`] = `
 Object {
   "@font-face": Object {
     "fontFamily": "Sans Pro",
-    "src": "url("path/to/file.eot"), url("path/to/file.svg")",
+    "src": "url(\"path/to/file.eot\"), url(\"path/to/file.svg\")",
   },
 }
 `;
@@ -11,7 +11,7 @@ exports[`fontFace should return a valid object when passed both a file-based sou
 Object {
   "@font-face": Object {
     "fontFamily": "Sans Pro",
-    "src": "local("sans-pro"), local("sans pro"), url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")",
+    "src": "local(\"sans-pro\"), local(\"sans pro\"), url(\"path/to/file.eot\"), url(\"path/to/file.woff2\"), url(\"path/to/file.woff\"), url(\"path/to/file.ttf\"), url(\"path/to/file.svg\")",
   },
 }
 `;
@@ -20,7 +20,7 @@ exports[`fontFace should return a valid object when passed both local and file-b
 Object {
   "@font-face": Object {
     "fontFamily": "Sans Pro",
-    "src": "local("sans-pro"), url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")",
+    "src": "local(\"sans-pro\"), url(\"path/to/file.eot\"), url(\"path/to/file.woff2\"), url(\"path/to/file.woff\"), url(\"path/to/file.ttf\"), url(\"path/to/file.svg\")",
   },
 }
 `;
@@ -29,7 +29,7 @@ exports[`fontFace should return a valid object when passed just a family and sou
 Object {
   "@font-face": Object {
     "fontFamily": "Sans Pro",
-    "src": "url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")",
+    "src": "url(\"path/to/file.eot\"), url(\"path/to/file.woff2\"), url(\"path/to/file.woff\"), url(\"path/to/file.ttf\"), url(\"path/to/file.svg\")",
   },
 }
 `;
@@ -38,7 +38,7 @@ exports[`fontFace should return a valid object when passed only local sources 1`
 Object {
   "@font-face": Object {
     "fontFamily": "Sans Pro",
-    "src": "local("sans-pro"), local("sans pro")",
+    "src": "local(\"sans-pro\"), local(\"sans pro\")",
   },
 }
 `;
@@ -51,7 +51,7 @@ Object {
     "fontStyle": "italic",
     "fontVariant": "small-caps",
     "fontWeight": "bold",
-    "src": "url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")",
+    "src": "url(\"path/to/file.eot\"), url(\"path/to/file.woff2\"), url(\"path/to/file.woff\"), url(\"path/to/file.ttf\"), url(\"path/to/file.svg\")",
     "unicodeRange": "U+26",
   },
 }
@@ -80,11 +80,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 1st parameter of type string. However, you did not pass one.
+fontFace %crequires a %c1st parameter%c(%cfontFamily%c: %cstring%c). However, you did not pass %cfontFamily%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -98,11 +106,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 1st parameter of type string. However, you did not pass one.
+fontFace %crequires a %c1st parameter%c(%cfontFamily%c: %cstring%c). However, you did not pass %cfontFamily%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -116,11 +132,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 8th parameter of type array. However, you passed sans-pro(string) instead.
+fontFace %cexpects a %c8th parameter%c(%clocalFonts%c: %carray%c). However, you passed (%c\'sans-pro\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -134,11 +160,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 1st parameter of type string. However, you passed 100(number) instead.
+fontFace %cexpects a %c1st parameter%c(%cfontFamily%c: %cstring%c). However, you passed (%c\'100\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -152,11 +188,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 2nd parameter of type string. However, you passed 100(number) instead.
+fontFace %cexpects a %c2nd parameter%c(%cfontFilePath%c: %cstring%c). However, you passed (%c\'100\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -170,11 +216,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 3rd parameter of type string. However, you passed true(boolean) instead.
+fontFace %cexpects a %c3rd parameter%c(%cfontStretch%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -188,11 +244,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 4th parameter of type string. However, you passed 100(number) instead.
+fontFace %cexpects a %c4th parameter%c(%cfontStyle%c: %cstring%c). However, you passed (%c\'100\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -206,11 +272,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 5th parameter of type string. However, you passed 100(number) instead.
+fontFace %cexpects a %c5th parameter%c(%cfontVariant%c: %cstring%c). However, you passed (%c\'100\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -224,11 +300,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 6th parameter of type string. However, you passed true(boolean) instead.
+fontFace %cexpects a %c6th parameter%c(%cfontWeight%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -242,11 +328,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/fontFace.js --%c
 
-fontFace %cexpects a 9th parameter of type string. However, you passed 26(number) instead.
+fontFace %cexpects a %c9th parameter%c(%cunicodeRange%c: %cstring%c). However, you passed (%c\'26\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#fontFace%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

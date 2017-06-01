@@ -404,11 +404,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/normalize.js --%c
 
-normalize %cexpects a parameter of type boolean. However, you passed 1(string) instead.
+normalize %cexpects a %cparameter%c(%cundefined%c: %cboolean%c). However, you passed (%c\'1\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#normalize%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -444,11 +454,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/normalize.js --%c
 
-normalize %cexpects a parameter of type boolean. However, you passed false(string) instead.
+normalize %cexpects a %cparameter%c(%cundefined%c: %cboolean%c). However, you passed (%c\'false\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#normalize%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

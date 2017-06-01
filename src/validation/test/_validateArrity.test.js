@@ -1,7 +1,7 @@
 // @flow
-import arrityCheck from '../_arrityCheck'
+import validateArrity from '../_validateArrity'
 
-describe('arrityCheck', () => {
+describe('validateArrity', () => {
   const modulePath = 'module/testModule'
 
   beforeAll(() => {
@@ -22,7 +22,7 @@ describe('arrityCheck', () => {
   // Exactly
   it('should return true when passed exactly the arguments needed', () => {
     expect(
-      arrityCheck(
+      validateArrity(
         modulePath,
         {
           type: 'string',
@@ -34,7 +34,7 @@ describe('arrityCheck', () => {
 
   it('should return true when passed more arguments than needed', () => {
     expect(
-      arrityCheck(
+      validateArrity(
         modulePath,
         {
           type: 'string',
@@ -45,7 +45,7 @@ describe('arrityCheck', () => {
   })
 
   it('should throw a warning when passed more arguments than needed', () => {
-    arrityCheck(
+    validateArrity(
       modulePath,
       {
         type: 'string',
@@ -60,16 +60,16 @@ describe('arrityCheck', () => {
 
   it('should return true when passed less arguments than needed', () => {
     expect(
-      arrityCheck(modulePath, [{ type: 'string' }, { type: 'string' }], [1]),
+      validateArrity(modulePath, [{ type: 'string' }, { type: 'string' }], [1]),
     ).toBeTruthy()
   })
 
   it('should return true when not passed any types', () => {
-    expect(arrityCheck(modulePath, undefined, [1])).toBeTruthy()
+    expect(validateArrity(modulePath, undefined, [1])).toBeTruthy()
   })
 
   it('should throw a properly formatted warning when difference in expected and actual is not equal to 1', () => {
-    arrityCheck(
+    validateArrity(
       modulePath,
       {
         type: 'string',

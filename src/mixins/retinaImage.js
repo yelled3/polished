@@ -1,6 +1,6 @@
 // @flow
 import hiDPI from './hiDPI'
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 /**
  * A helper to generate a retina background image and non-retina
@@ -52,7 +52,7 @@ function retinaImage(
   }
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/retinaImage',
   types: [
     {

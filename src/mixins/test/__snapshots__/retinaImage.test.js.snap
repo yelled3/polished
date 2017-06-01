@@ -83,11 +83,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-retinaImage %cexpects a 2nd parameter of type string. However, you passed 100(number) instead.
+retinaImage %cexpects a %c2nd parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'100\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -101,11 +111,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-retinaImage %cexpects a 3rd parameter of type string. However, you passed true(boolean) instead.
+retinaImage %cexpects a %c3rd parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -119,11 +139,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-retinaImage %cexpects a 1st parameter of type string. However, you passed 1(number) instead.
+retinaImage %cexpects a %c1st parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -137,11 +167,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-retinaImage %cexpects a 1st parameter of type string. However, you did not pass one.
+retinaImage %crequires a %c1st parameter%c(%cundefined%c: %cstring%c). However, you did not pass %cundefined%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

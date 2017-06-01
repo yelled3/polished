@@ -1,27 +1,23 @@
 // @flow
-import validateModule from '../_validateModule'
+import polish from '../polish'
 
-jest.mock('../_arrityCheck', () => jest.fn(() => true))
+jest.mock('../_validateArrity', () => jest.fn(() => true))
 
-const arrityCheck = require('../_arrityCheck')
-
-jest.mock('../_customRule', () => jest.fn(() => true))
-
-const customRule = require('../_customRule')
+const validateArrity = require('../_validateArrity')
 
 jest.mock('../_deprecationCheck', () => jest.fn(() => true))
 
 const deprecationCheck = require('../_deprecationCheck')
 
-jest.mock('../_typeCheck', () => jest.fn(() => true))
+jest.mock('../_validateTypes', () => jest.fn(() => true))
 
-const typeCheck = require('../_typeCheck')
+const validateTypes = require('../_validateTypes')
 
 const modulePath = 'module/moduleName'
 
 const mockModule = jest.fn().mockImplementation(css => css)
 
-describe('validateModule', () => {
+describe('polish', () => {
   beforeAll(() => {
     global.console = {
       error: jest.fn(),
@@ -37,53 +33,50 @@ describe('validateModule', () => {
     console.warn.mockClear()
   })
 
-  it('should call deprecationCheck and arrityCheck when passed just module path', () => {
-    validateModule({ modulePath })(mockModule)('yes')
+  it('should call deprecationCheck and validateArrity when passed just module path', () => {
+    polish({ modulePath })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
-    expect(arrityCheck).toHaveBeenCalled()
-    expect(typeCheck).not.toHaveBeenCalled()
-    expect(customRule).not.toHaveBeenCalled()
+    expect(validateArrity).toHaveBeenCalled()
+    expect(validateTypes).not.toHaveBeenCalled()
   })
 
   it('should return the mixins value when passed no validation checks', () => {
-    expect(validateModule({ modulePath })(mockModule)('yes')).toEqual('yes')
+    expect(polish({ modulePath })(mockModule)('yes')).toEqual('yes')
   })
 
-  it('should call deprecationCheck, arrityCheck, typeCheck when passed associated validation options', () => {
-    validateModule({
+  it('should call deprecationCheck, validateArrity, validateTypes when passed associated validation options', () => {
+    polish({
       modulePath,
       types: { param: 'string', type: 'string' },
     })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
-    expect(arrityCheck).toHaveBeenCalled()
-    expect(typeCheck).toHaveBeenCalled()
-    expect(customRule).not.toHaveBeenCalled()
+    expect(validateArrity).toHaveBeenCalled()
+    expect(validateTypes).toHaveBeenCalled()
   })
 
-  it('should return the mixins return value when arrityCheck and typecheck passes', () => {
+  it('should return the mixins return value when validateArrity and validateTypes passes', () => {
     expect(
-      validateModule({
+      polish({
         modulePath,
         types: { param: 'string', type: 'string' },
       })(mockModule)('yes'),
     ).toEqual('yes')
   })
 
-  it('should call deprecationCheck, arrityCheck, typeCheck, customRule when passed associated config options validation', () => {
-    validateModule({
+  it('should call deprecationCheck, validateArrity, validateTypes, customRule when passed associated config options validation', () => {
+    polish({
       modulePath,
       types: { param: 'string', type: 'string' },
       customRule: { enforce: true, msg: '1 equals 1' },
     })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
-    expect(arrityCheck).toHaveBeenCalled()
-    expect(typeCheck).toHaveBeenCalled()
-    expect(customRule).toHaveBeenCalled()
+    expect(validateArrity).toHaveBeenCalled()
+    expect(validateTypes).toHaveBeenCalled()
   })
 
   it('should return the mixins return value when all validation passes', () => {
     expect(
-      validateModule({
+      polish({
         modulePath,
         types: { param: 'string', type: 'string' },
         customRule: { enforce: true, msg: '1 equals 1' },

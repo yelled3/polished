@@ -6,19 +6,15 @@ import message from './_message'
  * Handles deprecation validation of polished modules.
  * @private
  */
-
-const baseStyles = 'color: black; font-size: 12px'
-const highlightStyles = '; font-weight: bold'
-
 function deprecationCheck(modulePath: string) {
   const deprecationInfo = deprecated[modulePath]
   if (deprecationInfo) {
     const messageBody = `will be deprecated as of %cversion ${deprecationInfo.version}%c of ✨ polished. ${deprecationInfo.guidance}`
     const additionalStyles = [
-      `${baseStyles}${highlightStyles}`,
-      baseStyles,
-      `${baseStyles}${highlightStyles}`,
-      baseStyles,
+      'color: black; font-size: 12px; font-weight: bold',
+      'color: black; font-size: 12px',
+      'color: black; font-size: 12px; font-weight: bold',
+      'color: black; font-size: 12px',
     ]
     message('warning', messageBody, modulePath, additionalStyles)
   }

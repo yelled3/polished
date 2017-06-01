@@ -1,5 +1,5 @@
 // @flow
-import getUnit from '../helpers/getUnit'
+import { validateUnit, validateKeyword } from '../validation/_cssMeasure'
 import message from './_message'
 
 /**
@@ -7,17 +7,7 @@ import message from './_message'
  * @private
  */
 
-const measureKeywords = [
-  'auto',
-  'max-content',
-  'min-content',
-  'fill-available',
-  'fit-content',
-  'inherit',
-  'initial',
-  'unset',
-]
-
+// Styles
 const requiredStyles = [
   'color: black; font-size: 12px; font-weight: bold',
   'color: black; font-size: 12px',
@@ -60,13 +50,13 @@ function validateArray(config) {
   return Array.isArray(config.param)
 }
 
-function validateTypes(config) {
+function typeCheck(config) {
   if (Array.isArray(config.type)) {
     let validationStatus = false
     config.type.forEach(type => {
       validationStatus = setValidationStatus(
         validationStatus,
-        validateTypes({ ...config, type }),
+        typeCheck({ ...config, type }),
       )
     })
     return validationStatus
@@ -83,9 +73,9 @@ function validateTypes(config) {
       }
       return config.map[config.param]
     case 'cssMeasure':
-      return getUnit(config.param) || measureKeywords.indexOf(config.param) >= 0
+      return validateUnit(config.param) || validateKeyword(config.param)
     case 'cssLength':
-      return getUnit(config.param)
+      return validateUnit(config.param)
     case '%':
     case 'ch':
     case 'cm':
@@ -107,7 +97,7 @@ function validateTypes(config) {
     case 'vmax':
     case 'vmin':
     case 'vw':
-      return config.type === getUnit(config.param)
+      return config.type === validateUnit(config.param)
     default:
       // eslint-disable-next-line valid-typeof
       return typeof config.param === config.type
@@ -128,7 +118,7 @@ function ordinalSuffix(index) {
 }
 
 function generateMessages(modulePath, type, arg, index) {
-  if ((arg || arg) && !validateTypes({ ...type, param: arg })) {
+  if ((arg || arg) && !typeCheck({ ...type, param: arg })) {
     let messageBody
     if (index >= 0) {
       messageBody = `expects a %c${index + 1}${ordinalSuffix(index + 1)} parameter%c(%c${type.key}%c: %c${type.type}%c). However, you passed (%c'${arg}'%c:%c${typeof arg}%c) instead.`
@@ -151,7 +141,7 @@ function generateMessages(modulePath, type, arg, index) {
   return true
 }
 
-function typeCheck(
+function validateTypes(
   modulePath: string,
   types: Object | Array<Object>,
   args: Array<any>,
@@ -170,4 +160,4 @@ function typeCheck(
   }
 }
 
-export default typeCheck
+export default validateTypes

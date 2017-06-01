@@ -1,6 +1,6 @@
 // @flow
 import stripUnit from './stripUnit'
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 const ratioNames = {
   minorSecond: 1.067,
@@ -76,7 +76,7 @@ function modularScale(
 }
 
 export { ratioNames }
-export default validateModule({
+export default polish({
   modulePath: 'helpers/modularScale',
   types: [
     { type: 'number', required: true },

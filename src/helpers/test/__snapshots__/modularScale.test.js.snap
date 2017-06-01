@@ -145,11 +145,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a 2nd parameter of type number,em. However, you passed true(boolean) instead.
+modularScale %cexpects a %c2nd parameter%c(%cundefined%c: %cnumber,em%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -163,11 +173,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a 1st parameter of type number. However, you passed invalid(string) instead.
+modularScale %cexpects a %c1st parameter%c(%cundefined%c: %cnumber%c). However, you passed (%c\'invalid\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -181,11 +201,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a 3rd parameter of type number,enumberable. However, you passed invalid(string) instead.
+modularScale %cexpects a %c3rd parameter%c(%cundefined%c: %cnumber,enumberable%c). However, you passed (%c\'invalid\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -199,11 +229,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a 2nd parameter of type number,em. However, you passed invalid(string) instead.
+modularScale %cexpects a %c2nd parameter%c(%cundefined%c: %cnumber,em%c). However, you passed (%c\'invalid\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

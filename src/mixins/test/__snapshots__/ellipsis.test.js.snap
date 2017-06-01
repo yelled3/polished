@@ -47,11 +47,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/ellipsis.js --%c
 
-ellipsis %cexpects a parameter of type cssMeasure. However, you passed 1(number) instead.
+ellipsis %cexpects a %cparameter%c(%cundefined%c: %ccssMeasure%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#ellipsis%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -87,11 +97,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/ellipsis.js --%c
 
-ellipsis %cexpects a parameter of type cssMeasure. However, you passed 1(number) instead.
+ellipsis %cexpects a %cparameter%c(%cundefined%c: %ccssMeasure%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#ellipsis%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

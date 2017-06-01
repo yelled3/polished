@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 const opinionatedRules = {
   html: {
@@ -292,7 +292,7 @@ function normalize(excludeOpinionated?: boolean) {
   return mergeRules(unopinionatedRules, opinionatedRules)
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/normalize',
   types: { type: 'boolean' },
 })(normalize)

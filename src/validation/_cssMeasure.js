@@ -28,10 +28,23 @@ const units = [
   'vw',
 ]
 
-function getUnit(value: string): string | null {
+const measureKeywords = [
+  'auto',
+  'max-content',
+  'min-content',
+  'fill-available',
+  'fit-content',
+  'inherit',
+  'initial',
+  'unset',
+]
+
+export function validateKeyword(value: string) {
+  return measureKeywords.indexOf(value) >= 0
+}
+
+export function validateUnit(value: string): string | null {
   if (typeof value !== 'string') return null
   const unit = value.replace(/[^a-zA-Z-%]/g, '')
   return units.indexOf(unit) >= 0 ? unit : null
 }
-
-export default getUnit

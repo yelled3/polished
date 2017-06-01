@@ -53,11 +53,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/hiDPI.js --%c
 
-hiDPI %cexpects a parameter of type number. However, you passed 1px(string) instead.
+hiDPI %cexpects a %cparameter%c(%cundefined%c: %cnumber%c). However, you passed (%c\'1px\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#hiDPI%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",
@@ -93,11 +103,21 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/hiDPI.js --%c
 
-hiDPI %cexpects a parameter of type number. However, you passed 1px(string) instead.
+hiDPI %cexpects a %cparameter%c(%cundefined%c: %cnumber%c). However, you passed (%c\'1px\'%c:%cstring%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#hiDPI%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

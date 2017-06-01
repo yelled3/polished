@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 /**
  * CSS to style the selection psuedo-element.
@@ -51,7 +51,7 @@ function placeholder(parent?: string = '&', styles: Object) {
   }
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/placeholder',
   types: [{ type: 'string' }, { type: 'object', required: true }],
 })(placeholder)

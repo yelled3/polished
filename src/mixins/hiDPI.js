@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 /**
  * Generates a media query to target HiDPI devices.
@@ -40,7 +40,7 @@ function hiDPI(ratio?: number = 1.3) {
   `
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/hiDPI',
   types: { type: 'number' },
   errReturn: '',

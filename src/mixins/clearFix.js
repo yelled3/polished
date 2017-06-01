@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 /**
  * CSS to contain a float (credit to CSSMojo).
@@ -34,7 +34,7 @@ function clearFix(parent?: string = '&') {
   }
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/clearFix',
   types: { type: 'string' },
 })(clearFix)

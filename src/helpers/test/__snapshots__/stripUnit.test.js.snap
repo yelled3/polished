@@ -229,11 +229,19 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/stripUnit.js --%c
 
-stripUnit %ctrue
+stripUnit %crequires a %cparameter%c(%cvalue%c: %ccssMeasure,number,string%c). However, you did not pass %cvalue%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#stripUnit%c for more information.",
     "font-weight: bold; color: black",
     "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
     "color: black; font-size: 12px",
     "color: gray; line-height: 1.4",
     "color: blue; line-height: 1.4",

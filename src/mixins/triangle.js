@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 /** */
 type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
@@ -81,7 +81,7 @@ function triangle(
   }
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/triangle',
   types: [
     {

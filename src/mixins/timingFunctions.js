@@ -1,5 +1,5 @@
 // @flow
-import validateModule from '../validation/_validateModule'
+import polish from '../validation/polish'
 
 const functionsMap = {
   easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
@@ -82,7 +82,7 @@ function timingFunctions(timingFunction: TimingFunction) {
   return functionsMap[timingFunction]
 }
 
-export default validateModule({
+export default polish({
   modulePath: 'mixins/timingFunctions',
   types: {
     type: 'enumerable',
