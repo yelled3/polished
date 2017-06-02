@@ -33,3 +33,122 @@ Object {
   "borderTopColor": "red",
 }
 `;
+
+exports[`borderColor throws a warning when passed too many parameters 1`] = `
+Array [
+  Array [
+    "%c ✨ WARNING ✨ ---- shorthands/borderColor.js --%c
+
+borderColor %cexpects a maximum of %c4 parameters%c. However, you passed %c5 parameters%c. This additional parameter was ignored.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderColor%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: green",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold; color: goldenrod",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;
+
+exports[`borderColor throws an error for each invalid value 1`] = `
+Array [
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderColor.js --%c
+
+borderColor %cexpects a %c1st parameter%c(%cfirstColor%c: %cstring%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderColor%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderColor.js --%c
+
+borderColor %cexpects a %c2nd parameter%c(%csecondColor%c: %cstring%c). However, you passed (%c\'2\'%c:%cnumber%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderColor%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderColor.js --%c
+
+borderColor %cexpects a %c3rd parameter%c(%cthirdColor%c: %cstring%c). However, you passed (%c\'3\'%c:%cnumber%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderColor%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderColor.js --%c
+
+borderColor %cexpects a %c4th parameter%c(%cfourthColor%c: %cstring%c). However, you passed (%c\'4\'%c:%cnumber%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderColor%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+]
+`;

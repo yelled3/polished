@@ -1,6 +1,6 @@
 // @flow
 import statefulSelectors from '../internalHelpers/_statefulSelectors'
-import deprecationCheck from '../validation/_deprecationCheck'
+import polish from '../validation/polish'
 
 const stateMap = [undefined, null, 'active', 'focus', 'hover']
 
@@ -42,13 +42,10 @@ type ButtonState = typeof undefined | null | 'active' | 'focus' | 'hover'
  */
 
 function buttons(...states: Array<ButtonState>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/buttons.js'
-    deprecationCheck(modulePath)
-  }
-
   return statefulSelectors(states, template, stateMap)
 }
 
-export default buttons
+export default polish({
+  modulePath: 'shorthands/buttons',
+  types: { type: 'enumerable', map: stateMap, matchAll: true, required: true },
+})(buttons)

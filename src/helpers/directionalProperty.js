@@ -48,7 +48,7 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
  * }
  */
 
-export function directionalProperty(
+export function _directionalProperty(
   property: string,
   ...values: Array<?string>
 ) {
@@ -68,4 +68,4 @@ export default polish({
     { type: ['string', 'cssMeasure'] },
     { type: ['string', 'cssMeasure'] },
   ],
-})(directionalProperty)
+})(_directionalProperty)

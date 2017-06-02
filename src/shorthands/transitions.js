@@ -1,5 +1,5 @@
 // @flow
-import deprecationCheck from '../validation/_deprecationCheck'
+import polish from '../validation/polish'
 
 /**
  * Shorthand that accepts any number of transition values as parameters for creating a single transition statement.
@@ -22,15 +22,12 @@ import deprecationCheck from '../validation/_deprecationCheck'
  */
 
 function transitions(...properties: Array<string>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/transitions.js'
-    deprecationCheck(modulePath)
-  }
-
   return {
     transition: properties.join(', '),
   }
 }
 
-export default transitions
+export default polish({
+  modulePath: 'shorthands/transitions',
+  types: { type: 'string', matchAll: true, required: true },
+})(transitions)

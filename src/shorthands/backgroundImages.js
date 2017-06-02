@@ -1,5 +1,5 @@
 // @flow
-import deprecationCheck from '../validation/_deprecationCheck'
+import polish from '../validation/polish'
 
 /**
  * Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.
@@ -22,15 +22,12 @@ import deprecationCheck from '../validation/_deprecationCheck'
  */
 
 function backgroundImages(...properties: Array<string>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/backgroundImages.js'
-    deprecationCheck(modulePath)
-  }
-
   return {
     backgroundImage: properties.join(', '),
   }
 }
 
-export default backgroundImages
+export default polish({
+  modulePath: 'shorthands/backgroundImages',
+  types: { type: 'string', matchAll: true, required: true },
+})(backgroundImages)

@@ -1,6 +1,6 @@
 // @flow
-import directionalProperty from '../helpers/directionalProperty'
-import deprecationCheck from '../validation/_deprecationCheck'
+import { _directionalProperty } from '../helpers/directionalProperty'
+import polish from '../validation/polish'
 
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -26,13 +26,15 @@ import deprecationCheck from '../validation/_deprecationCheck'
  */
 
 function margin(...values: Array<?string>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/margin.js'
-    deprecationCheck(modulePath)
-  }
-
-  return directionalProperty('margin', ...values)
+  return _directionalProperty('margin', ...values)
 }
 
-export default margin
+export default polish({
+  modulePath: 'shorthands/margin',
+  types: [
+    { key: 'firstMargin', type: 'cssMeasure' },
+    { key: 'secondMargin', type: 'cssMeasure' },
+    { key: 'thirdMargin', type: 'cssMeasure' },
+    { key: 'fourthMargin', type: 'cssMeasure' },
+  ],
+})(margin)

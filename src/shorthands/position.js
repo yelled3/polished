@@ -1,6 +1,6 @@
 // @flow
-import directionalProperty from '../helpers/directionalProperty'
-import deprecationCheck from '../validation/_deprecationCheck'
+import { _directionalProperty } from '../helpers/directionalProperty'
+import polish from '../validation/polish'
 
 const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
 
@@ -48,21 +48,24 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
  */
 
 function position(positionKeyword: string | null, ...values: Array<?string>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/position.js'
-    deprecationCheck(modulePath)
-  }
-
   if (positionMap.indexOf(positionKeyword) >= 0) {
     return {
       position: positionKeyword,
-      ...directionalProperty('', ...values),
+      ..._directionalProperty('', ...values),
     }
   } else {
     const firstValue = positionKeyword // in this case position is actually the first value
-    return directionalProperty('', firstValue, ...values)
+    return _directionalProperty('', firstValue, ...values)
   }
 }
 
-export default position
+export default polish({
+  modulePath: 'shorthands/position',
+  types: [
+    { key: 'firstPosition', type: ['cssPosition', 'cssMeasure'] },
+    { key: 'secondPosition', type: 'cssMeasure' },
+    { key: 'thirdPosition', type: 'cssMeasure' },
+    { key: 'fourthPosition', type: 'cssMeasure' },
+    { key: 'fifthPosition', type: 'cssMeasure' },
+  ],
+})(position)

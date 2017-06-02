@@ -1,5 +1,5 @@
 // @flow
-import deprecationCheck from '../validation/_deprecationCheck'
+import polish from '../validation/polish'
 
 /**
  * Thorthand that accepts any number of background values as parameters for creating a single background statement.
@@ -21,15 +21,12 @@ import deprecationCheck from '../validation/_deprecationCheck'
  * }
  */
 function backgrounds(...properties: Array<string>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/backgrounds.js'
-    deprecationCheck(modulePath)
-  }
-
   return {
     background: properties.join(', '),
   }
 }
 
-export default backgrounds
+export default polish({
+  modulePath: 'shorthands/backgrounds',
+  types: { type: 'string', matchAll: true, required: true },
+})(backgrounds)

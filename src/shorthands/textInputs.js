@@ -1,6 +1,6 @@
 // @flow
 import statefulSelectors from '../internalHelpers/_statefulSelectors'
-import deprecationCheck from '../validation/_deprecationCheck'
+import polish from '../validation/polish'
 
 const stateMap = [undefined, null, 'active', 'focus', 'hover']
 
@@ -66,13 +66,10 @@ type InputState = typeof undefined | null | 'active' | 'focus' | 'hover'
  */
 
 function textInputs(...states: Array<InputState>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/textInputs.js'
-    deprecationCheck(modulePath)
-  }
-
   return statefulSelectors(states, template, stateMap)
 }
 
-export default textInputs
+export default polish({
+  modulePath: 'shorthands/textInputs',
+  types: { type: 'enumerable', map: stateMap, matchAll: true, required: true },
+})(textInputs)

@@ -1,5 +1,5 @@
 // @flow
-import { directionalProperty } from '../helpers/directionalProperty'
+import { _directionalProperty } from '../helpers/directionalProperty'
 import polish from '../validation/polish'
 
 /**
@@ -26,7 +26,7 @@ import polish from '../validation/polish'
  */
 
 function borderWidth(...values: Array<?string>) {
-  return directionalProperty('borderWidth', ...values)
+  return _directionalProperty('borderWidth', ...values)
 }
 
 export default polish({

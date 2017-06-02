@@ -1,5 +1,5 @@
 // @flow
-import deprecationCheck from '../validation/_deprecationCheck'
+import polish from '../validation/polish'
 
 /**
  * Shorthand to set the height and width properties in a single statement.
@@ -23,16 +23,16 @@ import deprecationCheck from '../validation/_deprecationCheck'
  */
 
 function size(height: string, width: string = height) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/size.js'
-    deprecationCheck(modulePath)
-  }
-
   return {
     height,
     width,
   }
 }
 
-export default size
+export default polish({
+  modulePath: 'shorthands/position',
+  types: [
+    { key: 'height', type: 'cssMeasure', required: true },
+    { key: 'width', type: 'cssMeasure' },
+  ],
+})(size)

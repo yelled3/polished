@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * @private returns if valud is a valid CSS direction
+ * @private returns if value is a valid CSS direction
  */
 
 const directions = ['top', 'right', 'bottom', 'left']

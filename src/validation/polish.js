@@ -1,6 +1,6 @@
 // @flow
 import deprecationCheck from './_deprecationCheck'
-import validateArrity from './_validateArrity'
+import validateArity from './_validateArity'
 import validateTypes from './_validateTypes'
 
 type PolishConfiguration = {
@@ -29,7 +29,7 @@ function polish({ modulePath, types, errReturn }: PolishConfiguration) {
   return function validateModule(module: Function) {
     if (typeof module !== 'function') {
       // eslint-disable-next-line no-console
-      console.error('You must submit a valid function to be ✨ polished errors.')
+      console.error('You must submit a valid function to be ✨ polished.')
     }
 
     return function validateInput(...args: Array<any>) {
@@ -40,7 +40,9 @@ function polish({ modulePath, types, errReturn }: PolishConfiguration) {
       }
 
       let isValid = true
-      const unpackedArgs = typeof args[0] === 'object' && args[0] !== null
+      const unpackedArgs = typeof args[0] === 'object' &&
+        args[0] !== null &&
+        !Array.isArray(args[0])
         ? unpackObject(args[0], types)
         : args
 
@@ -48,7 +50,7 @@ function polish({ modulePath, types, errReturn }: PolishConfiguration) {
       if (isDev) {
         isValid = setValidationStatus(
           isValid,
-          validateArrity(modulePath, types, unpackedArgs),
+          validateArity(modulePath, types, unpackedArgs),
         )
       }
 
@@ -65,7 +67,7 @@ function polish({ modulePath, types, errReturn }: PolishConfiguration) {
       if (!isDev && !isValid) {
         // eslint-disable-next-line no-console
         console.error(
-          'You have experience 1 or more minified ✨ polished errors. You can use the non-minified dev environment for full errors and additional helpful warnings.',
+          'You have experienced 1 or more minified ✨ polished errors. You can use the non-minified dev environment for full errors and additional helpful warnings.',
         )
       }
 

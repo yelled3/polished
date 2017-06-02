@@ -1,6 +1,6 @@
 // @flow
-import directionalProperty from '../helpers/directionalProperty'
-import deprecationCheck from '../validation/_deprecationCheck'
+import { _directionalProperty } from '../helpers/directionalProperty'
+import polish from '../validation/polish'
 
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -26,13 +26,15 @@ import deprecationCheck from '../validation/_deprecationCheck'
  */
 
 function padding(...values: Array<?string>) {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    const modulePath = 'shorthands/padding.js'
-    deprecationCheck(modulePath)
-  }
-
-  return directionalProperty('padding', ...values)
+  return _directionalProperty('padding', ...values)
 }
 
-export default padding
+export default polish({
+  modulePath: 'shorthands/padding',
+  types: [
+    { key: 'firstPadding', type: 'cssMeasure' },
+    { key: 'secondPadding', type: 'cssMeasure' },
+    { key: 'thirdPadding', type: 'cssMeasure' },
+    { key: 'fourthPadding', type: 'cssMeasure' },
+  ],
+})(padding)

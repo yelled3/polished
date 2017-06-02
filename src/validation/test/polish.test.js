@@ -1,9 +1,9 @@
 // @flow
 import polish from '../polish'
 
-jest.mock('../_validateArrity', () => jest.fn(() => true))
+jest.mock('../_validateArity', () => jest.fn(() => true))
 
-const validateArrity = require('../_validateArrity')
+const validateArity = require('../_validateArity')
 
 jest.mock('../_deprecationCheck', () => jest.fn(() => true))
 
@@ -33,10 +33,10 @@ describe('polish', () => {
     console.warn.mockClear()
   })
 
-  it('should call deprecationCheck and validateArrity when passed just module path', () => {
+  it('should call deprecationCheck and validateArity when passed just module path', () => {
     polish({ modulePath })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
-    expect(validateArrity).toHaveBeenCalled()
+    expect(validateArity).toHaveBeenCalled()
     expect(validateTypes).not.toHaveBeenCalled()
   })
 
@@ -44,17 +44,17 @@ describe('polish', () => {
     expect(polish({ modulePath })(mockModule)('yes')).toEqual('yes')
   })
 
-  it('should call deprecationCheck, validateArrity, validateTypes when passed associated validation options', () => {
+  it('should call deprecationCheck, validateArity, validateTypes when passed associated validation options', () => {
     polish({
       modulePath,
       types: { param: 'string', type: 'string' },
     })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
-    expect(validateArrity).toHaveBeenCalled()
+    expect(validateArity).toHaveBeenCalled()
     expect(validateTypes).toHaveBeenCalled()
   })
 
-  it('should return the mixins return value when validateArrity and validateTypes passes', () => {
+  it('should return the mixins return value when validateArity and validateTypes passes', () => {
     expect(
       polish({
         modulePath,
@@ -63,14 +63,14 @@ describe('polish', () => {
     ).toEqual('yes')
   })
 
-  it('should call deprecationCheck, validateArrity, validateTypes, customRule when passed associated config options validation', () => {
+  it('should call deprecationCheck, validateArity, validateTypes, customRule when passed associated config options validation', () => {
     polish({
       modulePath,
       types: { param: 'string', type: 'string' },
       customRule: { enforce: true, msg: '1 equals 1' },
     })(mockModule)('yes')
     expect(deprecationCheck).toHaveBeenCalled()
-    expect(validateArrity).toHaveBeenCalled()
+    expect(validateArity).toHaveBeenCalled()
     expect(validateTypes).toHaveBeenCalled()
   })
 
