@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`message should add styles when passed additionalStyles 1`] = `undefined`;
 
 exports[`message should set modulePath to moduleName when modulePath format is incorrect 1`] = `undefined`;

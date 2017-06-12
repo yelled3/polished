@@ -47,5 +47,5 @@ function buttons(...states: Array<ButtonState>) {
 
 export default polish({
   modulePath: 'shorthands/buttons',
-  types: { type: 'enumerable', map: stateMap, matchAll: true, required: true },
+  types: { type: 'enumerable', map: stateMap, matchAll: true },
 })(buttons)

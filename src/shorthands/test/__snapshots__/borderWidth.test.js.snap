@@ -1,45 +1,19 @@
-exports[`borderWidth properly applies a value when passed only one 1`] = `
-Object {
-  "borderBottomWidth": "12px",
-  "borderLeftWidth": "12px",
-  "borderRightWidth": "12px",
-  "borderTopWidth": "12px",
-}
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`borderWidth properly applies values when passed four 1`] = `
-Object {
-  "borderBottomWidth": "36px",
-  "borderLeftWidth": "48px",
-  "borderRightWidth": "24px",
-  "borderTopWidth": "12px",
-}
-`;
+exports[`borderWidth properly applies a value when passed only one 1`] = `Object {}`;
 
-exports[`borderWidth properly applies values when passed three 1`] = `
-Object {
-  "borderBottomWidth": "36px",
-  "borderLeftWidth": "24px",
-  "borderRightWidth": "24px",
-  "borderTopWidth": "12px",
-}
-`;
+exports[`borderWidth properly applies values when passed four 1`] = `Object {}`;
 
-exports[`borderWidth properly applies values when passed two 1`] = `
-Object {
-  "borderBottomWidth": "12px",
-  "borderLeftWidth": "24px",
-  "borderRightWidth": "24px",
-  "borderTopWidth": "12px",
-}
-`;
+exports[`borderWidth properly applies values when passed three 1`] = `Object {}`;
+
+exports[`borderWidth properly applies values when passed two 1`] = `Object {}`;
 
 exports[`borderWidth throws a warning when passed too many parameters 1`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- shorthands/borderWidth.js --%c
 
-borderWidth %cexpects a maximum of %c4 parameters%c. However, you passed %c5 parameters%c. This additional parameter was ignored.
+borderWidth %cexpects a maximum of %c1 parameter%c. However, you passed %c5 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#borderWidth%c for more information.",
     "font-weight: bold; color: black",
@@ -61,7 +35,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- shorthands/borderWidth.js --%c
 
-borderWidth %cexpects a %c1st parameter%c(%cfirstWidth%c: %ccssMeasure%c). However, you passed (%c\'top\'%c:%cstring%c) instead.
+borderWidth %cexpects a %c1st parameter%c(%cfirstWidth %c:%c cssMeasure%c). However, you passed (%c'top' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#borderWidth%c for more information.",
     "font-weight: bold; color: black",
@@ -84,7 +58,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#borderWidth%c fo
   Array [
     "%c ✨ ERROR ✨ ---- shorthands/borderWidth.js --%c
 
-borderWidth %cexpects a %c2nd parameter%c(%csecondWidth%c: %ccssMeasure%c). However, you passed (%c\'right\'%c:%cstring%c) instead.
+borderWidth %cexpects a %c2nd parameter%c(%csecondWidth %c:%c cssMeasure%c). However, you passed (%c'right' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#borderWidth%c for more information.",
     "font-weight: bold; color: black",
@@ -107,7 +81,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#borderWidth%c fo
   Array [
     "%c ✨ ERROR ✨ ---- shorthands/borderWidth.js --%c
 
-borderWidth %cexpects a %c3rd parameter%c(%cthirdWidth%c: %ccssMeasure%c). However, you passed (%c\'bottom\'%c:%cstring%c) instead.
+borderWidth %cexpects a %c3rd parameter%c(%cthirdWidth %c:%c cssMeasure%c). However, you passed (%c'bottom' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#borderWidth%c for more information.",
     "font-weight: bold; color: black",
@@ -130,7 +104,30 @@ Please see the documentation at %chttps://polished.js.org/docs/#borderWidth%c fo
   Array [
     "%c ✨ ERROR ✨ ---- shorthands/borderWidth.js --%c
 
-borderWidth %cexpects a %c4th parameter%c(%cfourthWidth%c: %ccssMeasure%c). However, you passed (%c\'left\'%c:%cstring%c) instead.
+borderWidth %cexpects a %c4th parameter%c(%cfourthWidth %c:%c cssMeasure%c). However, you passed (%c'left' %c:%c string%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderWidth%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderWidth.js --%c
+
+borderWidth %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'top' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#borderWidth%c for more information.",
     "font-weight: bold; color: black",

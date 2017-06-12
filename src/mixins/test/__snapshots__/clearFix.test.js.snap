@@ -1,8 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`clearFix should default to & when no parent is passed 1`] = `
 Object {
   "&::after": Object {
     "clear": "both",
-    "content": """",
+    "content": "\\"\\"",
     "display": "table",
   },
 }
@@ -12,7 +14,7 @@ exports[`clearFix should pass parent to pseudo selector 1`] = `
 Object {
   "div::after": Object {
     "clear": "both",
-    "content": "\"\"",
+    "content": "\\"\\"",
     "display": "table",
   },
 }
@@ -45,7 +47,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/clearFix.js --%c
 
-clearFix %cexpects a %cparameter%c(%cundefined%c: %cstring%c). However, you passed (%c'1'%c:%cnumber%c) instead.
+clearFix %cexpects a %cparameter%c(%cundefined %c:%c string%c). However, you passed (%c'1' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#clearFix%c for more information.",
     "font-weight: bold; color: black",
@@ -95,7 +97,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/clearFix.js --%c
 
-clearFix %cexpects a %cparameter%c(%cundefined%c: %cstring%c). However, you passed (%c'1'%c:%cnumber%c) instead.
+clearFix %cexpects a %cparameter%c(%cundefined %c:%c string%c). However, you passed (%c'1' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#clearFix%c for more information.",
     "font-weight: bold; color: black",

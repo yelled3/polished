@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`selection should properly default to no parent when not passed one 1`] = `
 Object {
   "div": Object {
@@ -13,14 +15,7 @@ Object {
 
 exports[`selection should properly pass parent and styles object 1`] = `
 Object {
-  "div": Object {
-    "section::-moz-selection": Object {
-      "background-color": "blue",
-    },
-    "section::selection": Object {
-      "background-color": "blue",
-    },
-  },
+  "div": Object {},
 }
 `;
 
@@ -46,7 +41,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#selection%c for 
   Array [
     "%c ✨ WARNING ✨ ---- mixins/selection.js --%c
 
-selection %cexpects a maximum of %c2 parameters%c. However, you passed %c3 parameters%c. This additional parameter was ignored.
+selection %cexpects a maximum of %c1 parameter%c. However, you passed %c3 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#selection%c for more information.",
     "font-weight: bold; color: black",
@@ -68,7 +63,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/selection.js --%c
 
-selection %crequires a %c2nd parameter%c(%cundefined%c: %cobject%c). However, you did not pass %cundefined%c.
+selection %crequires a %c2nd parameter%c(%cundefined %c:%c object%c). However, you did not pass %cundefined%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#selection%c for more information.",
     "font-weight: bold; color: black",
@@ -94,7 +89,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/selection.js --%c
 
-selection %cexpects a %c2nd parameter%c(%cundefined%c: %cobject%c). However, you passed (%c\'style\'%c:%cstring%c) instead.
+selection %cexpects a %c2nd parameter%c(%cundefined %c:%c object%c). However, you passed (%c'style' %c:%c string%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#selection%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/selection.js --%c
+
+selection %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'main' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#selection%c for more information.",
     "font-weight: bold; color: black",
@@ -122,7 +140,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/selection.js --%c
 
-selection %cexpects a %c1st parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+selection %cexpects a %c1st parameter%c(%cundefined %c:%c string%c). However, you passed (%c'1' %c:%c number%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#selection%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/selection.js --%c
+
+selection %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'1' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#selection%c for more information.",
     "font-weight: bold; color: black",

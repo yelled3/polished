@@ -112,7 +112,6 @@ In the documentation you will see examples using [object spread properties](http
 <details open>
   <summary>Helpers</summary>
   <ul>
-    <li><a href="http://polished.js.org/docs/#directionalproperty">directionalProperty</a></li>
     <li><a href="http://polished.js.org/docs/#em">em</a></li>
     <li><a href="http://polished.js.org/docs/#modularscale">modularScale</a></li>
     <li><a href="http://polished.js.org/docs/#rem">rem</a></li>

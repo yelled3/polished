@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`placeholder should properly default to & when not passed a parent 1`] = `
 Object {
   "input": Object {
@@ -17,22 +19,7 @@ Object {
 }
 `;
 
-exports[`placeholder should properly pass parent and styles object 1`] = `
-Object {
-  "input:-moz-placeholder": Object {
-    "color": "blue",
-  },
-  "input:-ms-input-placeholder": Object {
-    "color": "blue",
-  },
-  "input::-moz-placeholder": Object {
-    "color": "blue",
-  },
-  "input::-webkit-input-placeholder": Object {
-    "color": "blue",
-  },
-}
-`;
+exports[`placeholder should properly pass parent and styles object 1`] = `Object {}`;
 
 exports[`placeholder should throw a warning when passed more than 2 parameters 1`] = `
 Array [
@@ -56,7 +43,7 @@ Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c fo
   Array [
     "%c ✨ WARNING ✨ ---- mixins/placeholder.js --%c
 
-placeholder %cexpects a maximum of %c2 parameters%c. However, you passed %c3 parameters%c. This additional parameter was ignored.
+placeholder %cexpects a maximum of %c1 parameter%c. However, you passed %c3 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
     "font-weight: bold; color: black",
@@ -78,7 +65,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
 
-placeholder %crequires a %c2nd parameter%c(%cundefined%c: %cobject%c). However, you did not pass %cundefined%c.
+placeholder %crequires a %c2nd parameter%c(%cundefined %c:%c object%c). However, you did not pass %cundefined%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
     "font-weight: bold; color: black",
@@ -104,7 +91,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
 
-placeholder %cexpects a %c2nd parameter%c(%cundefined%c: %cobject%c). However, you passed (%c\'styles\'%c:%cstring%c) instead.
+placeholder %cexpects a %c2nd parameter%c(%cundefined %c:%c object%c). However, you passed (%c'styles' %c:%c string%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
+
+placeholder %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'input' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
     "font-weight: bold; color: black",
@@ -132,7 +142,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
 
-placeholder %cexpects a %c1st parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+placeholder %cexpects a %c1st parameter%c(%cundefined %c:%c string%c). However, you passed (%c'1' %c:%c number%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/placeholder.js --%c
+
+placeholder %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'1' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#placeholder%c for more information.",
     "font-weight: bold; color: black",

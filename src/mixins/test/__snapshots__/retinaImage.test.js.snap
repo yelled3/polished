@@ -1,89 +1,44 @@
-exports[`retinaImage should allow passing in a separate filename for the retina version 1`] = `
-Object {
-  "
-    @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-    only screen and (min--moz-device-pixel-ratio: 1.3),
-    only screen and (-o-min-device-pixel-ratio: 1.3/1),
-    only screen and (min-resolution: 125dpi),
-    only screen and (min-resolution: 1.3dppx)
-  ": Object {
-    "backgroundImage": "url(retina_img.png)",
-    "backgroundSize": undefined,
-  },
-  "backgroundImage": "url(img.png)",
-}
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`retinaImage should allow passing in a separate suffix for the retina version 1`] = `
-Object {
-  "
-    @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-    only screen and (min--moz-device-pixel-ratio: 1.3),
-    only screen and (-o-min-device-pixel-ratio: 1.3/1),
-    only screen and (min-resolution: 125dpi),
-    only screen and (min-resolution: 1.3dppx)
-  ": Object {
-    "backgroundImage": "url(img_5x.png)",
-    "backgroundSize": undefined,
-  },
-  "backgroundImage": "url(img.png)",
-}
-`;
+exports[`retinaImage should allow passing in a separate filename for the retina version 1`] = `Object {}`;
 
-exports[`retinaImage should allow passing in an extension with a dot 1`] = `
-Object {
-  "
-    @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-    only screen and (min--moz-device-pixel-ratio: 1.3),
-    only screen and (-o-min-device-pixel-ratio: 1.3/1),
-    only screen and (min-resolution: 125dpi),
-    only screen and (min-resolution: 1.3dppx)
-  ": Object {
-    "backgroundImage": "url(img_2x.jpg)",
-    "backgroundSize": undefined,
-  },
-  "backgroundImage": "url(img.jpg)",
-}
-`;
+exports[`retinaImage should allow passing in a separate suffix for the retina version 1`] = `Object {}`;
 
-exports[`retinaImage should set the background-size if one is passed in 1`] = `
-Object {
-  "
-    @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-    only screen and (min--moz-device-pixel-ratio: 1.3),
-    only screen and (-o-min-device-pixel-ratio: 1.3/1),
-    only screen and (min-resolution: 125dpi),
-    only screen and (min-resolution: 1.3dppx)
-  ": Object {
-    "backgroundImage": "url(img_2x.png)",
-    "backgroundSize": "cover",
-  },
-  "backgroundImage": "url(img.png)",
-}
-`;
+exports[`retinaImage should allow passing in an extension with a dot 1`] = `Object {}`;
 
-exports[`retinaImage should set the extension if one is passed in 1`] = `
-Object {
-  "
-    @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-    only screen and (min--moz-device-pixel-ratio: 1.3),
-    only screen and (-o-min-device-pixel-ratio: 1.3/1),
-    only screen and (min-resolution: 125dpi),
-    only screen and (min-resolution: 1.3dppx)
-  ": Object {
-    "backgroundImage": "url(img_2x.jpg)",
-    "backgroundSize": undefined,
-  },
-  "backgroundImage": "url(img.jpg)",
-}
-`;
+exports[`retinaImage should set the background-size if one is passed in 1`] = `Object {}`;
+
+exports[`retinaImage should set the extension if one is passed in 1`] = `Object {}`;
 
 exports[`retinaImage should throw an error when a non-string value is passed for backgroundSize 1`] = `
 Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-retinaImage %cexpects a %c2nd parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'100\'%c:%cnumber%c) instead.
+retinaImage %cexpects a %c2nd parameter%c(%cundefined %c:%c string%c). However, you passed (%c'100' %c:%c number%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
+
+retinaImage %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'img' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
@@ -111,7 +66,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-retinaImage %cexpects a %c3rd parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
+retinaImage %cexpects a %c3rd parameter%c(%cundefined %c:%c string%c). However, you passed (%c'true' %c:%c boolean%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
+
+retinaImage %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'img' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
@@ -139,7 +117,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-retinaImage %cexpects a %c1st parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+retinaImage %cexpects a %c1st parameter%c(%cundefined %c:%c string%c). However, you passed (%c'1' %c:%c number%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
+
+retinaImage %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'1' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
@@ -167,7 +168,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/retinaImage.js --%c
 
-retinaImage %crequires a %c1st parameter%c(%cundefined%c: %cstring%c). However, you did not pass %cundefined%c.
+retinaImage %crequires a %c1st parameter%c(%cundefined %c:%c string%c). However, you did not pass %cundefined%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c for more information.",
     "font-weight: bold; color: black",
@@ -188,18 +189,4 @@ Please see the documentation at %chttps://polished.js.org/docs/#retinaImage%c fo
 ]
 `;
 
-exports[`retinaImage should use _2x and png as the default suffix and extension, respectively 1`] = `
-Object {
-  "
-    @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-    only screen and (min--moz-device-pixel-ratio: 1.3),
-    only screen and (-o-min-device-pixel-ratio: 1.3/1),
-    only screen and (min-resolution: 125dpi),
-    only screen and (min-resolution: 1.3dppx)
-  ": Object {
-    "backgroundImage": "url(img_2x.png)",
-    "backgroundSize": undefined,
-  },
-  "backgroundImage": "url(img.png)",
-}
-`;
+exports[`retinaImage should use _2x and png as the default suffix and extension, respectively 1`] = `Object {}`;

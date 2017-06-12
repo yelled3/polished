@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`deprecationCheck should not throw a warning when the module is not deprecated 1`] = `Array []`;
 
 exports[`deprecationCheck should throw a warning when the module is deprecated 1`] = `

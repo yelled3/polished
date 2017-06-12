@@ -56,12 +56,13 @@ export default polish({
   modulePath: 'mixins/retinaImage',
   types: [
     {
+      key: 'fileName',
       type: 'string',
       required: true,
     },
-    { type: 'string' },
-    { type: 'string' },
-    { type: 'string' },
-    { type: 'string' },
+    { key: 'backgroundSize', type: 'string' },
+    { key: 'extension', type: 'string' },
+    { key: 'retinaFileName', type: 'string' },
+    { key: 'retinaSuffix', type: 'string' },
   ],
 })(retinaImage)

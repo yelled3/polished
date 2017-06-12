@@ -1,37 +1,14 @@
-exports[`radialGradient properly overrides the fallback when it is passed 1`] = `
-Object {
-  "backgroundColor": "#FFF",
-  "backgroundImage": "radial-gradient(farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)",
-}
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`radialGradient returns the correct object when only passed two color stops, including parsed fallback with no percentage 1`] = `
-Object {
-  "backgroundColor": "#fff",
-  "backgroundImage": "radial-gradient(#fff, #000)",
-}
-`;
+exports[`radialGradient properly overrides the fallback when it is passed 1`] = `Object {}`;
 
-exports[`radialGradient returns the correct object when passed extent and shape 1`] = `
-Object {
-  "backgroundColor": "#00FFFF",
-  "backgroundImage": "radial-gradient(ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)",
-}
-`;
+exports[`radialGradient returns the correct object when only passed two color stops, including parsed fallback with no percentage 1`] = `Object {}`;
 
-exports[`radialGradient returns the correct object when passed extent, shape, and position, including parsed fallback with percentage 1`] = `
-Object {
-  "backgroundColor": "#00FFFF",
-  "backgroundImage": "radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)",
-}
-`;
+exports[`radialGradient returns the correct object when passed extent and shape 1`] = `Object {}`;
 
-exports[`radialGradient returns the correct object when passed just extent 1`] = `
-Object {
-  "backgroundColor": "#00FFFF",
-  "backgroundImage": "radial-gradient(farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)",
-}
-`;
+exports[`radialGradient returns the correct object when passed extent, shape, and position, including parsed fallback with percentage 1`] = `Object {}`;
+
+exports[`radialGradient returns the correct object when passed just extent 1`] = `Object {}`;
 
 exports[`radialGradient should throw an error when not passed a value for colorStops 1`] = `
 Array [
@@ -90,7 +67,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects a %c1st parameter%c(%ccolorStops%c: %carray%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
+radialGradient %cexpects a %c1st parameter%c(%ccolorStops %c:%c array%c). However, you passed (%c'true' %c:%c boolean%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
+
+radialGradient %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'true' %c:%c boolean%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -118,7 +118,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects a %c2nd parameter%c(%cextent%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
+radialGradient %cexpects a %c2nd parameter%c(%cextent %c:%c string%c). However, you passed (%c'true' %c:%c boolean%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
+
+radialGradient %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'#00FFFF 0%,rgba(0, 0, 255, 0) 50%,#0000FF 95%' %c:%c object%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -146,7 +169,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects a %c3rd parameter%c(%cfallback%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
+radialGradient %cexpects a %c3rd parameter%c(%cfallback %c:%c string%c). However, you passed (%c'true' %c:%c boolean%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
+
+radialGradient %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'#00FFFF 0%,rgba(0, 0, 255, 0) 50%,#0000FF 95%' %c:%c object%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -174,7 +220,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects a %c4th parameter%c(%cposition%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
+radialGradient %cexpects a %c4th parameter%c(%cposition %c:%c string%c). However, you passed (%c'true' %c:%c boolean%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
+
+radialGradient %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'#00FFFF 0%,rgba(0, 0, 255, 0) 50%,#0000FF 95%' %c:%c object%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -202,7 +271,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects a %c5th parameter%c(%cshape%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
+radialGradient %cexpects a %c5th parameter%c(%cshape %c:%c string%c). However, you passed (%c'true' %c:%c boolean%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
+
+radialGradient %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'#00FFFF 0%,rgba(0, 0, 255, 0) 50%,#0000FF 95%' %c:%c object%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",
@@ -230,7 +322,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
 
-radialGradient %cexpects a %c1st parameter%c(%ccolorStops%c: %carray%c). However, you passed (%c\'#00FFFF 0%\'%c:%cobject%c) instead.
+radialGradient %cexpects a %c1st parameter%c(%ccolorStops %c:%c array%c). However, you passed (%c'#00FFFF 0%' %c:%c object%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- mixins/radialGradient.js --%c
+
+radialGradient %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'#00FFFF 0%' %c:%c object%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#radialGradient%c for more information.",
     "font-weight: bold; color: black",

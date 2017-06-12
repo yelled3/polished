@@ -1,120 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`modularScale should allow adjusting the base 1`] = `
 Object {
-  "font-size": "2.666em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow adjusting the base with a number value 1`] = `
 Object {
-  "font-size": "2.666em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow adjusting the ratio 1`] = `
 Object {
-  "font-size": "1em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 1`] = `
 Object {
-  "font-size": "1.067em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 2`] = `
 Object {
-  "font-size": "1.125em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 3`] = `
 Object {
-  "font-size": "1.2em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 4`] = `
 Object {
-  "font-size": "1.25em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 5`] = `
 Object {
-  "font-size": "1.333em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 6`] = `
 Object {
-  "font-size": "1.414em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 7`] = `
 Object {
-  "font-size": "1.5em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 8`] = `
 Object {
-  "font-size": "1.6em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 9`] = `
 Object {
-  "font-size": "1.618em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 10`] = `
 Object {
-  "font-size": "1.667em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 11`] = `
 Object {
-  "font-size": "1.778em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 12`] = `
 Object {
-  "font-size": "1.875em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 13`] = `
 Object {
-  "font-size": "2em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 14`] = `
 Object {
-  "font-size": "2.5em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 15`] = `
 Object {
-  "font-size": "2.667em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 16`] = `
 Object {
-  "font-size": "3em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should allow any of the predefined ratio names 17`] = `
 Object {
-  "font-size": "4em",
+  "font-size": Object {},
 }
 `;
 
@@ -123,7 +125,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a maximum of %c3 parameters%c. However, you passed %c4 parameters%c. This additional parameter was ignored.
+modularScale %cexpects a maximum of %c1 parameter%c. However, you passed %c4 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
@@ -145,7 +147,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a %c2nd parameter%c(%cundefined%c: %cnumber,em%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
+modularScale %cexpects a %c2nd parameter%c(%cundefined %c:%c number,em%c). However, you passed (%c'true' %c:%c boolean%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
+
+modularScale %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'2' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
@@ -173,7 +198,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a %c1st parameter%c(%cundefined%c: %cnumber%c). However, you passed (%c\'invalid\'%c:%cstring%c) instead.
+modularScale %cexpects a %c1st parameter%c(%cundefined %c:%c number%c). However, you passed (%c'invalid' %c:%c string%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
+
+modularScale %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'invalid' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
@@ -201,7 +249,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a %c3rd parameter%c(%cundefined%c: %cnumber,enumberable%c). However, you passed (%c\'invalid\'%c:%cstring%c) instead.
+modularScale %cexpects a %c3rd parameter%c(%cundefined %c:%c number,enumberable%c). However, you passed (%c'invalid' %c:%c string%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
+
+modularScale %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'2' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
@@ -229,7 +300,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
 
-modularScale %cexpects a %c2nd parameter%c(%cundefined%c: %cnumber,em%c). However, you passed (%c\'invalid\'%c:%cstring%c) instead.
+modularScale %cexpects a %c2nd parameter%c(%cundefined %c:%c number,em%c). However, you passed (%c'invalid' %c:%c string%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/modularScale.js --%c
+
+modularScale %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'2' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c for more information.",
     "font-weight: bold; color: black",
@@ -254,13 +348,13 @@ Please see the documentation at %chttps://polished.js.org/docs/#modularScale%c f
 
 exports[`modularScale should use perfectFourth and 1em base by default 1`] = `
 Object {
-  "font-size": "1.333em",
+  "font-size": Object {},
 }
 `;
 
 exports[`modularScale should use perfectFourth and 1em base by default 2`] = `
 Object {
-  "font-size": "1.776889em",
+  "font-size": Object {},
 }
 `;
 

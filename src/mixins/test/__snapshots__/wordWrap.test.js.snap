@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`wordWrap should accept break-word and properly set word-break to break-all 1`] = `
 Object {
   "overflowWrap": "break-word",
@@ -49,7 +51,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/wordWrap.js --%c
 
-wordWrap %cexpects a %cparameter%c(%cundefined%c: %cenumerable%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+wordWrap %cexpects a %cparameter%c(%cundefined %c:%c enumerable%c). However, you passed (%c'1' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#wordWrap%c for more information.",
     "font-weight: bold; color: black",
@@ -99,7 +101,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/wordWrap.js --%c
 
-wordWrap %cexpects a %cparameter%c(%cundefined%c: %cenumerable%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+wordWrap %cexpects a %cparameter%c(%cundefined %c:%c enumerable%c). However, you passed (%c'1' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#wordWrap%c for more information.",
     "font-weight: bold; color: black",
@@ -127,7 +129,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/wordWrap.js --%c
 
-wordWrap %cexpects a %cparameter%c(%cundefined%c: %cenumerable%c). However, you passed (%c\'break-all\'%c:%cstring%c) instead.
+wordWrap %cexpects a %cparameter%c(%cundefined %c:%c enumerable%c). However, you passed (%c'break-all' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#wordWrap%c for more information.",
     "font-weight: bold; color: black",

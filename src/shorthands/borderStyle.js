@@ -31,10 +31,5 @@ function borderStyle(...values: Array<?string>) {
 
 export default polish({
   modulePath: 'shorthands/borderStyle',
-  types: [
-    { key: 'firstStyle', type: 'cssBorderStyle' },
-    { key: 'secondStyle', type: 'cssBorderStyle' },
-    { key: 'thirdStyle', type: 'cssBorderStyle' },
-    { key: 'fourthStyle', type: 'cssBorderStyle' },
-  ],
+  types: { type: 'cssBorderStyle', matchAll: true, required: true },
 })(borderStyle)

@@ -31,10 +31,5 @@ function padding(...values: Array<?string>) {
 
 export default polish({
   modulePath: 'shorthands/padding',
-  types: [
-    { key: 'firstPadding', type: 'cssMeasure' },
-    { key: 'secondPadding', type: 'cssMeasure' },
-    { key: 'thirdPadding', type: 'cssMeasure' },
-    { key: 'fourthPadding', type: 'cssMeasure' },
-  ],
+  types: { type: 'cssMeasure', matchAll: true, required: true },
 })(padding)

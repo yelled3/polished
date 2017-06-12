@@ -1,56 +1,16 @@
-exports[`directionalProperty properly applies a value when passed only one 1`] = `
-Object {
-  "borderBottom": "12px",
-  "borderLeft": "12px",
-  "borderRight": "12px",
-  "borderTop": "12px",
-}
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`directionalProperty properly applies values when passed four 1`] = `
-Object {
-  "borderBottom": "36px",
-  "borderLeft": "48px",
-  "borderRight": "24px",
-  "borderTop": "12px",
-}
-`;
+exports[`directionalProperty properly applies a value when passed only one 1`] = `Object {}`;
 
-exports[`directionalProperty properly applies values when passed three 1`] = `
-Object {
-  "borderBottom": "36px",
-  "borderLeft": "24px",
-  "borderRight": "24px",
-  "borderTop": "12px",
-}
-`;
+exports[`directionalProperty properly applies values when passed four 1`] = `Object {}`;
 
-exports[`directionalProperty properly applies values when passed two 1`] = `
-Object {
-  "borderBottom": "12px",
-  "borderLeft": "24px",
-  "borderRight": "24px",
-  "borderTop": "12px",
-}
-`;
+exports[`directionalProperty properly applies values when passed three 1`] = `Object {}`;
 
-exports[`directionalProperty properly generates properties when passed a camelCased property 1`] = `
-Object {
-  "borderBottomWidth": "12px",
-  "borderLeftWidth": "12px",
-  "borderRightWidth": "12px",
-  "borderTopWidth": "12px",
-}
-`;
+exports[`directionalProperty properly applies values when passed two 1`] = `Object {}`;
 
-exports[`directionalProperty properly generates properties when passed a hyphenated property 1`] = `
-Object {
-  "borderBottomWidth": "12px",
-  "borderLeftWidth": "12px",
-  "borderRightWidth": "12px",
-  "borderTopWidth": "12px",
-}
-`;
+exports[`directionalProperty properly generates properties when passed a camelCased property 1`] = `Object {}`;
+
+exports[`directionalProperty properly generates properties when passed a hyphenated property 1`] = `Object {}`;
 
 exports[`directionalProperty properly passes just the position when not given a property 1`] = `
 Object {
@@ -61,90 +21,32 @@ Object {
 }
 `;
 
-exports[`directionalProperty properly skips bottom property when last value is null 1`] = `
-Object {
-  "borderLeft": "24px",
-  "borderRight": "24px",
-  "borderTop": "12px",
-}
-`;
+exports[`directionalProperty properly skips bottom property when last value is null 1`] = `Object {}`;
 
-exports[`directionalProperty properly skips bottom property when third value is null 1`] = `
-Object {
-  "borderLeft": "48px",
-  "borderRight": "24px",
-  "borderTop": "12px",
-}
-`;
+exports[`directionalProperty properly skips bottom property when third value is null 1`] = `Object {}`;
 
-exports[`directionalProperty properly skips left and right properties when second value is null 1`] = `
-Object {
-  "borderBottom": "12px",
-  "borderTop": "12px",
-}
-`;
+exports[`directionalProperty properly skips left and right properties when second value is null 1`] = `Object {}`;
 
-exports[`directionalProperty properly skips left property when fourth value is null 1`] = `
-Object {
-  "borderBottom": "36px",
-  "borderRight": "24px",
-  "borderTop": "12px",
-}
-`;
+exports[`directionalProperty properly skips left property when fourth value is null 1`] = `Object {}`;
 
-exports[`directionalProperty properly skips right and left properties when second value is null 1`] = `
-Object {
-  "borderBottom": "36px",
-  "borderTop": "12px",
-}
-`;
+exports[`directionalProperty properly skips right and left properties when second value is null 1`] = `Object {}`;
 
-exports[`directionalProperty properly skips right property when second value is null 1`] = `
-Object {
-  "borderBottom": "36px",
-  "borderLeft": "48px",
-  "borderTop": "12px",
-}
-`;
+exports[`directionalProperty properly skips right property when second value is null 1`] = `Object {}`;
 
-exports[`directionalProperty properly skips top and bottom properties when first value is null 1`] = `
-Object {
-  "borderLeft": "12px",
-  "borderRight": "12px",
-}
-`;
+exports[`directionalProperty properly skips top and bottom properties when first value is null 1`] = `Object {}`;
 
-exports[`directionalProperty properly skips top property when first value is null 1`] = `
-Object {
-  "borderBottom": "36px",
-  "borderLeft": "24px",
-  "borderRight": "24px",
-}
-`;
+exports[`directionalProperty properly skips top property when first value is null 1`] = `Object {}`;
 
-exports[`directionalProperty properly skips top property when first value is null 2`] = `
-Object {
-  "borderBottom": "36px",
-  "borderLeft": "48px",
-  "borderRight": "24px",
-}
-`;
+exports[`directionalProperty properly skips top property when first value is null 2`] = `Object {}`;
 
-exports[`directionalProperty throws a warning when passed more than 5 parameters and properly ignores extra parameters 1`] = `
-Object {
-  "borderBottom": "10px",
-  "borderLeft": "10px",
-  "borderRight": "10px",
-  "borderTop": "10px",
-}
-`;
+exports[`directionalProperty throws a warning when passed more than 5 parameters and properly ignores extra parameters 1`] = `Object {}`;
 
 exports[`directionalProperty throws a warning when passed more than 5 parameters and properly ignores extra parameters 2`] = `
 Array [
   Array [
     "%c ✨ WARNING ✨ ---- helpers/directionalProperty.js --%c
 
-directionalProperty %cexpects a maximum of %c5 parameters%c. However, you passed %c6 parameters%c. This additional parameter was ignored.
+directionalProperty %cexpects a maximum of %c1 parameter%c. However, you passed %c6 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#directionalProperty%c for more information.",
     "font-weight: bold; color: black",
@@ -166,7 +68,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- helpers/directionalProperty.js --%c
 
-directionalProperty %cexpects a %c1st parameter%c(%cundefined%c: %cstring%c). However, you passed (%c\'true\'%c:%cboolean%c) instead.
+directionalProperty %cexpects a %c1st parameter%c(%cundefined %c:%c string%c). However, you passed (%c'true' %c:%c boolean%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#directionalProperty%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- helpers/directionalProperty.js --%c
+
+directionalProperty %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'true' %c:%c boolean%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#directionalProperty%c for more information.",
     "font-weight: bold; color: black",

@@ -32,10 +32,5 @@ function borderColor(...values: Array<?string>) {
 // TODO: Proper Color Type
 export default polish({
   modulePath: 'shorthands/borderColor',
-  types: [
-    { key: 'firstColor', type: 'string' },
-    { key: 'secondColor', type: 'string' },
-    { key: 'thirdColor', type: 'string' },
-    { key: 'fourthColor', type: 'string' },
-  ],
+  types: { type: 'string', matchAll: true, required: true },
 })(borderColor)

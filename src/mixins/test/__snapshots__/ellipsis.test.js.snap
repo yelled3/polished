@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ellipsis should default max-width to 100% 1`] = `
 Object {
   "display": "inline-block",
@@ -47,7 +49,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/ellipsis.js --%c
 
-ellipsis %cexpects a %cparameter%c(%cundefined%c: %ccssMeasure%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+ellipsis %cexpects a %cparameter%c(%cundefined %c:%c cssMeasure%c). However, you passed (%c'1' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#ellipsis%c for more information.",
     "font-weight: bold; color: black",
@@ -97,7 +99,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/ellipsis.js --%c
 
-ellipsis %cexpects a %cparameter%c(%cundefined%c: %ccssMeasure%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+ellipsis %cexpects a %cparameter%c(%cundefined %c:%c cssMeasure%c). However, you passed (%c'1' %c:%c number%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#ellipsis%c for more information.",
     "font-weight: bold; color: black",

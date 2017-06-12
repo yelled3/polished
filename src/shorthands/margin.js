@@ -31,10 +31,5 @@ function margin(...values: Array<?string>) {
 
 export default polish({
   modulePath: 'shorthands/margin',
-  types: [
-    { key: 'firstMargin', type: 'cssMeasure' },
-    { key: 'secondMargin', type: 'cssMeasure' },
-    { key: 'thirdMargin', type: 'cssMeasure' },
-    { key: 'fourthMargin', type: 'cssMeasure' },
-  ],
+  types: { type: 'cssMeasure', matchAll: true, required: true },
 })(margin)

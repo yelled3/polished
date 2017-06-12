@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`normalize should default to all rules 1`] = `
 Object {
   "::-webkit-file-upload-button": Object {
@@ -7,21 +9,21 @@ Object {
   "[hidden]": Object {
     "display": "none",
   },
-  "[type=\"checkbox\"],
-  [type=\"radio\"]": Object {
+  "[type=\\"checkbox\\"],
+  [type=\\"radio\\"]": Object {
     "boxSizing": "border-box",
     "padding": "0",
   },
-  "[type=\"number\"]::-webkit-inner-spin-button,
-  [type=\"number\"]::-webkit-outer-spin-button": Object {
+  "[type=\\"number\\"]::-webkit-inner-spin-button,
+  [type=\\"number\\"]::-webkit-outer-spin-button": Object {
     "height": "auto",
   },
-  "[type=\"search\"]": Object {
+  "[type=\\"search\\"]": Object {
     "-webkit-appearance": "textfield",
     "outlineOffset": "-2px",
   },
-  "[type=\"search\"]::-webkit-search-cancel-button,
-  [type=\"search\"]::-webkit-search-decoration": Object {
+  "[type=\\"search\\"]::-webkit-search-cancel-button,
+  [type=\\"search\\"]::-webkit-search-decoration": Object {
     "-webkit-appearance": "none",
   },
   "a": Object {
@@ -60,9 +62,9 @@ Object {
     "margin": "0",
   },
   "button,
-  html [type=\"button\"],
-  [type=\"reset\"],
-  [type=\"submit\"]": Object {
+  html [type=\\"button\\"],
+  [type=\\"reset\\"],
+  [type=\\"submit\\"]": Object {
     "-webkit-appearance": "button",
   },
   "button,
@@ -84,15 +86,15 @@ Object {
     "textTransform": "none",
   },
   "button:-moz-focusring,
-  [type=\"button\"]:-moz-focusring,
-  [type=\"reset\"]:-moz-focusring,
-  [type=\"submit\"]:-moz-focusring": Object {
+  [type=\\"button\\"]:-moz-focusring,
+  [type=\\"reset\\"]:-moz-focusring,
+  [type=\\"submit\\"]:-moz-focusring": Object {
     "outline": "1px dotted ButtonText",
   },
   "button::-moz-focus-inner,
-  [type=\"button\"]::-moz-focus-inner,
-  [type=\"reset\"]::-moz-focus-inner,
-  [type=\"submit\"]::-moz-focus-inner": Object {
+  [type=\\"button\\"]::-moz-focus-inner,
+  [type=\\"reset\\"]::-moz-focus-inner,
+  [type=\\"submit\\"]::-moz-focus-inner": Object {
     "borderStyle": "none",
     "padding": "0",
   },
@@ -202,21 +204,21 @@ Object {
   "[hidden]": Object {
     "display": "none",
   },
-  "[type=\"checkbox\"],
-  [type=\"radio\"]": Object {
+  "[type=\\"checkbox\\"],
+  [type=\\"radio\\"]": Object {
     "boxSizing": "border-box",
     "padding": "0",
   },
-  "[type=\"number\"]::-webkit-inner-spin-button,
-  [type=\"number\"]::-webkit-outer-spin-button": Object {
+  "[type=\\"number\\"]::-webkit-inner-spin-button,
+  [type=\\"number\\"]::-webkit-outer-spin-button": Object {
     "height": "auto",
   },
-  "[type=\"search\"]": Object {
+  "[type=\\"search\\"]": Object {
     "-webkit-appearance": "textfield",
     "outlineOffset": "-2px",
   },
-  "[type=\"search\"]::-webkit-search-cancel-button,
-  [type=\"search\"]::-webkit-search-decoration": Object {
+  "[type=\\"search\\"]::-webkit-search-cancel-button,
+  [type=\\"search\\"]::-webkit-search-decoration": Object {
     "-webkit-appearance": "none",
   },
   "a": Object {
@@ -248,9 +250,9 @@ Object {
     "fontWeight": "inherit",
   },
   "button,
-  html [type=\"button\"],
-  [type=\"reset\"],
-  [type=\"submit\"]": Object {
+  html [type=\\"button\\"],
+  [type=\\"reset\\"],
+  [type=\\"submit\\"]": Object {
     "-webkit-appearance": "button",
   },
   "button,
@@ -269,15 +271,15 @@ Object {
     "textTransform": "none",
   },
   "button:-moz-focusring,
-  [type=\"button\"]:-moz-focusring,
-  [type=\"reset\"]:-moz-focusring,
-  [type=\"submit\"]:-moz-focusring": Object {
+  [type=\\"button\\"]:-moz-focusring,
+  [type=\\"reset\\"]:-moz-focusring,
+  [type=\\"submit\\"]:-moz-focusring": Object {
     "outline": "1px dotted ButtonText",
   },
   "button::-moz-focus-inner,
-  [type=\"button\"]::-moz-focus-inner,
-  [type=\"reset\"]::-moz-focus-inner,
-  [type=\"submit\"]::-moz-focus-inner": Object {
+  [type=\\"button\\"]::-moz-focus-inner,
+  [type=\\"reset\\"]::-moz-focus-inner,
+  [type=\\"submit\\"]::-moz-focus-inner": Object {
     "borderStyle": "none",
     "padding": "0",
   },
@@ -404,7 +406,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/normalize.js --%c
 
-normalize %cexpects a %cparameter%c(%cundefined%c: %cboolean%c). However, you passed (%c\'1\'%c:%cstring%c) instead.
+normalize %cexpects a %cparameter%c(%cundefined %c:%c boolean%c). However, you passed (%c'1' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#normalize%c for more information.",
     "font-weight: bold; color: black",
@@ -454,7 +456,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/normalize.js --%c
 
-normalize %cexpects a %cparameter%c(%cundefined%c: %cboolean%c). However, you passed (%c\'false\'%c:%cstring%c) instead.
+normalize %cexpects a %cparameter%c(%cundefined %c:%c boolean%c). However, you passed (%c'false' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#normalize%c for more information.",
     "font-weight: bold; color: black",

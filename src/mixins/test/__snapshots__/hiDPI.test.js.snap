@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`hiDPI should pass ratio to media query 1`] = `
 Object {
   "
@@ -53,7 +55,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/hiDPI.js --%c
 
-hiDPI %cexpects a %cparameter%c(%cundefined%c: %cnumber%c). However, you passed (%c\'1px\'%c:%cstring%c) instead.
+hiDPI %cexpects a %cparameter%c(%cundefined %c:%c number%c). However, you passed (%c'1px' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#hiDPI%c for more information.",
     "font-weight: bold; color: black",
@@ -103,7 +105,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- mixins/hiDPI.js --%c
 
-hiDPI %cexpects a %cparameter%c(%cundefined%c: %cnumber%c). However, you passed (%c\'1px\'%c:%cstring%c) instead.
+hiDPI %cexpects a %cparameter%c(%cundefined %c:%c number%c). However, you passed (%c'1px' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#hiDPI%c for more information.",
     "font-weight: bold; color: black",

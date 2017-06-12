@@ -7,11 +7,12 @@ import message from './_message'
  */
 function validateArity(modulePath: string, types: Object, args: Array<any>) {
   let arity
-  if (!types) {
-    arity = 0
-  } else {
-    arity = types.length ? types.length : 1
-  }
+
+  if (!types) arity = 0
+  else if (types.maxLength && types.matchAll) arity = types.maxLength
+  else if (types.length) arity = types.length
+  else arity = 1
+
   if (args.length > arity) {
     message(
       'warning',

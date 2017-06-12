@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`rgb should convert a rgba object to a rgba string 1`] = `
 Object {
   "background": "rgba(255,205,100,0.75)",

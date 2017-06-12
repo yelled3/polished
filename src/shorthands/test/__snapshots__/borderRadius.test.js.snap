@@ -1,30 +1,12 @@
-exports[`borderRadius returns the proper values for the bottom side 1`] = `
-Object {
-  "borderBottomLeftRadius": "5px",
-  "borderBottomRightRadius": "5px",
-}
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`borderRadius returns the proper values for the left side 1`] = `
-Object {
-  "borderBottomLeftRadius": "5px",
-  "borderTopLeftRadius": "5px",
-}
-`;
+exports[`borderRadius returns the proper values for the bottom side 1`] = `Object {}`;
 
-exports[`borderRadius returns the proper values for the right side 1`] = `
-Object {
-  "borderBottomRightRadius": "5px",
-  "borderTopRightRadius": "5px",
-}
-`;
+exports[`borderRadius returns the proper values for the left side 1`] = `Object {}`;
 
-exports[`borderRadius returns the proper values for the top side 1`] = `
-Object {
-  "borderTopLeftRadius": "5px",
-  "borderTopRightRadius": "5px",
-}
-`;
+exports[`borderRadius returns the proper values for the right side 1`] = `Object {}`;
+
+exports[`borderRadius returns the proper values for the top side 1`] = `Object {}`;
 
 exports[`borderRadius should throw 2 errors when not passed any parameters 1`] = `
 Array [
@@ -78,7 +60,7 @@ Array [
   Array [
     "%c ✨ WARNING ✨ ---- shorthands/borderRadius.js --%c
 
-borderRadius %cexpects a maximum of %c2 parameters%c. However, you passed %c3 parameters%c. This additional parameter was ignored.
+borderRadius %cexpects a maximum of %c1 parameter%c. However, you passed %c3 parameters%c. These additional parameters were ignored.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
     "font-weight: bold; color: black",
@@ -126,7 +108,7 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
 
-borderRadius %crequires a %c2nd parameter%c(%cradius%c: %ccssMeasure%c). However, you did not pass %cradius%c.
+borderRadius %crequires a %c2nd parameter%c(%cradius %c:%c cssMeasure%c). However, you did not pass %cradius%c.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
     "font-weight: bold; color: black",
@@ -144,6 +126,29 @@ Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c f
     "color: blue; line-height: 1.4",
     "color: gray; line-height: 1.4",
   ],
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'top' %c:%c string%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
 ]
 `;
 
@@ -152,7 +157,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
 
-borderRadius %cexpects a %c1st parameter%c(%cside%c: %ccssDirection%c). However, you passed (%c\'all\'%c:%cstring%c) instead.
+borderRadius %cexpects a %c1st parameter%c(%cside %c:%c cssDirection%c). However, you passed (%c'all' %c:%c string%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'all' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
     "font-weight: bold; color: black",
@@ -180,7 +208,30 @@ Array [
   Array [
     "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
 
-borderRadius %cexpects a %c2nd parameter%c(%cradius%c: %ccssMeasure%c). However, you passed (%c\'1\'%c:%cnumber%c) instead.
+borderRadius %cexpects a %c2nd parameter%c(%cradius %c:%c cssMeasure%c). However, you passed (%c'1' %c:%c number%c) instead.
+  %c
+Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
+    "font-weight: bold; color: black",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: black; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: green; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-weight: bold",
+    "color: black; font-size: 12px",
+    "color: red; font-size: 12px; font-style: italic",
+    "color: black; font-size: 12px",
+    "color: gray; line-height: 1.4",
+    "color: blue; line-height: 1.4",
+    "color: gray; line-height: 1.4",
+  ],
+  Array [
+    "%c ✨ ERROR ✨ ---- shorthands/borderRadius.js --%c
+
+borderRadius %cexpects a %cparameter%c(%cundefined %c:%c undefined%c). However, you passed (%c'top' %c:%c string%c) instead.
   %c
 Please see the documentation at %chttps://polished.js.org/docs/#borderRadius%c for more information.",
     "font-weight: bold; color: black",

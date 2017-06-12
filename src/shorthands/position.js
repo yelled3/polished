@@ -62,10 +62,10 @@ function position(positionKeyword: string | null, ...values: Array<?string>) {
 export default polish({
   modulePath: 'shorthands/position',
   types: [
-    { key: 'firstPosition', type: ['cssPosition', 'cssMeasure'] },
-    { key: 'secondPosition', type: 'cssMeasure' },
-    { key: 'thirdPosition', type: 'cssMeasure' },
-    { key: 'fourthPosition', type: 'cssMeasure' },
-    { key: 'fifthPosition', type: 'cssMeasure' },
+    { type: ['cssPosition', 'cssMeasure'] },
+    { type: 'cssMeasure' },
+    { type: 'cssMeasure' },
+    { type: 'cssMeasure' },
+    { type: 'cssMeasure' },
   ],
 })(position)
