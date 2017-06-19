@@ -105,7 +105,7 @@ export default polish({
     { key: 'fontStretch', type: 'string' },
     { key: 'fontStyle', type: 'string' },
     { key: 'fontVariant', type: 'string' },
-    { key: 'fontWeight', type: 'string' },
+    { key: 'fontWeight', type: ['string', 'number'] },
     { key: 'fileFormats', type: 'array' },
     { key: 'localFonts', type: 'array' },
     { key: 'unicodeRange', type: 'string' },

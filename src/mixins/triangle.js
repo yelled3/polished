@@ -3,6 +3,7 @@ import polish from '../validation/polish'
 
 /** */
 type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
+const pointingDirections = ['top', 'right', 'bottom', 'left']
 
 const getBorderWidth = (
   pointingDirection: PointingDirection,
@@ -86,17 +87,18 @@ export default polish({
   types: [
     {
       key: 'pointingDirection',
-      type: 'string',
+      type: 'enumberable',
+      map: pointingDirections,
       required: true,
     },
     {
       key: 'height',
-      type: 'px',
+      type: ['string', 'number'],
       required: true,
     },
     {
       key: 'width',
-      type: 'px',
+      type: ['string', 'number'],
       required: true,
     },
     {

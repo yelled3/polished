@@ -58,7 +58,7 @@ export default polish({
     key: 'animationProperty',
     type: ['array', 'number', 'string'],
     maxLength: 8,
-    matchAll: true,
     required: true,
+    matchAll: true,
   },
 })(animation)

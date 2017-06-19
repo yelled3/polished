@@ -63,9 +63,9 @@ export default polish({
   modulePath: 'helpers/directionalProperty',
   types: [
     { type: 'string' },
-    { type: ['string', 'cssMeasure'] },
-    { type: ['string', 'cssMeasure'] },
-    { type: ['string', 'cssMeasure'] },
-    { type: ['string', 'cssMeasure'] },
+    { type: ['string', 'number'] },
+    { type: ['string', 'number'] },
+    { type: ['string', 'number'] },
+    { type: ['string', 'number'] },
   ],
 })(_directionalProperty)

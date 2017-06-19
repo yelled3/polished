@@ -1,8 +1,4 @@
 // @flow
-import validateBorderStyle from '../validation/_cssBorderStyle'
-import validateDirection from '../validation/_cssDirection'
-import validatePosition from '../validation/_cssPosition'
-import { validateUnit, validateKeyword } from '../validation/_cssMeasure'
 import message from './_message'
 
 /**
@@ -65,38 +61,6 @@ function typeCheck(typeInfo, arg) {
         return typeInfo.map.indexOf(arg) >= 0
       }
       return typeInfo.map[arg]
-    case 'cssBorderStyle':
-      return validateBorderStyle(arg)
-    case 'cssDirection':
-      return validateDirection(arg)
-    case 'cssMeasure':
-      return validateUnit(arg) || validateKeyword(arg)
-    case 'cssPosition':
-      return validatePosition(arg)
-    case 'cssLength':
-      return validateUnit(arg)
-    case '%':
-    case 'ch':
-    case 'cm':
-    case 'em':
-    case 'ex':
-    case 'ic':
-    case 'in':
-    case 'mm':
-    case 'lh':
-    case 'pc':
-    case 'pt':
-    case 'px':
-    case 'rem':
-    case 'rlh':
-    case 'vh':
-    case 'vi':
-    case 'vb':
-    case 'q':
-    case 'vmax':
-    case 'vmin':
-    case 'vw':
-      return typeInfo.type === validateUnit(arg)
     default:
       // eslint-disable-next-line valid-typeof
       return typeof arg === typeInfo.type

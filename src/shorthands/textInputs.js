@@ -71,5 +71,5 @@ function textInputs(...states: Array<InputState>) {
 
 export default polish({
   modulePath: 'shorthands/textInputs',
-  types: { type: 'enumerable', map: stateMap, matchAll: true, required: true },
+  types: { type: 'enumerable', map: stateMap, required: true, matchAll: true },
 })(textInputs)

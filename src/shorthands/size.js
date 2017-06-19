@@ -31,5 +31,8 @@ function size(height: string, width: string = height) {
 
 export default polish({
   modulePath: 'shorthands/position',
-  types: [{ type: 'cssMeasure', required: true }, { type: 'cssMeasure' }],
+  types: [
+    { type: ['string', 'number'], required: true },
+    { type: ['string', 'number'] },
+  ],
 })(size)

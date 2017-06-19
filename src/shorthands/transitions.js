@@ -29,5 +29,5 @@ function transitions(...properties: Array<string>) {
 
 export default polish({
   modulePath: 'shorthands/transitions',
-  types: { type: 'string', matchAll: true, required: true },
+  types: { type: 'string', required: true, matchAll: true },
 })(transitions)

@@ -31,8 +31,7 @@ function stripUnit(value: string) {
 export default polish({
   modulePath: 'helpers/stripUnit',
   types: {
-    key: 'value',
-    type: ['cssMeasure', 'number', 'string'],
+    type: ['number', 'string'],
     required: true,
   },
   errReturn: '',

@@ -61,11 +61,5 @@ function position(positionKeyword: string | null, ...values: Array<?string>) {
 
 export default polish({
   modulePath: 'shorthands/position',
-  types: [
-    { type: ['cssPosition', 'cssMeasure'] },
-    { type: 'cssMeasure' },
-    { type: 'cssMeasure' },
-    { type: 'cssMeasure' },
-    { type: 'cssMeasure' },
-  ],
+  types: { type: ['string', 'number'], matchAll: true },
 })(position)

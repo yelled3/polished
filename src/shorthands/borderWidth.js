@@ -31,5 +31,5 @@ function borderWidth(...values: Array<?string>) {
 
 export default polish({
   modulePath: 'shorthands/borderWidth',
-  types: { type: 'cssMeasure', matchAll: true, required: true },
+  types: { type: 'cssMeasure', required: true, matchAll: true },
 })(borderWidth)

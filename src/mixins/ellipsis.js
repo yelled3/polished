@@ -27,7 +27,7 @@ import polish from '../validation/polish'
  * }
  */
 
-function ellipsis(width?: string = '100%') {
+function ellipsis(width?: string | number = '100%') {
   return {
     display: 'inline-block',
     maxWidth: width,
@@ -40,5 +40,5 @@ function ellipsis(width?: string = '100%') {
 
 export default polish({
   modulePath: 'mixins/ellipsis',
-  types: { type: 'cssMeasure' },
+  types: { type: ['string', 'number'] },
 })(ellipsis)

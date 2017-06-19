@@ -29,5 +29,5 @@ function backgroundImages(...properties: Array<string>) {
 
 export default polish({
   modulePath: 'shorthands/backgroundImages',
-  types: { type: 'string', matchAll: true, required: true },
+  types: { type: 'string', required: true, matchAll: true },
 })(backgroundImages)

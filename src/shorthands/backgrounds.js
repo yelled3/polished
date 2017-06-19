@@ -28,5 +28,5 @@ function backgrounds(...properties: Array<string>) {
 
 export default polish({
   modulePath: 'shorthands/backgrounds',
-  types: { type: 'string', matchAll: true, required: true },
+  types: { type: 'string', required: true, matchAll: true },
 })(backgrounds)

@@ -80,7 +80,7 @@ export default polish({
   modulePath: 'helpers/modularScale',
   types: [
     { type: 'number', required: true },
-    { type: ['number', 'em'] },
+    { type: ['string', 'number'] },
     { type: ['number', 'enumberable'], map: ratioNames },
   ],
   errReturn: '',
