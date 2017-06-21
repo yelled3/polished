@@ -1,7 +1,8 @@
 // @flow
+import capitalizeString from '../internalHelpers/_capitalizeString'
 
 /**
- * The border-radius shorthand accepts a value for side and a value for radius and applies the radius value to both corners of the side.
+ * A shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -16,12 +17,12 @@
  * // CSS as JS Output
  *
  * div {
- *   'border-top-right-radius': '5px',
- *   'border-top-left-radius': '5px',
+ *   'borderTopRightRadius': '5px',
+ *   'borderTopLeftRadius': '5px',
  * }
  */
-
-function borderRadius(side:string, radius:string | number) {
+function borderRadius(side: string, radius: string | number) {
+  const uppercaseSide = capitalizeString(side)
   if (
     (typeof radius !== 'string' || radius === '') &&
     (typeof radius !== 'number' || Number.isNaN(radius))
@@ -30,17 +31,17 @@ function borderRadius(side:string, radius:string | number) {
       'borderRadius expects a radius value as a string or number as the second argument.',
     )
   }
-  if (side === 'top' || side === 'bottom') {
+  if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     return {
-      [`border-${side}-right-radius`]: radius,
-      [`border-${side}-left-radius`]: radius,
+      [`border${uppercaseSide}RightRadius`]: radius,
+      [`border${uppercaseSide}LeftRadius`]: radius,
     }
   }
 
-  if (side === 'left' || side === 'right') {
+  if (uppercaseSide === 'Left' || uppercaseSide === 'Right') {
     return {
-      [`border-top-${side}-radius`]: radius,
-      [`border-bottom-${side}-radius`]: radius,
+      [`borderTop${uppercaseSide}Radius`]: radius,
+      [`borderBottom${uppercaseSide}Radius`]: radius,
     }
   }
 

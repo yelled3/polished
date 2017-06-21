@@ -1,7 +1,7 @@
 // @flow
 const opinionatedRules = {
   html: {
-    'font-family': 'sans-serif',
+    fontFamily: 'sans-serif',
   },
 
   body: {
@@ -10,7 +10,7 @@ const opinionatedRules = {
 
   [`a:active,
   a:hover`]: {
-    'outline-width': '0',
+    outlineWidth: '0',
   },
 
   [`button,
@@ -18,17 +18,16 @@ const opinionatedRules = {
   optgroup,
   select,
   textarea`]: {
-    'font-family': 'sans-serif',
-    'font-size': '100%',
-    'line-height': '1.15',
+    fontFamily: 'sans-serif',
+    fontSize: '100%',
+    lineHeight: '1.15',
   },
 }
 
 const unopinionatedRules = {
   html: {
-    'line-height': '1.15',
-    '-ms-text-size-adjust': '100%',
-    '-webkit-text-size-adjust': '100%',
+    lineHeight: '1.15',
+    textSizeAdjust: '100%',
   },
 
   [`article,
@@ -41,7 +40,7 @@ const unopinionatedRules = {
   },
 
   h1: {
-    'font-size': '2em',
+    fontSize: '2em',
     margin: '0.67em 0',
   },
 
@@ -56,14 +55,14 @@ const unopinionatedRules = {
   },
 
   hr: {
-    'box-sizing': 'content-box',
+    boxSizing: 'content-box',
     height: '0',
     overflow: 'visible',
   },
 
   pre: {
-    'font-family': 'monospace, monospace',
-    'font-size': '1em',
+    fontFamily: 'monospace, monospace',
+    fontSize: '1em',
   },
 
   a: {
@@ -72,43 +71,43 @@ const unopinionatedRules = {
   },
 
   'abbr[title]': {
-    'border-bottom': 'none',
-    'text-decoration': 'underline',
+    borderBottom: 'none',
+    textDecoration: 'underline',
     // eslint-disable-next-line no-dupe-keys
-    'text-decoration': 'underline dotted',
+    textDecoration: 'underline dotted',
   },
 
   [`b,
   strong`]: {
-    'font-weight': 'inherit',
+    fontWeight: 'inherit',
   },
 
   [`code,
   kbd,
   samp`]: {
-    'font-family': 'monospace, monospace',
-    'font-size': '1em',
+    fontFamily: 'monospace, monospace',
+    fontSize: '1em',
   },
 
   dfn: {
-    'font-style': 'italic',
+    fontStyle: 'italic',
   },
 
   mark: {
-    'background-color': '#ff0',
+    backgroundColor: '#ff0',
     color: '#000',
   },
 
   small: {
-    'font-size': '80%',
+    fontSize: '80%',
   },
 
   [`sub,
   sup`]: {
-    'font-size': '75%',
-    'line-height': '0',
+    fontSize: '75%',
+    lineHeight: '0',
     position: 'relative',
-    'vertical-align': 'baseline',
+    verticalAlign: 'baseline',
   },
 
   sub: {
@@ -130,7 +129,7 @@ const unopinionatedRules = {
   },
 
   img: {
-    'border-style': 'none',
+    borderStyle: 'none',
   },
 
   'svg:not(:root)': {
@@ -152,7 +151,7 @@ const unopinionatedRules = {
 
   [`button,
   select`]: {
-    'text-transform': 'none',
+    textTransform: 'none',
   },
 
   [`button,
@@ -166,7 +165,7 @@ const unopinionatedRules = {
   [type="button"]::-moz-focus-inner,
   [type="reset"]::-moz-focus-inner,
   [type="submit"]::-moz-focus-inner`]: {
-    'border-style': 'none',
+    borderStyle: 'none',
     padding: '0',
   },
 
@@ -184,17 +183,17 @@ const unopinionatedRules = {
   },
 
   legend: {
-    'box-sizing': 'border-box',
+    boxSizing: 'border-box',
     color: 'inherit',
     display: 'table',
-    'max-width': '100%',
+    maxWidth: '100%',
     padding: '0',
-    'white-space': 'normal',
+    whiteSpace: 'normal',
   },
 
   progress: {
     display: 'inline-block',
-    'vertical-align': 'baseline',
+    verticalAlign: 'baseline',
   },
 
   textarea: {
@@ -203,7 +202,7 @@ const unopinionatedRules = {
 
   [`[type="checkbox"],
   [type="radio"]`]: {
-    'box-sizing': 'border-box',
+    boxSizing: 'border-box',
     padding: '0',
   },
 
@@ -214,7 +213,7 @@ const unopinionatedRules = {
 
   '[type="search"]': {
     '-webkit-appearance': 'textfield',
-    'outline-offset': '-2px',
+    outlineOffset: '-2px',
   },
 
   [`[type="search"]::-webkit-search-cancel-button,
@@ -281,13 +280,11 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  * // CSS as JS Output
  *
  * html {
- *   font-family: sans-serif,
- *   line-height: 1.15,
- *   -ms-text-size-adjust: 100%,
- *   -webkit-text-size-adjust: 100%,
+ *   fontFamily: 'sans-serif',
+ *   lineHeight: 1.15,
+ *   textSizeAdjust: 100%,
  * } ...
  */
-
 function normalize(excludeOpinionated?: boolean) {
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
