@@ -1,19 +1,16 @@
 // @flow
-function generateSelectors(template: Function, state: string|null) {
+import type { InteractionState } from '../types/interactionState'
+
+function generateSelectors(template, state) {
   const stateSuffix = state ? `:${state}` : ''
   return template(stateSuffix)
 }
-
-type State =
-  | typeof(undefined)
-  | null
-  | string;
 
 /**
  * Function helper that adds an array of states to a template of selectors. Used in textInputs and buttons.
  * @private
  */
-function statefulSelectors(states: Array<State>, template: Function, stateMap: ?Array<State>) {
+function statefulSelectors(states: Array<InteractionState>, template: Function, stateMap: ?Array<InteractionState>) {
   if (!template) throw new Error('You must provide a template to this method.')
   if (states.length === 0) return generateSelectors(template, null)
   let selectors = []

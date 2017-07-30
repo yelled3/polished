@@ -84,11 +84,10 @@
       "name": "Types"
     },
     "AnimationProperty",
-    "ButtonState",
     "FontFaceConfiguration",
     "HslColor",
     "HslaColor",
-    "InputState",
+    "InteractionState",
     "PointingDirection",
     "RadialGradientConfiguration",
     "Ratio",

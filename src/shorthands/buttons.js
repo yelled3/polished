@@ -1,6 +1,8 @@
 // @flow
 import statefulSelectors from '../internalHelpers/_statefulSelectors'
 
+import type { InteractionState } from '../types/interactionState'
+
 const stateMap = [undefined, null, 'active', 'focus', 'hover']
 
 function template(state) {
@@ -9,14 +11,6 @@ function template(state) {
   input[type="reset"]${state},
   input[type="submit"]${state}`
 }
-
-/** */
-type ButtonState =
-  | typeof(undefined)
-  | null
-  | 'active'
-  | 'focus'
-  | 'hover';
 
 /**
  * Populates selectors that target all buttons. You can pass optional states to append to the selectors.
@@ -45,7 +39,7 @@ type ButtonState =
  * }
  */
 
-function buttons(...states: Array<ButtonState>) {
+function buttons(...states: Array<InteractionState>) {
   return statefulSelectors(states, template, stateMap)
 }
 

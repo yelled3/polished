@@ -65,7 +65,6 @@ function directionalProperty(property) {
     values[_key - 1] = arguments[_key];
   }
 
-  // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
   var firstValue = values[0],
       _values$ = values[1],
       secondValue = _values$ === undefined ? firstValue : _values$,
@@ -1462,7 +1461,7 @@ function parseToRgb(color) {
       red: parseInt('' + rgbaMatched[1], 10),
       green: parseInt('' + rgbaMatched[2], 10),
       blue: parseInt('' + rgbaMatched[3], 10),
-      alpha: parseFloat('' + rgbaMatched[4], 10)
+      alpha: parseFloat('' + rgbaMatched[4])
     };
   }
   var hslMatched = hslRegex.exec(normalizedColor);
@@ -1489,7 +1488,7 @@ function parseToRgb(color) {
       red: parseInt('' + _hslRgbMatched[1], 10),
       green: parseInt('' + _hslRgbMatched[2], 10),
       blue: parseInt('' + _hslRgbMatched[3], 10),
-      alpha: parseFloat('' + hslaMatched[4], 10)
+      alpha: parseFloat('' + hslaMatched[4])
     };
   }
   throw new Error('Couldn\'t parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.');
@@ -1753,9 +1752,7 @@ function hsla(value, saturation, lightness, alpha) {
 //      
 
 var isRgb = function isRgb(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
-  typeof color.alpha !== 'number';
+  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' && !!color.alpha && typeof color.alpha !== 'number';
 };
 
 var isRgba = function isRgba(color) {
@@ -2551,7 +2548,7 @@ function backgroundImages() {
 //      
 
 /**
- * Thorthand that accepts any number of background values as parameters for creating a single background statement.
+ * Shorthand that accepts any number of background values as parameters for creating a single background statement.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2715,6 +2712,8 @@ function borderWidth() {
 }
 
 //      
+
+
 function generateSelectors(template, state) {
   var stateSuffix = state ? ':' + state : '';
   return template(stateSuffix);
@@ -2742,8 +2741,6 @@ var stateMap = [undefined, null, 'active', 'focus', 'hover'];
 function template(state) {
   return 'button' + state + ',\n  input[type="button"]' + state + ',\n  input[type="reset"]' + state + ',\n  input[type="submit"]' + state;
 }
-
-/** */
 
 /**
  * Populates selectors that target all buttons. You can pass optional states to append to the selectors.
@@ -2943,8 +2940,6 @@ var stateMap$1 = [undefined, null, 'active', 'focus', 'hover'];
 function template$1(state) {
   return 'input[type="color"]' + state + ',\n    input[type="date"]' + state + ',\n    input[type="datetime"]' + state + ',\n    input[type="datetime-local"]' + state + ',\n    input[type="email"]' + state + ',\n    input[type="month"]' + state + ',\n    input[type="number"]' + state + ',\n    input[type="password"]' + state + ',\n    input[type="search"]' + state + ',\n    input[type="tel"]' + state + ',\n    input[type="text"]' + state + ',\n    input[type="time"]' + state + ',\n    input[type="url"]' + state + ',\n    input[type="week"]' + state + ',\n    input:not([type])' + state + ',\n    textarea' + state;
 }
-
-/** */
 
 /**
  * Populates selectors that target all text inputs. You can pass optional states to append to the selectors.

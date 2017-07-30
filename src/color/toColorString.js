@@ -11,7 +11,7 @@ const isRgb = (color): boolean => (
   typeof color.red === 'number' &&
   typeof color.green === 'number' &&
   typeof color.blue === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
+  !!color.alpha &&
   typeof color.alpha !== 'number'
 )
 
