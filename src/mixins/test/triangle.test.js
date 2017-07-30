@@ -47,7 +47,7 @@ describe('triangle', () => {
 
   it('should throw an error when pointingDirection is not provided or does not match corresponding options', () => {
     expect(() => {
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      // $FlowFixMe
       triangle(
         {
           foregroundColor: 'blue',
@@ -61,7 +61,7 @@ describe('triangle', () => {
 
   it('should throw an error when height or width is not a unit based value.', () => {
     expect(() => {
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      // $FlowFixMe
       triangle(
         {
           foregroundColor: 'blue',

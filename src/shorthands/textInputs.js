@@ -63,7 +63,7 @@ function template(state) {
  * }
  */
 
-function textInputs(...states: Array<InteractionState>) {
+function textInputs(...states: Array<InteractionState>): string {
   return statefulSelectors(states, template, stateMap)
 }
 

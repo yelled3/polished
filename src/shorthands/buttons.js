@@ -39,7 +39,7 @@ function template(state) {
  * }
  */
 
-function buttons(...states: Array<InteractionState>) {
+function buttons(...states: Array<InteractionState>): string {
   return statefulSelectors(states, template, stateMap)
 }
 

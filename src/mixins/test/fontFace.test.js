@@ -66,7 +66,7 @@ describe('fontFace', () => {
 
   it('should throw an error when not passed a fontfamily', () => {
     expect(() => {
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      // $FlowFixMe
       fontFace(
         {
           fontFilePath: 'path/to/file',
@@ -91,7 +91,7 @@ describe('fontFace', () => {
         {
           fontFamily: 'Sans Pro',
           fontFilePath: 'path/to/file',
-          // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+          // $FlowFixMe
           localFonts: 'Helvetica',
         },
       )
@@ -104,7 +104,7 @@ describe('fontFace', () => {
         {
           fontFamily: 'Sans Pro',
           fontFilePath: 'path/to/file',
-          // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+          // $FlowFixMe
           fileFormats: 'svg',
         },
       )

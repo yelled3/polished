@@ -16,13 +16,13 @@ describe('borderRadius', () => {
   })
   it('should throw an error when an invalid radius value is provided', () => {
     expect(() => {
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      // $FlowFixMe
       borderRadius('top')
     }).toThrow('borderRadius expects a radius value as a string as the second argument.')
   })
   it('should throw an error when no radius value is provided', () => {
     expect(() => {
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      // $FlowFixMe
       borderRadius('top', 100)
     }).toThrow('borderRadius expects a radius value as a string as the second argument.')
   })

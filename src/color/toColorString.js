@@ -11,7 +11,7 @@ const isRgb = (color): boolean => (
   typeof color.red === 'number' &&
   typeof color.green === 'number' &&
   typeof color.blue === 'number' &&
-  !!color.alpha &&
+  // $FlowFixMe
   typeof color.alpha !== 'number'
 )
 
@@ -20,7 +20,7 @@ const isRgba = (color): boolean => (
   typeof color.red === 'number' &&
   typeof color.green === 'number' &&
   typeof color.blue === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
+  // $FlowFixMe
   typeof color.alpha === 'number'
 )
 
@@ -29,7 +29,7 @@ const isHsl = (color): boolean => (
   typeof color.hue === 'number' &&
   typeof color.saturation === 'number' &&
   typeof color.lightness === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
+  // $FlowFixMe
   typeof color.alpha !== 'number'
 )
 
@@ -38,7 +38,7 @@ const isHsla = (color): boolean => (
   typeof color.hue === 'number' &&
   typeof color.saturation === 'number' &&
   typeof color.lightness === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
+  // $FlowFixMe
   typeof color.alpha === 'number'
 )
 
@@ -74,16 +74,16 @@ const isHsla = (color): boolean => (
  */
 function toColorString(color: RgbColor | RgbaColor | HslColor | HslaColor): string {
   if (isRgba(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
+    // $FlowFixMe
     return rgba(color)
   } else if (isRgb(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
+    // $FlowFixMe
     return rgb(color)
   } else if (isHsla(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
+    // $FlowFixMe
     return hsla(color)
   } else if (isHsl(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
+    // $FlowFixMe
     return hsl(color)
   }
   throw new Error('Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.')

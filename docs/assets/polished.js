@@ -1752,24 +1752,26 @@ function hsla(value, saturation, lightness, alpha) {
 //      
 
 var isRgb = function isRgb(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' && !!color.alpha && typeof color.alpha !== 'number';
+  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' &&
+  // $FlowFixMe
+  typeof color.alpha !== 'number';
 };
 
 var isRgba = function isRgba(color) {
   return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
+  // $FlowFixMe
   typeof color.alpha === 'number';
 };
 
 var isHsl = function isHsl(color) {
   return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
+  // $FlowFixMe
   typeof color.alpha !== 'number';
 };
 
 var isHsla = function isHsla(color) {
   return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
+  // $FlowFixMe
   typeof color.alpha === 'number';
 };
 
@@ -1805,16 +1807,16 @@ var isHsla = function isHsla(color) {
  */
 function toColorString(color) {
   if (isRgba(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
+    // $FlowFixMe
     return rgba(color);
   } else if (isRgb(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
+    // $FlowFixMe
     return rgb(color);
   } else if (isHsla(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
+    // $FlowFixMe
     return hsla(color);
   } else if (isHsl(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
+    // $FlowFixMe
     return hsl(color);
   }
   throw new Error('Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.');

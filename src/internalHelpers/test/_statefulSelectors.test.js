@@ -41,7 +41,7 @@ describe('statefulSelectors', () => {
   it('throws an error when passed a state it does not recognize', () => {
     expect(
       () => ({
-        // $FlowIgnoreNextLine incoming bad code
+        // $FlowFixMe
         [statefulSelectors([':visited'], mockTemplate, mockStateMap)]: {
           'content': 'hello',
         },
@@ -51,7 +51,7 @@ describe('statefulSelectors', () => {
   it('throws an error when passed one of the states it is passed is not recognized', () => {
     expect(
       () => ({
-        // $FlowIgnoreNextLine incoming bad code
+        // $FlowFixMe
         [statefulSelectors(['hover', ':visited'], mockTemplate, mockStateMap)]: {
           'content': 'hello',
         },
@@ -61,7 +61,7 @@ describe('statefulSelectors', () => {
   it('throws an error when not passed a template', () => {
     expect(
       () => ({
-        // $FlowIgnoreNextLine incoming bad code
+        // $FlowFixMe
         [statefulSelectors([':visited'])]: {
           'content': 'hello',
         },
