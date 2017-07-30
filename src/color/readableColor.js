@@ -41,4 +41,6 @@ function readableColor(color: string): string {
     : '#fff'
 }
 
-export default curry(readableColor)
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+const curriedReadableColor = /*#__PURE__*/curry(readableColor) // eslint-disable-line spaced-comment
+export default curriedReadableColor
